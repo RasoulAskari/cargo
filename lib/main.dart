@@ -21,6 +21,13 @@ class CargoHome extends StatefulWidget {
 class _CargoHomeState extends State<CargoHome> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cargo'),
+      ),
+      body: const Center(
+        child: Text("Cargo Body"),
+      ),
+    );
   }
 }
