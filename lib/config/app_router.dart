@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -7,9 +5,10 @@ class AppRouter {
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(
+          
           builder: (context) => Scaffold(
             appBar: AppBar(
-              title: Text("data"),
+              title: const Text("data"),
             ),
           ),
         );
