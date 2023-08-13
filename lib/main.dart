@@ -7,6 +7,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return const MaterialApp(title: "Cargo", home: CargoHome());
+  }
+}
+
+class CargoHome extends StatefulWidget {
+  const CargoHome({super.key});
+
+  @override
+  State<CargoHome> createState() => _CargoHomeState();
+}
+
+class _CargoHomeState extends State<CargoHome> {
+  @override
+  Widget build(BuildContext context) {
     return Container();
   }
 }
