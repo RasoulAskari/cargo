@@ -1,21 +1,20 @@
-part of 'all_notifications_bloc.dart';
+part of 'employee_bloc.dart';
 
-
-class AllNotificationsState extends Equatable {
-  const AllNotificationsState({
-    this.notifications = const [],
+class EmployeeState extends Equatable {
+  const EmployeeState({
+    this.employees = const [],
   });
 
-  final List<NotificationModel> notifications;
+  final List<EmployeeModel> employees;
 
-  AllNotificationsState copyWith({
-    List<NotificationModel>? notifications,
+  EmployeeState copyWith({
+    List<EmployeeModel>? employees,
   }) {
-    return AllNotificationsState(
-      notifications: notifications ?? this.notifications,
+    return EmployeeState(
+      employees: employees ?? this.employees,
     );
   }
 
   @override
-  List<Object> get props => [notifications];
+  List<Object> get props => [employees];
 }
