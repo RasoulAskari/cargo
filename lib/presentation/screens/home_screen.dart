@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +15,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: false,
         title: const Text("data"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(addEmployee);
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
