@@ -6,3 +6,5 @@ sealed class EmployeeEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class EmployeesFetched extends EmployeeEvent {}

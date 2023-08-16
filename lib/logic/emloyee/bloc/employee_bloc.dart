@@ -6,5 +6,12 @@ part 'employee_event.dart';
 part 'employee_state.dart';
 
 class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
-  EmployeeBloc() : super(const EmployeeState()) {}
+  EmployeeBloc() : super(const EmployeeState()) {
+    on<EmployeesFetched>(_onEmployeesFetched);
+  }
+
+  Future<void> _onEmployeesFetched(
+      EmployeesFetched event, Emitter<EmployeeState> emitter) async {
+        if (state.)
+      }
 }
