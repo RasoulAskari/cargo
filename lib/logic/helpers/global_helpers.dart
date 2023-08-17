@@ -18,3 +18,11 @@ Uri getServerRoute(
     );
   }
 }
+Future<String?> getAuthToken() async {
+  try {
+    var token = await _storage.read(key: 'token');
+    return token;
+  } catch (e) {
+    return null;
+  }
+}

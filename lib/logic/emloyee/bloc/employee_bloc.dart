@@ -5,14 +5,16 @@ import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
-
+import 'package:http/http.dart' as http;
 part 'employee_event.dart';
 part 'employee_state.dart';
 
 const _postLimit = 10;
 
 class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
-  EmployeeBloc() : super(const EmployeeState()) {
+  final http.Client httpClient;
+
+  EmployeeBloc({required this.httpClient}) : super(const EmployeeState()) {
     on<EmployeesFetched>(_onEmployeesFetched);
   }
 
