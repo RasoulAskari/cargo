@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 
@@ -45,15 +46,13 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     } catch (e) {}
   }
 
-  Future<List<EmployeeModel>> _fetchEmployee(
-      {required String postId, required int page}) async {
+  Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
     String? token = await getAuthToken();
     final response = await httpClient.get(
       getServerRoute(
-        route: '/api/v1/comments/$postId',
+        route: '/api/v1/comments/',
         params: {
           'page': '$page',
-          'post_id': postId,
         },
       ),
       headers: <String, String>{
@@ -64,6 +63,8 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
     if (response.statusCode == 200) {
       final body = json.decode(response.body)["data"] as List;
+      print(body);
+    }
     throw Exception('error fetching posts');
   }
 }

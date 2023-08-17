@@ -1,3 +1,5 @@
+import 'package:cargo/config/config.dart';
+
 Uri getServerRoute(
     {required String route, Map<String, dynamic> params = const {}}) {
   String? url = serverAddress;
