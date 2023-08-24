@@ -54,6 +54,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       getServerRoute(
         route: '/api/v1/comments/',
         params: {
+          'Authorization': 'Bearer 2|MWRZ7S0rcm6l9xzBLBWX0wGY3jhzaqXSeFReFnQV',
           'page': '$page',
         },
       ),
