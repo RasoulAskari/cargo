@@ -7,6 +7,12 @@ class EmployeeModel extends Equatable {
   final String profile;
   final String email;
   final String phoneNumber;
+  final String currentAddress;
+  final String permenentAddress;
+  final String startDate;
+  final String endDate;
+  final String jobTitle;
+  final double salary; 
   EmployeeModel({
     required this.firstName,
     required this.lastLame,
