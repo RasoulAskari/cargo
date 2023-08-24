@@ -12,8 +12,14 @@ class EmployeeModel extends Equatable {
   final String startDate;
   final String endDate;
   final String jobTitle;
-  final double salary; 
+  final double salary;
   EmployeeModel({
+    required this.currentAddress,
+    required this.permenentAddress,
+    required this.startDate,
+    required this.endDate,
+    required this.jobTitle,
+    required this.salary,
     required this.firstName,
     required this.lastLame,
     required this.profile,
