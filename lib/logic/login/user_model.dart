@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class UserModel extends Equatable {
   final String name;
   final String email;
@@ -11,4 +13,8 @@ class UserModel extends Equatable {
       required this.password,
       required this.role,
       required this.permission});
+      
+        @override
+        // TODO: implement props
+        List<Object?> get props => throw UnimplementedError();
 }
