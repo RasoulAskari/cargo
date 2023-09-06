@@ -4,8 +4,9 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class EmployeeModel extends Equatable {
+  final String id;
   final String firstName;
-  final String lastLame;
+  final String lastName;
   final String profile;
   final String email;
   final String phoneNumber;
@@ -16,6 +17,7 @@ class EmployeeModel extends Equatable {
   final String jobTitle;
   final double salary;
   EmployeeModel({
+    required this.id,
     required this.currentAddress,
     required this.permenentAddress,
     required this.startDate,
@@ -23,67 +25,93 @@ class EmployeeModel extends Equatable {
     required this.jobTitle,
     required this.salary,
     required this.firstName,
-    required this.lastLame,
+    required this.lastName,
     required this.profile,
     required this.email,
     required this.phoneNumber,
   });
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'firstName': firstName,
-      'lastLame': lastLame,
+      'id': id,
+      'first_name': firstName,
+      'last_name': lastName,
       'profile': profile,
       'email': email,
-      'phoneNumber': phoneNumber,
-      'currentAddress': currentAddress,
-      'permenentAddress': permenentAddress,
-      'startDate': startDate,
-      'endDate': endDate,
-      'jobTitle': jobTitle,
+      'phone_number': phoneNumber,
+      'current_address': currentAddress,
+      'permenent_address': permenentAddress,
+      'employee_start_date': startDate,
+      'employee_end_date': endDate,
+      'job_title': jobTitle,
       'salary': salary,
     };
   }
 
-  //  $table->id();
-  //   $table->string('first_name');
-  //   $table->string('last_name');
-  //   $table->string('profile')->nullable();
-  //   $table->string('email')->nullable();
-  //   $table->string('phone_number');
-  //   $table->string('current_address')->nullable();
-  //   $table->string('permenent_address')->nullable();
-  //   $table->date('employment_start_date');
-  //   $table->date('employment_end_date')->nullable();
-  //   $table->string('job_title');
-  //   $table->float('salary')->default(0);
-  //   $table->string('employee_id_number')->nullable();
-  //   $table->softDeletes();
-  //   $table->timestamps();
-     
-
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
-      firstName: map['first'] as String,
-      lastLame: map['lastLame'] as String,
+      firstName: map['first_name'] as String,
+      id: map['id'] as String,
+      lastName: map['last_name'] as String,
       profile: map['profile'] as String,
       email: map['email'] as String,
-      phoneNumber: map['phoneNumber'] as String,
-      currentAddress: map['currentAddress'] as String,
-      permenentAddress: map['permenentAddress'] as String,
-      startDate: map['startDate'] as String,
-      endDate: map['endDate'] as String,
-      jobTitle: map['jobTitle'] as String,
+      phoneNumber: map['phone_number'] as String,
+      currentAddress: map['current_address'] as String,
+      permenentAddress: map['permenent_Address'] as String,
+      startDate: map['employee_start_date'] as String,
+      endDate: map['employee_end_date'] as String,
+      jobTitle: map['job_title'] as String,
       salary: map['salary'] as double,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory EmployeeModel.fromJson(String source) => EmployeeModel.fromMap(json.decode(source) as Map<String, dynamic>);
-}
+  factory EmployeeModel.fromJson(String source) =>
+      EmployeeModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
+  EmployeeModel copyWith({
+    String? id,
+    String? firstName,
+    String? lastName,
+    String? profile,
+    String? email,
+    String? phoneNumber,
+    String? currentAddress,
+    String? permenentAddress,
+    String? startDate,
+    String? endDate,
+    String? jobTitle,
+    double? salary,
+  }) {
+    return EmployeeModel(
+      id: id ?? this.id,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      profile: profile ?? this.profile,
+      email: email ?? this.email,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      currentAddress: currentAddress ?? this.currentAddress,
+      permenentAddress: permenentAddress ?? this.permenentAddress,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      jobTitle: jobTitle ?? this.jobTitle,
+      salary: salary ?? this.salary,
+    );
+  }
+
+  List<Object?> get props => [
+        id,
+        firstName,
+        lastName,
+        profile,
+        email,
+        phoneNumber,
+        currentAddress,
+        permenentAddress,
+        startDate,
+        endDate,
+        jobTitle,
+        salary,
+      ];
+}
