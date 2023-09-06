@@ -11,13 +11,13 @@ class CargoApp extends StatefulWidget {
   State<CargoApp> createState() => _CargoAppState();
 }
 
-bool login = false;
+bool login = true;
 
 class _CargoAppState extends State<CargoApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: AppThemes.appThemeData[AppTheme.darkTheme],
+      theme: AppThemes.appThemeData[AppTheme.lightTheme],
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: "Cargo",
