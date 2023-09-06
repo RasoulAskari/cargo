@@ -1,4 +1,5 @@
 import 'package:cargo/config/app_router.dart';
+import 'package:cargo/presentation/screens/Login_screen.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +10,16 @@ class CargoApp extends StatefulWidget {
   State<CargoApp> createState() => _CargoAppState();
 }
 
-  bool login = false;
+bool login = false;
 
 class _CargoAppState extends State<CargoApp> {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: "Cargo",
-      home: EmployeeScreen(),
+      home: login ? EmployeeScreen() : LoginScreen(),
     );
   }
 }
