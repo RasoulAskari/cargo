@@ -24,7 +24,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
     try {
       if (state.status == EmployeeStatus.initial) {
-        print('first');
         final employees = await _fetchEmployees(page: state.page);
         return emit(
           state.copyWith(
@@ -36,16 +35,17 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       }
 
       final employees = await _fetchEmployees(page: state.page + 1);
-      emit(
-        employees.isEmpty
-            ? state.copyWith(hasReachedMax: true)
-            : state.copyWith(
-                status: EmployeeStatus.success,
-                employees: List.of(state.employees)..addAll(employees),
-                hasReachedMax: false,
-                page: state.page + 1,
-              ),
-      );
+      // print("this is first " + employees.toString());
+      // emit(
+      //   employees.isEmpty
+      //       ? state.copyWith(hasReachedMax: true)
+      //       : state.copyWith(
+      //           status: EmployeeStatus.success,
+      //           employees: List.of(state.employees)..addAll(employees),
+      //           hasReachedMax: false,
+      //           page: state.page + 1,
+      //         ),
+      // );
     } catch (e) {}
   }
 
@@ -63,15 +63,12 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
-        final data = body.map((e) {
-          EmployeeModel.fromMap(e);
+        return body.map((e) {
+          return EmployeeModel.fromMap(e);
         }).toList();
-        print(data);
       }
       return [];
     } catch (e) {
-      print(e.toString() + "This is exception");
       return [];
     }
   }

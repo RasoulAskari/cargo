@@ -15,10 +15,16 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     return Scaffold(
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
         builder: (context, state) {
-          print(state.employees);
-          return Center(
-            child: Text("Employee Screen"),
-          );
+          if (state.status == EmployeeStatus.initial) {
+            Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView.builder(
+              itemCount: state.employees.length,
+              itemBuilder: (context, index) {
+                return Text(state.employees[index].firstName);
+              });
         },
       ),
     );
