@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<EmployeeBloc>(
-          create: (context) => EmployeeBloc(httpClient: http.Client()),
+          create: (context) =>
+              EmployeeBloc(httpClient: http.Client())..add(EmployeesFetched()),
         ),
       ],
       child: Container(),
