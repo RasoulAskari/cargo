@@ -51,15 +51,23 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
     try {
+      String? token = await getAuthToken();
       final response = await httpClient.get(
         getServerRoute(
-          route: 'employees',
+          route: '/api/v1/employees',
+          params: {
+            'Authorization':
+                'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
+            'page': '$page',
+          },
         ),
         headers: <String, String>{
-          "Authorization":
-              "Bearer 14|laravel_sanctum_9xQ4YkOFH1NJLEkpWJb8Bgnpge3nDNLaZ1saBRM"
+          'Authorization':
+              'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
         },
       );
+
+      print(response.body);
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
