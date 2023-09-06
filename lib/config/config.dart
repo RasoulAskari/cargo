@@ -1,2 +1,2 @@
-const String serverAddress = 'http://10.10.10.254:9000';
-const String applicationLink = 'http://10.10.10.196:9000';
+const String serverAddress = "http://127.0.0.1:8000/api/v1";
+const String applicationLink = "http://127.0.0.1:8000/api/v1";

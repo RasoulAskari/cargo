@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
               EmployeeBloc(httpClient: http.Client())..add(EmployeesFetched()),
         ),
       ],
-      child: MaterialApp(
+      child:  MaterialApp(
         onGenerateRoute: AppRouter.onGenerateRoute,
         title: "Cargo",
         home: HomeScreen(),

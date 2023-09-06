@@ -24,6 +24,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
     try {
       if (state.status == EmployeeStatus.initial) {
+        print('first');
         final employees = await _fetchEmployees(page: state.page);
         return emit(
           state.copyWith(
@@ -49,25 +50,25 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
-    String? token = await getAuthToken();
-    final response = await httpClient.get(
-      getServerRoute(
-        route: '/api/v1/comments/',
-        params: {
-          'Authorization': 'Bearer 2|MWRZ7S0rcm6l9xzBLBWX0wGY3jhzaqXSeFReFnQV',
-          'page': '$page',
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: 'employees',
+        ),
+        headers: <String, String>{
+          "Authorization":
+              "Bearer 14|laravel_sanctum_9xQ4YkOFH1NJLEkpWJb8Bgnpge3nDNLaZ1saBRM"
         },
-      ),
-      headers: <String, String>{
-        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
-        HttpHeaders.authorizationHeader: token ?? '',
-      },
-    );
+      );
 
-    if (response.statusCode == 200) {
-      final body = json.decode(response.body)["data"] as List;
-      print(body);
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body)["data"] as List;
+        print(body);
+      }
+      return [];
+    } catch (e) {
+      print(e);
+      return [];
     }
-    throw Exception('error fetching posts');
   }
 }
