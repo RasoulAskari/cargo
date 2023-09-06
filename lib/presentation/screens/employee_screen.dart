@@ -15,7 +15,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     return Scaffold(
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
         builder: (context, state) {
-          print(state);
+          print(state.employees);
           return Center(
             child: Text("Employee Screen"),
           );
