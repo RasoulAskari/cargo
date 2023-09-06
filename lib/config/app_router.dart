@@ -11,7 +11,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => HomeScreen());
       case addEmployee:
         return MaterialPageRoute(builder: (context) => AddEmployee());
-      case EmployeeScreen:
+      case employeeScreen:
         return MaterialPageRoute(builder: (context) => EmployeeScreen());
       default:
         return null;
