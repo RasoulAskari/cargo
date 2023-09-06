@@ -1,3 +1,4 @@
+import 'package:cargo/app.dart';
 import 'package:cargo/config/app_router.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
@@ -13,19 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<EmployeeBloc>(
-          create: (context) =>
-              EmployeeBloc(httpClient: http.Client())..add(EmployeesFetched()),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        title: "Cargo",
-        home: EmployeeScreen(),
+    return MultiBlocProvider(providers: [
+      BlocProvider<EmployeeBloc>(
+        create: (context) =>
+            EmployeeBloc(httpClient: http.Client())..add(EmployeesFetched()),
       ),
-    );
+    ], child: CargoApp());
   }
 }
