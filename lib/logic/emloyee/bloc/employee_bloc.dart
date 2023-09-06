@@ -50,23 +50,29 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
-    String? token = await getAuthToken();
-    final response = await httpClient.get(
-      getServerRoute(
-        route: '/api/v1/employees',
-      ),
-      headers: <String, String>{
-        'Authorization':
-            'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
-      },
-    );
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/employees',
+        ),
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
+        },
+      );
 
-    if (response.statusCode == 200) {
-      final body = json.decode(response.body)["data"] as List;
-
-      
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body)["data"] as List;
+        print(body);
+        final data = body.map((e) {
+          EmployeeModel.fromMap(e);
+        }).toList();
+        print(data);
+      }
+      return [];
+    } catch (e) {
+      print(e.toString() + "This is exception");
+      return [];
     }
-    print(state.employees);
-    throw Exception("do you ");
   }
 }
