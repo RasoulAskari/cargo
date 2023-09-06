@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
+import 'package:cargo/presentation/screens/employee_screen.dart';
 import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => HomeScreen());
       case addEmployee:
         return MaterialPageRoute(builder: (context) => AddEmployee());
+      case EmployeeScreen:
+        return MaterialPageRoute(builder: (context) => EmployeeScreen());
       default:
         return null;
     }

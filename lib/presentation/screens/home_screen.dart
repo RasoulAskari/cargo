@@ -14,11 +14,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        title: const Text("data"),
+        title: const Text("data data"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushNamed(addEmployee);
+          print('work');
+          Navigator.of(context).pushNamed(employeeScreen);
         },
         child: const Icon(Icons.add),
       ),
