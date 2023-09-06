@@ -2,9 +2,9 @@ import 'package:cargo/config/app_router.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 
-
-void main() => runApp( MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<EmployeeBloc>(
-          create: (context) => EmployeeBloc(httpClient: ),
+          create: (context) => EmployeeBloc(httpClient: http.Client()),
         ),
       ],
       child: Container(),
