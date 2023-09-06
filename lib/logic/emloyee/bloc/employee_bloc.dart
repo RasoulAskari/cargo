@@ -55,11 +55,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       final response = await httpClient.get(
         getServerRoute(
           route: '/api/v1/employees',
-          params: {
-            'Authorization':
-                'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
-            'page': '$page',
-          },
         ),
         headers: <String, String>{
           'Authorization':
