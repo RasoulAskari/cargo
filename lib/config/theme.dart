@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import './colors.dart';
 
+import 'colors.dart';
 
 enum AppTheme { darkTheme, lightTheme }
 
-
-class AppThemes{
- static final appThemeData = {
+class AppThemes {
+  static final appThemeData = {
     AppTheme.lightTheme: ThemeData(
       useMaterial3: true,
       scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       fontFamily: 'Fredoka',
-      textTheme:  ,
-      iconTheme: ,
+      textTheme: lightTextTheme(),
+      iconTheme: lightIconTheme(),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Palette.kToDark,
         foregroundColor: Colors.white,
@@ -60,5 +59,59 @@ class AppThemes{
         appBarTheme: const AppBarTheme(backgroundColor: Palette.kTolight),
         primarySwatch: Palette.kTolight,
         brightness: Brightness.dark)
-  }; 
+  };
+}
+
+IconThemeData lightIconTheme() {
+  return const IconThemeData(color: Palette.kToDark);
+}
+
+IconThemeData darkIconTheme() {
+  return const IconThemeData(color: Colors.white);
+}
+
+IconThemeData primaryIconTheme() {
+  return const IconThemeData(color: Colors.white, size: 30);
+}
+
+TextTheme lightTextTheme() {
+  return const TextTheme(
+    displayLarge: TextStyle(
+        fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
+    displayMedium: TextStyle(
+        fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold),
+    displaySmall: TextStyle(
+        fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+    headlineMedium: TextStyle(
+        fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+    headlineSmall: TextStyle(
+        fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal),
+    titleLarge: TextStyle(
+        fontSize: 14, color: Colors.grey, fontWeight: FontWeight.normal),
+    bodyLarge: TextStyle(
+        fontSize: 12, color: Colors.grey, fontWeight: FontWeight.normal),
+    bodyMedium: TextStyle(
+        fontSize: 10, color: Colors.black, fontWeight: FontWeight.normal),
+  );
+}
+
+TextTheme darkTextTheme() {
+  return const TextTheme(
+    displayLarge: TextStyle(
+        fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+    displayMedium: TextStyle(
+        fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+    displaySmall: TextStyle(
+        fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+    headlineMedium: TextStyle(
+        fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
+    headlineSmall: TextStyle(
+        fontSize: 16, color: Colors.white, fontWeight: FontWeight.normal),
+    titleLarge: TextStyle(
+        fontSize: 14, color: Colors.grey, fontWeight: FontWeight.normal),
+    bodyLarge: TextStyle(
+        fontSize: 12, color: Colors.grey, fontWeight: FontWeight.normal),
+    bodyMedium: TextStyle(
+        fontSize: 10, color: Colors.white, fontWeight: FontWeight.normal),
+  );
 }
