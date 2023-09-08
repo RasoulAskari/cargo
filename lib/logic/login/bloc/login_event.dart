@@ -8,6 +8,7 @@ sealed class LoginEvent extends Equatable {
 }
 
 class SetEmailEvent extends LoginEvent {
-  final int email;
-  SetEmailEvent(this.email);
+  final String? email;
+  final String? password;
+  SetEmailEvent({this.email, this.password});
 }

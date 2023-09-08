@@ -1,6 +1,7 @@
 import 'package:cargo/app.dart';
 import 'package:cargo/config/app_router.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
 import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider<EmployeeBloc>(
-        create: (context) =>
-            EmployeeBloc(httpClient: http.Client())..add(EmployeesFetched()),
-      ),
+      BlocProvider<LoginBloc>(
+          create: (context) => LoginBloc(httpClient: http.Client())),
     ], child: CargoApp());
   }
 }
