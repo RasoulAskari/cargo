@@ -6,3 +6,8 @@ sealed class LoginEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class SetEmailEvent extends LoginEvent {
+  final int email;
+  SetEmailEvent(this.email);
+}

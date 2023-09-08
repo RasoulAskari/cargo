@@ -35,17 +35,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       }
 
       final employees = await _fetchEmployees(page: state.page + 1);
-      // print("this is first " + employees.toString());
-      // emit(
-      //   employees.isEmpty
-      //       ? state.copyWith(hasReachedMax: true)
-      //       : state.copyWith(
-      //           status: EmployeeStatus.success,
-      //           employees: List.of(state.employees)..addAll(employees),
-      //           hasReachedMax: false,
-      //           page: state.page + 1,
-      //         ),
-      // );
     } catch (e) {}
   }
 
