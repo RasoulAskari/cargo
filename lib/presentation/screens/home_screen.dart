@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('work');
           Navigator.of(context).pushNamed(employeeScreen);
         },
         child: const Icon(Icons.add),
