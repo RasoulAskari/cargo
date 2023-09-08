@@ -13,16 +13,32 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CTextField(
-          value: 'admin@admin.com',
-          setValue: () {},
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: CTextField(
+            hintText: "Email",
+            value: '',
+            maxlines: 1,
+            setValue: (value) {
+              print(value);
+            },
+          ),
         ),
-        CTextField(
-          value: 'password',
-          setValue: (value) {
-            print(value);
-          },
+        const SizedBox(
+          height: 16,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: CTextField(
+            hintText: "Password",
+            value: '',
+            maxlines: 1,
+            setValue: (value) {
+              print(value);
+            },
+          ),
         ),
       ],
     ));
