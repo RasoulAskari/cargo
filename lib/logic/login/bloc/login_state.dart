@@ -2,8 +2,8 @@ part of 'login_bloc.dart';
 
 enum EmployeeStatus { initial, success, failure }
 
-class EmployeeState extends Equatable {
-  const EmployeeState({
+class LoginState extends Equatable {
+  const LoginState({
     this.status = EmployeeStatus.initial,
     this.hasReachedMax = false,
     this.page = 0,
@@ -13,13 +13,13 @@ class EmployeeState extends Equatable {
   final int page;
   final bool hasReachedMax;
 
-  EmployeeState copyWith({
+  LoginState copyWith({
     EmployeeStatus? status,
     List<LoginModel>? employees,
     bool? hasReachedMax,
     int? page,
   }) {
-    return EmployeeState(
+    return LoginState(
       status: status ?? this.status,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
       page: page ?? this.page,

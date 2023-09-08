@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/login/login_model.dart';
 import 'package:equatable/equatable.dart';
+import 'package:http/http.dart' as http;
 
 part 'login_event.dart';
 part 'login_state.dart';
