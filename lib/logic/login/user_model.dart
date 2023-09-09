@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
 class UserModel extends Equatable {
@@ -20,4 +21,22 @@ class UserModel extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
+
+  UserModel copyWith({
+    String? name,
+    String? email,
+    String? password,
+    String? role,
+    String? permission,
+    String? token,
+  }) {
+    return UserModel(
+      name: name ?? this.name,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      role: role ?? this.role,
+      permission: permission ?? this.permission,
+      token: token ?? this.token,
+    );
+  }
 }
