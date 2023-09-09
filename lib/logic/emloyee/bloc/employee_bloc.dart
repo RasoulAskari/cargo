@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:equatable/equatable.dart';
@@ -49,7 +47,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
               'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
         },
       );
-
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
