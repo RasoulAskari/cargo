@@ -12,6 +12,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String myEmail = '';
+  String myPassword = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +34,9 @@ class _LoginScreenState extends State<LoginScreen> {
               value: '',
               maxlines: 1,
               setValue: (value) {
-                context.read<LoginBloc>().add(SetEmailEvent(email: value));
+                setState(() {
+                  myEmail = value;
+                });
               },
             ),
           ),
@@ -45,16 +50,20 @@ class _LoginScreenState extends State<LoginScreen> {
               value: '',
               maxlines: 1,
               setValue: (value) {
-                context.read<LoginBloc>().add(SetEmailEvent(password: value));
+                setState(() {
+                  myPassword = value;
+                });
               },
             ),
           ),
           ElevatedButton(
             onPressed: () {
-              context.read<LoginBloc>().add(const SetLoginEvent(
-                  email: 'admin.admin.com', password: 'password'));
+              context.read<LoginBloc>().add(SetLoginEvent(
+                    email: myEmail,
+                    password: myPassword,
+                  ));
             },
-            child: Text("Login"),
+            child: const Text("Login"),
           )
         ],
       ),

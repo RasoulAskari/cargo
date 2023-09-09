@@ -34,17 +34,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Future<void> _userLogin(String email, String password) async {
     try {
       final response = await httpClient.post(
-          getServerRoute(
-            route: '/api/v1/login',
-          ),
-          headers: <String, String>{
-            'Authorization':
-                'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
-          },
-          body: {
-            'email': email,
-            'password': password
-          });
+        getServerRoute(
+          route: '/api/v1/login',
+          params: {'email': email, 'password': password},
+        ),
+      );
+      print(response.body);
     } catch (e) {}
   }
 
