@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/login/login_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
@@ -20,16 +23,33 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     if (state.hasReachedMax) return;
 
-    _userLogin();
+    String? email = event.email;
+
+    _userLogin(
+      event.email,
+      event.password,
+    );
   }
 
-  Future<void> _userLogin() async {
-    
+  Future<void> _userLogin(String email, String password) async {
+    try {
+      final response = await httpClient.post(
+          getServerRoute(
+            route: '/api/v1/login',
+          ),
+          headers: <String, String>{
+            'Authorization':
+                'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
+          },
+          body: {
+            'email': email,
+            'password': password
+          });
+    } catch (e) {}
   }
 
   Future<void> _onSetEmailEvent(
       SetEmailEvent event, Emitter<LoginState> emitter) async {
-
     if (state.hasReachedMax) return;
 
     try {
@@ -47,5 +67,4 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       // final employees = await _fetchEmployees(page: state.page + 1);
     } catch (e) {}
   }
-
 }

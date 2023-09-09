@@ -8,9 +8,12 @@ sealed class LoginEvent extends Equatable {
 }
 
 class SetLoginEvent extends LoginEvent {
-  final String? email;
-  final String? password;
-  const SetLoginEvent({this.email, this.password});
+  final String email;
+  final String password;
+  const SetLoginEvent({
+    required this.email,
+    required this.password,
+  });
 }
 
 class SetEmailEvent extends LoginEvent {
