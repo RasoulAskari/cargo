@@ -49,14 +49,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     try {
       if (state.status == EmployeeStatus.initial) {
-        // final employees = await _fetchEmployees(page: state.page);
-        // return emit(
-        //   state.copyWith(
-        //     status: EmployeeStatus.success,
-        //     employees: employees,
-        //     hasReachedMax: employees.length < _postLimit,
-        //   ),
-        // );
       }
 
       // final employees = await _fetchEmployees(page: state.page + 1);
