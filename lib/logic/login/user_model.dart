@@ -6,7 +6,6 @@ import 'package:equatable/equatable.dart';
 class UserModel extends Equatable {
   final String name;
   final String email;
-  final String password;
   final String role;
   final String permission;
   final String token;
@@ -14,7 +13,6 @@ class UserModel extends Equatable {
   UserModel({
     required this.name,
     required this.email,
-    required this.password,
     required this.role,
     required this.permission,
     required this.token,
@@ -27,7 +25,6 @@ class UserModel extends Equatable {
   UserModel copyWith({
     String? name,
     String? email,
-    String? password,
     String? role,
     String? permission,
     String? token,
@@ -35,7 +32,6 @@ class UserModel extends Equatable {
     return UserModel(
       name: name ?? this.name,
       email: email ?? this.email,
-      password: password ?? this.password,
       role: role ?? this.role,
       permission: permission ?? this.permission,
       token: token ?? this.token,
@@ -46,7 +42,6 @@ class UserModel extends Equatable {
     return <String, dynamic>{
       'name': name,
       'email': email,
-      'password': password,
       'role': role,
       'permission': permission,
       'token': token,
@@ -57,7 +52,6 @@ class UserModel extends Equatable {
     return UserModel(
       name: map['name'] as String,
       email: map['email'] as String,
-      password: map['password'] as String,
       role: map['role'] as String,
       permission: map['permission'] as String,
       token: map['token'] as String,
@@ -66,5 +60,6 @@ class UserModel extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory UserModel.fromJson(String source) =>
+      UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
