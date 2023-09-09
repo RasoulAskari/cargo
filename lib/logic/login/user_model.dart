@@ -6,14 +6,12 @@ import 'package:equatable/equatable.dart';
 class UserModel extends Equatable {
   final String name;
   final String email;
-  final String permission;
-  final String token;
+  final String? token;
 
   UserModel({
     required this.name,
     required this.email,
-    required this.permission,
-    required this.token,
+    this.token,
   });
 
   @override
@@ -30,7 +28,6 @@ class UserModel extends Equatable {
     return UserModel(
       name: name ?? this.name,
       email: email ?? this.email,
-      permission: permission ?? this.permission,
       token: token ?? this.token,
     );
   }
@@ -39,7 +36,6 @@ class UserModel extends Equatable {
     return <String, dynamic>{
       'name': name,
       'email': email,
-      'permission': permission,
       'token': token,
     };
   }
@@ -48,7 +44,6 @@ class UserModel extends Equatable {
     return UserModel(
       name: map['name'] as String,
       email: map['email'] as String,
-      permission: map['permission'] as String,
       token: map['token'] as String,
     );
   }

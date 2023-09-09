@@ -24,12 +24,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     if (state.hasReachedMax) return;
 
-    String? email = event.email;
-
-    _userLogin(
+    final result = await _userLogin(
       event.email,
       event.password,
     );
+    print(result);
   }
 
   Future<UserModel?> _userLogin(String email, String password) async {
@@ -43,6 +42,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final result = json.decode(response.body);
 
       if (result['result']) {
+        print(result['user']);
+        print(result);
         return UserModel.fromJson(result['user']);
       }
     } catch (e) {}
