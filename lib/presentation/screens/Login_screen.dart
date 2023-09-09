@@ -49,6 +49,13 @@ class _LoginScreenState extends State<LoginScreen> {
               },
             ),
           ),
+          ElevatedButton(
+            onPressed: () {
+              context.read<LoginBloc>().add(const SetLoginEvent(
+                  email: 'admin.admin.com', password: 'password'));
+            },
+            child: Text("Login"),
+          )
         ],
       ),
     ));

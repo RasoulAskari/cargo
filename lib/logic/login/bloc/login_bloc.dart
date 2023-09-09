@@ -13,6 +13,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginBloc({required this.httpClient}) : super(const LoginState()) {
     on<SetEmailEvent>(_onSetEmailEvent);
+    on<SetLoginEvent>(_onLoginningEvent);
+  }
+
+  Future<void> _onLoginningEvent(
+      SetLoginEvent event, Emitter<LoginState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    _userLogin();
+  }
+
+  Future<void> _userLogin() async {
+    
   }
 
   Future<void> _onSetEmailEvent(
@@ -36,27 +48,4 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     } catch (e) {}
   }
 
-  // Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
-  //   try {
-  //     final response = await httpClient.get(
-  //       getServerRoute(
-  //         route: '/api/v1/employees',
-  //       ),
-  //       headers: <String, String>{
-  //         'Authorization':
-  //             'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
-  //       },
-  //     );
-
-  //     if (response.statusCode == 200) {
-  //       final body = json.decode(response.body)["data"] as List;
-  //       return body.map((e) {
-  //         return EmployeeModel.fromMap(e);
-  //       }).toList();
-  //     }
-  //     return [];
-  //   } catch (e) {
-  //     return [];
-  //   }
-  // }
 }
