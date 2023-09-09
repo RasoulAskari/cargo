@@ -42,16 +42,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final result = json.decode(response.body);
 
       if (result['result']) {
-        var u = result['user'];
+        print(result['result']['name']);
         UserModel mo = UserModel(
-          name: u['name'],
-          email: u['email'],
-          token: result['token'],
+          name: result['result']['name'] as String,
+          email: result['result']['email'] as String,
+          token: result['token'] as String,
         );
+
         print(mo);
       }
     } catch (e) {
-      print(e);
+      print(e.toString() + 'Catch');
     }
   }
 
