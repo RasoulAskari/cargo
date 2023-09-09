@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/login/login_model.dart';
+import 'package:cargo/logic/login/user_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 
@@ -29,7 +32,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     );
   }
 
-  Future<void> _userLogin(String email, String password) async {
+  Future<UserModel?> _userLogin(String email, String password) async {
     try {
       final response = await httpClient.post(
         getServerRoute(
@@ -37,7 +40,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           params: {'email': email, 'password': password},
         ),
       );
-      print(response.body);
+      final result = json.decode(response.body);
+
+      if (result['result']) {
+        return UserModel.fromJson(result['user']);
+      }
     } catch (e) {}
   }
 

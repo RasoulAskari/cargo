@@ -50,6 +50,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         },
       );
 
+
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         return body.map((e) {
