@@ -31,7 +31,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     print(result);
   }
 
-  Future<UserModel> _userLogin(String email, String password) async {
+  Future<UserModel?> _userLogin(String email, String password) async {
     try {
       final response = await httpClient.post(
         getServerRoute(
@@ -43,13 +43,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       if (result['result']) {
         var u = result['user'];
-        print(u);
-        print(result);
-        return UserModel(
+        UserModel mo = UserModel(
           name: u['name'],
           email: u['email'],
           token: result['token'],
         );
+        print(mo);
       }
     } catch (e) {
       print(e);
