@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/login/login_model.dart';
@@ -48,8 +46,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (state.hasReachedMax) return;
 
     try {
-      if (state.status == EmployeeStatus.initial) {
-      }
+      if (state.status == EmployeeStatus.initial) {}
 
       // final employees = await _fetchEmployees(page: state.page + 1);
     } catch (e) {}
