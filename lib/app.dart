@@ -15,7 +15,7 @@ class CargoApp extends StatefulWidget {
 class _CargoAppState extends State<CargoApp> {
   bool login = false;
 
-  final _storeage = FlutterSecureStorage();
+  final _storeage = const FlutterSecureStorage();
 
   @override
   void initState() {
