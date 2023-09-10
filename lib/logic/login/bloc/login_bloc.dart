@@ -46,6 +46,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (result['result']) {
         Map<String, dynamic> data = jsonDecode(response.body)['user'];
 
+        await storeage.write(key: "token", value: result['token']);
 
         UserModel res =
             UserModel(email: data['email'], id: data['id'], name: data['name']);
