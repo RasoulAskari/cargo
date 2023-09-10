@@ -30,6 +30,10 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               });
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.logout_outlined),
+      ),
     );
   }
 }
