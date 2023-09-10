@@ -12,20 +12,27 @@ class CargoApp extends StatefulWidget {
   State<CargoApp> createState() => _CargoAppState();
 }
 
-
 class _CargoAppState extends State<CargoApp> {
   bool login = false;
 
   final _storeage = FlutterSecureStorage();
 
-@override
+  @override
   void initState() {
-
+    isLogin();
     super.initState();
   }
 
-
-
+  void isLogin() {
+    bool exist = _storeage.read(key: 'token') != null;
+    if (exist) {
+      setState(() {
+        login = true;
+      });
+    } else {
+      login = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
