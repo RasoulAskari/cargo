@@ -39,20 +39,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           params: {'email': email, 'password': password},
         ),
       );
-      final result = json.decode(response.body);
+      final result = json.decode(response.body)['result'];
 
-      if (result['result']) {
-        print(result['user']['name']);
-        print(result['user']['email']);
-        print(result['token']);
+      if (result) {
+        Map<String, dynamic> data = jsonDecode(response.body)['user'];
 
-        UserModel mo = UserModel(
-          name: result['user']['name'] as String,
-          email: result['user']['email'] as String,
-          token: result['token'] as String,
-        );
-        print(mo);
-        return mo;
+        UserModel res =
+            UserModel(email: data['email'], id: data['id'], name: data['name']);
+
+        return res;
+        // UserModel mo = UserModel.fromJson(data.toString());
       }
     } catch (e) {
       print(e.toString() + 'Catch');
