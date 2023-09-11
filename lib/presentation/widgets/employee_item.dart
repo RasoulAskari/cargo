@@ -15,11 +15,14 @@ class _EmployeeItemState extends State<EmployeeItem> {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-          margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: ListTile(
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
@@ -33,12 +36,16 @@ class _EmployeeItemState extends State<EmployeeItem> {
         ),
         const SizedBox(height: 3),
         Container(
-          height: 30,
-          decoration: BoxDecoration(color: Colors.white),
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: [Text("data")],
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
           ),
+          margin: EdgeInsets.symmetric(horizontal: 10),
+          child: Row(),
         )
       ],
     );
