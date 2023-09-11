@@ -1,4 +1,5 @@
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/presentation/widgets/employee_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -33,7 +34,9 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
           return ListView.builder(
               itemCount: state.employees.length,
               itemBuilder: (context, index) {
-                return Text(state.employees[index].firstName);
+                return EmployeeItem(
+                  employee: state.employees[index],
+                );
               });
         },
       ),
