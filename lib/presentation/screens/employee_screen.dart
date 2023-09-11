@@ -17,7 +17,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text(
+        title: const Text(
           "Employee Screen",
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
@@ -26,7 +26,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
         builder: (context, state) {
           if (state.status == EmployeeStatus.initial) {
-            Center(
+            const Center(
               child: CircularProgressIndicator(),
             );
           }
