@@ -12,8 +12,10 @@ class EmployeeItem extends StatefulWidget {
 class _EmployeeItemState extends State<EmployeeItem> {
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(widget.employee.firstName),
+    return Container(
+      child: ListTile(
+        title: Text(widget.employee.firstName + " " + widget.employee.lastName),
+      ),
     );
   }
 }
