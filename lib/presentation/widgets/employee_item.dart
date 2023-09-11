@@ -37,7 +37,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   "${widget.employee.firstName} ${widget.employee.lastName}"),
             ),
             subtitle: Text(
-                "${widget.employee.email}\n${widget.employee.phoneNumber}"),
+              "${widget.employee.email}\n${widget.employee.phoneNumber}",
+              style: TextStyle(color: Colors.black54),
+            ),
           ),
         ),
         const SizedBox(height: 2),
