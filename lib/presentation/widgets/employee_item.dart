@@ -27,15 +27,23 @@ class _EmployeeItemState extends State<EmployeeItem> {
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(),
             leading: Container(
-              height: 70,
-              width: 70,
-              decoration: const BoxDecoration(
-                
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                          'https://media.istockphoto.com/id/1391718981/photo/portrait-of-a-confident-young-businessman-standing-with-his-arms-crossed-in-an-office.jpg?s=1024x1024&w=is&k=20&c=cqIGFJ52Gq8D7bkJg3PqbHxOdKVCQIGUVjM6JNzFY7E='))),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.black12, // Border color
+                  width: 3.0, // Border width
+                ),
+              ),
+              child: Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://media.istockphoto.com/id/1391718981/photo/portrait-of-a-confident-young-businessman-standing-with-his-arms-crossed-in-an-office.jpg?s=1024x1024&w=is&k=20&c=cqIGFJ52Gq8D7bkJg3PqbHxOdKVCQIGUVjM6JNzFY7E='))),
+              ),
             ),
             title: Container(
               margin: const EdgeInsets.only(bottom: 8),
