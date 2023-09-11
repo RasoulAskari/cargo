@@ -7,6 +7,7 @@ enum AppTheme { darkTheme, lightTheme }
 class AppThemes {
   static final appThemeData = {
     AppTheme.lightTheme: ThemeData(
+      primaryColor: Palette.kToDark,
       useMaterial3: true,
       scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       fontFamily: 'Fredoka',
@@ -21,9 +22,7 @@ class AppThemes {
           color: Colors.red, //change your color here
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
-          ),
+          borderRadius: BorderRadius.vertical(),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
