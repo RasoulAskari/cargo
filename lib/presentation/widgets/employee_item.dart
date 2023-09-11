@@ -1,7 +1,9 @@
+import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:flutter/material.dart';
 
 class EmployeeItem extends StatefulWidget {
-  const EmployeeItem({super.key});
+  final EmployeeModel employee;
+  const EmployeeItem({super.key, required this.employee});
 
   @override
   State<EmployeeItem> createState() => _EmployeeItemState();
