@@ -13,8 +13,11 @@ class _EmployeeItemState extends State<EmployeeItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: ListTile(
-        title: Text(widget.employee.firstName + " " + widget.employee.lastName),
+        title: Text("${widget.employee.firstName} ${widget.employee.lastName}"),
+        subtitle:
+            Text("${widget.employee.email}\n${widget.employee.phoneNumber}"),
       ),
     );
   }
