@@ -37,7 +37,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
               child: Container(
                 height: 70,
                 width: 70,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                         fit: BoxFit.cover,
@@ -72,7 +72,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
             ),
           ),
           margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(),
+          child: const Row(),
         )
       ],
     );
