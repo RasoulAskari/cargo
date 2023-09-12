@@ -16,14 +16,6 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Employee Screen",
-          style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-      ),
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
         builder: (context, state) {
           if (state.status == EmployeeStatus.initial) {
@@ -40,12 +32,12 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               });
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _stoage.delete(key: 'token');
-        },
-        child: Icon(Icons.logout_outlined),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     _stoage.delete(key: 'token');
+      //   },
+      //   child: Icon(Icons.logout_outlined),
+      // ),
     );
   }
 }
