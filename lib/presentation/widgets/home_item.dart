@@ -11,6 +11,8 @@ class HomeItem extends StatefulWidget {
 class _HomeItemState extends State<HomeItem> {
   @override
   Widget build(BuildContext context) {
-    return GridTile(child: Text(widget.name));
+    return GridTile(
+        header: Container(color: Theme.of(context).primaryColor),
+        child: Text(widget.name));
   }
 }
