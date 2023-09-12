@@ -12,7 +12,20 @@ class _HomeItemState extends State<HomeItem> {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-        header: Container(color: Theme.of(context).primaryColor),
-        child: Text(widget.name));
+      child: Container(
+        color: Theme.of(context).primaryColor,
+        child: Expanded(
+            child: Container(
+              
+          child: Center(
+            
+              child: Text(
+            widget.name,
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          )),
+        )),
+      ),
+    );
   }
 }
