@@ -13,12 +13,13 @@ class _HomeItemState extends State<HomeItem> {
   Widget build(BuildContext context) {
     return GridTile(
       child: Container(
-        color: Theme.of(context).primaryColor,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Theme.of(context).primaryColor,
+        ),
         child: Expanded(
             child: Container(
-              
           child: Center(
-            
               child: Text(
             widget.name,
             style: TextStyle(
