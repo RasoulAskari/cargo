@@ -9,19 +9,38 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<dynamic, dynamic>> data = [{}];
+  final List<Map> data = [
+    {
+      'name': 'User',
+      'image': "",
+    },
+    {
+      'name': 'User',
+      'image': "",
+    },
+    {
+      'name': 'User',
+      'image': "",
+    },
+    {
+      'name': 'User',
+      'image': "",
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView.builder(
         itemCount: data.length,
         // Grid layout configuration
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of columns
           crossAxisSpacing: 8.0, // Spacing between columns
           mainAxisSpacing: 8.0, // Spacing between rows
         ),
-        itemBuilder: (context, index) {},
+        itemBuilder: (context, index) {
+          
+        },
       ),
     );
   }
