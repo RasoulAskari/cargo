@@ -72,7 +72,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
             ),
           ),
           margin: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
