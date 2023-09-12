@@ -72,7 +72,26 @@ class _EmployeeItemState extends State<EmployeeItem> {
             ),
           ),
           margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: const Row(),
+          child: Row(
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.calendar_month_outlined),
+                  Text(
+                    widget.employee.startDate.toString(),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(Icons.calendar_month_outlined),
+                  Text(
+                    widget.employee.startDate.toString(),
+                  )
+                ],
+              ),
+            ],
+          ),
         )
       ],
     );
