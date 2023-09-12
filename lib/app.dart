@@ -2,6 +2,7 @@ import 'package:cargo/config/app_router.dart';
 import 'package:cargo/config/theme.dart';
 import 'package:cargo/presentation/screens/Login_screen.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
+import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -41,7 +42,7 @@ class _CargoAppState extends State<CargoApp> {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: "Cargo",
-      home: login ? const EmployeeScreen() : const LoginScreen(),
+      home: login ? const HomeScreen() : const LoginScreen(),
     );
   }
 }
