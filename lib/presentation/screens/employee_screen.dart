@@ -12,10 +12,24 @@ class EmployeeScreen extends StatefulWidget {
 }
 
 class _EmployeeScreenState extends State<EmployeeScreen> {
-  final _stoage = const FlutterSecureStorage();
+  final _stoage = FlutterSecureStorage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            )),
+        backgroundColor: Theme.of(context).primaryColor,
+        title: const Text(
+          "Employee Screen",
+          style: TextStyle(
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
         builder: (context, state) {
           if (state.status == EmployeeStatus.initial) {
@@ -29,7 +43,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                 return EmployeeItem(
                   employee: state.employees[index],
                 );
-                });
+              });
         },
       ),
     );
