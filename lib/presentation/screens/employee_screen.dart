@@ -12,7 +12,7 @@ class EmployeeScreen extends StatefulWidget {
 }
 
 class _EmployeeScreenState extends State<EmployeeScreen> {
-  final _stoage = FlutterSecureStorage();
+  final _stoage = const FlutterSecureStorage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,15 +29,9 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                 return EmployeeItem(
                   employee: state.employees[index],
                 );
-              });
+                });
         },
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     _stoage.delete(key: 'token');
-      //   },
-      //   child: Icon(Icons.logout_outlined),
-      // ),
     );
   }
 }

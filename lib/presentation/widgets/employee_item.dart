@@ -79,12 +79,13 @@ class _EmployeeItemState extends State<EmployeeItem> {
               Row(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(3),
-                      decoration: const BoxDecoration(
-                        color: Colors.black12,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.calendar_month_outlined)),
+                    padding: const EdgeInsets.all(3),
+                    decoration: const BoxDecoration(
+                      color: Colors.black12,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.calendar_month_outlined),
+                  ),
                   const SizedBox(width: 10),
                   Text(
                     widget.employee.startDate.toString(),
