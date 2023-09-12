@@ -78,7 +78,13 @@ class _EmployeeItemState extends State<EmployeeItem> {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.calendar_month_outlined),
+                  Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: const BoxDecoration(
+                        color: Colors.black12,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.calendar_month_outlined)),
                   const SizedBox(width: 10),
                   Text(
                     widget.employee.startDate.toString(),
@@ -87,7 +93,13 @@ class _EmployeeItemState extends State<EmployeeItem> {
               ),
               Row(
                 children: [
-                  const Icon(Icons.calendar_month_outlined),
+                  Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: const BoxDecoration(
+                        color: Colors.black12,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.calendar_month_outlined)),
                   const SizedBox(width: 10),
                   Text(
                     widget.employee.endDate.toString(),
