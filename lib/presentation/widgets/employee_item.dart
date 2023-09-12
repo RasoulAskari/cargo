@@ -58,13 +58,17 @@ class _EmployeeItemState extends State<EmployeeItem> {
             ),
             subtitle: Text(
               "${widget.employee.email}\n${widget.employee.phoneNumber}",
-              style: const TextStyle(color: Colors.black54, fontSize: 12),
+              style: const TextStyle(
+                color: Colors.black54,
+                fontSize: 12,
+              ),
             ),
             trailing: GestureDetector(
               child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
-                      color: Color(0x55ff711b),
+                      color: const Color(0x55ff711b),
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     'More',
