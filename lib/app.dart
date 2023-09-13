@@ -24,9 +24,10 @@ class _CargoAppState extends State<CargoApp> {
     super.initState();
   }
 
-  void isLogin() {
-    bool exist = _storeage.read(key: 'token') != null;
-    if (exist) {
+  void isLogin() async {
+    final exist = await _storeage.read(key: 'token');
+    print(exist);
+    if (exist != null) {
       setState(() {
         login = true;
       });

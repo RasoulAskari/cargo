@@ -13,7 +13,7 @@ class _HomeItemState extends State<HomeItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("object");
+        
         widget.function();
       },
       child: GridTile(

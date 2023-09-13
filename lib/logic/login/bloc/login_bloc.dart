@@ -45,15 +45,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       if (result['result']) {
         Map<String, dynamic> data = jsonDecode(response.body)['user'];
-        bool exist = storeage.read(key: 'token') == null;
-        if (exist) {
+        final exist = await storeage.read(key: 'token');
+        if (exist == null) {
           await storeage.write(key: "token", value: result['token']);
         } else {
           print('exist');
         }
 
         final token = await storeage.read(key: 'token');
-        print(token);
+
         UserModel res =
             UserModel(email: data['email'], id: data['id'], name: data['name']);
 
