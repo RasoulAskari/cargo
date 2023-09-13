@@ -34,8 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
       {
         'name': 'Exchange',
         'image': "",
-        'function': () {
-          print('do you know you are my love?');
+        'function': () async {
+          final data = await _storage.read(key: 'token');
+          print(data);
         }
       },
       {'name': 'Setting', 'image': "", 'function': () {}},
@@ -43,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': 'Logout',
         'image': "",
         'function': () async {
-          final res = await _storage.deleteAll();
+          final res = await _storage.delete(key: 'token');
+
           Navigator.of(context).pushReplacementNamed('/');
         }
       },
