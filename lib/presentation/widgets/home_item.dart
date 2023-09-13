@@ -17,14 +17,11 @@ class _HomeItemState extends State<HomeItem> {
           borderRadius: BorderRadius.circular(10),
           color: Theme.of(context).primaryColor,
         ),
-        child: Expanded(
-            child: Container(
-          child: Center(
-              child: Text(
-            widget.name,
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
-          )),
+        child: Center(
+            child: Text(
+          widget.name,
+          style: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
         )),
       ),
     );
