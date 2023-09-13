@@ -43,7 +43,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            'https://media.istockphoto.com/id/1391718981/photo/portrait-of-a-confident-young-businessman-standing-with-his-arms-crossed-in-an-office.jpg?s=1024x1024&w=is&k=20&c=cqIGFJ52Gq8D7bkJg3PqbHxOdKVCQIGUVjM6JNzFY7E='))),
+                            'https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d'))),
               ),
             ),
             title: Container(
