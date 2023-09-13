@@ -10,22 +10,34 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<String, dynamic>> data = [
+  final List<dynamic> data = [
     {
       'name': 'User',
       'image': "",
+      'function': () {
+        print('hi');
+      }
     },
     {
       'name': 'User',
       'image': "",
+      'function': () {
+        print('hi');
+      }
     },
     {
       'name': 'User',
       'image': "",
+      'function': () {
+        print('hi');
+      }
     },
     {
       'name': 'User',
       'image': "",
+      'function': () {
+        print('hi');
+      }
     },
   ];
   @override
