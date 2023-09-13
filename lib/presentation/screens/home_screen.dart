@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _storage = const FlutterSecureStorage();
-
+  
   @override
   Widget build(BuildContext context) {
     final List<dynamic> data = [
@@ -45,8 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'image': "",
         'function': () async {
           final res = await _storage.delete(key: 'token');
-
-          Navigator.of(context).pushReplacementNamed('/');
+          setState(() {});
         }
       },
     ];
