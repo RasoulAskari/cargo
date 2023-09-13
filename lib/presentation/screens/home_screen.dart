@@ -1,6 +1,7 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _storage = const FlutterSecureStorage();
+
   @override
   Widget build(BuildContext context) {
     final List<dynamic> data = [
@@ -35,18 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
           print('do you know you are my love?');
         }
       },
-      {
-        'name': 'Setting',
-        'image': "",
-        'function': () {
-          print('do you know you are my love?');
-        }
-      },
+      {'name': 'Setting', 'image': "", 'function': () {}},
       {
         'name': 'Logout',
         'image': "",
-        'function': () {
-          print('do you know you are my love?');
+        'function': () async {
+          final res = await _storage.deleteAll();
+          Navigator.of(context).pushReplacementNamed('/');
         }
       },
     ];
