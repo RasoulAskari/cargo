@@ -10,52 +10,47 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<dynamic> data = [
-    {
-      'name': 'User',
-      'image': "",
-      'function': () {
-
-      }
-    },
-    {
-      'name': 'Employee',
-      'image': "",
-      'function': () {
-        
-      }
-    },
-    {
-      'name': 'Orders',
-      'image': "",
-      'function': () {
-        print('how are you');
-      }
-    },
-    {
-      'name': 'Exchange',
-      'image': "",
-      'function': () {
-        print('do you know you are my love?');
-      }
-    },
-    {
-      'name': 'Setting',
-      'image': "",
-      'function': () {
-        print('do you know you are my love?');
-      }
-    },
-    {
-      'name': 'Logout',
-      'image': "",
-      'function': () {
-        print('do you know you are my love?');
-      }
-    },
-  ];
   @override
   Widget build(BuildContext context) {
+    final List<dynamic> data = [
+      {'name': 'User', 'image': "", 'function': () {}},
+      {
+        'name': 'Employee',
+        'image': "",
+        'function': () {
+          Navigator.of(context).pushNamed(employeeScreen);
+        }
+      },
+      {
+        'name': 'Orders',
+        'image': "",
+        'function': () {
+          print('how are you');
+        }
+      },
+      {
+        'name': 'Exchange',
+        'image': "",
+        'function': () {
+          print('do you know you are my love?');
+        }
+      },
+      {
+        'name': 'Setting',
+        'image': "",
+        'function': () {
+          print('do you know you are my love?');
+        }
+      },
+      {
+        'name': 'Logout',
+        'image': "",
+        'function': () {
+          print('do you know you are my love?');
+        }
+      },
+    ];
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
