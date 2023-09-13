@@ -14,7 +14,7 @@ class _HomeItemState extends State<HomeItem> {
     return GestureDetector(
       onTap: () {
         print("object");
-        // widget.function;
+        widget.function();
       },
       child: GridTile(
         child: Container(
