@@ -19,6 +19,13 @@ class _LoginScreenState extends State<LoginScreen> {
   String myEmail = '';
   String myPassword = '';
 
+  Future<void> check() async {
+    context.read<LoginBloc>().add(SetLoginEvent(
+          email: myEmail,
+          password: myPassword,
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,14 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () async {
-              widget.isLogin();
-              context.read<LoginBloc>().add(SetLoginEvent(
-                    email: myEmail,
-                    password: myPassword,
-                  ));
-
-              widget.isLogin();
+            onPressed: () {
+              check().then((value) => widget.isLogin);
             },
             child: const Text("Login"),
           )
