@@ -14,28 +14,6 @@ class CargoApp extends StatefulWidget {
 }
 
 class _CargoAppState extends State<CargoApp> {
-  bool login = false;
-
-  final _storeage = const FlutterSecureStorage();
-
-  @override
-  void initState() {
-    isLogin();
-    super.initState();
-  }
-
-  void isLogin() async {
-    final exist = await _storeage.read(key: 'token');
-    print(exist);
-    if (exist != null) {
-      setState(() {
-        login = true;
-      });
-    } else {
-      login = false;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
