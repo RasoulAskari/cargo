@@ -43,7 +43,7 @@ class _CargoAppState extends State<CargoApp> {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: "Cargo",
-      home: login ? const HomeScreen() : const LoginScreen(),
+      home: login ? HomeScreen( ) : const LoginScreen(),
     );
   }
 }

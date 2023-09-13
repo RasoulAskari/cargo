@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _storage = const FlutterSecureStorage();
-  
+
   @override
   Widget build(BuildContext context) {
     final List<dynamic> data = [
