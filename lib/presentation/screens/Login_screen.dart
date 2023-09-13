@@ -61,7 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
+              widget.isLogin();
               context.read<LoginBloc>().add(SetLoginEvent(
                     email: myEmail,
                     password: myPassword,

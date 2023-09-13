@@ -52,8 +52,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           print('exist');
         }
 
-        final token = await storeage.read(key: 'token');
-
         UserModel res =
             UserModel(email: data['email'], id: data['id'], name: data['name']);
 

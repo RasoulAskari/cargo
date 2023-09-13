@@ -23,13 +23,15 @@ class _MainScreenState extends State<MainScreen> {
 
   void isLogin() async {
     final exist = await _storeage.read(key: 'token');
-    print(exist);
+    print(exist.toString() + "call");
     if (exist != null) {
       setState(() {
         login = true;
       });
     } else {
-      login = false;
+      setState(() {
+        login = false;
+      });
     }
   }
 
