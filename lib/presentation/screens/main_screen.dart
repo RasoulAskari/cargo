@@ -12,18 +12,17 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   bool login = false;
-
+  int counter = 0;
   final _storeage = const FlutterSecureStorage();
 
   @override
   void initState() {
-    isLogin();
     super.initState();
   }
 
   void isLogin() async {
     final exist = await _storeage.read(key: 'token');
-    print(exist.toString() + "call");
+
     if (exist != null) {
       setState(() {
         login = true;

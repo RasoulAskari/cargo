@@ -1,6 +1,7 @@
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,6 +17,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _storage = FlutterSecureStorage();
   String myEmail = '';
   String myPassword = '';
 
@@ -24,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
           email: myEmail,
           password: myPassword,
         ));
+    await _storage.read(key: 'token');
   }
 
   @override
@@ -69,7 +72,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              check().then((value) => widget.isLogin);
+              check().then((value) {
+                widget.isLogin();
+              });
             },
             child: const Text("Login"),
           )
