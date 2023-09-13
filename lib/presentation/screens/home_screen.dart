@@ -15,25 +15,39 @@ class _HomeScreenState extends State<HomeScreen> {
       'name': 'User',
       'image': "",
       'function': () {
-        print('hi');
+
       }
     },
     {
-      'name': 'User',
+      'name': 'Employee',
       'image': "",
       'function': () {
-        print('hello');
+        
       }
     },
     {
-      'name': 'User',
+      'name': 'Orders',
       'image': "",
       'function': () {
         print('how are you');
       }
     },
     {
-      'name': 'User',
+      'name': 'Exchange',
+      'image': "",
+      'function': () {
+        print('do you know you are my love?');
+      }
+    },
+    {
+      'name': 'Setting',
+      'image': "",
+      'function': () {
+        print('do you know you are my love?');
+      }
+    },
+    {
+      'name': 'Logout',
       'image': "",
       'function': () {
         print('do you know you are my love?');
