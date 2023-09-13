@@ -22,21 +22,21 @@ class _HomeScreenState extends State<HomeScreen> {
       'name': 'User',
       'image': "",
       'function': () {
-        print('hi');
+        print('hello');
       }
     },
     {
       'name': 'User',
       'image': "",
       'function': () {
-        print('hi');
+        print('how are you');
       }
     },
     {
       'name': 'User',
       'image': "",
       'function': () {
-        print('hi');
+        print('do you know you are my love?');
       }
     },
   ];
@@ -53,7 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSpacing: 8.0, // Spacing between rows
           ),
           itemBuilder: (context, index) {
-            return HomeItem(name: data[index]['name']);
+            return HomeItem(
+              name: data[index]['name'],
+              function: data[index]['function'],
+            );
           },
         ),
       ),
