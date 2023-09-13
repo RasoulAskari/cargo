@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final Function isLogin;
+  const HomeScreen({super.key, required this.isLogin});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'image': "",
         'function': () async {
           final res = await _storage.delete(key: 'token');
-          setState(() {});
+          widget.isLogin();
         }
       },
     ];

@@ -5,8 +5,10 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
+  final Function isLogin;
   const LoginScreen({
     super.key,
+    required this.isLogin,
   });
 
   @override
@@ -64,6 +66,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     email: myEmail,
                     password: myPassword,
                   ));
+
+              widget.isLogin();
             },
             child: const Text("Login"),
           )
