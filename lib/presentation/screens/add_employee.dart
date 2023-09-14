@@ -13,6 +13,11 @@ class _AddEmployeeState extends State<AddEmployee> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(
+          Icons.arrow_back_ios,
+          color: Colors.white,
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
         title: const Text("Add Employee"),
       ),
     );
