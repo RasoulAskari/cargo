@@ -17,10 +17,16 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
+                color: Colors.white,
+              ))
+        ],
         leading: IconButton(
-            onPressed: () {
-              
-            },
+            onPressed: () {},
             icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
