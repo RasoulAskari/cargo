@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/presentation/widgets/employee_item.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,9 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(addEmployee);
+              },
               icon: Icon(
                 Icons.add,
                 color: Colors.white,
