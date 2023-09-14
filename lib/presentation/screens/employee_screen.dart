@@ -13,7 +13,7 @@ class EmployeeScreen extends StatefulWidget {
 }
 
 class _EmployeeScreenState extends State<EmployeeScreen> {
-  final _stoage = FlutterSecureStorage();
+  final _stoage = const FlutterSecureStorage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               onPressed: () {
                 Navigator.of(context).pushNamed(addEmployee);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.add,
                 color: Colors.white,
                 size: 30,
