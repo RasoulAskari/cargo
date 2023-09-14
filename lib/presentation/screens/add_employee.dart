@@ -1,4 +1,5 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/presentation/widgets/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -65,6 +66,10 @@ class _AddEmployeeState extends State<AddEmployee> {
               setValue: (value) {},
             ),
             const SizedBox(height: 15),
+            CDatePicker(
+              setValue: (value) {},
+              hintText: 'Start Data',
+            )
           ],
         ),
       ),
