@@ -45,8 +45,7 @@ dev_dependencies:
     sdk: flutter
   formz: ^0.6.0
   intl: ^0.18.1
-  intl_phone_number_input:
-    path: packages/intl_phone_number_input
+  intl_phone_number_input: ^0.7.3+1
   scroll_date_picker: ^3.7.3
 
 # For information on the generic Dart part of this file, see the
