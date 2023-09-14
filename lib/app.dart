@@ -1,10 +1,6 @@
 import 'package:cargo/config/app_router.dart';
 import 'package:cargo/config/theme.dart';
-import 'package:cargo/presentation/screens/Login_screen.dart';
-import 'package:cargo/presentation/screens/employee_screen.dart';
-import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CargoApp extends StatefulWidget {
   const CargoApp({super.key});

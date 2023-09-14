@@ -1,8 +1,6 @@
 import 'package:cargo/constants/routes.dart';
-import 'package:cargo/presentation/screens/Login_screen.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
-import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:cargo/presentation/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +10,11 @@ class AppRouter {
   ) {
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (context) => MainScreen());
+        return MaterialPageRoute(builder: (context) => const MainScreen());
       case addEmployee:
-        return MaterialPageRoute(builder: (context) => AddEmployee());
+        return MaterialPageRoute(builder: (context) => const AddEmployee());
       case employeeScreen:
-        return MaterialPageRoute(builder: (context) => EmployeeScreen());
+        return MaterialPageRoute(builder: (context) => const EmployeeScreen());
       default:
         return null;
     }

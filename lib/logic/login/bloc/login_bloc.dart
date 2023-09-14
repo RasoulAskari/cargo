@@ -10,8 +10,6 @@ import 'package:http/http.dart' as http;
 part 'login_event.dart';
 part 'login_state.dart';
 
-const _postLimit = 10;
-
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final storeage = const FlutterSecureStorage();
 
@@ -25,12 +23,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Future<void> _onLoginningEvent(
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     if (state.hasReachedMax) return;
-
-    final result = await _userLogin(
-      event.email,
-      event.password,
-    );
-    print(result);
   }
 
   Future<UserModel?> _userLogin(String email, String password) async {
@@ -49,8 +41,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
         if (exist == null) {
           await storeage.write(key: "token", value: result['token']);
-          final token = await storeage.read(key: 'token');
-          print(token.toString() + "this is token");
+          await storeage.read(key: 'token');
 
           UserModel res = UserModel(
               email: data['email'], id: data['id'], name: data['name']);
@@ -58,8 +49,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         }
       }
     } catch (e) {
-      print(e.toString() + 'Catch');
+      return null;
     }
+    return null;
   }
 
   Future<void> _onSetEmailEvent(

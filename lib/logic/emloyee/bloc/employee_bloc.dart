@@ -23,6 +23,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     try {
       if (state.status == EmployeeStatus.initial) {
         final employees = await _fetchEmployees(page: state.page);
+        // ignore: invalid_use_of_visible_for_testing_member
         return emit(
           state.copyWith(
             status: EmployeeStatus.success,
@@ -31,9 +32,9 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           ),
         );
       }
-
-      final employees = await _fetchEmployees(page: state.page + 1);
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
@@ -57,7 +58,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       }
       return [];
     } catch (e) {
-
       return [];
     }
   }
