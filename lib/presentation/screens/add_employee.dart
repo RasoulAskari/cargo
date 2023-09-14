@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/widgets/c_date_picker.dart';
+import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,8 @@ class AddEmployee extends StatefulWidget {
 }
 
 class _AddEmployeeState extends State<AddEmployee> {
+  FirstName name = const FirstName.pure();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +54,9 @@ class _AddEmployeeState extends State<AddEmployee> {
             const SizedBox(height: 15),
             CTextField(
               value: 'Phone',
-              setValue: (value) {},
+              setValue: (value) {
+                name = FirstName.dirty(value);
+              },
             ),
             const SizedBox(height: 15),
             CTextField(
