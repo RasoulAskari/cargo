@@ -32,37 +32,39 @@ class _AddEmployeeState extends State<AddEmployee> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             CTextField(
               value: 'Firstname',
               setValue: (value) {},
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             CTextField(
               value: 'Lasttname',
               setValue: (value) {},
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             CTextField(
               value: 'Email',
               setValue: (value) {},
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             CTextField(
               value: 'Phone',
               setValue: (value) {},
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             CTextField(
+              maxlines: 3,
               value: 'Current Address',
               setValue: (value) {},
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             CTextField(
+              maxlines: 3,
               value: 'Permenent Address',
               setValue: (value) {},
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
           ],
         ),
       ),
