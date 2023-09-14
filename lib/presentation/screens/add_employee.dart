@@ -38,11 +38,13 @@ class _AddEmployeeState extends State<AddEmployee> {
           children: [
             const SizedBox(height: 15),
             CTextField(
+              hintText: 'FirstName',
               value: 'Firstname',
               setValue: (value) {},
             ),
             const SizedBox(height: 15),
             CTextField(
+              hintText: '',
               value: 'Lasttname',
               setValue: (value) {},
             ),
