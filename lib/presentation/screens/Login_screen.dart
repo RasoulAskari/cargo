@@ -72,7 +72,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              check().then((value) {
+              check().then((value) async {
+                final res = await _storage.read(key: 'token');
+                print(res.toString());
                 widget.isLogin();
               });
             },

@@ -1,4 +1,5 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/presentation/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
 class AddEmployee extends StatefulWidget {
@@ -21,7 +22,48 @@ class _AddEmployeeState extends State<AddEmployee> {
         title: const Text(
           "Add Employee",
           style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            CTextField(
+              value: 'Firstname',
+              setValue: (value) {},
+            ),
+            const SizedBox(height: 10),
+            CTextField(
+              value: 'Lasttname',
+              setValue: (value) {},
+            ),
+            const SizedBox(height: 10),
+            CTextField(
+              value: 'Email',
+              setValue: (value) {},
+            ),
+            const SizedBox(height: 10),
+            CTextField(
+              value: 'Phone',
+              setValue: (value) {},
+            ),
+            const SizedBox(height: 10),
+            CTextField(
+              value: 'Current Address',
+              setValue: (value) {},
+            ),
+            const SizedBox(height: 10),
+            CTextField(
+              value: 'Permenent Address',
+              setValue: (value) {},
+            ),
+            const SizedBox(height: 10),
+          ],
         ),
       ),
     );

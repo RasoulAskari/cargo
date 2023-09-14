@@ -49,17 +49,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
         if (exist == null) {
           await storeage.write(key: "token", value: result['token']);
-          final data = await storeage.read(key: 'token');
-          print(data.toString() + "this is token");
-        } else {
-          print('exist');
+          final token = await storeage.read(key: 'token');
+          print(token.toString() + "this is token");
+
+          UserModel res = UserModel(
+              email: data['email'], id: data['id'], name: data['name']);
+          return res;
         }
-
-        UserModel res =
-            UserModel(email: data['email'], id: data['id'], name: data['name']);
-
-        return res;
-        // UserModel mo = UserModel.fromJson(data.toString());
       }
     } catch (e) {
       print(e.toString() + 'Catch');
