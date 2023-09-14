@@ -43,6 +43,7 @@ dev_dependencies:
   flutter_secure_storage: ^8.0.0
   flutter_test:
     sdk: flutter
+  formz: ^0.6.0
   intl: ^0.18.1
   scroll_date_picker: ^3.7.3
 
