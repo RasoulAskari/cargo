@@ -12,7 +12,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   bool login = false;
-  int counter = 0;
   final _storeage = const FlutterSecureStorage();
 
   @override
