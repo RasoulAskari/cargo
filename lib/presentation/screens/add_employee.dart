@@ -69,6 +69,11 @@ class _AddEmployeeState extends State<AddEmployee> {
             CDatePicker(
               setValue: (value) {},
               hintText: 'Start Data',
+            ),
+            const SizedBox(height: 15),
+            CDatePicker(
+              setValue: (value) {},
+              hintText: 'End Date',
             )
           ],
         ),
