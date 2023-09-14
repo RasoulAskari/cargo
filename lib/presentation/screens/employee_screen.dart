@@ -23,6 +23,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               icon: Icon(
                 Icons.add,
                 color: Colors.white,
+                size: 30,
               ))
         ],
         leading: IconButton(
