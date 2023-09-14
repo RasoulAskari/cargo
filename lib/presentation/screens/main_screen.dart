@@ -17,6 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    isLogin();
   }
 
   void isLogin() async {
