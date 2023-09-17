@@ -1,59 +1,88 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
+// ignore: must_be_immutable
 class CPhoneField extends StatefulWidget {
-  const CPhoneField({super.key});
+  final String hintText;
+  final Function setValue;
+  final Function setValid;
+  final PhoneNumber? value;
+  bool enabled;
+  CPhoneField({
+    super.key,
+    required this.hintText,
+    required this.setValue,
+    required this.setValid,
+    required this.value,
+    this.enabled = true,
+  });
 
   @override
   State<CPhoneField> createState() => _CPhoneFieldState();
 }
 
 class _CPhoneFieldState extends State<CPhoneField> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  final TextEditingController controller = TextEditingController();
-  String initialCountry = 'NG';
-  PhoneNumber number = PhoneNumber(isoCode: 'NG');
-
-  void getPhoneNumber(String phoneNumber) async {
-    PhoneNumber number =
-        await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
-
-    setState(() {
-      this.number = number;
-    });
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return InternationalPhoneNumberInput(
-      onInputChanged: (PhoneNumber number) {
-        print(number.phoneNumber);
-      },
-      onInputValidated: (bool value) {
-        print(value);
-      },
-      selectorConfig: SelectorConfig(
-        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: InternationalPhoneNumberInput(
+        isEnabled: widget.enabled,
+        onInputChanged: (PhoneNumber number) async {
+          // bool? isValidPhoneNumber = await PhoneNumberUtil.isValidNumber(
+          //   phoneNumber: number.phoneNumber,
+          //   isoCode: number.isoCode ?? '',
+          // );
+          // widget.setValue(number);
+          // widget.setValid(isValidPhoneNumber);
+        },
+        selectorConfig: const SelectorConfig(
+            // selectorType: PhoneInputSelectorType.bottomSheet,
+            ),
+        ignoreBlank: false,
+        autoValidateMode: AutovalidateMode.onUserInteraction,
+        selectorTextStyle: const TextStyle(color: Colors.black),
+        initialValue: widget.value,
+        formatInput: true,
+        locale: Localizations.localeOf(context).languageCode,
+        keyboardType:
+            const TextInputType.numberWithOptions(signed: true, decimal: true),
+        inputBorder: const OutlineInputBorder(),
+        onSaved: (PhoneNumber number) {},
+        errorMessage: "invalidMobilePhoneNo",
+        inputDecoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.grey[200],
+          hintText: "phoneNo",
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 16,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(6.0),
+            borderSide: const BorderSide(
+              width: 0,
+              style: BorderStyle.none,
+            ),
+          ),
+        ),
+        searchBoxDecoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.grey[200],
+          hintText: "country",
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 16,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(6.0),
+            borderSide: const BorderSide(
+              width: 0,
+              style: BorderStyle.none,
+            ),
+          ),
+        ),
       ),
-      ignoreBlank: false,
-      autoValidateMode: AutovalidateMode.disabled,
-      selectorTextStyle: TextStyle(color: Colors.black),
-      initialValue: number,
-      textFieldController: controller,
-      formatInput: true,
-      keyboardType:
-          TextInputType.numberWithOptions(signed: true, decimal: true),
-      inputBorder: OutlineInputBorder(),
-      onSaved: (PhoneNumber number) {
-        print('On Saved: $number');
-      },
     );
   }
 }
