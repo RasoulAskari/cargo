@@ -1,3 +1,4 @@
+import 'package:cargo/utils/phone_number/phone_number_util.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -29,16 +30,16 @@ class _CPhoneFieldState extends State<CPhoneField> {
       child: InternationalPhoneNumberInput(
         isEnabled: widget.enabled,
         onInputChanged: (PhoneNumber number) async {
-          // bool? isValidPhoneNumber = await PhoneNumberUtil.isValidNumber(
-          //   phoneNumber: number.phoneNumber,
-          //   isoCode: number.isoCode ?? '',
-          // );
-          // widget.setValue(number);
-          // widget.setValid(isValidPhoneNumber);
+          bool? isValidPhoneNumber = await PhoneNumberUtil.isValidNumber(
+            phoneNumber: number.phoneNumber.toString(),
+            isoCode: number.isoCode ?? '',
+          );
+          widget.setValue(number);
+          widget.setValid(isValidPhoneNumber);
         },
         selectorConfig: const SelectorConfig(
-            // selectorType: PhoneInputSelectorType.bottomSheet,
-            ),
+          selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+        ),
         ignoreBlank: false,
         autoValidateMode: AutovalidateMode.onUserInteraction,
         selectorTextStyle: const TextStyle(color: Colors.black),
