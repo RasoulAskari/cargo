@@ -1,6 +1,7 @@
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/c_text_field.dart';
+import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:flutter/material.dart';
 
 class AddEmployee extends StatefulWidget {
@@ -53,12 +54,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               setValue: (value) {},
             ),
             const SizedBox(height: 15),
-            CTextField(
-              value: 'Phone',
-              setValue: (value) {
-                name = FirstName.dirty(value);
-              },
-            ),
+            CPhoneField(),
             const SizedBox(height: 15),
             CTextField(
               maxlines: 3,
