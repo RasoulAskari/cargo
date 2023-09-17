@@ -1,4 +1,3 @@
-import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/text_field.dart';
