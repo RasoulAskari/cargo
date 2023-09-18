@@ -1,3 +1,4 @@
+import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/presentation/widgets/c_text_field.dart';
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
@@ -16,6 +17,7 @@ class AddEmployee extends StatefulWidget {
 class _AddEmployeeState extends State<AddEmployee> {
   FirstName name = const FirstName.pure();
   PhoneNo phoneNo = const PhoneNo.pure();
+  Email email = const Email.pure();
   bool isValid = false;
 
   @override
@@ -59,8 +61,14 @@ class _AddEmployeeState extends State<AddEmployee> {
             ),
             const SizedBox(height: 15),
             CTextField(
-              value: 'Email',
-              setValue: (value) {},
+              value: email.value,
+              setValue: (emailValue) {
+                setState(() {
+                  email = Email.dirty(emailValue);
+                });
+              },
+              hintText: "Email",
+              errorText: email.isNotValid ? "error" : null,
             ),
             const SizedBox(height: 15),
             CPhoneField(
