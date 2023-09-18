@@ -23,7 +23,7 @@ class _AddEmployeeState extends State<AddEmployee> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Add Employee",
+        "Add Employee",
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
