@@ -15,10 +15,25 @@ class AddEmployee extends StatefulWidget {
 }
 
 class _AddEmployeeState extends State<AddEmployee> {
-  FirstName name = const FirstName.pure();
+  FirstName fristname = const FirstName.pure();
+  FirstName lastname = const FirstName.pure();
   PhoneNo phoneNo = const PhoneNo.pure();
   Email email = const Email.pure();
   bool isValid = false;
+
+  String? getNameError(FullNameValidationError? error) {
+    switch (error) {
+      case FullNameValidationError.empty:
+        return "Empty";
+      case FullNameValidationError.min:
+        return "Name must be at least 6 character";
+      case FullNameValidationError.max:
+        return "Name should not be more than 32 character";
+
+      default:
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +83,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                 });
               },
               hintText: "Email",
-              errorText: name.isNotValid ? "error" : null,
+              errorText: email.isNotValid ? "error" : null,
             ),
             const SizedBox(height: 15),
             CPhoneField(
