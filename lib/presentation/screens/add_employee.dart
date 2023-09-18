@@ -1,3 +1,4 @@
+import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/first_name.dart';
@@ -19,6 +20,8 @@ class _AddEmployeeState extends State<AddEmployee> {
   FirstName lastname = const FirstName.pure();
   PhoneNo phoneNo = const PhoneNo.pure();
   Email email = const Email.pure();
+  Address currentAddress = const Address.pure();
+  Address premenentAddress = const Address.pure();
   bool isValid = false;
 
   String? getNameError(FullNameValidationError? error) {
