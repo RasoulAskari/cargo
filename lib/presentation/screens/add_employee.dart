@@ -1,7 +1,10 @@
+import 'package:cargo/presentation/widgets/c_text_field.dart';
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
-import 'package:cargo/presentation/widgets/c_text_field.dart';
+import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:cargo/logic/form_models/models.dart';
 
 class AddEmployee extends StatefulWidget {
   const AddEmployee({super.key});
@@ -12,6 +15,12 @@ class AddEmployee extends StatefulWidget {
 
 class _AddEmployeeState extends State<AddEmployee> {
   FirstName name = const FirstName.pure();
+  PhoneNo phoneNo = const PhoneNo.pure();
+  bool loading = false;
+  bool loading2 = false;
+  bool isValid = false;
+  bool codeSent = false;
+  String code = '';
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +32,7 @@ class _AddEmployeeState extends State<AddEmployee> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-        "Add Employee",
+          "Add Employee",
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
@@ -53,6 +62,20 @@ class _AddEmployeeState extends State<AddEmployee> {
               setValue: (value) {},
             ),
             const SizedBox(height: 15),
+            CPhoneField(
+              hintText: "phoneNo",
+              setValue: (PhoneNumber phone) {
+                setState(() {
+                  phoneNo = PhoneNo.dirty(phone);
+                });
+              },
+              setValid: (bool? isValidPassed) {
+                setState(() {
+                  isValid = isValidPassed ?? false;
+                });
+              },
+              value: phoneNo.value,
+            ),
             const SizedBox(height: 15),
             CTextField(
               maxlines: 3,
