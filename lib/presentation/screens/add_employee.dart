@@ -22,6 +22,8 @@ class _AddEmployeeState extends State<AddEmployee> {
   Email email = const Email.pure();
   Address currentAddress = const Address.pure();
   Address premenentAddress = const Address.pure();
+  MyDate startDate = const MyDate.pure();
+  MyDate end = const MyDate.pure();
   bool isValid = false;
 
   String? getNameError(FullNameValidationError? error) {
