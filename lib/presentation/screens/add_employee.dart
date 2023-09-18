@@ -121,8 +121,12 @@ class _AddEmployeeState extends State<AddEmployee> {
             const SizedBox(height: 15),
             CTextField(
               maxlines: 3,
-              value: 'Permenent Address',
-              setValue: (value) {},
+              value: premenentAddress.value,
+              setValue: (value) {
+                setState(() {
+                  premenentAddress = Address.dirty(value);
+                });
+              },
             ),
             const SizedBox(height: 15),
             CDatePicker(
