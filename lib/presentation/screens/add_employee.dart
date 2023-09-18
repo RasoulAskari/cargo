@@ -111,8 +111,12 @@ class _AddEmployeeState extends State<AddEmployee> {
             const SizedBox(height: 15),
             CTextField(
               maxlines: 3,
-              value: 'Current Address',
-              setValue: (value) {},
+              value: currentAddress.value,
+              setValue: (value) {
+                setState(() {
+                  currentAddress = Address.dirty(value);
+                });
+              },
             ),
             const SizedBox(height: 15),
             CTextField(
