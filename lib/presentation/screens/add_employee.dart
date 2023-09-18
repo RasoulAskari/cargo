@@ -71,9 +71,9 @@ class _AddEmployeeState extends State<AddEmployee> {
             const SizedBox(height: 15),
             CTextField(
               value: lastname.value,
-              setValue: (passedValue) {
+              setValue: (lastnameValue) {
                 setState(() {
-                  lastname = FirstName.dirty(passedValue);
+                  lastname = FirstName.dirty(lastnameValue);
                 });
               },
               hintText: "FirstName",
