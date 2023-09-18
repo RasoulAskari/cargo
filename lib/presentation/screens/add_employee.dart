@@ -110,6 +110,7 @@ class _AddEmployeeState extends State<AddEmployee> {
             ),
             const SizedBox(height: 15),
             CTextField(
+              hintText: "Current Address",
               maxlines: 3,
               value: currentAddress.value,
               setValue: (value) {
@@ -120,6 +121,7 @@ class _AddEmployeeState extends State<AddEmployee> {
             ),
             const SizedBox(height: 15),
             CTextField(
+              hintText: "Premenent Address",
               maxlines: 3,
               value: premenentAddress.value,
               setValue: (value) {
