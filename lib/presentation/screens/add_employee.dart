@@ -40,6 +40,10 @@ class _AddEmployeeState extends State<AddEmployee> {
     return null;
   }
 
+  addEmployee() async {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
