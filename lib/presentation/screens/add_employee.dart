@@ -16,11 +16,7 @@ class AddEmployee extends StatefulWidget {
 class _AddEmployeeState extends State<AddEmployee> {
   FirstName name = const FirstName.pure();
   PhoneNo phoneNo = const PhoneNo.pure();
-  bool loading = false;
-  bool loading2 = false;
   bool isValid = false;
-  bool codeSent = false;
-  String code = '';
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +42,14 @@ class _AddEmployeeState extends State<AddEmployee> {
           children: [
             const SizedBox(height: 15),
             CTextField(
-              hintText: 'FirstName',
-              value: 'Firstname',
-              setValue: (value) {},
+              value: name.value,
+              setValue: (passedValue) {
+                setState(() {
+                  name = FirstName.dirty(passedValue);
+                });
+              },
+              hintText: "FirstName",
+              errorText: name.isNotValid ? "error" : null,
             ),
             const SizedBox(height: 15),
             CTextField(
