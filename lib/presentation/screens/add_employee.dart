@@ -1,5 +1,5 @@
 import 'package:cargo/logic/form_models/email.dart';
-import 'package:cargo/presentation/widgets/c_text_field.dart';
+import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
