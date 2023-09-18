@@ -68,7 +68,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                 });
               },
               hintText: "Email",
-              errorText: email.isNotValid ? "error" : null,
+              errorText: name.isNotValid ? "error" : null,
             ),
             const SizedBox(height: 15),
             CPhoneField(
