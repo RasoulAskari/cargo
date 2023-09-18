@@ -59,20 +59,25 @@ class _AddEmployeeState extends State<AddEmployee> {
           children: [
             const SizedBox(height: 15),
             CTextField(
-              value: name.value,
+              value: fristname.value,
               setValue: (passedValue) {
                 setState(() {
-                  name = FirstName.dirty(passedValue);
+                  fristname = FirstName.dirty(passedValue);
                 });
               },
               hintText: "FirstName",
-              errorText: name.isNotValid ? "error" : null,
+              errorText: fristname.isNotValid ? "error" : null,
             ),
             const SizedBox(height: 15),
             CTextField(
-              hintText: '',
-              value: 'Lasttname',
-              setValue: (value) {},
+              value: lastname.value,
+              setValue: (passedValue) {
+                setState(() {
+                  lastname = FirstName.dirty(passedValue);
+                });
+              },
+              hintText: "FirstName",
+              errorText: lastname.isNotValid ? "error" : null,
             ),
             const SizedBox(height: 15),
             CTextField(
