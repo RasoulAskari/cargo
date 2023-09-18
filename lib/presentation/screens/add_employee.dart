@@ -23,7 +23,7 @@ class _AddEmployeeState extends State<AddEmployee> {
   Address currentAddress = const Address.pure();
   Address premenentAddress = const Address.pure();
   MyDate startDate = const MyDate.pure();
-  MyDate end = const MyDate.pure();
+  MyDate endDate = const MyDate.pure();
   bool isValid = false;
 
   String? getNameError(FullNameValidationError? error) {
@@ -135,13 +135,19 @@ class _AddEmployeeState extends State<AddEmployee> {
             const SizedBox(height: 15),
             CDatePicker(
               setValue: (value) {
-
+                setState(() {
+                  startDate = MyDate.dirty(value);
+                });
               },
               hintText: 'Start Data',
             ),
             const SizedBox(height: 15),
             CDatePicker(
-              setValue: (value) {},
+              setValue: (value) {
+                setState(() {
+                  endDate = MyDate.dirty(value);
+                });
+              },
               hintText: 'End Date',
             )
           ],
