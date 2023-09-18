@@ -1,9 +1,7 @@
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/c_text_field.dart';
-import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class AddEmployee extends StatefulWidget {
   const AddEmployee({super.key});
@@ -55,13 +53,6 @@ class _AddEmployeeState extends State<AddEmployee> {
               setValue: (value) {},
             ),
             const SizedBox(height: 15),
-            CPhoneField(
-              hintText: 'Phone number',
-              setValue: (value) {},
-              setValid: () {},
-              value:
-                  PhoneNumber(phoneNumber: '+98 7728 1812 123', isoCode: '+98'),
-            ),
             const SizedBox(height: 15),
             CTextField(
               maxlines: 3,
