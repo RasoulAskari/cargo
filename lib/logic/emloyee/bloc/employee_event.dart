@@ -8,3 +8,9 @@ sealed class EmployeeEvent extends Equatable {
 }
 
 class EmployeesFetched extends EmployeeEvent {}
+
+class AddEmployeeEvent extends EmployeeEvent {
+  final EmployeeModel employee;
+
+  AddEmployeeEvent({required this.employee});
+}

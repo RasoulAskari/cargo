@@ -1,9 +1,12 @@
+import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
+import 'package:cargo/utils/phone_number/phone_number_util.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:cargo/logic/form_models/models.dart';
@@ -40,9 +43,11 @@ class _AddEmployeeState extends State<AddEmployee> {
     return null;
   }
 
-  addEmployee() async {
-    if (fristname.isValid & lastname.isValid & email.isValid) {
-      print('valid');
+  addEmployee(context) async {
+    if (fristname.isValid &
+        lastname.isValid &
+        email.isValid &
+        phoneNo.isValid) {
     } else {
       print("invalid");
     }
@@ -161,7 +166,7 @@ class _AddEmployeeState extends State<AddEmployee> {
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                addEmployee();
+                addEmployee(context);
               },
               child: const Text("Save"),
             )
