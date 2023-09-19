@@ -41,7 +41,11 @@ class _AddEmployeeState extends State<AddEmployee> {
   }
 
   addEmployee() async {
-    
+    if (fristname.isValid & lastname.isValid & email.isValid) {
+      print('valid');
+    } else {
+      print("invalid");
+    }
   }
 
   @override
@@ -153,6 +157,13 @@ class _AddEmployeeState extends State<AddEmployee> {
                 });
               },
               hintText: 'End Date',
+            ),
+            const SizedBox(height: 15),
+            ElevatedButton(
+              onPressed: () {
+                addEmployee();
+              },
+              child: const Text("Save"),
             )
           ],
         ),
