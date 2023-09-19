@@ -14,6 +14,16 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   EmployeeBloc({required this.httpClient}) : super(const EmployeeState()) {
     on<EmployeesFetched>(_onEmployeesFetched);
+    on<AddEmployeeEvent>(_onAddEmployees);
+  }
+
+  Future<void> _onAddEmployees(
+      AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
+    try {
+      print(event.employee);
+    } catch (e) {
+      return;
+    }
   }
 
   Future<void> _onEmployeesFetched(

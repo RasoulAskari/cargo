@@ -25,8 +25,8 @@ class _AddEmployeeState extends State<AddEmployee> {
   Email email = const Email.pure();
   Address currentAddress = const Address.pure();
   Address premenentAddress = const Address.pure();
-  MyDate startDate = const MyDate.pure();
-  MyDate endDate = const MyDate.pure();
+  DateTime? startDate;
+  DateTime? endDate;
   bool isValid = false;
 
   String? getNameError(FullNameValidationError? error) {
@@ -53,8 +53,8 @@ class _AddEmployeeState extends State<AddEmployee> {
               employee: EmployeeModel(
                 currentAddress: currentAddress.value,
                 permenentAddress: premenentAddress.value,
-                startDate: startDate.value,
-                endDate: endDate.value,
+                startDate: startDate.toString(),
+                endDate: endDate.toString(),
                 jobTitle: "Developer",
                 firstName: fristname.value,
                 lastName: lastname.value,
@@ -165,7 +165,7 @@ class _AddEmployeeState extends State<AddEmployee> {
             CDatePicker(
               setValue: (value) {
                 setState(() {
-                  startDate = MyDate.dirty(value);
+                  startDate = value;
                 });
               },
               hintText: 'Start Data',
@@ -174,7 +174,7 @@ class _AddEmployeeState extends State<AddEmployee> {
             CDatePicker(
               setValue: (value) {
                 setState(() {
-                  endDate = MyDate.dirty(value);
+                  endDate = value;
                 });
               },
               hintText: 'End Date',
