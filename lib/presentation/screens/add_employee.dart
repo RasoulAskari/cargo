@@ -10,6 +10,8 @@ import 'package:cargo/utils/phone_number/phone_number_util.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:cargo/logic/form_models/models.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddEmployee extends StatefulWidget {
   const AddEmployee({super.key});
@@ -44,28 +46,20 @@ class _AddEmployeeState extends State<AddEmployee> {
   }
 
   Future<void> addEmployee() async {
-    if (fristname.isValid &
-        lastname.isValid &
-        email.isValid &
-        phoneNo.isValid) {
-      context.read<EmployeeBloc>().add();
-  
+    EmployeeModel emp = EmployeeModel(
+      currentAddress: currentAddress.value,
+      permenentAddress: premenentAddress.value,
+      startDate: startDate.toString(),
+      endDate: endDate.toString(),
+      jobTitle: "Developer",
+      firstName: fristname.value,
+      lastName: lastname.value,
+      profile: "profile",
+      email: email.value,
+      phoneNumber: phoneNo.value.toString(),
+    );
 
-EmployeeModel(
-                currentAddress: currentAddress.value,
-                permenentAddress: premenentAddress.value,
-                startDate: startDate.toString(),
-                endDate: endDate.toString(),
-                jobTitle: "Developer",
-                firstName: fristname.value,
-                lastName: lastname.value,
-                profile: "profile",
-                email: email.value,
-                phoneNumber: phoneNo.value.toString(),
-              );
-    } else {
-      print("invalid");
-    }
+    context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
   }
 
   @override
@@ -86,106 +80,109 @@ EmployeeModel(
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 15),
-            CTextField(
-              value: fristname.value,
-              setValue: (passedValue) {
-                setState(() {
-                  fristname = FirstName.dirty(passedValue);
-                });
-              },
-              hintText: "FirstName",
-              errorText: fristname.isNotValid ? "error" : null,
-            ),
-            const SizedBox(height: 15),
-            CTextField(
-              value: lastname.value,
-              setValue: (lastnameValue) {
-                setState(() {
-                  lastname = FirstName.dirty(lastnameValue);
-                });
-              },
-              hintText: "FirstName",
-              errorText: lastname.isNotValid ? "error" : null,
-            ),
-            const SizedBox(height: 15),
-            CTextField(
-              value: email.value,
-              setValue: (emailValue) {
-                setState(() {
-                  email = Email.dirty(emailValue);
-                });
-              },
-              hintText: "Email",
-              errorText: email.isNotValid ? "error" : null,
-            ),
-            const SizedBox(height: 15),
-            CPhoneField(
-              hintText: "phoneNo",
-              setValue: (PhoneNumber phone) {
-                setState(() {
-                  phoneNo = PhoneNo.dirty(phone);
-                });
-              },
-              setValid: (bool? isValidPassed) {
-                setState(() {
-                  isValid = isValidPassed ?? false;
-                });
-              },
-              value: phoneNo.value,
-            ),
-            const SizedBox(height: 15),
-            CTextField(
-              hintText: "Current Address",
-              maxlines: 3,
-              value: currentAddress.value,
-              setValue: (value) {
-                setState(() {
-                  currentAddress = Address.dirty(value);
-                });
-              },
-            ),
-            const SizedBox(height: 15),
-            CTextField(
-              hintText: "Premenent Address",
-              maxlines: 3,
-              value: premenentAddress.value,
-              setValue: (value) {
-                setState(() {
-                  premenentAddress = Address.dirty(value);
-                });
-              },
-            ),
-            const SizedBox(height: 15),
-            CDatePicker(
-              setValue: (value) {
-                setState(() {
-                  startDate = value;
-                });
-              },
-              hintText: 'Start Data',
-            ),
-            const SizedBox(height: 15),
-            CDatePicker(
-              setValue: (value) {
-                setState(() {
-                  endDate = value;
-                });
-              },
-              hintText: 'End Date',
-            ),
-            const SizedBox(height: 15),
-            ElevatedButton(
-              onPressed: () {
-                addEmployee(context);
-              },
-              child: const Text("Save"),
-            )
-          ],
+      body: BlocProvider(
+        create: (context) => EmployeeBloc(httpClient: http.Client()),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 15),
+              CTextField(
+                value: fristname.value,
+                setValue: (passedValue) {
+                  setState(() {
+                    fristname = FirstName.dirty(passedValue);
+                  });
+                },
+                hintText: "FirstName",
+                errorText: fristname.isNotValid ? "error" : null,
+              ),
+              const SizedBox(height: 15),
+              CTextField(
+                value: lastname.value,
+                setValue: (lastnameValue) {
+                  setState(() {
+                    lastname = FirstName.dirty(lastnameValue);
+                  });
+                },
+                hintText: "FirstName",
+                errorText: lastname.isNotValid ? "error" : null,
+              ),
+              const SizedBox(height: 15),
+              CTextField(
+                value: email.value,
+                setValue: (emailValue) {
+                  setState(() {
+                    email = Email.dirty(emailValue);
+                  });
+                },
+                hintText: "Email",
+                errorText: email.isNotValid ? "error" : null,
+              ),
+              const SizedBox(height: 15),
+              CPhoneField(
+                hintText: "phoneNo",
+                setValue: (PhoneNumber phone) {
+                  setState(() {
+                    phoneNo = PhoneNo.dirty(phone);
+                  });
+                },
+                setValid: (bool? isValidPassed) {
+                  setState(() {
+                    isValid = isValidPassed ?? false;
+                  });
+                },
+                value: phoneNo.value,
+              ),
+              const SizedBox(height: 15),
+              CTextField(
+                hintText: "Current Address",
+                maxlines: 3,
+                value: currentAddress.value,
+                setValue: (value) {
+                  setState(() {
+                    currentAddress = Address.dirty(value);
+                  });
+                },
+              ),
+              const SizedBox(height: 15),
+              CTextField(
+                hintText: "Premenent Address",
+                maxlines: 3,
+                value: premenentAddress.value,
+                setValue: (value) {
+                  setState(() {
+                    premenentAddress = Address.dirty(value);
+                  });
+                },
+              ),
+              const SizedBox(height: 15),
+              CDatePicker(
+                setValue: (value) {
+                  setState(() {
+                    startDate = value;
+                  });
+                },
+                hintText: 'Start Data',
+              ),
+              const SizedBox(height: 15),
+              CDatePicker(
+                setValue: (value) {
+                  setState(() {
+                    endDate = value;
+                  });
+                },
+                hintText: 'End Date',
+              ),
+              const SizedBox(height: 15),
+              ElevatedButton(
+                onPressed: () {
+                  addEmployee();
+                },
+                child: const Text("Save"),
+              )
+            ],
+          ),
         ),
       ),
     );
