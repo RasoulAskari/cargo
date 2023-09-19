@@ -43,14 +43,15 @@ class _AddEmployeeState extends State<AddEmployee> {
     return null;
   }
 
-  addEmployee(context) async {
+  Future<void> addEmployee() async {
     if (fristname.isValid &
         lastname.isValid &
         email.isValid &
         phoneNo.isValid) {
-      context.read<EmployeeBloc>().add(
-            AddEmployeeEvent(
-              employee: EmployeeModel(
+      context.read<EmployeeBloc>().add();
+  
+
+EmployeeModel(
                 currentAddress: currentAddress.value,
                 permenentAddress: premenentAddress.value,
                 startDate: startDate.toString(),
@@ -61,9 +62,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                 profile: "profile",
                 email: email.value,
                 phoneNumber: phoneNo.value.toString(),
-              ),
-            ),
-          );
+              );
     } else {
       print("invalid");
     }
