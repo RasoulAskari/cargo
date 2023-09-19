@@ -48,6 +48,22 @@ class _AddEmployeeState extends State<AddEmployee> {
         lastname.isValid &
         email.isValid &
         phoneNo.isValid) {
+      context.read<EmployeeBloc>().add(
+            AddEmployeeEvent(
+              employee: EmployeeModel(
+                currentAddress: currentAddress.value,
+                permenentAddress: premenentAddress.value,
+                startDate: startDate.value,
+                endDate: endDate.value,
+                jobTitle: "Developer",
+                firstName: fristname.value,
+                lastName: lastname.value,
+                profile: "profile",
+                email: email.value,
+                phoneNumber: phoneNo.value.toString(),
+              ),
+            ),
+          );
     } else {
       print("invalid");
     }
