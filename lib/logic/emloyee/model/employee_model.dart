@@ -33,35 +33,31 @@ class EmployeeModel extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      // 'id': id,
-      'first_name': firstName,
-      'last_name': lastName,
+      'firstName': firstName,
+      'lastName': lastName,
       'profile': profile,
       'email': email,
-      'phone_number': phoneNumber,
-      'current_address': currentAddress,
-      'permenent_address': permenentAddress,
-      'employment_start_date': startDate,
-      'employment_end_date': endDate,
-      'job_title': jobTitle,
-      // 'salary': salary,
+      'phoneNumber': phoneNumber,
+      'currentAddress': currentAddress,
+      'permenentAddress': permenentAddress,
+      'startDate': startDate,
+      'endDate': endDate,
+      'jobTitle': jobTitle,
     };
   }
 
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
-      firstName: map['first_name'] as String,
-      // id: int.parse(map['id']),
-      lastName: map['last_name'] as String,
+      firstName: map['firstName'] as String,
+      lastName: map['lastName'] as String,
       profile: map['profile'] as String,
       email: map['email'] as String,
-      phoneNumber: map['phone_number'] as String,
-      currentAddress: map['current_address'] as String,
-      permenentAddress: map['permenent_address'] as String,
-      startDate: map['employment_start_date'] as String,
-      endDate: map['employment_end_date'] as String,
-      jobTitle: map['job_title'] as String,
-      // salary: double.parse(map['salary']),
+      phoneNumber: map['phoneNumber'] as String,
+      currentAddress: map['currentAddress'] as String,
+      permenentAddress: map['permenentAddress'] as String,
+      startDate: map['startDate'] as String,
+      endDate: map['endDate'] as String,
+      jobTitle: map['jobTitle'] as String,
     );
   }
 

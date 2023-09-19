@@ -15,7 +15,7 @@ class UserModel extends Equatable {
     String? email,
   }) {
     return UserModel(
-      id: id ?? this.id,
+      id: id,
       name: name ?? this.name,
       email: email ?? this.email,
     );

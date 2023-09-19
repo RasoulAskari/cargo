@@ -19,11 +19,12 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   Future<void> _onAddEmployees(
       AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
-    try {
-      print(event.employee);
-    } catch (e) {
-      return;
-    }
+    final response = await httpClient.post(
+      getServerRoute(
+        route: '/api/v1/login',
+        params: {},
+      ),
+    );
   }
 
   Future<void> _onEmployeesFetched(
