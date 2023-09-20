@@ -64,6 +64,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
               ),
             ),
             trailing: GestureDetector(
+              onTap: () {
+                print(widget.employee.id);
+              },
               child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
