@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class EmployeeModel extends Equatable {
-  // final int id;
+  final int id;
   final String firstName;
   final String lastName;
   final String profile;
@@ -17,7 +17,7 @@ class EmployeeModel extends Equatable {
   final String jobTitle;
   // final double salary;
   EmployeeModel({
-    // required this.id,
+    required this.id,
     required this.currentAddress,
     required this.permenentAddress,
     required this.startDate,
@@ -33,6 +33,7 @@ class EmployeeModel extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'firstName': firstName,
       'lastName': lastName,
       'profile': profile,
@@ -48,6 +49,7 @@ class EmployeeModel extends Equatable {
 
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
+      id: map['id'] as int,
       firstName: map['first_name'] as String,
       lastName: map['last_name'] as String,
       profile: map['profile'] as String,
@@ -81,7 +83,7 @@ class EmployeeModel extends Equatable {
     double? salary,
   }) {
     return EmployeeModel(
-      // id: id ?? this.id,
+      id: id ?? this.id,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
       profile: profile ?? this.profile,

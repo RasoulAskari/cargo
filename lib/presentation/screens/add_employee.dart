@@ -46,6 +46,7 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   Future<void> addEmployee() async {
     EmployeeModel emp = EmployeeModel(
+      id: 1,
       currentAddress: currentAddress.value,
       permenentAddress: premenentAddress.value,
       startDate: startDate.toString(),
