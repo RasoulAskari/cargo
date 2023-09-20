@@ -40,12 +40,14 @@ class _AddEmployeeState extends State<AddEmployee> {
   }
 
   checkEmployee() {
-    String p = widget.employee!.phoneNumber.substring(0, 3);
-
-    String? pho = PhoneNumber.getISO2CodeByPrefix(p);
-
-    print(pho);
     if (widget.employee != null) {
+      String p = widget.employee!.phoneNumber.substring(0, 3);
+      String s = widget.employee!.phoneNumber.substring(0, 2);
+
+      String? pho = s == "+1"
+          ? PhoneNumber.getISO2CodeByPrefix(s)
+          : PhoneNumber.getISO2CodeByPrefix(p);
+
       setState(() {
         fristname = FirstName.dirty(widget.employee!.firstName);
         lastname = FirstName.dirty(widget.employee!.firstName);

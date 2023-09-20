@@ -37,7 +37,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       final response = await httpClient.post(
         headers: <String, String>{
           'Authorization':
-              'Bearer 144|PCUWRtHloLy4UoNlFrklzPRCbSV0UpLbhsLdgUBs7a059422',
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
         getServerRoute(
           route: '/api/v1/employees',
@@ -76,7 +76,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         ),
         headers: <String, String>{
           'Authorization':
-              'Bearer 144|PCUWRtHloLy4UoNlFrklzPRCbSV0UpLbhsLdgUBs7a059422',
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
 
