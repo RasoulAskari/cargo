@@ -201,7 +201,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               ),
               const SizedBox(height: 15),
               CDatePicker(
-                value: DateTime.now(),
+                value: endDate,
                 setValue: (value) {
                   setState(() {
                     endDate = value;
