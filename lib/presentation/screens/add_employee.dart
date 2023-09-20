@@ -31,6 +31,15 @@ class _AddEmployeeState extends State<AddEmployee> {
   DateTime? endDate;
   bool isValid = false;
 
+  @override
+  void initState() {
+    
+    super.initState();
+  }
+
+
+  
+
   String? getNameError(FullNameValidationError? error) {
     switch (error) {
       case FullNameValidationError.empty:
