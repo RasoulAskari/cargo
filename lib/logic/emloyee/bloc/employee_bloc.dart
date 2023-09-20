@@ -20,23 +20,27 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   Future<void> _onAddEmployees(
       AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
     EmployeeModel employee = event.employee;
+    final data = {
+      'phone_number': employee.phoneNumber,
+      'first_name': employee.firstName,
+      'last_name': employee.lastName,
+      'email': employee.email,
+      'permenent_address': employee.permenentAddress,
+      'current_address': employee.currentAddress,
+      'employment_start_date': employee.startDate,
+      'employment_end_date': employee.endDate,
+      'job_title': "Developer"
+    };
+
     try {
       final response = await httpClient.post(
         headers: <String, String>{
           'Authorization':
-              'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
+              'Bearer 144|PCUWRtHloLy4UoNlFrklzPRCbSV0UpLbhsLdgUBs7a059422',
         },
         getServerRoute(
-          route: '/api/v1/employee',
-          params: {
-            'first_name': employee.firstName,
-            'last_name': employee.lastName,
-            'email': employee.email,
-            'permenent_address': employee.permenentAddress,
-            'current_address': employee.currentAddress,
-            'employment_start_date': employee.startDate,
-            'employment_end_date': employee.endDate,
-          },
+          route: '/api/v1/employees',
+          params: data,
         ),
       );
       print(response.body);
