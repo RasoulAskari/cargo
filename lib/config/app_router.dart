@@ -12,6 +12,7 @@ class AppRouter {
       case "/":
         return MaterialPageRoute(builder: (context) => const MainScreen());
       case addEmployee:
+      
         return MaterialPageRoute(builder: (context) => const AddEmployee());
       case employeeScreen:
         return MaterialPageRoute(builder: (context) => const EmployeeScreen());

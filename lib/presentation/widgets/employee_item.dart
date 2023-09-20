@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,8 @@ class _EmployeeItemState extends State<EmployeeItem> {
             ),
             trailing: GestureDetector(
               onTap: () {
-                print(widget.employee.id);
+                Navigator.of(context)
+                    .pushNamed(addEmployee, arguments: widget.employee);
               },
               child: Container(
                   padding:
