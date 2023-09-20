@@ -7,6 +7,7 @@ import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:cargo/logic/form_models/models.dart';
 import 'package:http/http.dart' as http;
@@ -41,6 +42,10 @@ class _AddEmployeeState extends State<AddEmployee> {
     if (widget.employee != null) {
       setState(() {
         fristname = FirstName.dirty(widget.employee!.firstName);
+        lastname = FirstName.dirty(widget.employee!.firstName);
+        email = Email.dirty(widget.employee!.email);
+        currentAddress = Address.dirty(widget.employee!.currentAddress);
+        premenentAddress = Address.dirty(widget.employee!.permenentAddress);
       });
     }
   }
