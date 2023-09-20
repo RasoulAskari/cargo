@@ -55,6 +55,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       lastName: lastname.value,
       email: email.value,
       phoneNumber: phoneNo.value.toString(),
+      profile: '',
     );
 
     context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
