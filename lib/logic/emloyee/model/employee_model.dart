@@ -48,16 +48,16 @@ class EmployeeModel extends Equatable {
 
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
-      firstName: map['firstName'] as String,
-      lastName: map['lastName'] as String,
+      firstName: map['first_name'] as String,
+      lastName: map['last_name'] as String,
       profile: map['profile'] as String,
       email: map['email'] as String,
-      phoneNumber: map['phoneNumber'] as String,
-      currentAddress: map['currentAddress'] as String,
-      permenentAddress: map['permenentAddress'] as String,
-      startDate: map['startDate'] as String,
-      endDate: map['endDate'] as String,
-      jobTitle: map['jobTitle'] as String,
+      phoneNumber: map['phone_number'] as String,
+      currentAddress: map['current_address'] as String,
+      permenentAddress: map['permenent_address'] as String,
+      startDate: map['employment_start_date'] as String,
+      endDate: map['employment_start_date'] as String,
+      jobTitle: map['job_title'] as String,
     );
   }
 

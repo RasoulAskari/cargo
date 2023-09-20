@@ -14,39 +14,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   EmployeeBloc({required this.httpClient}) : super(const EmployeeState()) {
     on<EmployeesFetched>(_onEmployeesFetched);
-    on<AddEmployeeEvent>(_onAddEmployees);
-  }
-
-  Future<void> _onAddEmployees(
-      AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
-    EmployeeModel employee = event.employee;
-    final data = {
-      'phone_number': employee.phoneNumber,
-      'first_name': employee.firstName,
-      'last_name': employee.lastName,
-      'email': employee.email,
-      'permenent_address': employee.permenentAddress,
-      'current_address': employee.currentAddress,
-      'employment_start_date': employee.startDate,
-      'employment_end_date': employee.endDate,
-      'job_title': "Developer"
-    };
-
-    try {
-      final response = await httpClient.post(
-        headers: <String, String>{
-          'Authorization':
-              'Bearer 144|PCUWRtHloLy4UoNlFrklzPRCbSV0UpLbhsLdgUBs7a059422',
-        },
-        getServerRoute(
-          route: '/api/v1/employees',
-          params: data,
-        ),
-      );
-      print(response.body);
-    } catch (e) {
-      print(e.toString());
-    }
   }
 
   Future<void> _onEmployeesFetched(
@@ -78,7 +45,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         ),
         headers: <String, String>{
           'Authorization':
-              'Bearer 144|PCUWRtHloLy4UoNlFrklzPRCbSV0UpLbhsLdgUBs7a059422',
+              'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
         },
       );
 
@@ -91,7 +58,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       }
       return [];
     } catch (e) {
-      print(e.toString() + 'catch');
+      print(e);
       return [];
     }
   }
