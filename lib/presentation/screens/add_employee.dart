@@ -40,6 +40,11 @@ class _AddEmployeeState extends State<AddEmployee> {
   }
 
   checkEmployee() {
+    String p = widget.employee!.phoneNumber.substring(0, 3);
+
+    String? pho = PhoneNumber.getISO2CodeByPrefix(p);
+
+    print(pho);
     if (widget.employee != null) {
       setState(() {
         fristname = FirstName.dirty(widget.employee!.firstName);
@@ -47,8 +52,8 @@ class _AddEmployeeState extends State<AddEmployee> {
         email = Email.dirty(widget.employee!.email);
         phoneNo = PhoneNo.dirty(PhoneNumber(
             phoneNumber: widget.employee!.phoneNumber,
-            dialCode: "+93",
-            isoCode: "AF"));
+            dialCode: p,
+            isoCode: pho));
         currentAddress = Address.dirty(
           widget.employee!.currentAddress,
         );
