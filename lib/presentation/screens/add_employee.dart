@@ -44,7 +44,13 @@ class _AddEmployeeState extends State<AddEmployee> {
         fristname = FirstName.dirty(widget.employee!.firstName);
         lastname = FirstName.dirty(widget.employee!.firstName);
         email = Email.dirty(widget.employee!.email);
-        currentAddress = Address.dirty(widget.employee!.currentAddress);
+        phoneNo = PhoneNo.dirty(PhoneNumber(
+            phoneNumber: widget.employee!.phoneNumber,
+            dialCode: "+93",
+            isoCode: "AF"));
+        currentAddress = Address.dirty(
+          widget.employee!.currentAddress,
+        );
         premenentAddress = Address.dirty(widget.employee!.permenentAddress);
       });
     }
@@ -75,7 +81,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       firstName: fristname.value,
       lastName: lastname.value,
       email: email.value,
-      phoneNumber: phoneNo.value.toString(),
+      phoneNumber: phoneNo.value.phoneNumber,
       profile: '',
     );
 
@@ -84,7 +90,6 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.employee);
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -184,6 +189,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               ),
               const SizedBox(height: 15),
               CDatePicker(
+                value: startDate,
                 setValue: (value) {
                   setState(() {
                     startDate = value;
@@ -193,6 +199,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               ),
               const SizedBox(height: 15),
               CDatePicker(
+                value: endDate,
                 setValue: (value) {
                   setState(() {
                     endDate = value;
