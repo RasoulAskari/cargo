@@ -13,7 +13,10 @@ class AppRouter {
       case "/":
         return MaterialPageRoute(builder: (context) => const MainScreen());
       case addEmployee:
-        EmployeeModel employee = settings.arguments as EmployeeModel;
+        EmployeeModel? employee;
+        settings.arguments != null
+            ? employee = settings.arguments as EmployeeModel?
+            : null;
         return MaterialPageRoute(
             builder: (context) => AddEmployee(
                   employee: employee,
