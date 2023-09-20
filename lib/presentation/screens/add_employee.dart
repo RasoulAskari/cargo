@@ -53,7 +53,6 @@ class _AddEmployeeState extends State<AddEmployee> {
       jobTitle: "Developer",
       firstName: fristname.value,
       lastName: lastname.value,
-      profile: "profile",
       email: email.value,
       phoneNumber: phoneNo.value.toString(),
     );

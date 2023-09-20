@@ -78,19 +78,20 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         ),
         headers: <String, String>{
           'Authorization':
-              'Bearer 1|NgjRNdzgFryBA3hy0Hs6Kech0PAhnYJcradT32axb7dda787',
+              'Bearer 144|PCUWRtHloLy4UoNlFrklzPRCbSV0UpLbhsLdgUBs7a059422',
         },
       );
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-
+        print(body);
         return body.map((e) {
           return EmployeeModel.fromMap(e);
         }).toList();
       }
       return [];
     } catch (e) {
+      print(e.toString() + 'catch');
       return [];
     }
   }

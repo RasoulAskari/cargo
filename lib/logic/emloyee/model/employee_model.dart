@@ -7,7 +7,7 @@ class EmployeeModel extends Equatable {
   // final int id;
   final String firstName;
   final String lastName;
-  final String profile;
+  // final String profile;
   final String email;
   final String phoneNumber;
   final String currentAddress;
@@ -26,7 +26,7 @@ class EmployeeModel extends Equatable {
     // required this.salary,
     required this.firstName,
     required this.lastName,
-    required this.profile,
+    // required this.profile,
     required this.email,
     required this.phoneNumber,
   });
@@ -35,7 +35,7 @@ class EmployeeModel extends Equatable {
     return <String, dynamic>{
       'firstName': firstName,
       'lastName': lastName,
-      'profile': profile,
+      // 'profile': profile,
       'email': email,
       'phoneNumber': phoneNumber,
       'currentAddress': currentAddress,
@@ -50,7 +50,7 @@ class EmployeeModel extends Equatable {
     return EmployeeModel(
       firstName: map['firstName'] as String,
       lastName: map['lastName'] as String,
-      profile: map['profile'] as String,
+      // profile: map['profile'] as String,
       email: map['email'] as String,
       phoneNumber: map['phoneNumber'] as String,
       currentAddress: map['currentAddress'] as String,
@@ -84,7 +84,7 @@ class EmployeeModel extends Equatable {
       // id: id ?? this.id,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
-      profile: profile ?? this.profile,
+      // profile: profile ?? "this.profile",
       email: email ?? this.email,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       currentAddress: currentAddress ?? this.currentAddress,
@@ -100,7 +100,7 @@ class EmployeeModel extends Equatable {
         // id,
         firstName,
         lastName,
-        profile,
+        // profile,
         email,
         phoneNumber,
         currentAddress,
