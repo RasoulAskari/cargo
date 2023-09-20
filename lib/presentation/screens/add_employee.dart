@@ -33,12 +33,17 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   @override
   void initState() {
-    
+    checkEmployee();
     super.initState();
   }
 
-
-  
+  checkEmployee() {
+    if (widget.employee != null) {
+      setState(() {
+        fristname = FirstName.dirty(widget.employee!.firstName);
+      });
+    }
+  }
 
   String? getNameError(FullNameValidationError? error) {
     switch (error) {
