@@ -52,6 +52,8 @@ class _AddEmployeeState extends State<AddEmployee> {
           widget.employee!.currentAddress,
         );
         premenentAddress = Address.dirty(widget.employee!.permenentAddress);
+        startDate = DateTime.parse(widget.employee!.startDate);
+        endDate = DateTime.parse(widget.employee!.endDate);
       });
     }
   }
@@ -199,7 +201,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               ),
               const SizedBox(height: 15),
               CDatePicker(
-                value: endDate,
+                value: DateTime.now(),
                 setValue: (value) {
                   setState(() {
                     endDate = value;

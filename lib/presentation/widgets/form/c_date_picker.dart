@@ -24,6 +24,9 @@ class _CDatePickerState extends State<CDatePicker> {
   @override
   void initState() {
     setState(() {
+      widget.value != null
+          ? txt.text = widget.value.toString() as String
+          : txt.text;
       _selectedDate = widget.value ?? DateTime.now();
     });
     super.initState();
@@ -59,7 +62,7 @@ class _CDatePickerState extends State<CDatePicker> {
         showModalBottomSheet(
           context: context,
           builder: (context) => CDatePickerBottomSheet(
-            value: _selectedDate,
+            value: widget.value,
             setValue: (DateTime value) {
               setState(() {
                 _selectedDate = value;
