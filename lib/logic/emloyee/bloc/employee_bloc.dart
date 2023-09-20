@@ -44,10 +44,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
-      print(response.body);
-    } catch (e) {
-      print(e.toString());
-    }
+    } catch (e) {}
   }
 
   Future<void> _onEmployeesFetched(
@@ -85,14 +82,13 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
+
         return body.map((e) {
           return EmployeeModel.fromMap(e);
         }).toList();
       }
       return [];
     } catch (e) {
-      print(e.toString() + 'catch');
       return [];
     }
   }

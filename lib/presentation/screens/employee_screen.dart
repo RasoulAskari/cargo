@@ -49,6 +49,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               child: CircularProgressIndicator(),
             );
           }
+
           return ListView.builder(
               itemCount: state.employees.length,
               itemBuilder: (context, index) {
