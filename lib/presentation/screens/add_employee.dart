@@ -13,7 +13,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddEmployee extends StatefulWidget {
-  const AddEmployee({super.key});
+  final EmployeeModel? employee;
+  const AddEmployee({super.key, this.employee});
 
   @override
   State<AddEmployee> createState() => _AddEmployeeState();
