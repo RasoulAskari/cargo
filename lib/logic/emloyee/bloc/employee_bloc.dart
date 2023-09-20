@@ -28,6 +28,15 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         },
         getServerRoute(
           route: '/api/v1/employee',
+          params: {
+            'first_name': employee.firstName,
+            'last_name': employee.lastName,
+            'email': employee.email,
+            'permenent_address': employee.permenentAddress,
+            'current_address': employee.currentAddress,
+            'employment_start_date': employee.startDate,
+            'employment_end_date': employee.endDate,
+          },
         ),
       );
       print(response.body);
