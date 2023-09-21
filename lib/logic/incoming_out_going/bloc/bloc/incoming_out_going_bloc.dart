@@ -48,7 +48,7 @@ class IncomingOutGoingBloc
     try {
       final response = await httpClient.get(
         getServerRoute(
-          route: '/api/v1/incoming_out_going',
+          route: '/api/v1/income-outgoing',
         ),
         headers: <String, String>{
           'Authorization':
