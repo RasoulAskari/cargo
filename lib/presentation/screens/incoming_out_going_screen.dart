@@ -1,4 +1,6 @@
+import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IncomingOutGoingScreen extends StatefulWidget {
   const IncomingOutGoingScreen({super.key});
@@ -35,6 +37,11 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
+      ),
+      body: BlocBuilder<IncomingOutGoingBloc, IncomingOutGoingState>(
+        builder: (context, state) {
+          return Center(child: Text("Incoming out going screen"));
+        },
       ),
     );
   }
