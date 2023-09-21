@@ -9,9 +9,9 @@ class IncomingOutGoing extends Equatable {
   final String name;
   final String type;
   final double amount;
-  final UserModel user;
+  final UserModel createdBy;
 
-  IncomingOutGoing(this.name, this.type, this.amount, this.user);
+  IncomingOutGoing(this.name, this.type, this.amount, this.createdBy);
 
   @override
   // TODO: implement props
@@ -22,7 +22,7 @@ class IncomingOutGoing extends Equatable {
       'name': name,
       'type': type,
       'amount': amount,
-      'user': user.toMap(),
+      'created_by': createdBy.toMap(),
     };
   }
 
@@ -31,7 +31,7 @@ class IncomingOutGoing extends Equatable {
       map['name'] as String,
       map['type'] as String,
       map['amount'] as double,
-      UserModel.fromMap(map['user'] as Map<String, dynamic>),
+      UserModel.fromMap(map['created_by'] as Map<String, dynamic>),
     );
   }
 
