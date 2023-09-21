@@ -17,9 +17,7 @@ class IncomingOutGoingBloc
 
   IncomingOutGoingBloc({required this.httpClient})
       : super(const IncomingOutGoingState()) {
-    on<IncomingOutGoingEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<IncomingOutGoingFetchEvent>(_onIncomingOutGoingEvent);
   }
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
