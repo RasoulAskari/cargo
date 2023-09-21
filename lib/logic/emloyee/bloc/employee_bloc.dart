@@ -35,13 +35,13 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      final response = await httpClient.post(
+      final response = await httpClient.put(
         headers: <String, String>{
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
         getServerRoute(
-          route: '/api/v1/employees',
+          route: '/api/v1/employees/${event.employee.id}',
           params: data,
         ),
       );
