@@ -50,7 +50,7 @@ class _AddEmployeeState extends State<AddEmployee> {
 
       setState(() {
         fristname = FirstName.dirty(widget.employee!.firstName);
-        lastname = FirstName.dirty(widget.employee!.firstName);
+        lastname = FirstName.dirty(widget.employee!.lastName);
         email = Email.dirty(widget.employee!.email);
         phoneNo = PhoneNo.dirty(PhoneNumber(
             phoneNumber: widget.employee!.phoneNumber,
