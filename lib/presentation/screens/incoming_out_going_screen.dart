@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class IncomingOutGoing extends StatefulWidget {
-  const IncomingOutGoing({super.key});
+class IncomingOutGoingScreen extends StatefulWidget {
+  const IncomingOutGoingScreen({super.key});
 
   @override
-  State<IncomingOutGoing> createState() => _IncomingOutGoingState();
+  State<IncomingOutGoingScreen> createState() => _IncomingOutGoingScreenState();
 }
 
-class _IncomingOutGoingState extends State<IncomingOutGoing> {
+class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

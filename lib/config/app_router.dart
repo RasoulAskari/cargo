@@ -28,7 +28,7 @@ class AppRouter {
         );
       case addIncomingOutGoing:
         return MaterialPageRoute(
-          builder: (context) => const IncomingOutGoing(),
+          builder: (context) => const IncomingOutGoingScreen(),
         );
       default:
         return null;
