@@ -1,4 +1,5 @@
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
+import 'package:cargo/presentation/widgets/incoming_out_going_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,7 +47,14 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
             );
           }
 
-          return Center(child: Text(state.incoming_out_going.first.toString()));
+          return ListView.builder(
+            itemCount: state.incoming_out_going.length,
+            itemBuilder: (context, index) {
+              return IncomingOutGoingItem(
+                item: state.incoming_out_going[index],
+              );
+            },
+          );
         },
       ),
     );
