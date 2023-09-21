@@ -6,11 +6,12 @@ class IncomingOutGoing extends Equatable {
   final double amount;
   final Map<String, dynamic> createdBy;
 
-  IncomingOutGoing(
-      {required this.name,
-      required this.type,
-      required this.amount,
-      required this.createdBy});
+  IncomingOutGoing({
+    required this.name,
+    required this.type,
+    required this.amount,
+    required this.createdBy,
+  });
 
   @override
   // TODO: implement props
