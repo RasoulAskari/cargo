@@ -14,3 +14,9 @@ class AddEmployeeEvent extends EmployeeEvent {
 
   AddEmployeeEvent({required this.employee});
 }
+
+class EditEmployeeEvent extends EmployeeEvent {
+  final EmployeeModel employee;
+
+  EditEmployeeEvent({required this.employee});
+}
