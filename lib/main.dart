@@ -29,6 +29,6 @@ class MyApp extends StatelessWidget {
           httpClient: http.Client(),
         )..add(IncomingOutGoingFetchEvent()),
       ),
-    ], child: CargoApp());
+    ], child: const CargoApp());
   }
 }
