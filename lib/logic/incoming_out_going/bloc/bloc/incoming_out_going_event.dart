@@ -6,3 +6,5 @@ sealed class IncomingOutGoingEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class IncomingOutGoingFetchEvent extends IncomingOutGoingEvent {}
