@@ -35,11 +35,11 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   @override
   void initState() {
-    checkEmployee();
+    _checkEmployee();
     super.initState();
   }
 
-  checkEmployee() {
+  _checkEmployee() {
     if (widget.employee != null) {
       String p = widget.employee!.phoneNumber.substring(0, 3);
       String s = widget.employee!.phoneNumber.substring(0, 2);
@@ -82,7 +82,7 @@ class _AddEmployeeState extends State<AddEmployee> {
     return null;
   }
 
-  Future<void> addEmployee() async {
+  Future<void> _addEmployee() async {
     EmployeeModel emp = EmployeeModel(
       id: 1,
       currentAddress: currentAddress.value,
@@ -222,7 +222,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               const SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
-                  widget.employee == null ? addEmployee() : () {};
+                  widget.employee == null ? _addEmployee() : () {};
                 },
                 child: Text(widget.employee == null ? "Add" : "Edit"),
               )
