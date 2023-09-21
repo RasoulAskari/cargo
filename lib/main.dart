@@ -1,5 +1,6 @@
 import 'package:cargo/app.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,11 @@ class MyApp extends StatelessWidget {
         create: (context) => EmployeeBloc(
           httpClient: http.Client(),
         )..add(EmployeesFetched()),
+      ),
+      BlocProvider<IncomingOutGoingBloc>(
+        create: (context) => IncomingOutGoingBloc(
+          httpClient: http.Client(),
+        )..add(IncomingOutGoingFetchEvent()),
       ),
     ], child: CargoApp());
   }
