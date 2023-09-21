@@ -220,7 +220,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               const SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
-                  addEmployee();
+                  widget.employee == null ? addEmployee() : () {};
                 },
                 child: Text(widget.employee == null ? "Add" : "Edit"),
               )
