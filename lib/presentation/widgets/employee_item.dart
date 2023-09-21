@@ -16,7 +16,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(right: 15),
+          padding: const EdgeInsets.only(right: 15),
           height: 100,
           decoration: const BoxDecoration(
             color: Colors.white,
