@@ -222,7 +222,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                 onPressed: () {
                   addEmployee();
                 },
-                child: const Text("Save"),
+                child: Text(widget.employee != null ? "Add" : "Edit"),
               )
             ],
           ),
