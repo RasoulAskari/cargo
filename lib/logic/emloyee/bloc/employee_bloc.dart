@@ -17,6 +17,36 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     on<AddEmployeeEvent>(_onAddEmployees);
   }
 
+  Future<void> _onEditEmployees(
+      EditEmployeeEvent event, Emitter<EmployeeState> emitter) async {
+    EmployeeModel employee = event.employee;
+    final data = {
+      'phone_number': employee.phoneNumber,
+      'first_name': employee.firstName,
+      'last_name': employee.lastName,
+      'email': employee.email,
+      'permenent_address': employee.permenentAddress,
+      'current_address': employee.currentAddress,
+      'employment_start_date': employee.startDate,
+      'employment_end_date': employee.endDate,
+      'job_title': "Developer",
+      'profile': "Sha Rasoul"
+    };
+
+    try {
+      final response = await httpClient.post(
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+        getServerRoute(
+          route: '/api/v1/employees',
+          params: data,
+        ),
+      );
+    } catch (e) {}
+  }
+
   Future<void> _onAddEmployees(
       AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
     EmployeeModel employee = event.employee;
