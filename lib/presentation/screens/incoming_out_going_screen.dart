@@ -40,6 +40,11 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
       ),
       body: BlocBuilder<IncomingOutGoingBloc, IncomingOutGoingState>(
         builder: (context, state) {
+          if (state.status == IncomingOutGoingStatus.initial) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return Center(child: Text("Incoming out going screen"));
         },
       ),
