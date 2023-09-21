@@ -49,6 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
           widget.isLogin();
         }
       },
+      {
+        'name': 'Incoming  \n Out Going',
+        'image': "",
+        'function': () async {
+          final res = await _storage.delete(key: 'token');
+          widget.isLogin();
+        }
+      },
     ];
 
     return Scaffold(
