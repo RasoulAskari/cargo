@@ -22,7 +22,7 @@ class IncomingOutGoing extends Equatable {
       'name': name,
       'type': type,
       'amount': amount,
-      'created_by': createdBy.toMap(),
+      'user': createdBy.toMap(),
     };
   }
 
@@ -31,7 +31,7 @@ class IncomingOutGoing extends Equatable {
       map['name'] as String,
       map['type'] as String,
       map['amount'] as double,
-      UserModel.fromMap(map['created_by'] as Map<String, dynamic>),
+      UserModel.fromMap(map['user'] as Map<String, dynamic>),
     );
   }
 

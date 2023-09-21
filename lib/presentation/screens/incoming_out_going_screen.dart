@@ -45,7 +45,8 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
               child: CircularProgressIndicator(),
             );
           }
-          return const Center(child: Text("Incoming out going screen"));
+
+          return Center(child: Text(state.incoming_out_going.first.toString()));
         },
       ),
     );
