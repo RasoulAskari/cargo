@@ -80,6 +80,8 @@ class _AddEmployeeState extends State<AddEmployee> {
       phoneNumber: phoneNo.value.phoneNumber,
       profile: '',
     );
+
+    context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
   }
 
   String? getNameError(FullNameValidationError? error) {
