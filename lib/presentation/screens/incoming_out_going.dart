@@ -31,7 +31,7 @@ class _IncomingOutGoingState extends State<IncomingOutGoing> {
             )),
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Employee Screen",
+          "Incoming Out Going",
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
