@@ -102,6 +102,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
+    print("em");
     try {
       final response = await httpClient.get(
         getServerRoute(
