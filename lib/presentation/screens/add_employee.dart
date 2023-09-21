@@ -66,6 +66,8 @@ class _AddEmployeeState extends State<AddEmployee> {
     }
   }
 
+  Future<void> _editEmployee() async {}
+
   String? getNameError(FullNameValidationError? error) {
     switch (error) {
       case FullNameValidationError.empty:
