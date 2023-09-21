@@ -76,7 +76,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                       color: const Color(0x55ff711b),
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
-                    'More',
+                    'Edit',
                     style: TextStyle(color: Theme.of(context).primaryColor),
                   )),
             ),
