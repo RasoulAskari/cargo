@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cargo/presentation/screens/incoming_out_going.dart';
 import 'package:equatable/equatable.dart';
 
 part 'incoming_out_going_event.dart';
