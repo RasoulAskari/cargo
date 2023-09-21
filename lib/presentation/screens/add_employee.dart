@@ -66,7 +66,21 @@ class _AddEmployeeState extends State<AddEmployee> {
     }
   }
 
-  Future<void> _editEmployee() async {}
+  Future<void> _editEmployee() async {
+    EmployeeModel emp = EmployeeModel(
+      id: widget.employee!.id,
+      currentAddress: currentAddress.value,
+      permenentAddress: premenentAddress.value,
+      startDate: startDate.toString(),
+      endDate: endDate.toString(),
+      jobTitle: "Developer",
+      firstName: fristname.value,
+      lastName: lastname.value,
+      email: email.value,
+      phoneNumber: phoneNo.value.phoneNumber,
+      profile: '',
+    );
+  }
 
   String? getNameError(FullNameValidationError? error) {
     switch (error) {
