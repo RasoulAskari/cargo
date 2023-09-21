@@ -45,7 +45,9 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> _onAddEmployees(
