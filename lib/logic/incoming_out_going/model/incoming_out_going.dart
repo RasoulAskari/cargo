@@ -30,7 +30,7 @@ class IncomingOutGoing extends Equatable {
     return IncomingOutGoing(
       map['name'] as String,
       map['type'] as String,
-      map['amount'] as double,
+      double.parse(map['amount'].toString()),
       UserModel.fromMap(map['user'] as Map<String, dynamic>),
     );
   }

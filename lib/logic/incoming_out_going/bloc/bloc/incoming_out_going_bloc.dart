@@ -57,9 +57,9 @@ class IncomingOutGoingBloc
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         print(body);
-        // return body.map((e) {
-        //   return IncomingOutGoing.fromMap(e);
-        // }).toList();
+        return body.map((e) {
+          return IncomingOutGoing.fromMap(e);
+        }).toList();
       }
       return [];
     } catch (e) {
