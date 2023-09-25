@@ -74,7 +74,6 @@ class _LoginScreenState extends State<LoginScreen> {
             onPressed: () {
               check().then((value) async {
                 final res = await _storage.read(key: 'token');
-                print(res.toString());
                 widget.isLogin();
               });
             },

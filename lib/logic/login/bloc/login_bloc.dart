@@ -23,6 +23,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Future<void> _onLoginningEvent(
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     if (state.hasReachedMax) return;
+  
   }
 
   Future<UserModel?> _userLogin(String email, String password) async {
