@@ -65,13 +65,19 @@ class _CDropdownBottomSheetState extends State<CDropdownBottomSheet> {
                           Navigator.of(context).pop();
                         },
                         leading: Icon(
-                          item['value'] == value ? Icons.check_sharp : Icons.location_city_outlined,
-                          color: item['value'] == value ? Theme.of(context).colorScheme.primary : null,
+                          item['value'] == value
+                              ? Icons.check_sharp
+                              : Icons.location_city_outlined,
+                          color: item['value'] == value
+                              ? Theme.of(context).colorScheme.primary
+                              : null,
                         ),
                         title: Text(
                           item['label'] ?? '',
                           style: TextStyle(
-                            color: item['value'] == value ? Theme.of(context).colorScheme.primary : null,
+                            color: item['value'] == value
+                                ? Theme.of(context).colorScheme.primary
+                                : null,
                           ),
                         ),
                       );
