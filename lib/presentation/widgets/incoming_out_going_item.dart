@@ -16,7 +16,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
       children: [
         Container(
           padding: const EdgeInsets.only(right: 15),
-          height: 100,
+          height: 80,
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
