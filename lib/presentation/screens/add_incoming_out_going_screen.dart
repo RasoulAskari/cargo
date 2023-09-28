@@ -11,6 +11,10 @@ class AddIncomingOutGoingScreen extends StatefulWidget {
 class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Add Incoming Out Going"),
+      ),
+    );
   }
 }
