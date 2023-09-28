@@ -31,6 +31,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const AddIncomingOutGoingScreen(),
         );
+      case inconingOutGoingScreen :
+        return MaterialPageRoute(
+          builder: (context) => const IncomingOutGoingScreen(),
+        );
       default:
         return null;
     }
