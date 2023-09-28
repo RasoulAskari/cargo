@@ -24,7 +24,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Add Employee",
+          "Add Incoming Out Going",
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
