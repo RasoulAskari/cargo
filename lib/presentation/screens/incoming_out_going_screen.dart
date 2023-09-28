@@ -16,6 +16,7 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         actions: [
           IconButton(
               onPressed: () {
@@ -35,7 +36,6 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
               Icons.arrow_back_ios,
               color: Colors.white,
             )),
-        backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
           "Incoming Out Going",
           style: TextStyle(
