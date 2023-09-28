@@ -50,6 +50,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               CDropdown(
+                hintText: "Type",
                 setValue: (value) {},
                 items: const [
                   {'value': 'incoming', 'label': 'Incoming'},
