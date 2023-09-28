@@ -35,14 +35,17 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            CDatePicker(setValue: (value) {
-              setState(() {
-                _date = value;
-              });
-            })
-          ],
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          child: Column(
+            children: [
+              CDatePicker(setValue: (value) {
+                setState(() {
+                  _date = value;
+                });
+              })
+            ],
+          ),
         ));
   }
 }
