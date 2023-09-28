@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': 'Incoming  \n Out Going',
         'image': "",
         'function': () async {
-          Navigator.of(context).pushNamed(addIncomingOutGoing);
+          Navigator.of(context).pushNamed(inconingOutGoingScreen);
         }
       },
     ];
