@@ -50,7 +50,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               CDropdown(
                 setValue: (value) {},
-                items: const ['Incoming', 'Outgoing'],
+                items: const [
+                  {'value': 'incoming', 'label': 'Incoming'},
+                  {'value': 'outgoing', 'label': 'Outgoing'},
+                ],
               )
             ],
           ),
