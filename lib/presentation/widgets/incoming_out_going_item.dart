@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:flutter/material.dart';
 
@@ -65,8 +66,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
             ),
             trailing: GestureDetector(
               onTap: () {
-                //   Navigator.of(context)
-                //       .pushNamed(addEmployee, arguments: widget.employee);
+                Navigator.of(context).pushNamed(addIncomingOutGoing);
               },
               child: Container(
                   padding:
