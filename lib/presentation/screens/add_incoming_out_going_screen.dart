@@ -49,7 +49,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 hintText: "Register Date",
               ),
               CDropdown(
-                  setValue: (value) {}, items: const ['Incoming', 'Outgoing'])
+                setValue: (value) {},
+                items: const ['Incoming', 'Outgoing'],
+              )
             ],
           ),
         ));
