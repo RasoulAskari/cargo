@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/presentation/widgets/incoming_out_going_item.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,9 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(addIncomingOutGoing);
+              },
               icon: const Icon(
                 Icons.add,
                 color: Colors.white,
