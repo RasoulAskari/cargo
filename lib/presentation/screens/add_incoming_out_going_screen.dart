@@ -1,4 +1,5 @@
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
+import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class AddIncomingOutGoingScreen extends StatefulWidget {
@@ -46,7 +47,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                   });
                 },
                 hintText: "Register Date",
-              )
+              ),
+              CDropdown(
+                  setValue: (value) {}, items: const ['Incoming', 'Outgoing'])
             ],
           ),
         ));
