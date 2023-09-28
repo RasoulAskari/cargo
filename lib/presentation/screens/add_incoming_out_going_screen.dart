@@ -39,11 +39,14 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           child: Column(
             children: [
-              CDatePicker(setValue: (value) {
-                setState(() {
-                  _date = value;
-                });
-              })
+              CDatePicker(
+                setValue: (value) {
+                  setState(() {
+                    _date = value;
+                  });
+                },
+                hintText: "Register Date",
+              )
             ],
           ),
         ));
