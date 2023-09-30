@@ -2,6 +2,7 @@ import 'package:cargo/presentation/widgets/amount.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/incoming_out_going_type.dart';
 import 'package:flutter/material.dart';
 
 class AddIncomingOutGoingScreen extends StatefulWidget {
@@ -15,10 +16,8 @@ class AddIncomingOutGoingScreen extends StatefulWidget {
 class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
   Amount amount = const Amount.pure();
-
-  _addIncoming() {
-        
-  }
+  IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
+  _addIncoming() {}
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
             const SizedBox(height: 15),
             CDropdown(
               hintText: "Type",
-              setValue: (value) {},
+              setValue: (value) {
+                incomingOutGoingType = IncomingOutGoingType.dirty(value);
+              },
               items: const [
                 {
                   'value': 'incoming',
