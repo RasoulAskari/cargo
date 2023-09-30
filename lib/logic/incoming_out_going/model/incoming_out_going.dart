@@ -11,32 +11,38 @@ class IncomingOutGoing extends Equatable {
   final double amount;
   final UserModel createdBy;
 
-  IncomingOutGoing(this.name, this.type, this.amount, this.createdBy);
+  const IncomingOutGoing({
+    required this.name,
+    required this.type,
+    required this.amount,
+    required this.createdBy,
+  });
 
   @override
   // TODO: implement props
   List<Object?> get props => [name, type, amount, createdBy];
+
+
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
       'type': type,
       'amount': amount,
-      'user': createdBy.toMap(),
+      'createdBy': createdBy.toMap(),
     };
   }
 
   factory IncomingOutGoing.fromMap(Map<String, dynamic> map) {
     return IncomingOutGoing(
-      map['name'] as String,
-      map['type'] as String,
-      double.parse(map['amount'].toString()),
-      UserModel.fromMap(map['user'] as Map<String, dynamic>),
+      name: map['name'] as String,
+      type: map['type'] as String,
+      amount: map['amount'] as double,
+      createdBy: UserModel.fromMap(map['createdBy'] as Map<String,dynamic>),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory IncomingOutGoing.fromJson(String source) =>
-      IncomingOutGoing.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory IncomingOutGoing.fromJson(String source) => IncomingOutGoing.fromMap(json.decode(source) as Map<String, dynamic>);
 }
