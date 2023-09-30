@@ -18,6 +18,7 @@ class IncomingOutGoingBloc
   IncomingOutGoingBloc({required this.httpClient})
       : super(const IncomingOutGoingState()) {
     on<IncomingOutGoingFetchEvent>(_onIncomingOutGoingEvent);
+    on<AddIncomingOutGoingEvent>(_onAddIncomingOutGoingEvent);
   }
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
@@ -38,6 +39,17 @@ class IncomingOutGoingBloc
           ),
         );
       }
+    } catch (e) {
+      return;
+    }
+  }
+
+  Future<void> _onAddIncomingOutGoingEvent(AddIncomingOutGoingEvent event,
+      Emitter<IncomingOutGoingState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    try {
+      print(event.incomingOutGoing);
     } catch (e) {
       return;
     }
