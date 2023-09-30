@@ -66,7 +66,7 @@ class IncomingOutGoingBloc
         ),
         body: jsonEncode(data),
       );
-      print(response);
+      print(response.body);
     } catch (e) {
       print(e.toString());
       return;
