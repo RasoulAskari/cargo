@@ -9,6 +9,7 @@ class CTextField extends StatefulWidget {
   final String? errorText;
   final int? maxlines;
   final Color? errorColor;
+  final TextInputType? textInputType;
   const CTextField({
     super.key,
     required this.value,
@@ -17,6 +18,7 @@ class CTextField extends StatefulWidget {
     this.errorText,
     this.maxlines,
     this.errorColor,
+    this.textInputType,
   });
 
   @override
@@ -34,6 +36,7 @@ class _CTextFieldState extends State<CTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: widget.textInputType,
       maxLines: widget.maxlines,
       controller: _controller,
       decoration: InputDecoration(
