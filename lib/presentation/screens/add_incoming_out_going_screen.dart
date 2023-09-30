@@ -16,6 +16,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
   Amount amount = const Amount.pure();
 
+  _addIncoming() {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +79,13 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 int intValue = int.parse(value);
                 amount = Amount.dirty(intValue);
               },
+            ),
+            const SizedBox(height: 15),
+            ElevatedButton(
+              onPressed: () {
+                _addIncoming();
+              },
+              child: const Text("Add"),
             )
           ],
         ),

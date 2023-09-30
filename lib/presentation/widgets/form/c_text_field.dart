@@ -9,7 +9,7 @@ class CTextField extends StatefulWidget {
   final String? errorText;
   final int? maxlines;
   final Color? errorColor;
-  final TextInputType? textInputType;
+  final TextInputType? textInputType; 
   const CTextField({
     super.key,
     required this.value,
@@ -17,8 +17,7 @@ class CTextField extends StatefulWidget {
     this.hintText,
     this.errorText,
     this.maxlines,
-    this.errorColor,
-    this.textInputType,
+    this.errorColor, this.textInputType,
   });
 
   @override
