@@ -49,7 +49,11 @@ class IncomingOutGoingBloc
     if (state.hasReachedMax) return;
 
     try {
-      print(event.incomingOutGoing);
+      final data = {
+        'name': event.incomingOutGoing.name,
+        'type': event.incomingOutGoing.type,
+        'amount': event.incomingOutGoing.amount,
+      };
     } catch (e) {
       return;
     }
