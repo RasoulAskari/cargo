@@ -17,7 +17,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
   Amount amount = const Amount.pure();
   IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
-  _addIncoming() {}
+  _addIncoming() {
+    
+  }
 
   @override
   Widget build(BuildContext context) {

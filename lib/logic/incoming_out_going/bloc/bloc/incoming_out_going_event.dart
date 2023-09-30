@@ -8,3 +8,9 @@ sealed class IncomingOutGoingEvent extends Equatable {
 }
 
 class IncomingOutGoingFetchEvent extends IncomingOutGoingEvent {}
+
+class AddIncomingOutGoingEvent extends IncomingOutGoingEvent {
+  final IncomingOutGoing incomingOutGoing;
+
+  AddIncomingOutGoingEvent({required this.incomingOutGoing});
+}
