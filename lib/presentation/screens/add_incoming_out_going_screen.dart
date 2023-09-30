@@ -66,7 +66,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 },
               ],
             ),
+            const SizedBox(height: 15),
             CTextField(
+              hintText: "Amount ",
               value: amount.value.toString(),
               setValue: (value) {
                 amount = Amount.dirty(value);
