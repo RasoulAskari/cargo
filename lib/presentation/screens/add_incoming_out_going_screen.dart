@@ -34,7 +34,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
 
     context.read<IncomingOutGoingBloc>().add(
           AddIncomingOutGoingEvent(
-               incomingOutGoing: _incomingOutGoing, date: _date),
+              incomingOutGoing: _incomingOutGoing, date: _date),
         );
   }
 
@@ -100,8 +100,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 hintText: "Amount",
                 value: amount.value.toString(),
                 setValue: (value) {
-                  int intValue = int.parse(value);
-                  amount = Amount.dirty(intValue);
+                  try {
+                    int intValue = int.parse(value);
+                    amount = Amount.dirty(intValue);
+                  } catch (e) {}
                 },
               ),
               const SizedBox(height: 15),
