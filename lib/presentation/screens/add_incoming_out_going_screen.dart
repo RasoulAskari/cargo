@@ -1,3 +1,4 @@
+import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/presentation/widgets/amount.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -17,7 +18,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
   Amount amount = const Amount.pure();
   IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
-  Future<void> _addIncoming() async {}
+  Future<void> _addIncoming() async {
+    // IncomingOutGoing incomingOutGoing = IncomingOutGoing(, type, amount, createdBy)
+  }
 
   @override
   Widget build(BuildContext context) {
