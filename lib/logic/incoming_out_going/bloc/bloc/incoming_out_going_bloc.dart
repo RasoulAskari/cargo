@@ -23,7 +23,6 @@ class IncomingOutGoingBloc
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
-    print('start');
     if (state.hasReachedMax) return;
 
     try {
@@ -49,21 +48,33 @@ class IncomingOutGoingBloc
     if (state.hasReachedMax) return;
     IncomingOutGoing incoming = event.incomingOutGoing;
     final data = {
-      'name': incoming.name,
-      'type': incoming.type,
-      'amount': double.parse(incoming.amount.toString()),
+      'name': incoming.name.toString(),
+      'type': incoming.type.toString(),
+      'amount': incoming.amount,
       "created_by": incoming.createdBy.id
     };
 
+    print(data);
+
     try {
-      final response = await httpClient.post(
+      // final response = await httpClient.post(
+      //   headers: <String, String>{
+      //     'Authorization':
+      //         'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      //   },
+      //   getServerRoute(
+      //     route: '/api/v1/income-outgoing',
+      //     params: data,
+      //   ),
+      // );
+
+      final response = await http.post(
+        Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
         headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
-        getServerRoute(
-          route: '/api/v1/income-outgoing',
-        ),
         body: jsonEncode(data),
       );
       print(response.body);
@@ -86,7 +97,7 @@ class IncomingOutGoingBloc
       );
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
+
         return body.map((e) {
           return IncomingOutGoing.fromMap(e);
         }).toList();
