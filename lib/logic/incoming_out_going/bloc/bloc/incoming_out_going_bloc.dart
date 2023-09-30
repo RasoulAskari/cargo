@@ -47,16 +47,15 @@ class IncomingOutGoingBloc
   Future<void> _onAddIncomingOutGoingEvent(AddIncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
     if (state.hasReachedMax) return;
+    IncomingOutGoing incoming = event.incomingOutGoing;
+    final data = {
+      'name': incoming.name,
+      'type': incoming.type,
+      'amount': double.parse(incoming.amount.toString()),
+      "created_by": incoming.createdBy.id
+    };
 
     try {
-      final data = {
-        'name': event.incomingOutGoing.name,
-        'type': event.incomingOutGoing.type,
-        'amount': event.incomingOutGoing.amount,
-        "created_by": event.incomingOutGoing.createdBy.id
-      };
-
-
       final response = await httpClient.post(
         headers: <String, String>{
           'Authorization':
@@ -64,9 +63,10 @@ class IncomingOutGoingBloc
         },
         getServerRoute(
           route: '/api/v1/income-outgoing',
-          params: data,
         ),
+        body: jsonEncode(data),
       );
+      print(response);
     } catch (e) {
       print(e.toString());
       return;
