@@ -14,6 +14,7 @@ class AddIncomingOutGoingScreen extends StatefulWidget {
 
 class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
+  Amount amount = const Amount.pure();
 
   @override
   Widget build(BuildContext context) {
