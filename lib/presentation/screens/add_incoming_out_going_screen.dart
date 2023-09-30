@@ -1,4 +1,5 @@
 import 'package:cargo/logic/form_models/full_name.dart';
+import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/logic/login/user_model.dart';
 import 'package:cargo/presentation/widgets/amount.dart';
@@ -22,12 +23,16 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   Amount amount = const Amount.pure();
   IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
   Future<void> _addIncoming() async {
-    IncomingOutGoing incomingOutGoing = IncomingOutGoing(
+    IncomingOutGoing _incomingOutGoing = IncomingOutGoing(
       name: name.value,
       type: incomingOutGoingType.value,
       amount: double.parse(amount.value.toString()),
       createdBy: UserModel(email: "admin@admin.com", name: "admin", id: 1),
     );
+
+    context.read<IncomingOutGoingBloc>().add(
+          AddIncomingOutGoingEvent(incomingOutGoing: _incomingOutGoing),
+        );
   }
 
   @override
