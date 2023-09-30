@@ -104,6 +104,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 },
               ),
               const SizedBox(height: 15),
+              CTextField(value: name.value, setValue: (value) {}),
+              SizedBox(
+                height: 15,
+              ),
               ElevatedButton(
                 onPressed: () {
                   _addIncoming();
