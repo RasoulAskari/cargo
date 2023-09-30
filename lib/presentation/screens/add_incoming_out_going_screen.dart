@@ -17,7 +17,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   Amount amount = const Amount.pure();
 
   _addIncoming() {
-    
+        
   }
 
   @override
