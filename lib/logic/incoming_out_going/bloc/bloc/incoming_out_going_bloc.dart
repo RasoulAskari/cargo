@@ -53,8 +53,20 @@ class IncomingOutGoingBloc
         'name': event.incomingOutGoing.name,
         'type': event.incomingOutGoing.type,
         'amount': event.incomingOutGoing.amount,
+        "created_by": event.incomingOutGoing.createdBy.id
       };
+      final response = await httpClient.post(
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+        getServerRoute(
+          route: '/api/v1/income-outgoing',
+          params: data,
+        ),
+      );
     } catch (e) {
+      print(e.toString());
       return;
     }
   }
