@@ -57,17 +57,6 @@ class IncomingOutGoingBloc
     print(data);
 
     try {
-      // final response = await httpClient.post(
-      //   headers: <String, String>{
-      //     'Authorization':
-      //         'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
-      //   },
-      //   getServerRoute(
-      //     route: '/api/v1/income-outgoing',
-      //     params: data,
-      //   ),
-      // );
-
       final response = await http.post(
         Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
         headers: <String, String>{
@@ -77,9 +66,7 @@ class IncomingOutGoingBloc
         },
         body: jsonEncode(data),
       );
-      print(response.body);
     } catch (e) {
-      print(e.toString());
       return;
     }
   }
