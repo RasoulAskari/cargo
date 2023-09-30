@@ -1,3 +1,4 @@
+import 'package:cargo/presentation/widgets/amount.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';

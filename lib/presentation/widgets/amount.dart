@@ -2,18 +2,16 @@ import 'package:formz/formz.dart';
 
 enum AmountValidationError { empty, min, max }
 
-class Amount extends FormzInput<String, AmountValidationError> {
-  const Amount.pure() : super.pure('');
-  const Amount.dirty([super.value = '']) : super.dirty();
+class Amount extends FormzInput<int, AmountValidationError> {
+  const Amount.pure() : super.pure(1);
+  const Amount.dirty([super.value = 1]) : super.dirty();
 
   @override
-  AmountValidationError? validator(String value) {
-    if (value.isEmpty) {
+  AmountValidationError? validator(int value) {
+    if (value == null) {
       return AmountValidationError.empty;
-    } else if (value.length < 6) {
+    } else if (value < 0) {
       return AmountValidationError.min;
-    } else if (value.length > 32) {
-      return AmountValidationError.max;
     }
     return null;
   }
