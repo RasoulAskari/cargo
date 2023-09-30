@@ -3,6 +3,7 @@ import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/logic/login/user_model.dart';
 import 'package:cargo/presentation/widgets/amount.dart';
+import 'package:cargo/presentation/widgets/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
@@ -104,10 +105,15 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 },
               ),
               const SizedBox(height: 15),
-              CTextField(value: name.value, setValue: (value) {}),
-              SizedBox(
-                height: 15,
-              ),
+              CTextField(
+                  hintText: 'Name',
+                  value: name.value,
+                  setValue: (value) {
+                    setState(() {
+                      name = FullName.dirty(value);
+                    });
+                  }),
+              const SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
                   _addIncoming();
