@@ -22,8 +22,6 @@ class IncomingOutGoing extends Equatable {
   // TODO: implement props
   List<Object?> get props => [name, type, amount, createdBy];
 
-
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
@@ -44,5 +42,6 @@ class IncomingOutGoing extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory IncomingOutGoing.fromJson(String source) => IncomingOutGoing.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory IncomingOutGoing.fromJson(String source) =>
+      IncomingOutGoing.fromMap(json.decode(source) as Map<String, dynamic>);
 }
