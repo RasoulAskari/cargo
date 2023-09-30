@@ -11,7 +11,8 @@ class IncomingOutGoingFetchEvent extends IncomingOutGoingEvent {}
 
 class AddIncomingOutGoingEvent extends IncomingOutGoingEvent {
   final IncomingOutGoing incomingOutGoing;
-  final DateTime dateTime;
+  final DateTime? date;
 
-  AddIncomingOutGoingEvent(this.dateTime, {required this.incomingOutGoing});
+  const AddIncomingOutGoingEvent(
+      {required this.incomingOutGoing, required this.date, DateTime? dateTime});
 }

@@ -33,7 +33,8 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     );
 
     context.read<IncomingOutGoingBloc>().add(
-          AddIncomingOutGoingEvent(incomingOutGoing: _incomingOutGoing),
+          AddIncomingOutGoingEvent(
+               incomingOutGoing: _incomingOutGoing, date: _date),
         );
   }
 
