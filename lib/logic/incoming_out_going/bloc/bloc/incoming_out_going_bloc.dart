@@ -51,10 +51,9 @@ class IncomingOutGoingBloc
       'name': incoming.name.toString(),
       'type': incoming.type.toString(),
       'amount': incoming.amount,
-      "created_by": incoming.createdBy.id
+      "created_by": incoming.createdBy.id,
+      "created_at": event.date.toString()
     };
-
-    print(data);
 
     try {
       final response = await http.post(
@@ -67,6 +66,7 @@ class IncomingOutGoingBloc
         body: jsonEncode(data),
       );
     } catch (e) {
+      print(e.toString());
       return;
     }
   }
