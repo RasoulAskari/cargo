@@ -56,11 +56,22 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               hintText: "Type",
               setValue: (value) {},
               items: const [
-                {'value': 'incoming', 'label': 'Incoming'},
-                {'value': 'outgoing', 'label': 'Outgoing'},
+                {
+                  'value': 'incoming',
+                  'label': 'Incoming',
+                },
+                {
+                  'value': 'outgoing',
+                  'label': 'Outgoing',
+                },
               ],
             ),
-            CTextField(value: "", setValue: (value) {})
+            CTextField(
+              value: amount.value.toString(),
+              setValue: (value) {
+                amount = Amount.dirty(value);
+              },
+            )
           ],
         ),
       ),
