@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/login/user_model.dart';
 
 class IncomingOutGoing extends Equatable {
+  final int id;
   final String name;
   final String type;
   final double amount;
@@ -13,6 +14,7 @@ class IncomingOutGoing extends Equatable {
   final UserModel createdBy;
 
   const IncomingOutGoing({
+    required this.id,
     required this.createdAt,
     required this.name,
     required this.type,
@@ -35,6 +37,7 @@ class IncomingOutGoing extends Equatable {
 
   factory IncomingOutGoing.fromMap(Map<String, dynamic> map) {
     return IncomingOutGoing(
+      id: map['id'] as int,
       createdAt: map['created_at'],
       name: map['name'] as String,
       type: map['type'] as String,
