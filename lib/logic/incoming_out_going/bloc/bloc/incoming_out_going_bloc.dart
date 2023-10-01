@@ -58,7 +58,8 @@ class IncomingOutGoingBloc
 
     try {
       final response = await http.put(
-        Uri.parse('http://localhost:8000/api/v1/income-outgoing/${1}'),
+        Uri.parse(
+            'http://localhost:8000/api/v1/income-outgoing/${incoming.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
