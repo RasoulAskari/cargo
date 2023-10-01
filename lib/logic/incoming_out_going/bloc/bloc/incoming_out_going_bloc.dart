@@ -19,6 +19,7 @@ class IncomingOutGoingBloc
       : super(const IncomingOutGoingState()) {
     on<IncomingOutGoingFetchEvent>(_onIncomingOutGoingEvent);
     on<AddIncomingOutGoingEvent>(_onAddIncomingOutGoingEvent);
+    on<EditIncomingOutGoingEvent>(_onEditIncomingOutGoingEvent);
   }
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
