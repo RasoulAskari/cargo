@@ -66,7 +66,8 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
             ),
             trailing: GestureDetector(
               onTap: () {
-                // Navigator.of(context).pushNamed(addIncomingOutGoing);
+                Navigator.of(context)
+                    .pushNamed(addIncomingOutGoing, arguments: widget.item);
               },
               child: Container(
                   padding:
