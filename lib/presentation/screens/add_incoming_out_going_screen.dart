@@ -93,6 +93,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
           child: Column(
             children: [
               CDatePicker(
+                value: _date,
                 setValue: (value) {
                   setState(() {
                     _date = value;
