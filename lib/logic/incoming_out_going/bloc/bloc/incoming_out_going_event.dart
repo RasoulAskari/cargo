@@ -16,3 +16,11 @@ class AddIncomingOutGoingEvent extends IncomingOutGoingEvent {
   const AddIncomingOutGoingEvent(
       {required this.incomingOutGoing, required this.date, DateTime? dateTime});
 }
+
+class EditIncomingOutGoingEvent extends IncomingOutGoingEvent {
+  final IncomingOutGoing incomingOutGoing;
+
+  const EditIncomingOutGoingEvent({
+    required this.incomingOutGoing,
+  });
+}

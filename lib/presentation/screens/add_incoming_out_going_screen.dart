@@ -61,7 +61,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     }
   }
 
-  _editIncoming() {}
+  _editIncoming() {
+    
+  }
 
   @override
   Widget build(BuildContext context) {
