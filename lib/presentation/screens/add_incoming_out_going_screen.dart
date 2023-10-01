@@ -62,7 +62,17 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     }
   }
 
-  _editIncoming() {}
+  _editIncoming() {
+    final _in = widget.incomingOutGoing;
+    IncomingOutGoing _incoming = IncomingOutGoing(
+      id: _in!.id,
+      createdAt: _date.toString(),
+      name: name.value,
+      type: incomingOutGoingType.value,
+      amount: amount.value,
+      createdBy: UserModel(name: "admin", email: "admin@admin.com", id: 1),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
