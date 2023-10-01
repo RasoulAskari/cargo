@@ -39,6 +39,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
         );
   }
 
+  _checkIncoming(){
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
