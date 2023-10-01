@@ -72,6 +72,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
       amount: amount.value,
       createdBy: UserModel(name: "admin", email: "admin@admin.com", id: 1),
     );
+
+    context.read<IncomingOutGoingBloc>().add(
+          EditIncomingOutGoingEvent(incomingOutGoing: _incoming),
+        );
   }
 
   @override
