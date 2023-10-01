@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
+import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
 import 'package:cargo/presentation/screens/add_incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
@@ -28,8 +29,15 @@ class AppRouter {
           builder: (context) => const EmployeeScreen(),
         );
       case addIncomingOutGoing:
+        IncomingOutGoing? incoming;
+        settings.arguments != null
+            ? incoming = settings.arguments as IncomingOutGoing?
+            : null;
+
         return MaterialPageRoute(
-          builder: (context) => const AddIncomingOutGoingScreen(),
+          builder: (context) => AddIncomingOutGoingScreen(
+            incomingOutGoing: incoming,
+          ),
         );
       case inconingOutGoingScreen:
         return MaterialPageRoute(
