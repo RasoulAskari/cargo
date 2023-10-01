@@ -51,6 +51,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     if (widget.incomingOutGoing != null) {
       final incoming = widget.incomingOutGoing;
       setState(() {
+        print(incoming?.createdAt);
         _date = DateTime.parse(incoming!.createdAt);
         name = FullName.dirty(incoming!.name);
         amount = Amount.dirty(incoming.amount);
