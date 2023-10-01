@@ -40,12 +40,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
         );
   }
 
-  @override
-  void initState() {
-    _checkIncoming();
 
-    super.initState();
-  }
 
   _checkIncoming() {
     if (widget.incomingOutGoing != null) {
@@ -54,6 +49,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
         name = FullName.dirty(incoming!.name);
         amount = Amount.dirty(incoming.amount);
         incomingOutGoingType = IncomingOutGoingType.dirty(incoming.type);
+        print(incomingOutGoingType);
       });
     }
   }
@@ -99,6 +95,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               CDropdown(
+                value: incomingOutGoingType.value,
                 hintText: "Type",
                 setValue: (value) {
                   print(value);
