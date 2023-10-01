@@ -28,6 +28,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
   Future<void> _addIncoming() async {
     IncomingOutGoing _incomingOutGoing = IncomingOutGoing(
+      createdAt: _date.toString(),
       name: name.value,
       type: incomingOutGoingType.value,
       amount: double.parse(amount.value.toString()),
@@ -50,6 +51,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     if (widget.incomingOutGoing != null) {
       final incoming = widget.incomingOutGoing;
       setState(() {
+        _date = DateTime.parse(incoming!.createdAt);
         name = FullName.dirty(incoming!.name);
         amount = Amount.dirty(incoming.amount);
         incomingOutGoingType = IncomingOutGoingType.dirty(incoming.type);

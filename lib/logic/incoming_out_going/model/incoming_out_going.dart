@@ -9,9 +9,11 @@ class IncomingOutGoing extends Equatable {
   final String name;
   final String type;
   final double amount;
+  final String createdAt;
   final UserModel createdBy;
 
   const IncomingOutGoing({
+    required this.createdAt,
     required this.name,
     required this.type,
     required this.amount,
@@ -33,6 +35,7 @@ class IncomingOutGoing extends Equatable {
 
   factory IncomingOutGoing.fromMap(Map<String, dynamic> map) {
     return IncomingOutGoing(
+      createdAt: map['created_at'],
       name: map['name'] as String,
       type: map['type'] as String,
       amount: double.parse(map['amount'].toString()),
