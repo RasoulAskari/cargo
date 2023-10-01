@@ -40,7 +40,11 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
         );
   }
 
-
+  @override
+  void initState() {
+    super.initState();
+    _checkIncoming();
+  }
 
   _checkIncoming() {
     if (widget.incomingOutGoing != null) {
