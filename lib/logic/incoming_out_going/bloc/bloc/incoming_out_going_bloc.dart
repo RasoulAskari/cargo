@@ -43,6 +43,34 @@ class IncomingOutGoingBloc
     }
   }
 
+  Future<void> _onEditIncomingOutGoingEvent(EditIncomingOutGoingEvent event,
+      Emitter<IncomingOutGoingState> emitter) async {
+    if (state.hasReachedMax) return;
+    IncomingOutGoing incoming = event.incomingOutGoing;
+    final data = {
+      'name': incoming.name.toString(),
+      'type': incoming.type.toString(),
+      'amount': incoming.amount,
+      "created_by": incoming.createdBy.id,
+      "created_at": incoming.createdAt
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+        body: jsonEncode(data),
+      );
+    } catch (e) {
+      print(e.toString());
+      return;
+    }
+  }
+
   Future<void> _onAddIncomingOutGoingEvent(AddIncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
     if (state.hasReachedMax) return;
