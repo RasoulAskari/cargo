@@ -28,6 +28,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
   Future<void> _addIncoming() async {
     IncomingOutGoing _incomingOutGoing = IncomingOutGoing(
+      id: 1,
       createdAt: _date.toString(),
       name: name.value,
       type: incomingOutGoingType.value,
@@ -61,9 +62,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     }
   }
 
-  _editIncoming() {
-    
-  }
+  _editIncoming() {}
 
   @override
   Widget build(BuildContext context) {
