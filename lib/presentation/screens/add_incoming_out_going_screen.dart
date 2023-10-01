@@ -61,6 +61,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,9 +145,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               ElevatedButton(
-
                 onPressed: () {
-
+                  widget.incomingOutGoing != null
+                      ? _editIncoming()
+                      : _addIncoming();
                   _addIncoming();
                 },
                 child: Text(widget.incomingOutGoing != null ? "Edit" : "Add"),
