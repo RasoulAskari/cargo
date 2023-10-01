@@ -144,10 +144,12 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               ElevatedButton(
+
                 onPressed: () {
+
                   _addIncoming();
                 },
-                child: const Text("Add"),
+                child: Text(widget.incomingOutGoing != null ? "Edit" : "Add"),
               )
             ],
           ),
