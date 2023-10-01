@@ -12,7 +12,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
 class AddIncomingOutGoingScreen extends StatefulWidget {
-  const AddIncomingOutGoingScreen({super.key});
+  final IncomingOutGoing? incomingOutGoing;
+  const AddIncomingOutGoingScreen({super.key, this.incomingOutGoing});
 
   @override
   State<AddIncomingOutGoingScreen> createState() =>
