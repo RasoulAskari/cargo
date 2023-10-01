@@ -52,19 +52,17 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     if (widget.incomingOutGoing != null) {
       final incoming = widget.incomingOutGoing;
       setState(() {
-        print(incoming?.createdAt);
         _date = DateTime.parse(incoming!.createdAt);
         name = FullName.dirty(incoming!.name);
         amount = Amount.dirty(incoming.amount);
         incomingOutGoingType = IncomingOutGoingType.dirty(incoming.type);
-        print(incomingOutGoingType);
       });
     }
   }
 
   _editIncoming() {
     final _in = widget.incomingOutGoing;
-    IncomingOutGoing _incoming = IncomingOutGoing(
+    IncomingOutGoing incoming = IncomingOutGoing(
       id: _in!.id,
       createdAt: _date.toString(),
       name: name.value,
@@ -74,7 +72,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     );
 
     context.read<IncomingOutGoingBloc>().add(
-          EditIncomingOutGoingEvent(incomingOutGoing: _incoming),
+          EditIncomingOutGoingEvent(incomingOutGoing: incoming),
         );
   }
 
