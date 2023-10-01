@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
-import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 
