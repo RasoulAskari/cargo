@@ -27,7 +27,8 @@ class _EmployeeItemState extends State<EmployeeItem> {
           ),
           margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             leading: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -64,21 +65,48 @@ class _EmployeeItemState extends State<EmployeeItem> {
                 fontSize: 12,
               ),
             ),
-            trailing: GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .pushNamed(addEmployee, arguments: widget.employee);
-              },
-              child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                      color: const Color(0x55ff711b),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Text(
-                    'Edit',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  )),
+            trailing: SizedBox(
+              width: 110,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(addEmployee, arguments: widget.employee);
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                            color: const Color(0x55ff711b),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          'Delete',
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        )),
+                  ),
+                  SizedBox(width: 3),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(addEmployee, arguments: widget.employee);
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                            color: const Color(0x55ff711b),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          'Edit',
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        )),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
