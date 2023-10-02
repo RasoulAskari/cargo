@@ -2,6 +2,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmployeeItem extends StatefulWidget {
@@ -171,12 +172,12 @@ class _EmployeeItemState extends State<EmployeeItem> {
             borderRadius: BorderRadius.circular(20),
           ),
           content: const Text(
-            "Are You Sure You Want to Delete This Post",
+            "Are You Sure You Want to Delete This?",
             style: TextStyle(fontSize: 18),
           ),
           actions: [
             TextButton(
-              child: const Text("cancel"),
+              child: const Text("Cancel"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -192,7 +193,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     .read<EmployeeBloc>()
                     .add(DeleteEmployeeEvent(id: widget.employee.id));
               },
-              child: const Text("delete"),
+              child: const Text("Delete"),
             ),
           ],
         );
