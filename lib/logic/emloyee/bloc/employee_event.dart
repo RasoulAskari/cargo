@@ -20,3 +20,9 @@ class EditEmployeeEvent extends EmployeeEvent {
 
   const EditEmployeeEvent({required this.employee});
 }
+
+class DeleteEmployeeEvent extends EmployeeEvent {
+  final int id;
+
+  const DeleteEmployeeEvent({required this.id});
+}
