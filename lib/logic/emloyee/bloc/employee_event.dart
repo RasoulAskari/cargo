@@ -12,11 +12,11 @@ class EmployeesFetched extends EmployeeEvent {}
 class AddEmployeeEvent extends EmployeeEvent {
   final EmployeeModel employee;
 
-  AddEmployeeEvent({required this.employee});
+  const AddEmployeeEvent({required this.employee});
 }
 
 class EditEmployeeEvent extends EmployeeEvent {
   final EmployeeModel employee;
 
-  EditEmployeeEvent({required this.employee});
+  const EditEmployeeEvent({required this.employee});
 }
