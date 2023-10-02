@@ -20,7 +20,17 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<void> _onDeleteEmployee(
-      DeleteEmployeeEvent event, Emitter<EmployeeState> emitter) async {}
+      DeleteEmployeeEvent event, Emitter<EmployeeState> emitter) async {
+    var res = await httpClient.delete(
+      getServerRoute(
+        route: '/api/v1/employees/${event.id}',
+      ),
+      headers: <String, String>{
+        'Authorization':
+            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      },
+    );
+  }
 
   Future<void> _onEditEmployees(
       EditEmployeeEvent event, Emitter<EmployeeState> emitter) async {
