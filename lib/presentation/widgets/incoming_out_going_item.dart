@@ -42,11 +42,13 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                 height: 70,
                 width: 70,
                 decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d'))),
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d'),
+                  ),
+                ),
               ),
             ),
             title: Container(

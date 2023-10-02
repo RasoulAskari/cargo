@@ -23,7 +23,8 @@ class IncomingOutGoingBloc
   }
 
   Future<void> _onDleteIncomingOutGoingEvent(DeleteIncomingOutGoingEvent event,
-      Emitter<IncomingOutGoingState> emitter) async {}
+      Emitter<IncomingOutGoingState> emitter) async {
+  }
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
