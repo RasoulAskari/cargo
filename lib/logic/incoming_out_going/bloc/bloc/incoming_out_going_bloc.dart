@@ -24,6 +24,15 @@ class IncomingOutGoingBloc
 
   Future<void> _onDleteIncomingOutGoingEvent(DeleteIncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
+    var res = await httpClient.delete(
+      getServerRoute(
+        route: '/api/v1/income-outgoing/${event.id}',
+      ),
+      headers: <String, String>{
+        'Authorization':
+            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      },
+    );
   }
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
