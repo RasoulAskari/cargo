@@ -184,8 +184,8 @@ class _EmployeeItemState extends State<EmployeeItem> {
             ),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(
-                    Theme.of(context).colorScheme.primary),
+                backgroundColor:
+                    MaterialStatePropertyAll(Theme.of(context).primaryColor),
                 foregroundColor: const MaterialStatePropertyAll(Colors.white),
               ),
               onPressed: () {
