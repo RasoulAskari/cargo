@@ -81,10 +81,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         decoration: BoxDecoration(
                             color: const Color(0x55ff711b),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Text(
-                          'Delete',
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
+                        child: Icon(
+                          Icons.edit_document,
+                          color: Theme.of(context).primaryColor,
                         )),
                   ),
                   const SizedBox(width: 3),
