@@ -24,3 +24,9 @@ class EditIncomingOutGoingEvent extends IncomingOutGoingEvent {
     required this.incomingOutGoing,
   });
 }
+
+class DeleteIncomingOutGoingEvent extends IncomingOutGoingEvent {
+  final int id;
+
+  const DeleteIncomingOutGoingEvent({required this.id});
+}
