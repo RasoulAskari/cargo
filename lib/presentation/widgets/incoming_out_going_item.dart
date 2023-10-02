@@ -58,7 +58,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
               ),
             ),
             subtitle: Text(
-              "${widget.item.type}",
+              widget.item.type,
               style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 12,
@@ -84,7 +84,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                           color: Theme.of(context).primaryColor,
                         )),
                   ),
-                  SizedBox(width: 3),
+                  const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).pushNamed(addIncomingOutGoing,
