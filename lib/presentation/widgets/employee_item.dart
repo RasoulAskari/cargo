@@ -1,6 +1,8 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmployeeItem extends StatefulWidget {
   final EmployeeModel employee;
@@ -89,8 +91,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(addEmployee, arguments: widget.employee);
+                      // context.read<EmployeeBloc>()..add();
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
