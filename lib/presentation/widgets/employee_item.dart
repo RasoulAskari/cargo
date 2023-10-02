@@ -91,9 +91,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      context
-                          .read<EmployeeBloc>()
-                          .add(DeleteEmployeeEvent(id: widget.employee.id));
+                      onDelete();
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
