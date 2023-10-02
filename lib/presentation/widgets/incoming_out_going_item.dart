@@ -184,8 +184,8 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
             ),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(
-                    Theme.of(context).colorScheme.primary),
+                backgroundColor:
+                    MaterialStatePropertyAll(Theme.of(context).primaryColor),
                 foregroundColor: const MaterialStatePropertyAll(Colors.white),
               ),
               onPressed: () {
