@@ -27,7 +27,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
           ),
           margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 0),
             leading: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -64,21 +64,46 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                 fontSize: 12,
               ),
             ),
-            trailing: GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .pushNamed(addIncomingOutGoing, arguments: widget.item);
-              },
-              child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                      color: const Color(0x55ff711b),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Text(
-                    'Edit',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
-                  )),
+            trailing: SizedBox(
+              width: 110,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(addIncomingOutGoing,
+                          arguments: widget.item);
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                            color: const Color(0x55ff711b),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          'Edit',
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        )),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(addIncomingOutGoing,
+                          arguments: widget.item);
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                            color: const Color(0x55ff711b),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Text(
+                          'Edit',
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        )),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
