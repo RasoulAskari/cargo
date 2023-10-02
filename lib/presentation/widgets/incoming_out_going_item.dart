@@ -189,6 +189,9 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                 foregroundColor: const MaterialStatePropertyAll(Colors.white),
               ),
               onPressed: () {
+                context
+                    .read<IncomingOutGoingBloc>()
+                    .add(DeleteIncomingOutGoingEvent(id: widget.item.id));
               },
               child: Text("delete"),
             ),
