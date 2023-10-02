@@ -19,6 +19,7 @@ class IncomingOutGoingBloc
     on<IncomingOutGoingFetchEvent>(_onIncomingOutGoingEvent);
     on<AddIncomingOutGoingEvent>(_onAddIncomingOutGoingEvent);
     on<EditIncomingOutGoingEvent>(_onEditIncomingOutGoingEvent);
+    on<DeleteIncomingOutGoingEvent>(_onDleteIncomingOutGoingEvent);
   }
 
   Future<void> _onDleteIncomingOutGoingEvent(DeleteIncomingOutGoingEvent event,
