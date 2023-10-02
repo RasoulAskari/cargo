@@ -87,7 +87,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                               TextStyle(color: Theme.of(context).primaryColor),
                         )),
                   ),
-                  SizedBox(width: 3),
+                  const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context)
