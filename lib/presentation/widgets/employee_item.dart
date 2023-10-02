@@ -187,7 +187,11 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     Theme.of(context).colorScheme.primary),
                 foregroundColor: const MaterialStatePropertyAll(Colors.white),
               ),
-              onPressed: () {},
+              onPressed: () {
+                context
+                    .read<EmployeeBloc>()
+                    .add(DeleteEmployeeEvent(id: widget.employee.id));
+              },
               child: const Text("delete"),
             ),
           ],
