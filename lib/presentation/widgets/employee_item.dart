@@ -28,7 +28,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
           margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: ListTile(
             contentPadding:
-                EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
             leading: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
