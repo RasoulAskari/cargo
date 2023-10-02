@@ -1,6 +1,8 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IncomingOutGoingItem extends StatefulWidget {
   const IncomingOutGoingItem({super.key, required this.item});
@@ -87,8 +89,9 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushNamed(addIncomingOutGoing,
-                          arguments: widget.item);
+                      context
+                          .read<IncomingOutGoingBloc>()
+                          .add(DeleteIncomingOutGoingEvent(id: widget.item.id));
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
