@@ -84,6 +84,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                           color: Theme.of(context).primaryColor,
                         )),
                   ),
+                  SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).pushNamed(addIncomingOutGoing,
