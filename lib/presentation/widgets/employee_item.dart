@@ -163,4 +163,38 @@ class _EmployeeItemState extends State<EmployeeItem> {
       ],
     );
   }
+
+  onDelete() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: const Text(
+            "Are You Sure You Want to Delete This Post",
+            style: TextStyle(fontSize: 18),
+          ),
+          actions: [
+            TextButton(
+              child: const Text("cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                    Theme.of(context).colorScheme.primary),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+              ),
+              onPressed: () {},
+              child: const Text("delete"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
