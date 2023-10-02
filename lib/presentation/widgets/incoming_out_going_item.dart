@@ -91,9 +91,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      context
-                          .read<IncomingOutGoingBloc>()
-                          .add(DeleteIncomingOutGoingEvent(id: widget.item.id));
+                      onDelete();
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -163,5 +161,40 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
       ],
     );
     ;
+  }
+
+  onDelete() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: Text(
+            "Are You Sure You Want to Delete This Post",
+            style: const TextStyle(fontSize: 18),
+          ),
+          actions: [
+            TextButton(
+              child: Text("cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                    Theme.of(context).colorScheme.primary),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+              ),
+              onPressed: () {
+              },
+              child: Text("delete"),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
