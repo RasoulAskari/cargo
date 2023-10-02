@@ -16,7 +16,12 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     on<EmployeesFetched>(_onEmployeesFetched);
     on<AddEmployeeEvent>(_onAddEmployees);
     on<EditEmployeeEvent>(_onEditEmployees);
+    
   }
+
+  Future<void> _onDeleteEmployee(
+      EditEmployeeEvent event, Emitter<EmployeeState> emitter) async {
+      }
 
   Future<void> _onEditEmployees(
       EditEmployeeEvent event, Emitter<EmployeeState> emitter) async {
