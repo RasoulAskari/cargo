@@ -95,10 +95,9 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                         decoration: BoxDecoration(
                             color: const Color(0x55ff711b),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Text(
-                          'Edit',
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
+                        child: Icon(
+                          Icons.delete_forever,
+                          color: Theme.of(context).primaryColor,
                         )),
                   ),
                 ],
