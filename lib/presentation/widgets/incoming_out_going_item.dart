@@ -171,13 +171,13 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          content: Text(
+          content: const Text(
             "Are You Sure You Want to Delete This Post",
-            style: const TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 18),
           ),
           actions: [
             TextButton(
-              child: Text("cancel"),
+              child: const Text("cancel"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -193,7 +193,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                     .read<IncomingOutGoingBloc>()
                     .add(DeleteIncomingOutGoingEvent(id: widget.item.id));
               },
-              child: Text("delete"),
+              child: const Text("delete"),
             ),
           ],
         );
