@@ -31,15 +31,15 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       },
     );
 
-    if (res.body == 1) {
-      emit(
+    if (res.body == "1") {
+      emitter(
         state.copyWith(
           employees: state.employees
               .where((element) => element.id != event.id)
               .toList(),
         ),
       );
-    } else {}
+    }
   }
 
   Future<void> _onEditEmployees(

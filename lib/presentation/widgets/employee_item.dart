@@ -192,6 +192,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                 context
                     .read<EmployeeBloc>()
                     .add(DeleteEmployeeEvent(id: widget.employee.id));
+                Navigator.of(context).pop();
               },
               child: const Text("Delete"),
             ),
