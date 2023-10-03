@@ -40,6 +40,8 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
           AddIncomingOutGoingEvent(
               incomingOutGoing: _incomingOutGoing, date: _date),
         );
+
+    Navigator.of(context).pop();
   }
 
   @override
