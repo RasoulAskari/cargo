@@ -33,6 +33,15 @@ class IncomingOutGoingBloc
             'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
       },
     );
+    if (res.body == "1") {
+      emitter(
+        state.copyWith(
+          incoming_out_going: state.incoming_out_going
+              .where((element) => element.id != event.id)
+              .toList(),
+        ),
+      );
+    }
   }
 
   Future<void> _onIncomingOutGoingEvent(IncomingOutGoingEvent event,
@@ -139,6 +148,4 @@ class IncomingOutGoingBloc
       return [];
     }
   }
-
-
 }
