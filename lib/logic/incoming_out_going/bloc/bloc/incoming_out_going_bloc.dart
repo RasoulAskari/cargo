@@ -118,6 +118,13 @@ class IncomingOutGoingBloc
         },
         body: jsonEncode(data),
       );
+
+      emitter(
+        state.copyWith(
+          incoming_out_going: List.of(state.incoming_out_going)
+            ..insert(0, event.incomingOutGoing),
+        ),
+      );
     } catch (e) {
       print(e.toString());
       return;
