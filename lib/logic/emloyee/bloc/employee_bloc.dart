@@ -102,7 +102,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         ),
       );
       emitter(state.copyWith(
-        employees: List.of(state.employees)..add(event.employee),
+        employees: List.of(state.employees)..insert(0, event.employee),
       ));
       print(response.body);
     } catch (e) {}

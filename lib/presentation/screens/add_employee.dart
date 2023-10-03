@@ -114,6 +114,7 @@ class _AddEmployeeState extends State<AddEmployee> {
     );
 
     context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
+    Navigator.of(context).pop();
   }
 
   @override
