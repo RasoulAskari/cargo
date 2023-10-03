@@ -33,7 +33,7 @@ class IncomingOutGoingBloc
             'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
       },
     );
-    if (res.body == "1") {
+    if (res.body == "true") {
       emitter(
         state.copyWith(
           incoming_out_going: state.incoming_out_going
