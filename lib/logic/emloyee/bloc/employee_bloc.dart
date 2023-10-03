@@ -116,7 +116,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       if (state.status == EmployeeStatus.initial) {
         final employees = await _fetchEmployees(page: state.page);
         // ignore: invalid_use_of_visible_for_testing_member
-        return emit(
+        return emitter(
           state.copyWith(
             status: EmployeeStatus.success,
             employees: employees,

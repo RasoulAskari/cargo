@@ -52,8 +52,7 @@ class IncomingOutGoingBloc
       if (state.status == IncomingOutGoingStatus.initial) {
         final incoming_out_going =
             await _fetchincoming_out_going(page: state.page);
-        // ignore: invalid_use_of_visible_for_testing_member
-        return emit(
+        return emitter(
           state.copyWith(
             status: IncomingOutGoingStatus.success,
             incoming_out_going: incoming_out_going,
