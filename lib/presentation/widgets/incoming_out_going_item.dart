@@ -192,6 +192,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                 context
                     .read<IncomingOutGoingBloc>()
                     .add(DeleteIncomingOutGoingEvent(id: widget.item.id));
+                Navigator.of(context).pop();
               },
               child: const Text("Delete"),
             ),
