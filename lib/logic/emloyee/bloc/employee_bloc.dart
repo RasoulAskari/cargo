@@ -101,6 +101,10 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
+      emitter(state.copyWith(
+        employees: List.of(state.employees)..add(event.employee),
+      ));
+      print(response.body);
     } catch (e) {}
   }
 
@@ -126,7 +130,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
-    print("em");
     try {
       final response = await httpClient.get(
         getServerRoute(
