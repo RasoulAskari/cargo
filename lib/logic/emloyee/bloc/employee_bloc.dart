@@ -30,6 +30,16 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
             'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
       },
     );
+
+    if (res.body == 1) {
+      emit(
+        state.copyWith(
+          employees: state.employees
+              .where((element) => element.id != event.id)
+              .toList(),
+        ),
+      );
+    } else {}
   }
 
   Future<void> _onEditEmployees(
