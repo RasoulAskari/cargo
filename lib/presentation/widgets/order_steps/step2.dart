@@ -12,6 +12,6 @@ class Step2 extends StatefulWidget {
 class _Step2State extends State<Step2> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Text("Step2");
   }
 }
