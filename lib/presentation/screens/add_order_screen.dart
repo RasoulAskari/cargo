@@ -9,6 +9,53 @@ class AddOrderScreen extends StatefulWidget {
 }
 
 class _AddOrderScreenState extends State<AddOrderScreen> {
+
+
+
+    List steps = [
+      {
+        'title': "Fill your Account \nInformation",
+        'step': Step1(
+          next: next,
+          prev: prev,
+        ),
+        'validate': validateStep1
+      },
+      {
+        'title': "Tell Us More\n About yourself",
+        'step': Step2(
+          next: next,
+          prev: prev,
+        ),
+        'validate': validateStep2
+      },
+      {
+        'title': "Tell Us More\n About yourself",
+        'step': Step3(
+          next: next,
+          prev: prev,
+        ),
+        'validate': validateStep3
+      },
+      {
+        'title': "Enable \nGeo Location",
+        'step': Step4(
+          next: next,
+          prev: prev,
+        ),
+        'validate': validateStep4
+      },
+      {
+        'title': "Review \nOur Privacy Policy",
+        'step': Step5(
+          next: next,
+          prev: prev,
+        ),
+        'validate': validateStep5
+      },
+    ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
