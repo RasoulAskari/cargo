@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': 'Orders',
         'image': "",
         'function': () {
-          print('how are you');
+          Navigator.of(context).pushNamed(ordersScreen);
         }
       },
       {
