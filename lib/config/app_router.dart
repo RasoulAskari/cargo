@@ -6,6 +6,7 @@ import 'package:cargo/presentation/screens/add_incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
 import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/main_screen.dart';
+import 'package:cargo/presentation/screens/order_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -42,6 +43,10 @@ class AppRouter {
       case inconingOutGoingScreen:
         return MaterialPageRoute(
           builder: (context) => const IncomingOutGoingScreen(),
+        );
+      case ordersScreen:
+        return MaterialPageRoute(
+          builder: (context) => const OrderScreen(),
         );
       default:
         return null;
