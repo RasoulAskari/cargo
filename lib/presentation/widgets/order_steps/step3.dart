@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,6 @@ class _Step3State extends State<Step3> {
   }
 
   void _addItemDetail(BuildContext context) {
-    var ImageFilter;
     showModalBottomSheet(
       barrierColor: Colors.black.withOpacity(0.5),
       shape: const RoundedRectangleBorder(
@@ -46,7 +46,9 @@ class _Step3State extends State<Step3> {
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
         child: BottomSheetStyle(
           height: 330,
-          children: [],
+          children: [
+            
+          ],
         ),
       ),
     );
