@@ -69,6 +69,7 @@ class _Step3State extends State<Step3> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: CTextField(
+                textInputType: TextInputType.number,
                 value: "",
                 setValue: (value) {},
                 hintText: "Amount",
@@ -78,9 +79,10 @@ class _Step3State extends State<Step3> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: CTextField(
+                textInputType: TextInputType.number,
                 value: "",
                 setValue: (value) {},
-                hintText: "Item Name",
+                hintText: "Weight",
               ),
             ),
           ],
