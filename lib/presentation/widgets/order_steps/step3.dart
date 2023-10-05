@@ -24,4 +24,37 @@ class _Step3State extends State<Step3> {
       ),
     );
   }
+
+  void _addItemDetail(BuildContext context) {
+    var ImageFilter;
+    showModalBottomSheet(
+      barrierColor: Colors.black.withOpacity(0.5),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (_) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+        // child: BottomSheetStyle(
+        //   height: 330,
+        //   children: [
+        //     // CustomDropDown(
+        //     //     value: _dateOption,
+        //     //     title: "Choose appointment Option",
+        //     //     close: () {
+        //     //       setState(() {
+        //     //         Navigator.pop(context);
+        //     //       });
+        //     //     },
+        //     //     selected: _dateController.text,
+        //     //     setValue: _dateController)
+        //   ],
+        // ),
+      ),
+    );
+  }
 }
