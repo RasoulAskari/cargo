@@ -16,12 +16,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   bool loading = false;
 
   next(steps) {
-    var valid = steps[step - 1]['validate']();
-    if (true) {
-      setState(() {
-        step = step + 1;
-      });
-    }
+    setState(() {
+      step = step + 1;
+    });
   }
 
   prev(steps) {
