@@ -66,7 +66,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: CStepper(
-        stepAmount: 5,
+        stepAmount: 3,
         steps: steps,
         step: step,
         next: () {
