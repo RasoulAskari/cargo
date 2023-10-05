@@ -43,7 +43,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         'validate': true
       },
       {
-        'title': "Tell Us More\n About yourself",
+        'title': "Info About The Receiver",
         'step': Step2(
           next: next,
           prev: prev,
