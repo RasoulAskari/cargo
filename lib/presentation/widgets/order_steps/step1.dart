@@ -14,10 +14,12 @@ class _Step1State extends State<Step1> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       child: Column(
         children: [
           CTextField(value: "", hintText: "Name", setValue: () {}),
+          const SizedBox(height: 30),
+          CTextField(value: "", hintText: "Father Name", setValue: () {}),
         ],
       ),
     );
