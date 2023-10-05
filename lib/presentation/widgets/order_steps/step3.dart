@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
+import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 
 class Step3 extends StatefulWidget {
@@ -45,9 +46,13 @@ class _Step3State extends State<Step3> {
       builder: (_) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
         child: BottomSheetStyle(
-          height: 330,
+          height: 500,
           children: [
-            
+            CTextField(
+              value: "",
+              setValue: (value) {},
+              hintText: "Item Name",
+            )
           ],
         ),
       ),
