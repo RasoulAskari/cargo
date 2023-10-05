@@ -71,7 +71,7 @@ class _Step3State extends State<Step3> {
               child: CTextField(
                 value: "",
                 setValue: (value) {},
-                hintText: "Item Name",
+                hintText: "Amount",
               ),
             ),
             const SizedBox(height: 30),
