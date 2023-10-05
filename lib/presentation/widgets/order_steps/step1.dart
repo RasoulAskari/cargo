@@ -13,10 +13,13 @@ class Step1 extends StatefulWidget {
 class _Step1State extends State<Step1> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CTextField(value: "", hintText: "Name", setValue: () {}),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+      child: Column(
+        children: [
+          CTextField(value: "", hintText: "Name", setValue: () {}),
+        ],
+      ),
     );
   }
 }
