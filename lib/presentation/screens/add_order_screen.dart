@@ -35,7 +35,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   Widget build(BuildContext context) {
     List steps = [
       {
-        'title': "Fill your Account \nInformation",
+        'title': "Info About The Person\nwhom Order ",
         'step': Step1(
           next: next,
           prev: prev,
