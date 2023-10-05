@@ -24,6 +24,10 @@ class _Step1State extends State<Step1> {
         children: [
           CTextField(value: "", hintText: "Group Number", setValue: () {}),
           const SizedBox(height: 30),
+          CDatePicker(
+            setValue: (value) {},
+            hintText: "Date",
+          ),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "Name", setValue: () {}),
           const SizedBox(height: 30),
