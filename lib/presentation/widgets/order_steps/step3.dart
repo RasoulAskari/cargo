@@ -12,6 +12,10 @@ class Step3 extends StatefulWidget {
 class _Step3State extends State<Step3> {
   @override
   Widget build(BuildContext context) {
-    return const Text("Step3");
+    return Column(
+      children: [
+        ElevatedButton(onPressed: () {}, child: const Text("Add Item detail"))
+      ],
+    );
   }
 }
