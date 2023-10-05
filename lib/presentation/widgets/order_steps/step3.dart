@@ -20,7 +20,11 @@ class _Step3State extends State<Step3> {
       ),
       child: Column(
         children: [
-          ElevatedButton(onPressed: () {}, child: const Text("Add Item detail"))
+          ElevatedButton(
+              onPressed: () {
+                _addItemDetail(context);
+              },
+              child: const Text("Add Item detail"))
         ],
       ),
     );
