@@ -33,7 +33,14 @@ class _Step1State extends State<Step1> {
               hintText: "Phone Num",
               setValue: (value) {},
               setValid: () {},
-              value: phoneNo.value)
+              value: phoneNo.value),
+          const SizedBox(height: 30),
+          CTextField(
+            hintText: "Price",
+            value: "",
+            setValue: (value) {},
+            textInputType: TextInputType.number,
+          )
         ],
       ),
     );
