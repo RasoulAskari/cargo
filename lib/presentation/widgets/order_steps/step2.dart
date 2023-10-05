@@ -33,6 +33,8 @@ class _Step2State extends State<Step2> {
           CTextField(value: "", hintText: "Type of Receiver", setValue: () {}),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "Country", setValue: () {}),
+          const SizedBox(height: 30),
+          CTextField(value: "", hintText: "City", setValue: () {}),
         ],
       ),
     );
