@@ -12,9 +12,30 @@ class AddOrderScreen extends StatefulWidget {
 }
 
 class _AddOrderScreenState extends State<AddOrderScreen> {
+  var step = 1;
+  bool loading = false;
 
+  next(steps) {
+    var valid = steps[step - 1]['validate']();
+    if (true) {
+      setState(() {
+        step = step + 1;
+      });
+    }
+  }
 
+  prev(steps) {
+    if (step == 1) {
+      Navigator.of(context).pop();
+      return;
+    }
+    setState(() {
+      step = step - 1;
+    });
+  }
 
+  @override
+  Widget build(BuildContext context) {
     List steps = [
       {
         'title': "Fill your Account \nInformation",
@@ -22,7 +43,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': validateStep1
+        'validate': true
       },
       {
         'title': "Tell Us More\n About yourself",
@@ -30,7 +51,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': validateStep2
+        'validate': true
       },
       {
         'title': "Tell Us More\n About yourself",
@@ -38,46 +59,27 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': validateStep3
-      },
-      {
-        'title': "Enable \nGeo Location",
-        'step': Step4(
-          next: next,
-          prev: prev,
-        ),
-        'validate': validateStep4
-      },
-      {
-        'title': "Review \nOur Privacy Policy",
-        'step': Step5(
-          next: next,
-          prev: prev,
-        ),
-        'validate': validateStep5
+        'validate': true
       },
     ];
 
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: CStepper(
-          stepAmount: 5,
-          steps: steps,
-          step: step,
-          next: () {
-            next(steps);
-          },
-          onSubmit: () {
-            onSubmit();
-          },
-          prev: () {
-            prev(steps);
-          },
-          loading: loading,
-        ),
-      ),;
+      resizeToAvoidBottomInset: false,
+      body: CStepper(
+        stepAmount: 5,
+        steps: steps,
+        step: step,
+        next: () {
+          next(steps);
+        },
+        onSubmit: () {
+          debugPrint("submit");
+        },
+        prev: () {
+          prev(steps);
+        },
+        loading: loading,
+      ),
+    );
   }
 }
