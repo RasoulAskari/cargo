@@ -46,13 +46,43 @@ class _Step3State extends State<Step3> {
       builder: (_) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
         child: BottomSheetStyle(
-          height: 500,
+          height: 400,
           children: [
-            CTextField(
-              value: "",
-              setValue: (value) {},
-              hintText: "Item Name",
-            )
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: CTextField(
+                value: "",
+                setValue: (value) {},
+                hintText: "Item Name",
+              ),
+            ),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: CTextField(
+                value: "",
+                setValue: (value) {},
+                hintText: "Type",
+              ),
+            ),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: CTextField(
+                value: "",
+                setValue: (value) {},
+                hintText: "Item Name",
+              ),
+            ),
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: CTextField(
+                value: "",
+                setValue: (value) {},
+                hintText: "Item Name",
+              ),
+            ),
           ],
         ),
       ),
