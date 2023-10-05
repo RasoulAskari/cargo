@@ -1,3 +1,4 @@
+import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 
 class Step1 extends StatefulWidget {
@@ -12,6 +13,10 @@ class Step1 extends StatefulWidget {
 class _Step1State extends State<Step1> {
   @override
   Widget build(BuildContext context) {
-    return const Text("Step1");
+    return Column(
+      children: [
+        CTextField(value: "", hintText: "Name", setValue: () {}),
+      ],
+    );
   }
 }
