@@ -30,18 +30,9 @@ class _Step2State extends State<Step2> {
               setValid: () {},
               value: phoneNo.value),
           const SizedBox(height: 30),
-          CTextField(value: "", hintText: "", setValue: () {}),
+          CTextField(value: "", hintText: "Type of Receiver", setValue: () {}),
           const SizedBox(height: 30),
-          CTextField(value: "", hintText: "Grand Father Name", setValue: () {}),
-          const SizedBox(height: 30),
-          CTextField(value: "", hintText: "ID Card Number", setValue: () {}),
-          const SizedBox(height: 30),
-          CTextField(
-            hintText: "Price",
-            value: "",
-            setValue: (value) {},
-            textInputType: TextInputType.number,
-          )
+          CTextField(value: "", hintText: "Country", setValue: () {}),
         ],
       ),
     );
