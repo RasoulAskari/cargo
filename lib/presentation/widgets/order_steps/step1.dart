@@ -20,6 +20,8 @@ class _Step1State extends State<Step1> {
           CTextField(value: "", hintText: "Name", setValue: () {}),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "Father Name", setValue: () {}),
+          const SizedBox(height: 30),
+          CTextField(value: "", hintText: "Grand Father Name", setValue: () {}),
         ],
       ),
     );
