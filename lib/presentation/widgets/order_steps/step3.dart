@@ -1,3 +1,4 @@
+import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:flutter/material.dart';
 
 class Step3 extends StatefulWidget {
@@ -39,21 +40,10 @@ class _Step3State extends State<Step3> {
       context: context,
       builder: (_) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-        // child: BottomSheetStyle(
-        //   height: 330,
-        //   children: [
-        //     // CustomDropDown(
-        //     //     value: _dateOption,
-        //     //     title: "Choose appointment Option",
-        //     //     close: () {
-        //     //       setState(() {
-        //     //         Navigator.pop(context);
-        //     //       });
-        //     //     },
-        //     //     selected: _dateController.text,
-        //     //     setValue: _dateController)
-        //   ],
-        // ),
+        child: BottomSheetStyle(
+          height: 330,
+          children: [],
+        ),
       ),
     );
   }
