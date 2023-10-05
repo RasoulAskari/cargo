@@ -12,10 +12,16 @@ class Step3 extends StatefulWidget {
 class _Step3State extends State<Step3> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(onPressed: () {}, child: const Text("Add Item detail"))
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 40,
+      ),
+      child: Column(
+        children: [
+          ElevatedButton(onPressed: () {}, child: const Text("Add Item detail"))
+        ],
+      ),
     );
   }
 }
