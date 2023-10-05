@@ -85,6 +85,7 @@ class _Step3State extends State<Step3> {
                 hintText: "Weight",
               ),
             ),
+            const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {},
               child: const Text("Add"),
