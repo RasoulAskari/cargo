@@ -22,26 +22,19 @@ class _Step2State extends State<Step2> {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
       child: Column(
         children: [
-          CTextField(value: "", hintText: "Group Number", setValue: () {}),
-          const SizedBox(height: 30),
-          CDatePicker(
-            setValue: (value) {},
-            hintText: "Date",
-          ),
-          const SizedBox(height: 30),
           CTextField(value: "", hintText: "Name", setValue: () {}),
-          const SizedBox(height: 30),
-          CTextField(value: "", hintText: "Father Name", setValue: () {}),
-          const SizedBox(height: 30),
-          CTextField(value: "", hintText: "Grand Father Name", setValue: () {}),
-          const SizedBox(height: 30),
-          CTextField(value: "", hintText: "ID Card Number", setValue: () {}),
           const SizedBox(height: 30),
           CPhoneField(
               hintText: "Phone Num",
               setValue: (value) {},
               setValid: () {},
               value: phoneNo.value),
+          const SizedBox(height: 30),
+          CTextField(value: "", hintText: "", setValue: () {}),
+          const SizedBox(height: 30),
+          CTextField(value: "", hintText: "Grand Father Name", setValue: () {}),
+          const SizedBox(height: 30),
+          CTextField(value: "", hintText: "ID Card Number", setValue: () {}),
           const SizedBox(height: 30),
           CTextField(
             hintText: "Price",
