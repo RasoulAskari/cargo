@@ -9,4 +9,13 @@ part 'order_state.dart';
 
 class OrderCubit extends Cubit<OrderState> {
   OrderCubit() : super(OrderInitial());
+
+  void cNameChange(String value) {
+    final cName = FirstName.dirty(value);
+    emit(
+      state.copyWith(
+        customerName: cName,
+      ),
+    );
+  }
 }
