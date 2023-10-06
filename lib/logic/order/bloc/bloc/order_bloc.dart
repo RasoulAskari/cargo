@@ -25,14 +25,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     try {
       if (state.status == OrderStatus.initial) {
         final orders = await _fetchOrders(page: state.page);
-        print(orders);
-        // return emitter(
-        //   state.copyWith(
-        //     status: OrderStatus.success,
-        //     orders: orders,
-        //     hasReachedMax: orders.length < _postLimit,
-        //   ),
-        // );
+        return emitter(
+          state.copyWith(
+            status: OrderStatus.success,
+            orders: orders,
+            hasReachedMax: orders.length < _postLimit,
+          ),
+        );
       }
     } catch (e) {
       return;
@@ -52,14 +51,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       );
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
         return body.map((e) {
           return OrderModel.fromMap(e);
         }).toList();
       }
       return [];
     } catch (e) {
-      print(e.toString());
       return [];
     }
   }

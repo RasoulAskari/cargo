@@ -78,7 +78,7 @@ class OrderModel extends Equatable {
   factory OrderModel.fromMap(Map<String, dynamic> map) {
     return OrderModel(
       id: map['id'] as int,
-      cardId: map['card_id'] as int,
+      cardId: map['car_id'] as int,
       customerName: map['customer_name'] as String,
       groupNumber: map['group_number'] as int,
       fatherName: map['father_name'] as String,
