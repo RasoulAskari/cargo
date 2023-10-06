@@ -5,12 +5,12 @@ class OrderState extends Equatable {
   final FirstName customerFathername;
   final FirstName customerGrandFathername;
   final String customerIdCard;
-  final String customerPhoneNo;
-  final Date date;
+  final PhoneNo customerPhoneNo;
+  final MyDate date;
   final String groupNum;
   final double pricePerKelo;
-  final String receiverName;
-  final String receiverPhoneNo;
+  final FirstName receiverName;
+  final PhoneNo receiverPhoneNo;
   final String typeReceiver;
   final String country;
   final String city;
