@@ -49,8 +49,10 @@ class _OrderScreenState extends State<OrderScreen> {
               child: CircularProgressIndicator(),
             );
           }
-          print(state.orders);
-          return Container();
+          debugPrint(state.orders.toString());
+          return Center(
+            child: Text(state.orders.toString()),
+          );
         },
       ),
     );
