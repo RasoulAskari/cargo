@@ -8,23 +8,25 @@ import 'package:http/http.dart' as http;
 part 'order_event.dart';
 part 'order_state.dart';
 
+const _postLimit = 10;
+
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final http.Client httpClient;
 
-  OrderBloc({required this.httpClient}) : super(OrderInitial()) {}
+  OrderBloc({required this.httpClient}) : super(const OrderState());
 
-    Future<void> _onEmployeesFetched(
-      FetchOrderEvent  event, Emitter<OrderState> emitter) async {
+  Future<void> _onEmployeesFetched(
+      FetchOrderEvent event, Emitter<OrderState> emitter) async {
     if (state.hasReachedMax) return;
 
     try {
-      if (state.status == EmployeeStatus.initial) {
+      if (state.status == OrderStatus.initial) {
         final employees = await _fetchEmployees(page: state.page);
         // ignore: invalid_use_of_visible_for_testing_member
         return emitter(
           state.copyWith(
-            status: EmployeeStatus.success,
-            employees: employees,
+            status: OrderStatus.success,
+            orders: employees,
             hasReachedMax: employees.length < _postLimit,
           ),
         );
@@ -33,9 +35,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       return;
     }
   }
-
-
-
 
   Future<List> _fetchEmployees({int? page}) async {
     try {
