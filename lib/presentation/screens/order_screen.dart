@@ -1,5 +1,7 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -38,6 +40,12 @@ class _OrderScreenState extends State<OrderScreen> {
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
+      ),
+      body: BlocBuilder<OrderBloc, OrderState>(
+        builder: (context, state) {
+          
+          return Container();
+        },
       ),
     );
   }
