@@ -1,36 +1,36 @@
 part of 'order_cubit.dart';
 
-class OrderState extends Equatable {
+ class OrderState extends Equatable {
   final FirstName customerName;
   final FirstName customerFathername;
   final FirstName customerGrandFathername;
-  final String customerIdCard;
+  final CString customerIdCard;
   final PhoneNo customerPhoneNo;
   final MyDate date;
-  final String groupNum;
-  final double pricePerKelo;
+  final Amount groupNum;
+  final Amount pricePerKelo;
   final FirstName receiverName;
   final PhoneNo receiverPhoneNo;
-  final String typeReceiver;
-  final String country;
-  final String city;
-  final String address;
+  final CString typeReceiver;
+  final CString country;
+  final CString city;
+  final CString address;
 
-  OrderState({
+  const OrderState({
     this.customerName = const FirstName.pure(),
     this.customerFathername = const FirstName.pure(),
     this.customerGrandFathername = const FirstName.pure(),
-    this.customerIdCard,
-    this.customerPhoneNo,
-    this.date,
-    this.groupNum,
-    this.pricePerKelo,
-    this.receiverName,
-    this.receiverPhoneNo,
-    this.typeReceiver,
-    this.country,
-    this.city,
-    this.address,
+    this.customerIdCard = const CString.pure(),
+    this.customerPhoneNo = const PhoneNo.pure(),
+    this.date = const MyDate.pure(),
+    this.groupNum = const Amount.pure(),
+    this.pricePerKelo = const Amount.pure(),
+    this.receiverName = const FirstName.pure(),
+    this.receiverPhoneNo = const PhoneNo.pure(),
+    this.typeReceiver = const CString.pure(),
+    this.country = const CString.pure(),
+    this.city = const CString.pure(),
+    this.address = const CString.pure(),
   });
 
   @override
