@@ -2,6 +2,7 @@ import 'package:cargo/app.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
+import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
@@ -28,6 +29,11 @@ class MyApp extends StatelessWidget {
         create: (context) => IncomingOutGoingBloc(
           httpClient: http.Client(),
         )..add(IncomingOutGoingFetchEvent()),
+      ),
+      BlocProvider<OrderBloc>(
+        create: (context) => OrderBloc(
+          httpClient: http.Client(),
+        )..add(FetchOrderEvent()),
       ),
     ], child: const CargoApp());
   }
