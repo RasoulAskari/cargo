@@ -43,8 +43,7 @@ class _OrderScreenState extends State<OrderScreen> {
       ),
       body: BlocBuilder<OrderBloc, OrderState>(
         builder: (context, state) {
-          // ignore: unrelated_type_equality_checks
-          if (state == OrderStatus.initial) {
+          if (state.status == OrderStatus.initial) {
             return const Center(
               child: CircularProgressIndicator(),
             );
