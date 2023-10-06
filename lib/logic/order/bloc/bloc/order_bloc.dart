@@ -50,9 +50,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
+        print(body);
         return body.map((e) {
           return OrderModel.fromMap(e);
         }).toList();
