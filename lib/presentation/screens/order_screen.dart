@@ -49,10 +49,11 @@ class _OrderScreenState extends State<OrderScreen> {
             );
           }
           return ListView.builder(
-              itemCount: state.orders.length,
-              itemBuilder: (context, index) {
-                return Text(state.orders[index].customerName);
-              });
+            itemCount: state.orders.length,
+            itemBuilder: (context, index) {
+              return Text(state.orders[index].customerName);
+            },
+          );
         },
       ),
     );
