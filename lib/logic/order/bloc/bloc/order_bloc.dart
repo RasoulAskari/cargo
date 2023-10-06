@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
+import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 
@@ -24,13 +25,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     try {
       if (state.status == OrderStatus.initial) {
         final employees = await _fetchEmployees(page: state.page);
-        return emitter(
-          state.copyWith(
-            status: OrderStatus.success,
-            orders: employees,
-            hasReachedMax: employees.length < _postLimit,
-          ),
-        );
+        // return emitter(
+        //   state.copyWith(
+        //     status: OrderStatus.success,
+        //     orders: employees,
+        //     hasReachedMax: employees.length < _postLimit,
+        //   ),
+        // );
       }
     } catch (e) {
       return;
