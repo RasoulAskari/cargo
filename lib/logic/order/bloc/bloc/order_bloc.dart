@@ -15,21 +15,22 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final http.Client httpClient;
 
   OrderBloc({required this.httpClient}) : super(const OrderState()) {
-    on<FetchOrderEvent>(_onEmployeesFetched);
+    on<FetchOrderEvent>(_onordersFetched);
   }
 
-  Future<void> _onEmployeesFetched(
+  Future<void> _onordersFetched(
       FetchOrderEvent event, Emitter<OrderState> emitter) async {
     if (state.hasReachedMax) return;
 
     try {
       if (state.status == OrderStatus.initial) {
-        final employees = await _fetchEmployees(page: state.page);
+        final orders = await _fetchOrders(page: state.page);
+        print(orders);
         // return emitter(
         //   state.copyWith(
         //     status: OrderStatus.success,
-        //     orders: employees,
-        //     hasReachedMax: employees.length < _postLimit,
+        //     orders: orders,
+        //     hasReachedMax: orders.length < _postLimit,
         //   ),
         // );
       }
@@ -38,7 +39,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     }
   }
 
-  Future<List> _fetchEmployees({int? page}) async {
+  Future<List<OrderModel>> _fetchOrders({int? page}) async {
     try {
       final response = await httpClient.get(
         getServerRoute(
@@ -49,17 +50,16 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-      print(response.body);
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
-        // return body.map((e) {
-        //   return EmployeeModel.fromMap(e);
-        // }).toList();
+        return body.map((e) {
+          return OrderModel.fromMap(e);
+        }).toList();
       }
       return [];
     } catch (e) {
+      print(e.toString());
       return [];
     }
   }
