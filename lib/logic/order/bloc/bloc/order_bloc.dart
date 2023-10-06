@@ -42,17 +42,18 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     try {
       final response = await httpClient.get(
         getServerRoute(
-          route: '/api/v1/employees',
+          route: '/api/v1/orders',
         ),
         headers: <String, String>{
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
+      print(response.body);
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-
+        print(body);
         // return body.map((e) {
         //   return EmployeeModel.fromMap(e);
         // }).toList();
