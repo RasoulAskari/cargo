@@ -6,7 +6,7 @@ class OrderState extends Equatable {
   final FirstName customerGrandFathername;
   final String customerIdCard;
   final String customerPhoneNo;
-  final String date;
+  final Date date;
   final String groupNum;
   final double pricePerKelo;
   final String receiverName;
