@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 class OrderModel extends Equatable {
@@ -34,5 +37,65 @@ class OrderModel extends Equatable {
 
   @override
   // TODO: implement props
-  List<Object?> get props => [];
+  List<Object> get props {
+    return [
+      id,
+      cardId,
+      customerName,
+      groupNumber,
+      fatherName,
+      grandFatherName,
+      tazkiraId,
+      customerPhone,
+      receiverName,
+      receiverPhone,
+      country,
+      city,
+      address,
+      delivaryType,
+    ];
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'cardId': cardId,
+      'customerName': customerName,
+      'groupNumber': groupNumber,
+      'fatherName': fatherName,
+      'grandFatherName': grandFatherName,
+      'tazkiraId': tazkiraId,
+      'customerPhone': customerPhone,
+      'receiverName': receiverName,
+      'receiverPhone': receiverPhone,
+      'country': country,
+      'city': city,
+      'address': address,
+      'delivaryType': delivaryType,
+    };
+  }
+
+  factory OrderModel.fromMap(Map<String, dynamic> map) {
+    return OrderModel(
+      id: map['id'] as int,
+      cardId: map['card_id'] as int,
+      customerName: map['customer_name'] as String,
+      groupNumber: map['group_number'] as int,
+      fatherName: map['father_name'] as String,
+      grandFatherName: map['grand_father_name'] as String,
+      tazkiraId: map['tazkira_id'] as String,
+      customerPhone: map['customer_phone'] as String,
+      receiverName: map['receiver_name'] as String,
+      receiverPhone: map['receiver_phone'] as String,
+      country: map['country'] as String,
+      city: map['city'] as String,
+      address: map['address'] as String,
+      delivaryType: map['delivary_type'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory OrderModel.fromJson(String source) =>
+      OrderModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
