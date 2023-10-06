@@ -13,7 +13,9 @@ const _postLimit = 10;
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final http.Client httpClient;
 
-  OrderBloc({required this.httpClient}) : super(const OrderState());
+  OrderBloc({required this.httpClient}) : super(const OrderState()) {
+    on<FetchOrderEvent>(_onEmployeesFetched);
+  }
 
   Future<void> _onEmployeesFetched(
       FetchOrderEvent event, Emitter<OrderState> emitter) async {
@@ -22,7 +24,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     try {
       if (state.status == OrderStatus.initial) {
         final employees = await _fetchEmployees(page: state.page);
-        // ignore: invalid_use_of_visible_for_testing_member
         return emitter(
           state.copyWith(
             status: OrderStatus.success,
