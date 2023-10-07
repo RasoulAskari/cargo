@@ -82,6 +82,13 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
+  void cityChange(String value) {
+    final city = CString.dirty(value);
+    emit(
+      state.copyWith(city: city),
+    );
+  }
+
   void typeChange(String value) {
     final type = CString.dirty(value);
     emit(

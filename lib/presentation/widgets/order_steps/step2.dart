@@ -62,18 +62,22 @@ class _Step2State extends State<Step2> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
-                  value: state.country.value,
-                  hintText: "Country",
-                  setValue: (value) {
-                    context.read<OrderCubit>().countryChange(value);
-                  });
+                value: state.country.value,
+                hintText: "Country",
+                setValue: (value) {
+                  context.read<OrderCubit>().countryChange(value);
+                },
+              );
             },
           ),
           const SizedBox(height: 30),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
-                  value: state.city.value, hintText: "City", setValue: () {});
+                  value: state.city.value, hintText: "City", setValue: () {
+                                      context.read<OrderCubit>(). (value);
+
+                  });
             },
           ),
           const SizedBox(height: 30),
