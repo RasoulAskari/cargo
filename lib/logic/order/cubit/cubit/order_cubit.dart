@@ -19,4 +19,13 @@ class OrderCubit extends Cubit<OrderState> {
       ),
     );
   }
+
+  void cFathernameChange(String value) {
+    final fullname = FirstName.dirty(value);
+    emit(
+      state.copyWith(
+        customerName: fullname,
+      ),
+    );
+  }
 }
