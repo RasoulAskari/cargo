@@ -1,8 +1,10 @@
+import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/order_steps/step1.dart';
 import 'package:cargo/presentation/widgets/order_steps/step2.dart';
 import 'package:cargo/presentation/widgets/order_steps/step3.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddOrderScreen extends StatefulWidget {
   const AddOrderScreen({super.key});
@@ -70,7 +72,8 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next(steps);
         },
         onSubmit: () {
-          debugPrint("submit");
+          final name = context.read<OrderCubit>().state.customerName;
+          print(name);
         },
         prev: () {
           prev(steps);
