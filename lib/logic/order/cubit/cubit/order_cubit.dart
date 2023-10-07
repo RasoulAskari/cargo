@@ -88,4 +88,11 @@ class OrderCubit extends Cubit<OrderState> {
       state.copyWith(pricePerKelo: pricePerKelo),
     );
   }
+
+  void dateChange(String value) {
+    final date = MyDate.dirty(value);
+    emit(
+      state.copyWith(date: date),
+    );
+  }
 }
