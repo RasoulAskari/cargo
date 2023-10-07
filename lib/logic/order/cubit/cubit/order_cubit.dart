@@ -82,7 +82,7 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
-  void addressPerKeloChange(double value) {
+  void pricePerKeloChange(double value) {
     final pricePerKelo = Amount.dirty(value);
     emit(
       state.copyWith(pricePerKelo: pricePerKelo),

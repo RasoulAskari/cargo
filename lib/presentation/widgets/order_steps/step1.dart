@@ -97,7 +97,9 @@ class _Step1State extends State<Step1> {
               return CTextField(
                 hintText: "Price",
                 value: state.pricePerKelo.value.toString(),
-                setValue: (value) {},
+                setValue: (value) {
+                  context.read<OrderCubit>().pricePerKeloChange(value);
+                },
                 textInputType: TextInputType.number,
               );
             },
