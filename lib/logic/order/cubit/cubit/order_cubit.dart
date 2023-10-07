@@ -53,4 +53,11 @@ class OrderCubit extends Cubit<OrderState> {
       state.copyWith(customerPhoneNo: cPhoneNumber),
     );
   }
+
+  void receiverNameChange(String value) {
+    final receiverName = FirstName.dirty(value);
+    emit(
+      state.copyWith(receiverName: receiverName),
+    );
+  }
 }
