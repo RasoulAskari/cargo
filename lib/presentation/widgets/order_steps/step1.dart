@@ -46,17 +46,26 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
-                value: state.customerName.value,
-                hintText: "Name",
+                value: state.customerFathername.value,
+                hintText: "Fathername",
                 setValue: (value) {
-                  context.read<OrderCubit>().cNameChange(value);
+                  context.read<OrderCubit>().cFathernameChange(value);
                 },
               );
             },
           ),
-          CTextField(value: "", hintText: "Father Name", setValue: () {}),
           const SizedBox(height: 30),
-          CTextField(value: "", hintText: "Grand Father Name", setValue: () {}),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CTextField(
+                value: state.customerGrandFathername.value,
+                hintText: "Grand Fathername",
+                setValue: (value) {
+                  context.read<OrderCubit>().cGrandFathernameChange(value);
+                },
+              );
+            },
+          ),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "ID Card Number", setValue: () {}),
           const SizedBox(height: 30),
