@@ -87,7 +87,9 @@ class _Step2State extends State<Step2> {
               return CTextField(
                 value: state.address.value,
                 hintText: "Address",
-                setValue: () {},
+                setValue: (value) {
+                  context.read<OrderCubit>().addressChange(value);
+                },
                 maxlines: 3,
               );
             },
