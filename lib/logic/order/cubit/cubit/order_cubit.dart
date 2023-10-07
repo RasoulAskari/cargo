@@ -44,4 +44,11 @@ class OrderCubit extends Cubit<OrderState> {
       state.copyWith(customerIdCard: customerIdCard),
     );
   }
+
+  void cPhoneNumberChange(String value) {
+    final customerIdCard = CString.dirty(value);
+    emit(
+      state.copyWith(customerIdCard: customerIdCard),
+    );
+  }
 }
