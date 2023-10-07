@@ -92,12 +92,17 @@ class _Step1State extends State<Step1> {
             },
           ),
           const SizedBox(height: 30),
-          CTextField(
-            hintText: "Price",
-            value: "",
-            setValue: (value) {},
-            textInputType: TextInputType.number,
-          )
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CTextField(
+                hintText: "Price",
+                value: state.pricePerKelo.value.toString(),
+                setValue: (value) {
+                },
+                textInputType: TextInputType.number,
+              );
+            },
+          ),
         ],
       ),
     );
