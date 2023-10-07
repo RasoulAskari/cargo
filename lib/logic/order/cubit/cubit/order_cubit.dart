@@ -16,8 +16,7 @@ class OrderCubit extends Cubit<OrderState> {
     emit(
       state.copyWith(
         customerName: fullname,
-        status: FirstName.pure()
       ),
     );
-   }
+  }
 }
