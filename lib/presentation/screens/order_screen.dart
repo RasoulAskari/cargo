@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
+import 'package:cargo/presentation/widgets/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,7 +52,7 @@ class _OrderScreenState extends State<OrderScreen> {
           return ListView.builder(
             itemCount: state.orders.length,
             itemBuilder: (context, index) {
-              return Text(state.orders[index].customerName);
+              return OrderItem(order: state.orders[index]);
             },
           );
         },
