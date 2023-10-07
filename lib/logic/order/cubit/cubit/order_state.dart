@@ -16,6 +16,7 @@ class OrderState extends Equatable {
   final CString country;
   final CString city;
   final CString address;
+  final FormzSubmissionStatus status;
 
   const OrderState({
     this.customerName = const FirstName.pure(),
@@ -32,6 +33,7 @@ class OrderState extends Equatable {
     this.country = const CString.pure(),
     this.city = const CString.pure(),
     this.address = const CString.pure(),
+    this.status = FormzSubmissionStatus.initial,
   });
 
   @override
@@ -67,6 +69,7 @@ class OrderState extends Equatable {
     CString? country,
     CString? city,
     CString? address,
+    FormzSubmissionStatus? status,
   }) {
     return OrderState(
       customerName: customerName ?? this.customerName,
@@ -84,6 +87,7 @@ class OrderState extends Equatable {
       country: country ?? this.country,
       city: city ?? this.city,
       address: address ?? this.address,
+      status: status ?? this.status,
     );
   }
 }
