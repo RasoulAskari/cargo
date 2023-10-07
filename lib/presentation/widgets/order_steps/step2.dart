@@ -64,7 +64,9 @@ class _Step2State extends State<Step2> {
               return CTextField(
                   value: state.country.value,
                   hintText: "Country",
-                  setValue: () {});
+                  setValue: (value) {
+                    context.read<OrderCubit>().countryChange(value);
+                  });
             },
           ),
           const SizedBox(height: 30),
