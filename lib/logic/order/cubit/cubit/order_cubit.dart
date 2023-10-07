@@ -11,6 +11,15 @@ part 'order_state.dart';
 class OrderCubit extends Cubit<OrderState> {
   OrderCubit() : super(OrderInitial());
 
+  void groupChange(double value) {
+    final group = Amount.dirty(value);
+    emit(
+      state.copyWith(
+        groupNum: group,
+      ),
+    );
+  }
+
   void cNameChange(String value) {
     final fullname = FirstName.dirty(value);
     emit(

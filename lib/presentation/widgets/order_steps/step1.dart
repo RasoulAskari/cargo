@@ -24,7 +24,17 @@ class _Step1State extends State<Step1> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       child: Column(
         children: [
-          CTextField(value: "", hintText: "Group Number", setValue: () {}),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CTextField(
+                value: state.groupNum.value.toString(),
+                hintText: "Group Number",
+                setValue: (value) {
+                  context.read<OrderCubit>().
+                },
+              );
+            },
+          ),
           const SizedBox(height: 30),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
