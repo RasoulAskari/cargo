@@ -67,4 +67,12 @@ class OrderCubit extends Cubit<OrderState> {
       state.copyWith(receiverPhoneNo: cPhoneNumber),
     );
   }
+
+  void countryChange(String value) {
+    final country = CString.dirty(value);
+    emit(
+      state.copyWith(country: country),
+    );
+  }
+
 }
