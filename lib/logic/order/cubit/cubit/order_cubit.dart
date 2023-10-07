@@ -21,31 +21,27 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void cFathernameChange(String value) {
-    final fullname = FirstName.dirty(value);
+    final cFathername = FirstName.dirty(value);
     emit(
       state.copyWith(
-        customerName: fullname,
+        customerFathername: cFathername,
       ),
     );
   }
 
   void cGrandFathernameChange(String value) {
-    final fullname = FirstName.dirty(value);
+    final customerGrandFathername = FirstName.dirty(value);
     emit(
       state.copyWith(
-        customerName: fullname,
+        customerGrandFathername: customerGrandFathername,
       ),
     );
   }
 
   void cTazkiraIdChange(String value) {
-    final fullname = FirstName.dirty(value);
+    final customerIdCard = CString.dirty(value);
     emit(
-      state.copyWith(
-        customerName: fullname,
-      ),
+      state.copyWith(customerIdCard: customerIdCard),
     );
   }
-
-  
 }
