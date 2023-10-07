@@ -34,11 +34,18 @@ class _Step2State extends State<Step2> {
             },
           ),
           const SizedBox(height: 30),
-          CPhoneField(
-              hintText: "Phone Num",
-              setValue: (value) {},
-              setValid: () {},
-              value: phoneNo.value),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CPhoneField(
+                hintText: "Phone Num",
+                setValue: (value) {
+                  context.read<OrderCubit>().rPhoneNumberChange(value);
+                },
+                setValid: () {},
+                value: state.receiverPhoneNo.value,
+              );
+            },
+          ),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "Type of Receiver", setValue: () {}),
           const SizedBox(height: 30),
