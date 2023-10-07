@@ -28,10 +28,13 @@ class _Step1State extends State<Step1> {
           const SizedBox(height: 30),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
+              print(state.date);
               return CDatePicker(
-                value: DateTime.parse(state.date.value),
+                value: state.date.value != ""
+                    ? DateTime.parse(state.date.value)
+                    : DateTime.now(),
                 setValue: (value) {
-                  context.read<OrderCubit>().dateChange(value);
+                  context.read<OrderCubit>().dateChange(value.toString());
                 },
                 hintText: "Date",
               );
