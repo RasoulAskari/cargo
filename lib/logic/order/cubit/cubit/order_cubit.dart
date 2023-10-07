@@ -82,6 +82,13 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
+  void typeChange(String value) {
+    final type = CString.dirty(value);
+    emit(
+      state.copyWith(typeReceiver: type),
+    );
+  }
+
   void addressChange(String value) {
     final address = CString.dirty(value);
     emit(

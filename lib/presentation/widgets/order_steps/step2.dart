@@ -47,7 +47,17 @@ class _Step2State extends State<Step2> {
             },
           ),
           const SizedBox(height: 30),
-          CTextField(value: "", hintText: "Type of Receiver", setValue: () {}),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CTextField(
+                value: state.typeReceiver.value,
+                hintText: "Type of Receiver",
+                setValue: (value) {
+                  context.read<OrderCubit>().typeChange(value);
+                },
+              );
+            },
+          ),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "Country", setValue: () {}),
           const SizedBox(height: 30),
