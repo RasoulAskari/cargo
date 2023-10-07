@@ -39,7 +39,6 @@ class _Step1State extends State<Step1> {
           const SizedBox(height: 30),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
-              print(state.date);
               return CDatePicker(
                 value: state.date.value != ""
                     ? DateTime.parse(state.date.value)
@@ -56,7 +55,6 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 value: state.customerName.value,
-                errorText: state.customerName.error.toString(),
                 hintText: "Name",
                 setValue: (value) {
                   context.read<OrderCubit>().cNameChange(value);
