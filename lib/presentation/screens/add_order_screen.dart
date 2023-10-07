@@ -72,7 +72,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next(steps);
         },
         onSubmit: () {
-          final name = context.read<OrderCubit>().state.customerName;
+          final name = context.read<OrderCubit>().state;
           print(name);
         },
         prev: () {
