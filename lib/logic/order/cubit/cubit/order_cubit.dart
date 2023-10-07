@@ -38,6 +38,14 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
+  void cTazkiraIdChange(String value) {
+    final fullname = FirstName.dirty(value);
+    emit(
+      state.copyWith(
+        customerName: fullname,
+      ),
+    );
+  }
 
-
+  
 }
