@@ -26,6 +26,17 @@ class _Step1State extends State<Step1> {
         children: [
           CTextField(value: "", hintText: "Group Number", setValue: () {}),
           const SizedBox(height: 30),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CDatePicker(
+                value: DateTime.parse(state.date.value),
+                setValue: (value) {
+                  context.read<OrderCubit>().dateChange(value);
+                },
+                hintText: "Date",
+              );
+            },
+          ),
           const SizedBox(height: 30),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
