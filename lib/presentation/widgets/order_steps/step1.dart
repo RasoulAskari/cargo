@@ -1,8 +1,10 @@
 import 'package:cargo/logic/form_models/phone_no.dart';
+import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Step1 extends StatefulWidget {
   final Function next;
@@ -29,7 +31,17 @@ class _Step1State extends State<Step1> {
             hintText: "Date",
           ),
           const SizedBox(height: 30),
-          CTextField(value: "", hintText: "Name", setValue: () {}),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CTextField(
+                value: state.customerName.value,
+                hintText: "Name",
+                setValue: (value) {
+                  context.read<OrderCubit>().cNameChange(value);
+                },
+              );
+            },
+          ),
           const SizedBox(height: 30),
           CTextField(value: "", hintText: "Father Name", setValue: () {}),
           const SizedBox(height: 30),
