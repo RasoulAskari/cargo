@@ -67,7 +67,17 @@ class _Step1State extends State<Step1> {
             },
           ),
           const SizedBox(height: 30),
-          CTextField(value: "", hintText: "ID Card Number", setValue: () {}),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return CTextField(
+                value: state.customerIdCard.value,
+                hintText: "ID Card Number",
+                setValue: (value) {
+                  context.read<OrderCubit>().cTazkiraIdChange(value);
+                },
+              );
+            },
+          ),
           const SizedBox(height: 30),
           CPhoneField(
               hintText: "Phone Num",
