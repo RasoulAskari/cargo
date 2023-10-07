@@ -56,6 +56,7 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 value: state.customerName.value,
+                errorText: state.customerName.error.toString(),
                 hintText: "Name",
                 setValue: (value) {
                   context.read<OrderCubit>().cNameChange(value);
