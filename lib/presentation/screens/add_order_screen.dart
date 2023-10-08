@@ -73,8 +73,8 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         next: () {
           next(steps);
         },
-        onSubmit: () {
-          final state = context.read<OrderCubit>().state;
+        onSubmit: () async {
+          final state = await context.read<OrderCubit>().state;
 
           OrderModel order = OrderModel(
             id: 1,
@@ -92,6 +92,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             address: state.address.value,
             delivaryType: state.typeReceiver.value,
           );
+          print(order);
           context.read<OrderBloc>().add(AddOrderEvent(order: order));
         },
         prev: () {

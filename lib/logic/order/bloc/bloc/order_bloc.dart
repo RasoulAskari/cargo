@@ -24,10 +24,21 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     if (state.hasReachedMax) return;
 
     try {
-      
-    } catch (e) {
-      return;
-    }
+      final order =
+          OrderModel.fromMap(event.order.toMap()) as Map<String, dynamic>;
+      print(order);
+      final response = await httpClient.post(
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+        getServerRoute(
+          route: '/api/v1/orders',
+          params: order,
+        ),
+      );
+      print(response.body);
+    } catch (e) {}
   }
 
   Future<void> _onordersFetched(
