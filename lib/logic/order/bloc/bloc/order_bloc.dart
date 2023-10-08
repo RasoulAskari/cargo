@@ -95,14 +95,17 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
+      print(response.body);
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         return body.map((e) {
           return OrderModel.fromMap(e);
         }).toList();
       }
+
       return [];
     } catch (e) {
+      print(e.toString());
       return [];
     }
   }
