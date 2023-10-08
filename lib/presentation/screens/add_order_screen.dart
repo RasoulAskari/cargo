@@ -1,3 +1,4 @@
+import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:cargo/presentation/widgets/order_steps/step1.dart';
@@ -91,6 +92,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             address: state.address.value,
             delivaryType: state.typeReceiver.value,
           );
+          context.read<OrderBloc>().add(AddOrderEvent(order: order));
         },
         prev: () {
           prev(steps);
