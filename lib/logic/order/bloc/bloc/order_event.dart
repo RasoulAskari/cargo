@@ -8,3 +8,9 @@ sealed class OrderEvent extends Equatable {
 }
 
 class FetchOrderEvent extends OrderEvent {}
+
+class AddOrderEvent extends OrderEvent {
+  final OrderModel order;
+
+  const AddOrderEvent({required this.order});
+}
