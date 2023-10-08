@@ -16,6 +16,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   OrderBloc({required this.httpClient}) : super(const OrderState()) {
     on<FetchOrderEvent>(_onordersFetched);
+    on<AddOrderEvent>(_onorderAdd);
   }
 
   Future<void> _onorderAdd(
@@ -23,7 +24,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     if (state.hasReachedMax) return;
 
     try {
-
+      
     } catch (e) {
       return;
     }
