@@ -1,4 +1,5 @@
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
+import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:cargo/presentation/widgets/order_steps/step1.dart';
 import 'package:cargo/presentation/widgets/order_steps/step2.dart';
 import 'package:cargo/presentation/widgets/order_steps/step3.dart';
@@ -72,8 +73,24 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next(steps);
         },
         onSubmit: () {
-          final name = context.read<OrderCubit>().state;
-          print(name);
+          final state = context.read<OrderCubit>().state;
+
+          OrderModel order = OrderModel(
+            id: 1,
+            cardId: 1,
+            customerName: state.customerName.value,
+            groupNumber: int.parse(state.groupNum.value.toString()),
+            fatherName: state.customerFathername.value,
+            grandFatherName: state.customerFathername.value,
+            tazkiraId: state.customerIdCard.value,
+            customerPhone: state.customerPhoneNo.value.toString(),
+            receiverName: state.receiverName.value,
+            receiverPhone: state.receiverPhoneNo.value.toString(),
+            country: state.country.value,
+            city: state.city.value,
+            address: state.address.value,
+            delivaryType: state.typeReceiver.value,
+          );
         },
         prev: () {
           prev(steps);
