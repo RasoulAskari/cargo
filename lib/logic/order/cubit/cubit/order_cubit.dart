@@ -12,8 +12,8 @@ part 'order_state.dart';
 class OrderCubit extends Cubit<OrderState> {
   OrderCubit() : super(OrderInitial());
 
-  void groupChange(double value) {
-    final group = Amount.dirty(value);
+  void groupChange(int value) {
+    final group = Number.dirty(value);
     emit(
       state.copyWith(
         groupNum: group,
