@@ -92,7 +92,6 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             address: state.address.value,
             delivaryType: state.typeReceiver.value,
           );
-          print(order);
           context.read<OrderBloc>().add(AddOrderEvent(order: order));
         },
         prev: () {

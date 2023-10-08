@@ -21,12 +21,15 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   Future<void> _onorderAdd(
       AddOrderEvent event, Emitter<OrderState> emitter) async {
-    if (state.hasReachedMax) return;
+
 
     try {
-      final order =
-          OrderModel.fromMap(event.order.toMap()) as Map<String, dynamic>;
-      print(order);
+
+      print("tihs order");
+
+      
+
+
       final response = await httpClient.post(
         headers: <String, String>{
           'Authorization':
@@ -37,8 +40,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
           params: order,
         ),
       );
-      print(response.body);
-    } catch (e) {}
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   Future<void> _onordersFetched(
