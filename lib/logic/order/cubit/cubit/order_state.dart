@@ -8,7 +8,7 @@ class OrderState extends Equatable {
   final CString customerIdCard;
   final PhoneNo customerPhoneNo;
   final MyDate date;
-  final Amount groupNum;
+  final Number groupNum;
   final Amount pricePerKelo;
   final FirstName receiverName;
   final PhoneNo receiverPhoneNo;
@@ -25,7 +25,7 @@ class OrderState extends Equatable {
     this.customerIdCard = const CString.pure(),
     this.customerPhoneNo = const PhoneNo.pure(),
     this.date = const MyDate.pure(),
-    this.groupNum = const Amount.pure(),
+    this.groupNum = const Number.pure(),
     this.pricePerKelo = const Amount.pure(),
     this.receiverName = const FirstName.pure(),
     this.receiverPhoneNo = const PhoneNo.pure(),
@@ -61,7 +61,7 @@ class OrderState extends Equatable {
     CString? customerIdCard,
     PhoneNo? customerPhoneNo,
     MyDate? date,
-    Amount? groupNum,
+    Number? groupNum,
     Amount? pricePerKelo,
     FirstName? receiverName,
     PhoneNo? receiverPhoneNo,
