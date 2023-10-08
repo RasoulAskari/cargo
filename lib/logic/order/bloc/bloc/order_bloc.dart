@@ -21,14 +21,26 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   Future<void> _onorderAdd(
       AddOrderEvent event, Emitter<OrderState> emitter) async {
-
-
     try {
+      OrderModel data = event.order;
 
-      print("tihs order");
-
-      
-
+      final order = {
+        'car_id': data.cardId,
+        'customer_name': data.customerName,
+        'group_number': data.customerName,
+        'father_name': data.customerName,
+        'grand_father_name': data.customerName,
+        'tazkira_id': data.customerName,
+        'customer_phone': data.customerName,
+        'receiver_name': data.customerName,
+        'receiver_phone': data.customerName,
+        'country': data.customerName,
+        'city': data.customerName,
+        'address': data.customerName,
+        'delivary_type': data.customerName,
+        'description': "this is description",
+        'price_per_killo': data.customerName,
+      };
 
       final response = await httpClient.post(
         headers: <String, String>{
@@ -40,6 +52,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
           params: order,
         ),
       );
+      print(response.body);
     } catch (e) {
       print(e.toString());
     }
