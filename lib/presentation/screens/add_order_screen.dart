@@ -74,7 +74,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next(steps);
         },
         onSubmit: () async {
-          final state = await context.read<OrderCubit>().state;
+          final state = context.read<OrderCubit>().state;
 
           OrderModel order = OrderModel(
             id: 1,
