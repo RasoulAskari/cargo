@@ -5,7 +5,6 @@ import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
-import 'package:formz/formz.dart';
 
 part 'order_event.dart';
 part 'order_state.dart';
@@ -17,6 +16,17 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   OrderBloc({required this.httpClient}) : super(const OrderState()) {
     on<FetchOrderEvent>(_onordersFetched);
+  }
+
+  Future<void> _onorderAdd(
+      AddOrderEvent event, Emitter<OrderState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    try {
+
+    } catch (e) {
+      return;
+    }
   }
 
   Future<void> _onordersFetched(
