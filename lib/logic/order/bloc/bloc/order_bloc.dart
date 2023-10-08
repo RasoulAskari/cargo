@@ -42,7 +42,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         "extra_expense": [],
         'description': "this is description",
         "items": [
-          {"name": "jdjdjd", "count": "83838", "type": "کارتن", "weight": "9"}
+          {"name": "IPhone", "count": "2", "type": "کارتن", "weight": 1.2}
         ],
         'price_per_killo': 29292.2,
       };
