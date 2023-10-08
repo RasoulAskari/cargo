@@ -84,9 +84,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             fatherName: state.customerFathername.value,
             grandFatherName: state.customerFathername.value,
             tazkiraId: state.customerIdCard.value,
-            customerPhone: state.customerPhoneNo.value.toString(),
+            customerPhone: state.customerPhoneNo.value.phoneNumber,
             receiverName: state.receiverName.value,
-            receiverPhone: state.receiverPhoneNo.value.toString(),
+            receiverPhone: state.receiverPhoneNo.value.phoneNumber,
             country: state.country.value,
             city: state.city.value,
             address: state.address.value,
@@ -94,6 +94,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           );
           context.read<OrderBloc>().add(AddOrderEvent(order: order));
         },
+        
         prev: () {
           prev(steps);
         },

@@ -27,30 +27,36 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       final order = {
         'car_id': data.cardId,
         'customer_name': data.customerName,
-        'group_number': data.customerName,
-        'father_name': data.customerName,
-        'grand_father_name': data.customerName,
-        'tazkira_id': data.customerName,
-        'customer_phone': data.customerName,
-        'receiver_name': data.customerName,
-        'receiver_phone': data.customerName,
-        'country': data.customerName,
-        'city': data.customerName,
-        'address': data.customerName,
-        'delivary_type': data.customerName,
+        'group_number': data.groupNumber,
+        'father_name': data.fatherName,
+        'grand_father_name': data.grandFatherName,
+        'tazkira_id': data.cardId,
+        'customer_phone': data.customerPhone,
+        'receiver_name': data.receiverName,
+        'receiver_phone': data.receiverPhone,
+        'country': data.country,
+        'date': DateTime.now().toString(),
+        'city': data.city,
+        'address': data.address,
+        'delivary_type': data.delivaryType,
+        "extra_expense": [],
         'description': "this is description",
-        'price_per_killo': data.customerName,
+        "items": [
+          {"name": "jdjdjd", "count": "83838", "type": "کارتن", "weight": "9"}
+        ],
+        'price_per_killo': 29292.2,
       };
 
-      final response = await httpClient.post(
+      print(order);
+
+      final response = await http.post(
+        Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
-        getServerRoute(
-          route: '/api/v1/orders',
-          params: order,
-        ),
+        body: jsonEncode(order),
       );
       print(response.body);
     } catch (e) {
