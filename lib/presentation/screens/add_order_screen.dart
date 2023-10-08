@@ -80,7 +80,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             id: 1,
             cardId: 1,
             customerName: state.customerName.value,
-            groupNumber: int.parse(state.groupNum.value.toString()),
+            groupNumber: state.groupNum.value,
             fatherName: state.customerFathername.value,
             grandFatherName: state.customerFathername.value,
             tazkiraId: state.customerIdCard.value,
