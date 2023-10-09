@@ -3,13 +3,13 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-class OrderItem extends Equatable {
+class MyOrderItme extends Equatable {
   final String name;
   final String type;
   final int count;
   final double weight;
 
-  const OrderItem(
+  const MyOrderItme(
       {required this.name,
       required this.type,
       required this.count,
@@ -28,8 +28,8 @@ class OrderItem extends Equatable {
     };
   }
 
-  factory OrderItem.fromMap(Map<String, dynamic> map) {
-    return OrderItem(
+  factory MyOrderItme.fromMap(Map<String, dynamic> map) {
+    return MyOrderItme(
       name: map['name'] as String,
       type: map['type'] as String,
       count: map['count'] as int,
@@ -39,16 +39,16 @@ class OrderItem extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory OrderItem.fromJson(String source) =>
-      OrderItem.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory MyOrderItme.fromJson(String source) =>
+      MyOrderItme.fromMap(json.decode(source) as Map<String, dynamic>);
 
-  OrderItem copyWith({
+  MyOrderItme copyWith({
     String? name,
     String? type,
     int? count,
     double? weight,
   }) {
-    return OrderItem(
+    return MyOrderItme(
       name: name ?? this.name,
       type: type ?? this.type,
       count: count ?? this.count,
