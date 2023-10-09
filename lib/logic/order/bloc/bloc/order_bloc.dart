@@ -27,7 +27,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       final order = {
         'car_id': data.cardId,
         'customer_name': data.customerName,
-        'group_number': data.groupNumber,
+        'group_number': 7,
         'father_name': data.fatherName,
         'grand_father_name': data.grandFatherName,
         'tazkira_id': data.cardId,
@@ -35,7 +35,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         'receiver_name': data.receiverName,
         'receiver_phone': data.receiverPhone,
         'country': data.country,
-        'date': DateTime.now().toString(),
+        'date': "2022-10-09 10:09:26.695295",
         'city': data.city,
         'address': data.address,
         'delivary_type': data.delivaryType,
