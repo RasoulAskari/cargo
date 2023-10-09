@@ -41,4 +41,18 @@ class OrderItem extends Equatable {
 
   factory OrderItem.fromJson(String source) =>
       OrderItem.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  OrderItem copyWith({
+    String? name,
+    String? type,
+    int? count,
+    double? weight,
+  }) {
+    return OrderItem(
+      name: name ?? this.name,
+      type: type ?? this.type,
+      count: count ?? this.count,
+      weight: weight ?? this.weight,
+    );
+  }
 }
