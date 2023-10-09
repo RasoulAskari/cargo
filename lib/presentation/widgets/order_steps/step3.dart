@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
+import 'package:cargo/logic/order/model/order_item.dart';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
@@ -92,16 +93,13 @@ class _Step3State extends State<Step3> {
               builder: (context, state) {
                 return ElevatedButton(
                   onPressed: () {
-                    context.read<OrderCubit>().itemsChange(
-                      [
-                        {
-                          "name": "IPhone",
-                          "count": "2",
-                          "type": "کارتن",
-                          "weight": 1.2
-                        }
-                      ],
-                    );
+                    context.read<OrderCubit>().itemsChange([
+                      const MyOrderItme(
+                          name: "Mac pro max",
+                          type: "carton",
+                          count: 1,
+                          weight: 1.2)
+                    ]);
                   },
                   child: const Text("Add"),
                 );
