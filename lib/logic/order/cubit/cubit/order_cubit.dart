@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
+import 'package:cargo/logic/form_models/items_list.dart';
 import 'package:cargo/logic/form_models/models.dart';
 import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/number.dart';

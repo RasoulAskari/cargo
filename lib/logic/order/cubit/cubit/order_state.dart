@@ -17,9 +17,11 @@ class OrderState extends Equatable {
   final CString city;
   final CString address;
   final FormzSubmissionStatus status;
+  final ItemsList items;
 
   const OrderState({
     this.customerName = const FirstName.pure(),
+    this.items = const ItemsList.pure(),
     this.customerFathername = const FirstName.pure(),
     this.customerGrandFathername = const FirstName.pure(),
     this.customerIdCard = const CString.pure(),
@@ -70,9 +72,11 @@ class OrderState extends Equatable {
     CString? city,
     CString? address,
     FormzSubmissionStatus? status,
+    ItemsList? items,
   }) {
     return OrderState(
       customerName: customerName ?? this.customerName,
+      items: items ?? this.items,
       customerFathername: customerFathername ?? this.customerFathername,
       customerGrandFathername:
           customerGrandFathername ?? this.customerGrandFathername,
