@@ -1,7 +1,9 @@
 import 'dart:ui';
+import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Step3 extends StatefulWidget {
   final Function next;
@@ -86,9 +88,24 @@ class _Step3State extends State<Step3> {
               ),
             ),
             const SizedBox(height: 15),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Add"),
+            BlocBuilder<OrderCubit, OrderState>(
+              builder: (context, state) {
+                return ElevatedButton(
+                  onPressed: () {
+                    context.read<OrderCubit>().itemsChange(
+                      [
+                        {
+                          "name": "IPhone",
+                          "count": "2",
+                          "type": "کارتن",
+                          "weight": 1.2
+                        }
+                      ],
+                    );
+                  },
+                  child: const Text("Add"),
+                );
+              },
             )
           ],
         ),

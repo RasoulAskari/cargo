@@ -23,42 +23,42 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       AddOrderEvent event, Emitter<OrderState> emitter) async {
     try {
       OrderModel data = event.order;
+      print(data);
+      // final order = {
+      //   'car_id': data.cardId,
+      //   'customer_name': data.customerName,
+      //   'group_number': data.grandFatherName,
+      //   'father_name': data.fatherName,
+      //   'grand_father_name': data.grandFatherName,
+      //   'tazkira_id': data.cardId,
+      //   'customer_phone': data.customerPhone,
+      //   'receiver_name': data.receiverName,
+      //   'receiver_phone': data.receiverPhone,
+      //   'country': data.country,
+      //   'date': "2022-10-09 10:09:26.695295",
+      //   'city': data.city,
+      //   'address': data.address,
+      //   'delivary_type': data.delivaryType,
+      //   "extra_expense": [],
+      //   'description': "this is description",
+      //   "items": [
+      //     {"name": "IPhone", "count": "2", "type": "کارتن", "weight": 1.2}
+      //   ],
+      //   'price_per_killo': 29292.2,
+      // };
 
-      final order = {
-        'car_id': data.cardId,
-        'customer_name': data.customerName,
-        'group_number': data.grandFatherName,
-        'father_name': data.fatherName,
-        'grand_father_name': data.grandFatherName,
-        'tazkira_id': data.cardId,
-        'customer_phone': data.customerPhone,
-        'receiver_name': data.receiverName,
-        'receiver_phone': data.receiverPhone,
-        'country': data.country,
-        'date': "2022-10-09 10:09:26.695295",
-        'city': data.city,
-        'address': data.address,
-        'delivary_type': data.delivaryType,
-        "extra_expense": [],
-        'description': "this is description",
-        "items": [
-          {"name": "IPhone", "count": "2", "type": "کارتن", "weight": 1.2}
-        ],
-        'price_per_killo': 29292.2,
-      };
+      // print(order);
 
-      print(order);
-
-      final response = await http.post(
-        Uri.parse('http://localhost:8000/api/v1/orders'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
-        },
-        body: jsonEncode(order),
-      );
-      print(response.body);
+      // final response = await http.post(
+      //   Uri.parse('http://localhost:8000/api/v1/orders'),
+      //   headers: <String, String>{
+      //     'Content-Type': 'application/json; charset=UTF-8',
+      //     'Authorization':
+      //         'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      //   },
+      //   body: jsonEncode(order),
+      // );
+      // print(response.body);
     } catch (e) {
       print(e.toString());
     }
