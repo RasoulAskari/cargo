@@ -118,4 +118,11 @@ class OrderCubit extends Cubit<OrderState> {
       state.copyWith(date: date),
     );
   }
+
+  void itemsChange(List<Map> value) {
+    final items = ItemsList.dirty(value);
+    emit(
+      state.copyWith(items: items),
+    );
+  }
 }
