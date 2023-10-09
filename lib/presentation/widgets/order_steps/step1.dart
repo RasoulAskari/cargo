@@ -18,6 +18,7 @@ class Step1 extends StatefulWidget {
 class _Step1State extends State<Step1> {
   PhoneNo phoneNo = const PhoneNo.pure();
 
+  bool isValid = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -106,7 +107,11 @@ class _Step1State extends State<Step1> {
                 setValue: (value) {
                   context.read<OrderCubit>().cPhoneNumberChange(value);
                 },
-                setValid: () {},
+                setValid: (bool? isValidPassed) {
+                  setState(() {
+                    isValid = isValidPassed ?? false;
+                  });
+                },
                 value: state.customerPhoneNo.value,
               );
             },
