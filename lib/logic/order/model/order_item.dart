@@ -6,7 +6,7 @@ class OrderItem extends Equatable {
   final int count;
   final double weight;
 
-  OrderItem(
+  const OrderItem(
       {required this.name,
       required this.type,
       required this.count,
