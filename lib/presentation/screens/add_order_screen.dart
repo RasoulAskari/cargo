@@ -94,7 +94,6 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           );
           context.read<OrderBloc>().add(AddOrderEvent(order: order));
         },
-        
         prev: () {
           prev(steps);
         },
