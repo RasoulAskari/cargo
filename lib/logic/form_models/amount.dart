@@ -10,7 +10,7 @@ class Amount extends FormzInput<double, AmountValidationError> {
   AmountValidationError? validator(double value) {
     if (value == 0.0) {
       return AmountValidationError.empty;
-    } else if (value < 0) {
+    } else if (value < 0.0) {
       return AmountValidationError.min;
     }
     return null;
