@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:cargo/logic/order/model/order_item.dart';
 import 'package:equatable/equatable.dart';
 
 class OrderModel extends Equatable {
@@ -17,6 +18,7 @@ class OrderModel extends Equatable {
   final String country;
   final String city;
   final String address;
+  final List<MyOrderItme> items;
   final String delivaryType;
 
   const OrderModel(
@@ -33,7 +35,8 @@ class OrderModel extends Equatable {
       required this.country,
       required this.city,
       required this.address,
-      required this.delivaryType});
+      required this.delivaryType,
+      required this.items});
 
   @override
   // TODO: implement props
@@ -76,7 +79,12 @@ class OrderModel extends Equatable {
   }
 
   factory OrderModel.fromMap(Map<String, dynamic> map) {
+    final orderItems = map['items'] as List<MyOrderItme>;
     return OrderModel(
+      items: orderItems
+          .map((e) => MyOrderItme(
+              name: e.name, type: e.type, count: e.count, weight: e.weight))
+          .toList(),
       id: map['id'] as int,
       cardId: map['car_id'] as int,
       customerName: map['customer_name'] as String,
