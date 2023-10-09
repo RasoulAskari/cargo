@@ -8,7 +8,7 @@ class Amount extends FormzInput<double, AmountValidationError> {
 
   @override
   AmountValidationError? validator(double value) {
-    if (value == null) {
+    if (value == 0.0) {
       return AmountValidationError.empty;
     } else if (value < 0) {
       return AmountValidationError.min;
