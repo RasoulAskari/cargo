@@ -4,6 +4,7 @@ import 'package:cargo/logic/form_models/items_list.dart';
 import 'package:cargo/logic/form_models/models.dart';
 import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/number.dart';
+import 'package:cargo/logic/order/model/order_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:formz/formz.dart';
@@ -119,7 +120,7 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
-  void itemsChange(List<Map> value) {
+  void itemsChange(List<MyOrderItme> value) {
     final items = ItemsList.dirty(value);
     emit(
       state.copyWith(items: items),
