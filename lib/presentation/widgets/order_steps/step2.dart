@@ -15,7 +15,7 @@ class Step2 extends StatefulWidget {
 }
 
 class _Step2State extends State<Step2> {
-  PhoneNo phoneNo = const PhoneNo.pure();
+  bool isValid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,11 @@ class _Step2State extends State<Step2> {
                 setValue: (value) {
                   context.read<OrderCubit>().rPhoneNumberChange(value);
                 },
-                setValid: () {},
+                setValid: (bool? isValidPassed) {
+                  setState(() {
+                    isValid = isValidPassed ?? false;
+                  });
+                },
                 value: state.receiverPhoneNo.value,
               );
             },
