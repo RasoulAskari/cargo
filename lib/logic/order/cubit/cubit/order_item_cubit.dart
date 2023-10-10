@@ -37,5 +37,19 @@ class OrderItemCubit extends Cubit<OrderItemState> {
     );
   }
 
-  void resetOrderItem() {}
+  void resetOrderItem() {
+    const name = CString.dirty("");
+    const type = CString.dirty("");
+    const weight = Amount.dirty(1.0);
+    const count = Number.dirty(1);
+
+    emit(
+      state.copyWith(
+        name: name,
+        type: type,
+        weight: weight,
+        count: count,
+      ),
+    );
+  }
 }
