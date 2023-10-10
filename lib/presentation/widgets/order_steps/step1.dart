@@ -31,7 +31,13 @@ class _Step1State extends State<Step1> {
                 value: state.groupNum.value.toString(),
                 hintText: "Group Number",
                 setValue: (value) {
-                  int val = int.parse(value.toString());
+                  int val;
+                  if (value == "") {
+                    val = 1;
+                  } else {
+                    val = int.parse(value);
+                  }
+
                   context.read<OrderCubit>().groupChange(val);
                 },
               );
