@@ -123,7 +123,14 @@ class _Step1State extends State<Step1> {
                 hintText: "Price",
                 value: state.pricePerKelo.value.toString(),
                 setValue: (value) {
-                  context.read<OrderCubit>().pricePerKeloChange(value);
+                  double val;
+                  if (value == "") {
+                    val = 1;
+                  } else {
+                    val = double.parse(value);
+                  }
+
+                  context.read<OrderCubit>().pricePerKeloChange(val);
                 },
                 textInputType: TextInputType.number,
               );
