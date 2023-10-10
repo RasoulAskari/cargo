@@ -80,7 +80,8 @@ class OrderModel extends Equatable {
   }
 
   factory OrderModel.fromMap(Map<String, dynamic> map) {
-    final orderItems = map['items'] as List<MyOrderItme>;
+    final orderItems =
+        map['items'] == null ? [] : map['items'] as List<MyOrderItme>;
     return OrderModel(
       items: orderItems
           .map((e) => MyOrderItme(
