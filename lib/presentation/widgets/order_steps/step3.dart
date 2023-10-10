@@ -113,7 +113,14 @@ class _Step3State extends State<Step3> {
                     textInputType: TextInputType.number,
                     value: state.weight.value.toString(),
                     setValue: (value) {
-                      context.read<OrderItemCubit>().weightChange(value);
+                      double val;
+                      if (value == "") {
+                        val = 1;
+                      } else {
+                        val = double.parse(value);
+                      }
+
+                      context.read<OrderItemCubit>().weightChange(val);
                     },
                     hintText: "Weight",
                   );
