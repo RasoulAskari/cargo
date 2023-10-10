@@ -72,8 +72,10 @@ class _Step3State extends State<Step3> {
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
                 builder: (context, state) {
                   return CTextField(
-                    value: "",
-                    setValue: (value) {},
+                    value: state.type.value,
+                    setValue: (value) {
+                      context.read<OrderItemCubit>().typeChange(value);
+                    },
                     hintText: "Type",
                   );
                 },
