@@ -15,4 +15,11 @@ class OrderItemCubit extends Cubit<OrderItemState> {
       state.copyWith(name: name),
     );
   }
+
+  void typeChange(String value) {
+    final name = CString.dirty(value);
+    emit(
+      state.copyWith(name: name),
+    );
+  }
 }
