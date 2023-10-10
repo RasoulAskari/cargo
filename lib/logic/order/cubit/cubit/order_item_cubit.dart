@@ -36,4 +36,8 @@ class OrderItemCubit extends Cubit<OrderItemState> {
       state.copyWith(count: count),
     );
   }
+
+  void resetOrderItem(){
+    
+  }
 }
