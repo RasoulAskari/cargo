@@ -58,7 +58,9 @@ class _Step3State extends State<Step3> {
                 builder: (context, state) {
                   return CTextField(
                     value: state.name.value,
-                    setValue: (value) {},
+                    setValue: (value) {
+                      context.read<OrderItemCubit>().nameChange(value);
+                    },
                     hintText: "Item Name",
                   );
                 },
