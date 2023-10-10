@@ -88,8 +88,10 @@ class _Step3State extends State<Step3> {
                 builder: (context, state) {
                   return CTextField(
                     textInputType: TextInputType.number,
-                    value: "",
-                    setValue: (value) {},
+                    value: state.type.value,
+                    setValue: (value) {
+                      context.read<OrderItemCubit>().countChange(value);
+                    },
                     hintText: "Amount",
                   );
                 },
