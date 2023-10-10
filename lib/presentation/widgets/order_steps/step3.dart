@@ -69,10 +69,14 @@ class _Step3State extends State<Step3> {
             const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: CTextField(
-                value: "",
-                setValue: (value) {},
-                hintText: "Type",
+              child: BlocBuilder<OrderItemCubit, OrderItemState>(
+                builder: (context, state) {
+                  return CTextField(
+                    value: "",
+                    setValue: (value) {},
+                    hintText: "Type",
+                  );
+                },
               ),
             ),
             const SizedBox(height: 30),
