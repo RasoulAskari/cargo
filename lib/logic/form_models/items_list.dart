@@ -1,4 +1,4 @@
-import 'package:cargo/logic/order/model/order_item.dart';
+import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:formz/formz.dart';
 
 class ItemsList extends FormzInput<List<MyOrderItme>?, List<String>> {

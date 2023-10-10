@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:cargo/logic/order/model/order_item.dart';
+import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:equatable/equatable.dart';
 
 class OrderModel extends Equatable {

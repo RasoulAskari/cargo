@@ -1,6 +1,6 @@
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
-import 'package:cargo/logic/order/model/order_item.dart';
+import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:cargo/presentation/widgets/order_steps/step1.dart';
 import 'package:cargo/presentation/widgets/order_steps/step2.dart';

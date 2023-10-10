@@ -4,7 +4,7 @@ import 'package:cargo/logic/form_models/items_list.dart';
 import 'package:cargo/logic/form_models/models.dart';
 import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/number.dart';
-import 'package:cargo/logic/order/model/order_item.dart';
+import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:formz/formz.dart';

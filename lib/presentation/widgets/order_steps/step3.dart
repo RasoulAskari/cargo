@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
-import 'package:cargo/logic/order/model/order_item.dart';
+import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
