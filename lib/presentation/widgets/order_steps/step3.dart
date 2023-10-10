@@ -130,18 +130,25 @@ class _Step3State extends State<Step3> {
             const SizedBox(height: 15),
             BlocBuilder<OrderItemCubit, OrderItemState>(
               builder: (context, state) {
-                return ElevatedButton(
-                  onPressed: () {
-                    context.read<OrderCubit>().itemsChange([
-                      MyOrderItme(
-                        name: state.name.value,
-                        type: state.name.value,
-                        count: state.count.value,
-                        weight: state.weight.value,
-                      )
-                    ]);
+                return BlocBuilder<OrderCubit, OrderState>(
+                  builder: (context, orderState) {
+                    List<MyOrderItme>? orders = [];
+                    List<MyOrderItme>? data = orderState.items.value;
+
+                    orders = data!.map((e) => e).toList();
+                    orders.add(MyOrderItme(
+                      name: state.name.value,
+                      type: state.name.value,
+                      count: state.count.value,
+                      weight: state.weight.value,
+                    ));
+                    return ElevatedButton(
+                      onPressed: () {
+                        context.read<OrderCubit>().itemsChange(orders!);
+                      },
+                      child: const Text("Add"),
+                    );
                   },
-                  child: const Text("Add"),
                 );
               },
             )
