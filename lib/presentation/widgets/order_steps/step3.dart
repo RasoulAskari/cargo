@@ -27,10 +27,18 @@ class _Step3State extends State<Step3> {
       child: Column(
         children: [
           ElevatedButton(
-              onPressed: () {
-                _addItemDetail(context);
-              },
-              child: const Text("Add Item detail"))
+            onPressed: () {
+              _addItemDetail(context);
+            },
+            child: const Text("Add Item detail"),
+          ),
+          BlocBuilder<OrderCubit, OrderState>(
+            builder: (context, state) {
+              return Container(
+                child: Text(state.items.value.toString()),
+              );
+            },
+          )
         ],
       ),
     );
@@ -145,6 +153,8 @@ class _Step3State extends State<Step3> {
                     return ElevatedButton(
                       onPressed: () {
                         context.read<OrderCubit>().itemsChange(orders!);
+                        context.read<OrderItemCubit>().resetOrderItem();
+
                         Navigator.of(context).pop();
                       },
                       child: const Text("Add"),
