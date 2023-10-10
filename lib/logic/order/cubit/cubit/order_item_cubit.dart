@@ -1,4 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/form_models/amount.dart';
+import 'package:cargo/logic/form_models/c_string.dart';
+import 'package:cargo/logic/form_models/number.dart';
 import 'package:equatable/equatable.dart';
 
 part 'order_item_state.dart';

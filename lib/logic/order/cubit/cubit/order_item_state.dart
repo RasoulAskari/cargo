@@ -1,6 +1,7 @@
 part of 'order_item_cubit.dart';
 
 sealed class OrderItemState extends Equatable {
+
   const OrderItemState();
 
   @override
