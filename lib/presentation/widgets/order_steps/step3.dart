@@ -4,6 +4,7 @@ import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/order_staff.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,9 @@ class _Step3State extends State<Step3> {
                       child: ListView.builder(
                           itemCount: state.items.value?.length,
                           itemBuilder: (context, index) {
-                            return Text(state.items.value![index].name);
+                            return OrderStaff(
+                              order: state.items.value![index],
+                            );
                           }),
                     );
             },
