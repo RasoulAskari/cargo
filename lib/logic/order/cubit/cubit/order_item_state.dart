@@ -1,6 +1,6 @@
 part of 'order_item_cubit.dart';
 
-sealed class OrderItemState extends Equatable {
+class OrderItemState extends Equatable {
   final CString name;
   final CString type;
   final Number count;
@@ -20,11 +20,10 @@ sealed class OrderItemState extends Equatable {
     Amount? weight,
   }) {
     return OrderItemState(
-      count: count ?? this.count,
-      name: name ?? this.name,
-      weight: weight ?? this.weight,
-      type: type ?? this.type
-    );
+        count: count ?? this.count,
+        name: name ?? this.name,
+        weight: weight ?? this.weight,
+        type: type ?? this.type);
   }
 
   @override
