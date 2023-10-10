@@ -51,7 +51,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-      print(order);
+      print(order.toString() + "this order");
       final response = await http.post(
         Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{
