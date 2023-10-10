@@ -37,7 +37,5 @@ class OrderItemCubit extends Cubit<OrderItemState> {
     );
   }
 
-  void resetOrderItem(){
-    
-  }
+  void resetOrderItem() {}
 }
