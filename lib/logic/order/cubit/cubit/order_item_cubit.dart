@@ -29,4 +29,11 @@ class OrderItemCubit extends Cubit<OrderItemState> {
       state.copyWith(weight: weight),
     );
   }
+
+  void countChange(double value) {
+    final weight = Amount.dirty(value);
+    emit(
+      state.copyWith(weight: weight),
+    );
+  }
 }
