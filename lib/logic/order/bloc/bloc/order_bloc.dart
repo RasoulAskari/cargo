@@ -25,9 +25,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       OrderModel data = event.order;
 
       final order = {
-        'car_id': data.cardId,
+        'car_id': 1,
         'customer_name': data.customerName,
-        'group_number': data.grandFatherName,
+        'group_number': data.groupNumber,
         'father_name': data.fatherName,
         'grand_father_name': data.grandFatherName,
         'tazkira_id': data.cardId,
@@ -35,7 +35,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         'receiver_name': data.receiverName,
         'receiver_phone': data.receiverPhone,
         'country': data.country,
-        'date': "2022-10-09 10:09:26.695295",
+        'date': "2023-10-09 05:15:46",
         'city': data.city,
         'address': data.address,
         'delivary_type': data.delivaryType,
@@ -51,7 +51,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-      print(order.toString() + "this order");
+      print(order);
       final response = await http.post(
         Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{
@@ -61,7 +61,10 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
-    } catch (e) {}
+      print(response.body);
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> _onordersFetched(
