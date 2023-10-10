@@ -8,4 +8,8 @@ part 'order_item_state.dart';
 
 class OrderItemCubit extends Cubit<OrderItemState> {
   OrderItemCubit() : super(OrderItemInitial());
+
+  void nameChange(String value) {
+    
+  }
 }
