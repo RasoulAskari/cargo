@@ -6,11 +6,12 @@ sealed class OrderItemState extends Equatable {
   final Number count;
   final Amount weight;
 
-  const OrderItemState(
-      {required this.name,
-      required this.type,
-      required this.count,
-      required this.weight});
+  const OrderItemState({
+    this.name = const CString.pure(),
+    this.type = const CString.pure(),
+    this.count = const Number.pure(),
+    this.weight = const Amount.pure(),
+  });
 
   @override
   List<Object> get props => [name, type, count, weight];
