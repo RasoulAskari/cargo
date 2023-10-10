@@ -22,4 +22,10 @@ class OrderItemCubit extends Cubit<OrderItemState> {
       state.copyWith(type: type),
     );
   }
+  void weightChange(double value) {
+    final type = CString.dirty(value);
+    emit(
+      state.copyWith(type: type),
+    );
+  }
 }
