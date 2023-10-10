@@ -10,6 +10,9 @@ class OrderItemCubit extends Cubit<OrderItemState> {
   OrderItemCubit() : super(OrderItemInitial());
 
   void nameChange(String value) {
-    
+    final name = CString.dirty(value);
+    emit(
+      state.copyWith(name: name),
+    );
   }
 }
