@@ -104,8 +104,10 @@ class _Step3State extends State<Step3> {
                 builder: (context, state) {
                   return CTextField(
                     textInputType: TextInputType.number,
-                    value: "",
-                    setValue: (value) {},
+                    value: state.weight.value.toString(),
+                    setValue: (value) {
+                      context.read<OrderItemCubit>().weightChange(value);
+                    },
                     hintText: "Weight",
                   );
                 },
