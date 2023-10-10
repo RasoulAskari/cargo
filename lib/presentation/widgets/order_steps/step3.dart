@@ -128,16 +128,16 @@ class _Step3State extends State<Step3> {
               ),
             ),
             const SizedBox(height: 15),
-            BlocBuilder<OrderCubit, OrderState>(
+            BlocBuilder<OrderItemCubit, OrderItemState>(
               builder: (context, state) {
                 return ElevatedButton(
                   onPressed: () {
                     context.read<OrderCubit>().itemsChange([
-                      const MyOrderItme(
-                        name: "Mac pro max",
-                        type: "carton",
-                        count: 1,
-                        weight: 1.2,
+                      MyOrderItme(
+                        name: state.name.value,
+                        type: state.name.value,
+                        count: state.count.value,
+                        weight: state.weight.value,
                       )
                     ]);
                   },
