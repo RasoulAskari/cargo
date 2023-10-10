@@ -61,7 +61,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
-    } catch (e) {}
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   Future<void> _onordersFetched(
