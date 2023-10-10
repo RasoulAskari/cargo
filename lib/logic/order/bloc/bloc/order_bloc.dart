@@ -40,9 +40,16 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         'delivary_type': data.delivaryType,
         "extra_expense": [],
         'description': "this is description",
-        "items": [
-          {"name": "IPhone", "count": "2", "type": "کارتن", "weight": 1.2}
-        ],
+        "items": data.items
+            .map((e) => {
+                  {
+                    'name': e.name,
+                    'count': e.count,
+                    'type': e.type,
+                    'weight': e.weight
+                  }
+                })
+            .toList(),
         'price_per_killo': 29292.2,
       };
 
