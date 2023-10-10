@@ -34,9 +34,16 @@ class _Step3State extends State<Step3> {
           ),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
-              return Container(
-                child: Text(state.items.value.toString()),
-              );
+              return state.items.value == null
+                  ? Container()
+                  : Container(
+                      height: MediaQuery.of(context).size.height / 6 * 4,
+                      child: ListView.builder(
+                          itemCount: state.items.value?.length,
+                          itemBuilder: (context, index) {
+                            return Text(state.items.value![index].name);
+                          }),
+                    );
             },
           )
         ],
