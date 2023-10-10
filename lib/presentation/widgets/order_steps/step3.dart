@@ -50,7 +50,7 @@ class _Step3State extends State<Step3> {
       builder: (_) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
         child: BottomSheetStyle(
-          height: 400,
+          height: 450,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -135,7 +135,7 @@ class _Step3State extends State<Step3> {
                     List<MyOrderItme>? orders = [];
                     List<MyOrderItme>? data = orderState.items.value;
 
-                    orders = data!.map((e) => e).toList();
+                    orders = data == null ? [] : data.map((e) => e).toList();
                     orders.add(MyOrderItme(
                       name: state.name.value,
                       type: state.name.value,
@@ -145,7 +145,7 @@ class _Step3State extends State<Step3> {
                     return ElevatedButton(
                       onPressed: () {
                         context.read<OrderCubit>().itemsChange(orders!);
-                        print(orderState.items);
+                        
                       },
                       child: const Text("Add"),
                     );
