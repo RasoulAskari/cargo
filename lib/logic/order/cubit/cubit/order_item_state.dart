@@ -13,6 +13,20 @@ sealed class OrderItemState extends Equatable {
     this.weight = const Amount.pure(),
   });
 
+  OrderItemState copyWith({
+    CString? name,
+    CString? type,
+    Number? count,
+    Amount? weight,
+  }) {
+    return OrderItemState(
+      count: count ?? this.count,
+      name: name ?? this.name,
+      weight: weight ?? this.weight,
+      type: type ?? this.type
+    );
+  }
+
   @override
   List<Object> get props => [name, type, count, weight];
 }
