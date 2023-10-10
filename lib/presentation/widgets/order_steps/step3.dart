@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
+import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:cargo/logic/order/model/order_item.dart';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
@@ -53,10 +54,14 @@ class _Step3State extends State<Step3> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: CTextField(
-                value: "",
-                setValue: (value) {},
-                hintText: "Item Name",
+              child: BlocBuilder<OrderItemCubit, OrderItemState>(
+                builder: (context, state) {
+                  return CTextField(
+                    value: state.name.value,
+                    setValue: (value) {},
+                    hintText: "Item Name",
+                  );
+                },
               ),
             ),
             const SizedBox(height: 30),

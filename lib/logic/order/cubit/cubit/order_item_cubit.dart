@@ -44,12 +44,7 @@ class OrderItemCubit extends Cubit<OrderItemState> {
     const count = Number.dirty(1);
 
     emit(
-      state.copyWith(
-        name: name,
-        type: type,
-        weight: weight,
-        count: count,
-      ),
+      state.copyWith(name: name, type: type, weight: weight, count: count),
     );
   }
 }
