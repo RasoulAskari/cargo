@@ -122,6 +122,7 @@ class OrderCubit extends Cubit<OrderState> {
 
   void itemsChange(List<MyOrderItme> value) {
     final items = ItemsList.dirty(value);
+
     emit(
       state.copyWith(items: items),
     );

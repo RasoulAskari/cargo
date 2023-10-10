@@ -76,17 +76,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         },
         onSubmit: () async {
           final state = context.read<OrderCubit>().state;
-
           print(state.items);
-
           OrderModel order = OrderModel(
-            items: state.items.value!
-                .map((e) => MyOrderItme(
-                    name: e.name,
-                    type: e.type,
-                    count: e.count,
-                    weight: e.weight))
-                .toList(),
+            items: [],
             id: 1,
             cardId: 1,
             customerName: state.customerName.value,

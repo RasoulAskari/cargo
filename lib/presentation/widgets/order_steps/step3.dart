@@ -95,10 +95,11 @@ class _Step3State extends State<Step3> {
                   onPressed: () {
                     context.read<OrderCubit>().itemsChange([
                       const MyOrderItme(
-                          name: "Mac pro max",
-                          type: "carton",
-                          count: 1,
-                          weight: 1.2)
+                        name: "Mac pro max",
+                        type: "carton",
+                        count: 1,
+                        weight: 1.2,
+                      )
                     ]);
                   },
                   child: const Text("Add"),

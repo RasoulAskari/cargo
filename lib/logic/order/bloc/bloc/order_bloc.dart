@@ -23,6 +23,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       AddOrderEvent event, Emitter<OrderState> emitter) async {
     try {
       OrderModel data = event.order;
+
       final order = {
         'car_id': data.cardId,
         'customer_name': data.customerName,
@@ -42,18 +43,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         'description': "this is description",
         "items": data.items
             .map((e) => {
-                  {
-                    'name': e.name,
-                    'count': e.count,
-                    'type': e.type,
-                    'weight': e.weight
-                  }
+                  'name': e.name,
+                  'count': e.count,
+                  'type': e.type,
+                  'weight': e.weight
                 })
             .toList(),
         'price_per_killo': 29292.2,
       };
-
-      print(order);
 
       final response = await http.post(
         Uri.parse('http://localhost:8000/api/v1/orders'),
@@ -64,10 +61,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
-      print(response.body);
-    } catch (e) {
-      print(e.toString());
-    }
+    } catch (e) {}
   }
 
   Future<void> _onordersFetched(
