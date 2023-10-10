@@ -37,7 +37,7 @@ class _Step3State extends State<Step3> {
             builder: (context, state) {
               return state.items.value == null
                   ? Container()
-                  : Container(
+                  : SizedBox(
                       height: MediaQuery.of(context).size.height / 6 * 4,
                       child: ListView.builder(
                           itemCount: state.items.value?.length,
