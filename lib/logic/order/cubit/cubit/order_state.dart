@@ -54,6 +54,7 @@ class OrderState extends Equatable {
         country,
         city,
         address,
+        items,
       ];
 
   OrderState copyWith({

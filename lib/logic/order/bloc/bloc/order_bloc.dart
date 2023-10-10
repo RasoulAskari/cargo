@@ -51,7 +51,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-
+      print(order);
       final response = await http.post(
         Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{
@@ -61,9 +61,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
-    } catch (e) {
-      print(e.toString());
-    }
+    } catch (e) {}
   }
 
   Future<void> _onordersFetched(
@@ -97,7 +95,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-      print(response.body);
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         return body.map((e) {

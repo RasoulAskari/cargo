@@ -56,6 +56,7 @@ class OrderModel extends Equatable {
       city,
       address,
       delivaryType,
+      items,
     ];
   }
 

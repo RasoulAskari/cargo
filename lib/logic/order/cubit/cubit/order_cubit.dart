@@ -126,5 +126,6 @@ class OrderCubit extends Cubit<OrderState> {
     emit(
       state.copyWith(items: items),
     );
+    
   }
 }
