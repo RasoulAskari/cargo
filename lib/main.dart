@@ -4,6 +4,7 @@ import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
+import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
           httpClient: http.Client(),
         )..add(FetchOrderEvent()),
       ),
-      BlocProvider<OrderCubit>(create: (context) => OrderCubit())
+      BlocProvider<OrderCubit>(create: (context) => OrderCubit()),
+      BlocProvider<OrderItemCubit>(create: (context) => OrderItemCubit())
     ], child: const CargoApp());
   }
 }
