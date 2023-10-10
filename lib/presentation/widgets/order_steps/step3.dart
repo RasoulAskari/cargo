@@ -145,6 +145,7 @@ class _Step3State extends State<Step3> {
                     return ElevatedButton(
                       onPressed: () {
                         context.read<OrderCubit>().itemsChange(orders!);
+                        print(orderState.items);
                       },
                       child: const Text("Add"),
                     );
