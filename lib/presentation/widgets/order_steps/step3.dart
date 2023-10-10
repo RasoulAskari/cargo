@@ -90,7 +90,14 @@ class _Step3State extends State<Step3> {
                     textInputType: TextInputType.number,
                     value: state.type.value,
                     setValue: (value) {
-                      context.read<OrderItemCubit>().countChange(value);
+                      int val;
+                      if (value == "") {
+                        val = 1;
+                      } else {
+                        val = int.parse(value);
+                      }
+
+                      context.read<OrderItemCubit>().countChange(val);
                     },
                     hintText: "Amount",
                   );
