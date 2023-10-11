@@ -36,6 +36,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         'receiver_phone': data.receiverPhone,
         'country': data.country,
         'date': data.date,
+        'paid_amount': 0,
         'city': data.city,
         'address': data.address,
         'delivary_type': data.delivaryType,
@@ -98,6 +99,8 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
+      print(response.body);
+
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         return body.map((e) {
