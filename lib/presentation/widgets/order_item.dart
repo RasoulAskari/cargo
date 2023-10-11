@@ -86,10 +86,10 @@ class OrderItem extends StatelessWidget {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      print("object");
                       context
                           .read<OrderBloc>()
                           .add(DeleteOrderEvent(id: order.id));
+                      Navigator.of(context).pushReplacementNamed(ordersScreen);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
