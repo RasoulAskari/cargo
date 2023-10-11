@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
@@ -58,7 +60,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
       );
       print(response.body);
       if (response.statusCode == 200) {
-        return response.body;
+        return jsonDecode(response.body);
       }
 
       return "";
