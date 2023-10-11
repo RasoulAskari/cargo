@@ -97,12 +97,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-
+      print(response.body);
       if (response.statusCode == 200) {
         return response.body as int;
       }
       return 0;
     } catch (e) {
+      print(e);
       return 0;
     }
   }

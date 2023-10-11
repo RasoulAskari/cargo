@@ -37,6 +37,13 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   }
 
   @override
+  void initState() {
+    context.read<OrderBloc>().add(FetchCurrentCar());
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     List steps = [
       {
@@ -76,8 +83,6 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         },
         onSubmit: () async {
           final state = context.read<OrderCubit>().state;
-
-          print(state.items);
 
           OrderModel order = OrderModel(
             items: state.items.value!
