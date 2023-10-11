@@ -35,7 +35,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         'receiver_name': data.receiverName,
         'receiver_phone': data.receiverPhone,
         'country': data.country,
-        'date': data,
+        'date': data.date,
         'city': data.city,
         'address': data.address,
         'delivary_type': data.delivaryType,

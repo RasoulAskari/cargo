@@ -93,7 +93,7 @@ class OrderModel extends Equatable {
       id: map['id'] as int,
       cardId: map['car_id'] as int,
       customerName: map['customer_name'] as String,
-      date: map['date'] as String,
+      date: map['created_at'] as String,
       groupNumber: map['group_number'] as int,
       fatherName: map['father_name'] as String,
       grandFatherName: map['grand_father_name'] as String,
