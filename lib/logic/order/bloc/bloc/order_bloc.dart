@@ -18,6 +18,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     on<FetchOrderEvent>(_onordersFetched);
     on<AddOrderEvent>(_onorderAdd);
     on<FetchCurrentCar>(_fetchCurrentCar);
+    on<DeleteOrderEvent>(_onDeleteOrder);
   }
 
   Future<Map<String, dynamic>> fetchData() async {
