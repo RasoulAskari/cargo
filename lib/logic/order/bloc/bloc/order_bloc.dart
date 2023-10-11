@@ -84,6 +84,27 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     }
   }
 
+  Future<int> _fetchCurrentCar({int? page}) async {
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/current-car',
+        ),
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        return response.body as int;
+      }
+      return 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
   Future<List<OrderModel>> _fetchOrders({int? page}) async {
     try {
       final response = await httpClient.get(
