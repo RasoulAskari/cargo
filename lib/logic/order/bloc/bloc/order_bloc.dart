@@ -156,9 +156,10 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   Future<void> _onDeleteOrder(
       DeleteOrderEvent event, Emitter<OrderState> emitter) async {
+    final id = [event.id];
     var res = await httpClient.delete(
       getServerRoute(
-        route: '/api/v1/orders/${event.id}',
+        route: '/api/v1/orders/${id}',
       ),
       headers: <String, String>{
         'Authorization':

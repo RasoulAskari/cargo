@@ -1,6 +1,8 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OrderItem extends StatelessWidget {
   final OrderModel order;
@@ -83,7 +85,12 @@ class OrderItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 3),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      print("object");
+                      context
+                          .read<OrderBloc>()
+                          .add(DeleteOrderEvent(id: order.id));
+                    },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 5),
