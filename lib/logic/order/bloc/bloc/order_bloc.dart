@@ -152,4 +152,26 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       return [];
     }
   }
+
+  Future<void> _onDeleteOrder(
+      DeleteOrderEvent event, Emitter<OrderState> emitter) async {
+    var res = await httpClient.delete(
+      getServerRoute(
+        route: '/api/v1/orders/${event.id}',
+      ),
+      headers: <String, String>{
+        'Authorization':
+            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      },
+    );
+    print(res.body);
+    if (res.body == "1") {
+      emitter(
+        state.copyWith(
+          orders:
+              state.orders.where((element) => element.id != event.id).toList(),
+        ),
+      );
+    }
+  }
 }
