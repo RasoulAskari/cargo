@@ -158,7 +158,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       DeleteOrderEvent event, Emitter<OrderState> emitter) async {
     try {
       final ids = event.id;
-      print(ids);
       const type = 'delete';
       var res = await http.delete(
         Uri.parse("http://localhost:8000/api/v1/$type/orders/$ids"),
@@ -167,7 +166,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-      print(res.body);
       if (res.body == "1") {
         emitter(
           state.copyWith(
