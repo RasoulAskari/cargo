@@ -15,7 +15,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final http.Client httpClient;
 
   OrderBloc({required this.httpClient}) : super(const OrderState()) {
-    on<FetchOrderEvent>(_onordersFetched);
+    on<FetchOrderEvent>(_onOrdersFetched);
     on<AddOrderEvent>(_onorderAdd);
     on<FetchCurrentCar>(_fetchCurrentCar);
     on<DeleteOrderEvent>(_onDeleteOrder);
@@ -88,7 +88,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     } catch (e) {}
   }
 
-  Future<void> _onordersFetched(
+  Future<void> _onOrdersFetched(
       FetchOrderEvent event, Emitter<OrderState> emitter) async {
     if (state.hasReachedMax) return;
 
