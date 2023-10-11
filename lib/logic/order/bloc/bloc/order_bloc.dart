@@ -20,6 +20,25 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     on<FetchCurrentCar>(_fetchCurrentCar);
   }
 
+  Future<Map<String, dynamic>> fetchData() async {
+    try {
+      final response = await http.get(
+        Uri.parse('http://localhost:8000/api/v1/current-car'),
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      }
+
+      return {};
+    } catch (e) {
+      return {};
+    }
+  }
+
   Future<void> _onorderAdd(
       AddOrderEvent event, Emitter<OrderState> emitter) async {
     try {
@@ -53,6 +72,11 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
+      fetchData().then((value) => {
+            order['group_number'] = value['group_number'],
+            order['car_id'] = value['car_id'],
+          });
+      print(order);
       final response = await http.post(
         Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{

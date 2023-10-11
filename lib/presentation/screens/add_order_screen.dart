@@ -44,28 +44,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
 
   @override
   void initState() {
-    final data = fetchData();
-    data.then((value) => print(value));
     super.initState();
-  }
-
-  Future<Map<String, dynamic>> fetchData() async {
-    try {
-      final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/current-car'),
-        headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
-        },
-      );
-      if (response.statusCode == 200) {
-        return jsonDecode(response.body);
-      }
-
-      return {};
-    } catch (e) {
-      return {};
-    }
   }
 
   @override
