@@ -88,6 +88,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                     weight: e.weight))
                 .toList(),
             id: 1,
+            date: state.date.value,
             cardId: 1,
             customerName: state.customerName.value,
             groupNumber: state.groupNum.value,
