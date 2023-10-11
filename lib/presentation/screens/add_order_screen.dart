@@ -45,7 +45,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   @override
   void initState() {
     final data = fetchData();
-
+    data.then((value) => print(value));
     super.initState();
   }
 
@@ -58,14 +58,12 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-      print(response.body);
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       }
 
       return {};
     } catch (e) {
-      print(e.toString());
       return {};
     }
   }
