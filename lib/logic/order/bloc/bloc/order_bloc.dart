@@ -157,10 +157,11 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   Future<void> _onDeleteOrder(
       DeleteOrderEvent event, Emitter<OrderState> emitter) async {
     try {
-      final ids = [event.id];
+      final ids = event.id;
+      print(ids);
       const type = 'delete';
       var res = await http.delete(
-        Uri.parse("http://localhost:8000/api/v1/${type}orders/${ids}"),
+        Uri.parse("http://localhost:8000/api/v1/$type/orders/$ids"),
         headers: <String, String>{
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
