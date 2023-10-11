@@ -69,23 +69,6 @@ class OrderItem extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(addOrdersScreen, arguments: order);
-                    },
-                    child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
-                            color: const Color(0x55ff711b),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Icon(
-                          Icons.edit_document,
-                          color: Theme.of(context).primaryColor,
-                        )),
-                  ),
-                  const SizedBox(width: 3),
-                  GestureDetector(
-                    onTap: () {
                       context
                           .read<OrderBloc>()
                           .add(DeleteOrderEvent(id: order.id));
