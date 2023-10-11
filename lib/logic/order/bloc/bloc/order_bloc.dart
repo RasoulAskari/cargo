@@ -45,9 +45,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       OrderModel data = event.order;
 
       final order = {
-        'car_id': 1,
         'customer_name': data.customerName,
-        'group_number': data.groupNumber,
         'father_name': data.fatherName,
         'grand_father_name': data.grandFatherName,
         'tazkira_id': data.cardId,
