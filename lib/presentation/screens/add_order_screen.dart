@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
@@ -113,6 +114,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             delivaryType: state.typeReceiver.value,
           );
           context.read<OrderBloc>().add(AddOrderEvent(order: order));
+          Navigator.of(context).pushReplacementNamed(ordersScreen);
         },
         prev: () {
           prev(steps);
