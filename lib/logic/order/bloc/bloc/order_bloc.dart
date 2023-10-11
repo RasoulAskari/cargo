@@ -70,7 +70,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-      fetchData().then((value) => {
+      await fetchData().then((value) => {
             order['group_number'] = value['group_number'],
             order['car_id'] = value['car_id'],
           });
