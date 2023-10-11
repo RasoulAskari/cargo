@@ -14,3 +14,5 @@ class AddOrderEvent extends OrderEvent {
 
   const AddOrderEvent({required this.order});
 }
+
+class FetchCurrentCar extends OrderEvent {}
