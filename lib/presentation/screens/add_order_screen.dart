@@ -49,7 +49,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     super.initState();
   }
 
-  Future<String> fetchData() async {
+  Future<Map<String, dynamic>> fetchData() async {
     try {
       final response = await http.get(
         Uri.parse('http://localhost:8000/api/v1/current-car'),
@@ -63,10 +63,10 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         return jsonDecode(response.body);
       }
 
-      return "";
+      return {};
     } catch (e) {
       print(e.toString());
-      return "";
+      return {};
     }
   }
 
