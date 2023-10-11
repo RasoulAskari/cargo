@@ -85,7 +85,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     }
   }
 
-  Future<int> _fetchCurrentCar(
+  Future<Map> _fetchCurrentCar(
       FetchCurrentCar event, Emitter<OrderState> emitter) async {
     try {
       final response = await httpClient.get(
@@ -97,14 +97,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-      print(response.body);
       if (response.statusCode == 200) {
-        return response.body as int;
+        return response.body as Map;
       }
-      return 0;
+      return {};
     } catch (e) {
-      print(e);
-      return 0;
+      return {};
     }
   }
 

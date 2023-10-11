@@ -1,3 +1,4 @@
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
@@ -8,6 +9,7 @@ import 'package:cargo/presentation/widgets/order_steps/step3.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 
 class AddOrderScreen extends StatefulWidget {
   const AddOrderScreen({super.key});
@@ -17,6 +19,8 @@ class AddOrderScreen extends StatefulWidget {
 }
 
 class _AddOrderScreenState extends State<AddOrderScreen> {
+  late http.Client httpClient;
+
   var step = 1;
   bool loading = false;
 
@@ -37,10 +41,29 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   }
 
   @override
-  void initState() {
-    context.read<OrderBloc>().add(FetchCurrentCar());
-
+  void initState() async {
+    fetchData();
     super.initState();
+  }
+
+  Future<Map> fetchData() async {
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/current-car',
+        ),
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+      );
+      if (response.statusCode == 200) {
+        return response.body as Map;
+      }
+      return {};
+    } catch (e) {
+      return {};
+    }
   }
 
   @override
