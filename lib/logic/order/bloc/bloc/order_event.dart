@@ -15,4 +15,10 @@ class AddOrderEvent extends OrderEvent {
   const AddOrderEvent({required this.order});
 }
 
+class DeleteOrderEvent extends OrderEvent {
+  final int id;
+
+  const DeleteOrderEvent({required this.id});
+}
+
 class FetchCurrentCar extends OrderEvent {}
