@@ -17,6 +17,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   OrderBloc({required this.httpClient}) : super(const OrderState()) {
     on<FetchOrderEvent>(_onordersFetched);
     on<AddOrderEvent>(_onorderAdd);
+    on<FetchCurrentCar>(_fetchCurrentCar);
   }
 
   Future<void> _onorderAdd(
