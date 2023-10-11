@@ -84,7 +84,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     }
   }
 
-  Future<void> _fetchCurrentCar(
+  Future<int> _fetchCurrentCar(
       FetchCurrentCar event, Emitter<OrderState> emitter) async {
     try {
       final response = await httpClient.get(
