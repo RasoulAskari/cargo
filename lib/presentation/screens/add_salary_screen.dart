@@ -1,5 +1,6 @@
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
+import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_bloc/flutter_bloc.dart";
 
@@ -52,6 +53,12 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                   hintText: "Employee",
                 );
               },
+            ),
+            
+            CTextField(
+              value: "",
+              setValue: (value) {},
+              hintText: "Amount of Salary",
             )
           ],
         ),
