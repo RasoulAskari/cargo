@@ -106,7 +106,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               hintText: "Salary Date",
             ),
             const SizedBox(height: 30),
-            CDisableTextField(
+            CTextField(
               value: _amountPay.value.toString(),
               setValue: (value) {
                 double val;
