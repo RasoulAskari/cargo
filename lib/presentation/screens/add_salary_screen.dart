@@ -1,7 +1,9 @@
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/incoming_out_going_type.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_bloc/flutter_bloc.dart";
 
@@ -13,6 +15,12 @@ class AddSalaryScreen extends StatefulWidget {
 }
 
 class _AddSalaryScreenState extends State<AddSalaryScreen> {
+  DateTime? _date;
+  IncomingOutGoingType _employee = const IncomingOutGoingType.pure();
+  Amount _amount = const Amount.pure();
+  Amount _amountPay = const Amount.pure();
+  Amount _amountRemain = const Amount.pure();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
