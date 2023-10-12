@@ -31,7 +31,14 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
     });
   }
 
-  void _findRemainSalary(double salary, double pay) {}
+  void _findRemainSalary(double salary, double pay) {
+    setState(() {
+      double amount = salary - pay;
+      setState(() {
+        _amountRemain = Amount.dirty(amount);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,12 +126,13 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                 }
 
                 _amountPay = Amount.dirty(val);
+                _findRemainSalary(_amount.value, val);
               },
               hintText: "Amount Pay",
             ),
             const SizedBox(height: 30),
             CDisableTextField(
-              value: _amountPay.value.toString(),
+              value: _amountRemain.value.toString(),
               setValue: (value) {
                 double val;
                 if (value == "") {
