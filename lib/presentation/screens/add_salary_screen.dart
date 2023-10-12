@@ -10,6 +10,16 @@ class AddSalaryScreen extends StatefulWidget {
 class _AddSalaryScreenState extends State<AddSalaryScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 40,
+        ),
+        child: Column(
+          children: [],
+        ),
+      ),
+    );
   }
 }
