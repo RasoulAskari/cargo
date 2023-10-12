@@ -24,7 +24,9 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
 
   void _findSalary(int id, List<EmployeeModel> employees) {
     EmployeeModel emp = employees.firstWhere((element) => element.id == id);
-    print(emp);
+    setState(() {
+      _amount = Amount.dirty(emp.salary);
+    });
   }
 
   @override
@@ -66,8 +68,10 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                     _findSalary(int.parse(value), state.employees);
                   },
                   items: state.employees
-                      .map((e) =>
-                          {'value': e.id.toString(), 'label': e.firstName})
+                      .map((e) => {
+                            'value': e.id.toString(),
+                            'label': e.firstName,
+                          })
                       .toList(),
                   hintText: "Employee",
                 );
@@ -130,7 +134,10 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               hintText: "Amount Remain",
             ),
             const SizedBox(height: 30),
-            ElevatedButton(onPressed: () {}, child: const Text("Save"))
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("Save"),
+            )
           ],
         ),
       ),
