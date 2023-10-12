@@ -66,11 +66,13 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               setValue: (value) {},
               hintText: "Salary Date",
             ),
+            const SizedBox(height: 30),
             CTextField(
               value: "",
               setValue: (value) {},
               hintText: "Amount Pay",
             ),
+            const SizedBox(height: 30),
             CTextField(
               value: "",
               setValue: (value) {},
