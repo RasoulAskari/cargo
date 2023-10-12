@@ -71,7 +71,14 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               textInputType: TextInputType.number,
               value: _amount.value.toString(),
               setValue: (value) {
-                _amount = Amount.dirty(value);
+                double val;
+                if (value == "") {
+                  val = 1;
+                } else {
+                  val = double.parse(value);
+                }
+
+                _amount = Amount.dirty(val);
               },
               hintText: "Salary Amount",
             ),
