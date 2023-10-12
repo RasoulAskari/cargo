@@ -8,6 +8,7 @@ import 'package:cargo/presentation/screens/employee_screen.dart';
 import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/main_screen.dart';
 import 'package:cargo/presentation/screens/order_screen.dart';
+import 'package:cargo/presentation/screens/salary_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -52,6 +53,10 @@ class AppRouter {
       case addOrdersScreen:
         return MaterialPageRoute(
           builder: (context) => const AddOrderScreen(),
+        );
+      case salaryScreen:
+        return MaterialPageRoute(
+          builder: (context) => const SalaryScreen(),
         );
       default:
         return null;
