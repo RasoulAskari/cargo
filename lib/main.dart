@@ -33,15 +33,15 @@ class MyApp extends StatelessWidget {
           httpClient: http.Client(),
         )..add(IncomingOutGoingFetchEvent()),
       ),
-      BlocProvider<SalaryBloc>(
-        create: (context) => SalaryBloc(
-          httpClient: http.Client(),
-        )..add(FetchSalaryEvent()),
-      ),
       BlocProvider<OrderBloc>(
         create: (context) => OrderBloc(
           httpClient: http.Client(),
         )..add(FetchOrderEvent()),
+      ),
+      BlocProvider<SalaryBloc>(
+        create: (context) => SalaryBloc(
+          httpClient: http.Client(),
+        )..add(FetchSalaryEvent()),
       ),
       BlocProvider<OrderCubit>(create: (context) => OrderCubit()),
       BlocProvider<OrderItemCubit>(create: (context) => OrderItemCubit())

@@ -43,14 +43,16 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   }
 
   void _addSalary(EmployeeModel employee) {
-    context.read<SalaryBloc>().add(AddSalaryEvent(
-          salary: SalaryModel(
-              employee: employee,
-              salaryAmount: _amount.value,
-              date: _date.toString(),
-              payAmount: _amountPay.value,
-              remainAmount: _amountRemain.value),
-        ));
+    context.read<SalaryBloc>().add(
+          AddSalaryEvent(
+            salary: SalaryModel(
+                employee: employee,
+                salaryAmount: _amount.value,
+                date: _date.toString(),
+                payAmount: _amountPay.value,
+                remainAmount: _amountRemain.value),
+          ),
+        );
   }
 
   @override
@@ -158,7 +160,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     EmployeeModel emp = state.employees.firstWhere((element) =>
                         element.id == double.parse(_employee.value));
                     _addSalary(emp);
