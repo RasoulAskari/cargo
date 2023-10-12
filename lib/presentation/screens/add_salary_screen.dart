@@ -1,3 +1,4 @@
+import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class AddSalaryScreen extends StatefulWidget {
@@ -17,7 +18,13 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
           vertical: 40,
         ),
         child: Column(
-          children: [],
+          children: [
+            CDropdown(
+              setValue: (value) {},
+              items: [],
+              hintText: "Employee",
+            )
+          ],
         ),
       ),
     );
