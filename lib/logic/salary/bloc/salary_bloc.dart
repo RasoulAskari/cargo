@@ -21,10 +21,15 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     SalaryModel salary = event.salary;
     final data = {
       'employee_id': salary.employee.id,
-      'type': salary.date.toString(),
+      'created_at': salary.date.toString(),
+      'employee': {
+        'id': salary.employee.id,
+        "salary": salary.employee.salary,
+        'first_name': salary.employee.firstName,
+        'last_name': salary.employee.lastName
+      },
       'amount': salary.salaryAmount,
-      "created_by": salary.payAmount,
-      "created_at": salary.remainAmount
+      "paid": salary.payAmount
     };
 
     try {
