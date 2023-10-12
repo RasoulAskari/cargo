@@ -150,6 +150,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }

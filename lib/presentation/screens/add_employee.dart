@@ -68,6 +68,7 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   Future<void> _editEmployee() async {
     EmployeeModel emp = EmployeeModel(
+      salary: widget.employee!.salary,
       id: widget.employee!.id,
       currentAddress: currentAddress.value,
       permenentAddress: premenentAddress.value,
@@ -101,6 +102,7 @@ class _AddEmployeeState extends State<AddEmployee> {
   Future<void> _addEmployee() async {
     EmployeeModel emp = EmployeeModel(
       id: 1,
+      salary: 1200,
       currentAddress: currentAddress.value,
       permenentAddress: premenentAddress.value,
       startDate: startDate.toString(),
@@ -250,5 +252,3 @@ class _AddEmployeeState extends State<AddEmployee> {
     );
   }
 }
-
-

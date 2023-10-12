@@ -63,6 +63,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                   value: _employee.value,
                   setValue: (value) {
                     _employee = IncomingOutGoingType.dirty(value);
+                    _findSalary(int.parse(value), state.employees);
                   },
                   items: state.employees
                       .map((e) =>

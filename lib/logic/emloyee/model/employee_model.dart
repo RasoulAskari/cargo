@@ -15,15 +15,15 @@ class EmployeeModel extends Equatable {
   final String startDate;
   final String endDate;
   final String jobTitle;
-  // final double salary;
-  EmployeeModel({
+  final double salary;
+  const EmployeeModel({
     required this.id,
     required this.currentAddress,
     required this.permenentAddress,
     required this.startDate,
     required this.endDate,
     required this.jobTitle,
-    // required this.salary,
+    required this.salary,
     required this.firstName,
     required this.lastName,
     required this.profile,
@@ -49,6 +49,7 @@ class EmployeeModel extends Equatable {
 
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
+      salary: double.parse(map['salary'].toString()),
       id: map['id'] as int,
       firstName: map['first_name'] as String,
       lastName: map['last_name'] as String,
@@ -84,6 +85,7 @@ class EmployeeModel extends Equatable {
   }) {
     return EmployeeModel(
       id: id ?? this.id,
+      salary: salary ?? this.salary,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
       profile: profile ?? this.profile,
@@ -94,12 +96,11 @@ class EmployeeModel extends Equatable {
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
       jobTitle: jobTitle ?? this.jobTitle,
-      // salary: salary ?? this.salary,
     );
   }
 
   List<Object?> get props => [
-        // id,
+        id,
         firstName,
         lastName,
         profile,
@@ -110,6 +111,6 @@ class EmployeeModel extends Equatable {
         startDate,
         endDate,
         jobTitle,
-        // salary,
+        salary,
       ];
 }
