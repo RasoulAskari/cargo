@@ -8,6 +8,8 @@ import 'package:http/http.dart' as http;
 part 'salary_event.dart';
 part 'salary_state.dart';
 
+const _postLimit = 10;
+
 class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
   final http.Client httpClient;
 
@@ -16,7 +18,25 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     on<FetchSalaryEvent>(_onFetchSalaryOutGoingEvent);
   }
   Future<void> _onFetchSalaryOutGoingEvent(
-      FetchSalaryEvent event, Emitter<SalaryState> emitter) async {}
+      FetchSalaryEvent event, Emitter<SalaryState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    try {
+      if (state.status == SalaryStatus.initial) {
+        final employees = await _fetchEmployees(page: state.page);
+        // ignore: invalid_use_of_visible_for_testing_member
+        return emitter(
+          state.copyWith(
+            status: SalaryStatus.success,
+            salary: employees,
+            hasReachedMax: employees.length < _postLimit,
+          ),
+        );
+      }
+    } catch (e) {
+      return;
+    }
+  }
 
   Future<void> _onAddSalaryOutGoingEvent(
       AddSalaryEvent event, Emitter<SalaryState> emitter) async {
