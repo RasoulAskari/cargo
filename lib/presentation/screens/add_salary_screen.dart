@@ -22,17 +22,19 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   Amount _amount = const Amount.pure();
   Amount _amountPay = const Amount.pure();
   Amount _amountRemain = const Amount.pure();
+
   final a = TextEditingController();
+  Future<void> _findSalary(int id, List<EmployeeModel> employees) async {
+    EmployeeModel emp = employees.firstWhere((element) => element.id == id);
+    setState(() {
+      _amount = Amount.dirty(emp.salary);
+    });
+  }
+
+  void _findRemainSalary(double salary, double pay) {}
 
   @override
   Widget build(BuildContext context) {
-    Future<void> _findSalary(int id, List<EmployeeModel> employees) async {
-      EmployeeModel emp = employees.firstWhere((element) => element.id == id);
-      setState(() {
-        _amount = Amount.dirty(emp.salary);
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
