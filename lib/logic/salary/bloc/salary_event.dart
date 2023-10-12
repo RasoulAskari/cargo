@@ -8,3 +8,9 @@ sealed class SalaryEvent extends Equatable {
 }
 
 class FetchSalaryEvent extends SalaryEvent {}
+
+class AddSalaryEvent extends SalaryEvent {
+  final SalaryModel salary;
+
+  const AddSalaryEvent({required this.salary});
+}
