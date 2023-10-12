@@ -44,9 +44,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             BlocBuilder<EmployeeBloc, EmployeeState>(
               builder: (context, state) {
                 return CDropdown(
-                  setValue: (value) {
-                    print(value);
-                  },
+                  setValue: (value) {},
                   items: state.employees
                       .map((e) =>
                           {'value': e.id.toString(), 'label': e.firstName})
