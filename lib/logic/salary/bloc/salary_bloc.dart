@@ -11,7 +11,9 @@ part 'salary_state.dart';
 class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
   final http.Client httpClient;
 
-  SalaryBloc({required this.httpClient}) : super(const SalaryState()) {}
+  SalaryBloc({required this.httpClient}) : super(const SalaryState()) {
+    on<AddSalaryEvent>(_onAddSalaryOutGoingEvent);
+  }
 
   Future<void> _onAddSalaryOutGoingEvent(
       AddSalaryEvent event, Emitter<SalaryState> emitter) async {
