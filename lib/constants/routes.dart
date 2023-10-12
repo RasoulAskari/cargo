@@ -5,3 +5,4 @@ const String inconingOutGoingScreen = '/inconingOutGoingScreen';
 const String addIncomingOutGoing = '/addIncomingOutGoing';
 const String ordersScreen = '/ordersScreen';
 const String addOrdersScreen = '/addOrdersScreen';
+const String salaryScreen = '/salaryScreen';
