@@ -1,6 +1,8 @@
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/amount.dart';
+import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
+import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_disable_text_field.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -40,6 +42,17 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
     });
   }
 
+  void _addSalary(EmployeeModel employee) {
+    context.read<SalaryBloc>().add(AddSalaryEvent(
+          salary: SalaryModel(
+              employee: employee,
+              salaryAmount: _amount.value,
+              date: _date.toString(),
+              payAmount: _amountPay.value,
+              remainAmount: _amountRemain.value),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,11 +81,11 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
           horizontal: 15,
           vertical: 40,
         ),
-        child: Column(
-          children: [
-            BlocBuilder<EmployeeBloc, EmployeeState>(
-              builder: (context, state) {
-                return CDropdown(
+        child: BlocBuilder<EmployeeBloc, EmployeeState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                CDropdown(
                   value: _employee.value,
                   setValue: (value) {
                     _employee = IncomingOutGoingType.dirty(value);
@@ -85,72 +98,76 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                           })
                       .toList(),
                   hintText: "Employee",
-                );
-              },
-            ),
-            const SizedBox(height: 30),
-            CDisableTextField(
-              textInputType: TextInputType.number,
-              value: _amount.value.toString(),
-              setValue: (value) {
-                double val;
-                if (value == "") {
-                  val = 1;
-                } else {
-                  val = double.parse(value);
-                }
+                ),
+                const SizedBox(height: 30),
+                CDisableTextField(
+                  textInputType: TextInputType.number,
+                  value: _amount.value.toString(),
+                  setValue: (value) {
+                    double val;
+                    if (value == "") {
+                      val = 1;
+                    } else {
+                      val = double.parse(value);
+                    }
 
-                _amount = Amount.dirty(val);
-              },
-              hintText: "Salary Amount",
-            ),
-            const SizedBox(height: 30),
-            CDatePicker(
-              value: _date,
-              setValue: (value) {
-                setState(() {
-                  _date = value;
-                });
-              },
-              hintText: "Salary Date",
-            ),
-            const SizedBox(height: 30),
-            CTextField(
-              value: _amountPay.value.toString(),
-              setValue: (value) {
-                double val;
-                if (value == "") {
-                  val = 1;
-                } else {
-                  val = double.parse(value);
-                }
+                    _amount = Amount.dirty(val);
+                  },
+                  hintText: "Salary Amount",
+                ),
+                const SizedBox(height: 30),
+                CDatePicker(
+                  value: _date,
+                  setValue: (value) {
+                    setState(() {
+                      _date = value;
+                    });
+                  },
+                  hintText: "Salary Date",
+                ),
+                const SizedBox(height: 30),
+                CTextField(
+                  value: _amountPay.value.toString(),
+                  setValue: (value) {
+                    double val;
+                    if (value == "") {
+                      val = 1;
+                    } else {
+                      val = double.parse(value);
+                    }
 
-                _amountPay = Amount.dirty(val);
-                _findRemainSalary(_amount.value, val);
-              },
-              hintText: "Amount Pay",
-            ),
-            const SizedBox(height: 30),
-            CDisableTextField(
-              value: _amountRemain.value.toString(),
-              setValue: (value) {
-                double val;
-                if (value == "") {
-                  val = 1;
-                } else {
-                  val = double.parse(value);
-                }
+                    _amountPay = Amount.dirty(val);
+                    _findRemainSalary(_amount.value, val);
+                  },
+                  hintText: "Amount Pay",
+                ),
+                const SizedBox(height: 30),
+                CDisableTextField(
+                  value: _amountRemain.value.toString(),
+                  setValue: (value) {
+                    double val;
+                    if (value == "") {
+                      val = 1;
+                    } else {
+                      val = double.parse(value);
+                    }
 
-                _amount = Amount.dirty(val);
-              },
-              hintText: "Amount Remain",
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Save"),
-            )
-          ],
+                    _amount = Amount.dirty(val);
+                  },
+                  hintText: "Amount Remain",
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {
+                    EmployeeModel emp = state.employees.firstWhere((element) =>
+                        element.id == double.parse(_employee.value));
+                    _addSalary(emp);
+                  },
+                  child: const Text("Save"),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
