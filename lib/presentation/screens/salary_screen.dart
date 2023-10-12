@@ -10,6 +10,6 @@ class SalaryScreen extends StatefulWidget {
 class _SalaryScreenState extends State<SalaryScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
