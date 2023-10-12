@@ -39,7 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.of(context).pushNamed(ordersScreen);
         }
       },
-      {'name': 'Salary', 'image': "", 'function': () async {}},
+      {
+        'name': 'Salary',
+        'image': "",
+        'function': () {
+          Navigator.of(context).pushNamed(salaryScreen);
+        }
+      },
       {'name': 'Setting', 'image': "", 'function': () {}},
       {
         'name': 'Logout',
