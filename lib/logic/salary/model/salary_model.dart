@@ -8,13 +8,20 @@ class SalaryModel extends Equatable {
   final double payAmount;
   final double remainAmount;
 
-  const SalaryModel(
-      {required this.employee,
-      required this.salaryAmount,
-      required this.date,
-      required this.payAmount,
-      required this.remainAmount});
+  const SalaryModel({
+    required this.employee,
+    required this.salaryAmount,
+    required this.date,
+    required this.payAmount,
+    required this.remainAmount,
+  });
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [
+        employee,
+        salaryAmount,
+        date,
+        payAmount,
+        remainAmount,
+      ];
 }
