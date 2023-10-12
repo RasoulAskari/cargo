@@ -54,12 +54,13 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                 );
               },
             ),
-            
+            const SizedBox(height: 30),
             CTextField(
               value: "",
               setValue: (value) {},
               hintText: "Amount of Salary",
             )
+            
           ],
         ),
       ),
