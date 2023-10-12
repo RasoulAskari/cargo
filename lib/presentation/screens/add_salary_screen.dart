@@ -1,4 +1,5 @@
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -20,6 +21,11 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   Amount _amount = const Amount.pure();
   Amount _amountPay = const Amount.pure();
   Amount _amountRemain = const Amount.pure();
+
+  void _findSalary(int id, List<EmployeeModel> employees) {
+    EmployeeModel emp = employees.firstWhere((element) => element.id == id);
+    print(emp);
+  }
 
   @override
   Widget build(BuildContext context) {
