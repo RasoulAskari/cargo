@@ -69,7 +69,12 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             CTextField(
               value: "",
               setValue: (value) {},
-              hintText: "Amount Paid",
+              hintText: "Amount Pay",
+            ),
+            CTextField(
+              value: "",
+              setValue: (value) {},
+              hintText: "Amount Remain",
             )
           ],
         ),
