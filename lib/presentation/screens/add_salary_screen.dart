@@ -65,6 +65,11 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             CDatePicker(
               setValue: (value) {},
               hintText: "Salary Date",
+            ),
+            CTextField(
+              value: "",
+              setValue: (value) {},
+              hintText: "Amount Paid",
             )
           ],
         ),
