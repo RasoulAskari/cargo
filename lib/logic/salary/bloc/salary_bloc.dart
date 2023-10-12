@@ -29,7 +29,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
+        Uri.parse('http://localhost:8000/api/v1/salary-payments'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
