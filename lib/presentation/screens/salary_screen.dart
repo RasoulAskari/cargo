@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:flutter/material.dart';
 
 class SalaryScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _SalaryScreenState extends State<SalaryScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed("addEmployee");
+                Navigator.of(context).pushNamed(addSalaryScreen);
               },
               icon: const Icon(
                 Icons.add,
