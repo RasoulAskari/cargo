@@ -89,7 +89,14 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             CTextField(
               value: _amountPay.value.toString(),
               setValue: (value) {
-                _amountPay = Amount.dirty(value);
+                double val;
+                if (value == "") {
+                  val = 1;
+                } else {
+                  val = double.parse(value);
+                }
+
+                _amountPay = Amount.dirty(val);
               },
               hintText: "Amount Pay",
             ),
