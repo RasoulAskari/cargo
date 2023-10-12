@@ -77,7 +77,12 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             ),
             const SizedBox(height: 30),
             CDatePicker(
-              setValue: (value) {},
+              value: _date,
+              setValue: (value) {
+                setState(() {
+                  _date = value;
+                });
+              },
               hintText: "Salary Date",
             ),
             const SizedBox(height: 30),
