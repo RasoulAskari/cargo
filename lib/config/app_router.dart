@@ -4,6 +4,7 @@ import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
 import 'package:cargo/presentation/screens/add_incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/add_order_screen.dart';
+import 'package:cargo/presentation/screens/add_salary_screen.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
 import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/main_screen.dart';
@@ -58,6 +59,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const SalaryScreen(),
         );
+      case addSalaryScreen:
+        return MaterialPageRoute(
+          builder: (context) => const AddSalaryScreen(),
+        );
+
       default:
         return null;
     }
