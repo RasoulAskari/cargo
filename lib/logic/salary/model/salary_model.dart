@@ -53,4 +53,20 @@ class SalaryModel extends Equatable {
 
   factory SalaryModel.fromJson(String source) =>
       SalaryModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  SalaryModel copyWith({
+    EmployeeModel? employee,
+    double? salaryAmount,
+    String? date,
+    double? payAmount,
+    double? remainAmount,
+  }) {
+    return SalaryModel(
+      employee: employee ?? this.employee,
+      salaryAmount: salaryAmount ?? this.salaryAmount,
+      date: date ?? this.date,
+      payAmount: payAmount ?? this.payAmount,
+      remainAmount: remainAmount ?? this.remainAmount,
+    );
+  }
 }
