@@ -54,6 +54,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             BlocBuilder<EmployeeBloc, EmployeeState>(
               builder: (context, state) {
                 return CDropdown(
+                  value: _employee.value,
                   setValue: (value) {
                     _employee = IncomingOutGoingType.dirty(value);
                   },
