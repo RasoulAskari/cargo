@@ -39,14 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.of(context).pushNamed(ordersScreen);
         }
       },
-      {
-        'name': 'Exchange',
-        'image': "",
-        'function': () async {
-          final data = await _storage.read(key: 'token');
-          print(data);
-        }
-      },
+      {'name': 'Salary', 'image': "", 'function': () async {}},
       {'name': 'Setting', 'image': "", 'function': () {}},
       {
         'name': 'Logout',
