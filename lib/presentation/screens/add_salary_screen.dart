@@ -15,7 +15,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 40,
         ),
@@ -25,7 +25,9 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               builder: (context, state) {
                 return CDropdown(
                   setValue: (value) {},
-                  items: [],
+                  items: state.employees
+                      .map((e) => {'value': e.id, 'label': e.firstName})
+                      .toList(),
                   hintText: "Employee",
                 );
               },
