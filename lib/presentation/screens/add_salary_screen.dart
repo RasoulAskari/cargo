@@ -2,6 +2,7 @@ import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
+import 'package:cargo/presentation/widgets/form/c_disable_text_field.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/incoming_out_going_type.dart';
@@ -79,7 +80,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               },
             ),
             const SizedBox(height: 30),
-            CTextField(
+            CDisableTextField(
               textInputType: TextInputType.number,
               value: _amount.value.toString(),
               setValue: (value) {
@@ -105,7 +106,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               hintText: "Salary Date",
             ),
             const SizedBox(height: 30),
-            CTextField(
+            CDisableTextField(
               value: _amountPay.value.toString(),
               setValue: (value) {
                 double val;
@@ -120,7 +121,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               hintText: "Amount Pay",
             ),
             const SizedBox(height: 30),
-            CTextField(
+            CDisableTextField(
               value: _amountPay.value.toString(),
               setValue: (value) {
                 double val;
