@@ -68,9 +68,12 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             ),
             const SizedBox(height: 30),
             CTextField(
-              value: "",
-              setValue: (value) {},
-              hintText: "Amount of Salary",
+              textInputType: TextInputType.number,
+              value: _amount.value.toString(),
+              setValue: (value) {
+                _amount = Amount.dirty(value);
+              },
+              hintText: "Salary Amount",
             ),
             const SizedBox(height: 30),
             CDatePicker(
