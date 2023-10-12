@@ -1,4 +1,5 @@
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
@@ -59,8 +60,12 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
               value: "",
               setValue: (value) {},
               hintText: "Amount of Salary",
+            ),
+            const SizedBox(height: 30),
+            CDatePicker(
+              setValue: (value) {},
+              hintText: "Salary Date",
             )
-            
           ],
         ),
       ),
