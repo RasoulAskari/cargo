@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
@@ -35,6 +36,32 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
       }
     } catch (e) {
       return;
+    }
+  }
+
+  Future<List<SalaryModel>> _fetchEmployees({int? page}) async {
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/salary-payments',
+        ),
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body)["data"] as List;
+
+        return body.map((e) {
+          return SalaryModel.fromMap(e);
+        }).toList();
+      }
+      return [];
+    } catch (e) {
+      print(e);
+      return [];
     }
   }
 
