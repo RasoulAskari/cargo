@@ -33,7 +33,7 @@ class _SalaryScreenState extends State<SalaryScreen> {
             )),
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Employee Screen",
+          "Salary Screen",
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
