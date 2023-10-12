@@ -1,5 +1,7 @@
+import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:flutter/material.dart';
+import "package:flutter_bloc/flutter_bloc.dart";
 
 class AddSalaryScreen extends StatefulWidget {
   const AddSalaryScreen({super.key});
@@ -19,10 +21,14 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
         ),
         child: Column(
           children: [
-            CDropdown(
-              setValue: (value) {},
-              items: [],
-              hintText: "Employee",
+            BlocBuilder<EmployeeBloc, EmployeeState>(
+              builder: (context, state) {
+                return CDropdown(
+                  setValue: (value) {},
+                  items: [],
+                  hintText: "Employee",
+                );
+              },
             )
           ],
         ),
