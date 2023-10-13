@@ -55,7 +55,6 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         final body = json.decode(response.body)["data"] as List;
 
         return body.map((e) {
-          print(e['employee']);
           return SalaryModel.fromMap(e);
         }).toList();
       }

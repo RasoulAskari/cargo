@@ -50,11 +50,11 @@ class _SalaryScreenState extends State<SalaryScreen> {
                 child: CircularProgressIndicator(),
               );
             }
+
             return ListView.builder(
-              
               itemCount: state.salary.length,
               itemBuilder: (context, index) {
-                SalaryItem(salary: state.salary[index]);
+                return SalaryItem(salary: state.salary[index]);
               },
             );
           },
