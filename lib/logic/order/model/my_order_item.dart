@@ -16,7 +16,6 @@ class MyOrderItme extends Equatable {
       required this.weight});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [name, type, count, weight];
 
   Map<String, dynamic> toMap() {
