@@ -59,7 +59,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      final response = await httpClient.put(
+      await httpClient.put(
         headers: <String, String>{
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
@@ -70,7 +70,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         ),
       );
     } catch (e) {
-      print(e);
+      return;
     }
   }
 
@@ -91,7 +91,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      final response = await httpClient.post(
+      await httpClient.post(
         headers: <String, String>{
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
@@ -104,8 +104,9 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       emitter(state.copyWith(
         employees: List.of(state.employees)..insert(0, event.employee),
       ));
-      print(response.body);
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
   }
 
   Future<void> _onEmployeesFetched(
@@ -150,7 +151,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       }
       return [];
     } catch (e) {
-      print(e);
       return [];
     }
   }
