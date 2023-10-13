@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': 'Logout',
         'image': "",
         'function': () async {
-          final res = await _storage.delete(key: 'token');
+          await _storage.delete(key: 'token');
           widget.isLogin();
         }
       },
