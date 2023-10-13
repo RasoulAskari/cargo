@@ -54,6 +54,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                 remainAmount: _amountRemain.value),
           ),
         );
+    Navigator.of(context).pushReplacementNamed(salaryScreen);
   }
 
   @override
