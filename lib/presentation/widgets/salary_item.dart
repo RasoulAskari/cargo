@@ -1,3 +1,4 @@
+import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -86,7 +87,7 @@ class _SalaryItemState extends State<SalaryItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      // context.read<>()
+                      // context.read<SalaryBloc>().add(DeleteSalaryEvent(id: widget.salary))
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
