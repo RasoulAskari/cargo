@@ -95,9 +95,8 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
       emitter(
         state.copyWith(
-            // salary_out_going: List.of(state.salary_out_going)
-            //   ..insert(0, event.salaryOutGoing),
-            ),
+          salary: List.of(state.salary)..insert(0, event.salary),
+        ),
       );
     } catch (e) {
       print(e.toString());

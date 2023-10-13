@@ -28,25 +28,25 @@ class _SalaryItemState extends State<SalaryItem> {
           child: ListTile(
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
-            // leading: Container(
-            //   decoration: BoxDecoration(
-            //     shape: BoxShape.circle,
-            //     border: Border.all(
-            //       color: Colors.black12, // Border color
-            //       width: 3.0, // Border width
-            //     ),
-            //   ),
-            //   child: Container(
-            //     height: 70,
-            //     width: 70,
-            //     decoration: const BoxDecoration(
-            //         shape: BoxShape.circle,
-            //         image: DecorationImage(
-            //             fit: BoxFit.cover,
-            //             image: NetworkImage(
-            //                 'https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d'))),
-            //   ),
-            // ),
+            leading: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.black12, // Border color
+                  width: 3.0, // Border width
+                ),
+              ),
+              child: Container(
+                height: 70,
+                width: 70,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://i.pravatar.cc/300?u=e52552f4-835d-4dbe-ba77-b076e659774d'))),
+              ),
+            ),
             title: Container(
               margin: const EdgeInsets.only(bottom: 8),
               child: Text(
