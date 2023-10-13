@@ -67,8 +67,6 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
   Future<void> _onAddSalaryEvent(
       AddSalaryEvent event, Emitter<SalaryState> emitter) async {
-    print("object");
-
     SalaryModel salary = event.salary;
 
     final data = {

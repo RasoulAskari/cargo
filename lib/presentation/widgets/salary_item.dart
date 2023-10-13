@@ -1,5 +1,6 @@
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SalaryItem extends StatefulWidget {
   final SalaryModel salary;
@@ -84,7 +85,9 @@ class _SalaryItemState extends State<SalaryItem> {
                   ),
                   const SizedBox(width: 3),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      // context.read<>()
+                    },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 5),
