@@ -7,6 +7,7 @@ import 'package:cargo/logic/form_models/number.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
+// ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
 
 part 'order_state.dart';
@@ -126,6 +127,5 @@ class OrderCubit extends Cubit<OrderState> {
     emit(
       state.copyWith(items: items),
     );
-    
   }
 }
