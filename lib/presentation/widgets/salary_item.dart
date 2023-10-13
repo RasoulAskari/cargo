@@ -1,7 +1,9 @@
+import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
 
 class SalaryItem extends StatefulWidget {
-  const SalaryItem({super.key});
+  final SalaryModel salary;
+  const SalaryItem({super.key, required this.salary});
 
   @override
   State<SalaryItem> createState() => _SalaryItemState();
