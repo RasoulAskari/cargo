@@ -11,8 +11,10 @@ class SalaryModel extends Equatable {
   final String date;
   final double payAmount;
   final double remainAmount;
+  final int id;
 
   const SalaryModel({
+    required this.id,
     required this.employee,
     required this.salaryAmount,
     required this.date,
@@ -41,6 +43,7 @@ class SalaryModel extends Equatable {
 
   factory SalaryModel.fromMap(Map<String, dynamic> map) {
     return SalaryModel(
+      id: map['id'] as int,
       employee: EmployeeModel(
           id: map['employee']['id'],
           currentAddress: "currentAddress",
@@ -67,14 +70,15 @@ class SalaryModel extends Equatable {
   factory SalaryModel.fromJson(String source) =>
       SalaryModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
-  SalaryModel copyWith({
-    EmployeeModel? employee,
-    double? salaryAmount,
-    String? date,
-    double? payAmount,
-    double? remainAmount,
-  }) {
+  SalaryModel copyWith(
+      {EmployeeModel? employee,
+      double? salaryAmount,
+      String? date,
+      double? payAmount,
+      double? remainAmount,
+      int? id}) {
     return SalaryModel(
+      id: id ?? this.id,
       employee: employee ?? this.employee,
       salaryAmount: salaryAmount ?? this.salaryAmount,
       date: date ?? this.date,
