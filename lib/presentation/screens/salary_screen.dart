@@ -44,9 +44,7 @@ class _SalaryScreenState extends State<SalaryScreen> {
         ),
         body: BlocBuilder<SalaryBloc, SalaryState>(
           builder: (context, state) {
-            return Container(
-              child: Text(state.salary.toString()),
-            );
+            return Text(state.salary.toString());
           },
         ));
   }
