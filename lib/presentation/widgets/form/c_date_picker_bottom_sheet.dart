@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:scroll_date_picker/scroll_date_picker.dart';
 
 class CDatePickerBottomSheet extends StatefulWidget {
@@ -71,7 +72,7 @@ class _CDatePickerBottomSheetState extends State<CDatePickerBottomSheet> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: Text('Cancel'),
+                    child: const Text('Cancel'),
                   ),
                   const SizedBox(
                     width: 8,
@@ -87,9 +88,9 @@ class _CDatePickerBottomSheetState extends State<CDatePickerBottomSheet> {
                       );
                       Navigator.of(context).pop();
                     },
-                    child: Text(
+                    child: const Text(
                       "confirm",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
