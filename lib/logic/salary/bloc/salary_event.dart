@@ -14,3 +14,10 @@ class AddSalaryEvent extends SalaryEvent {
 
   const AddSalaryEvent({required this.salary});
 }
+
+class DeleteSalaryEvent extends SalaryEvent {
+  final int id;
+
+  const DeleteSalaryEvent({required this.id});
+
+}
