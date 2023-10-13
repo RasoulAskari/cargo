@@ -41,11 +41,24 @@ class SalaryModel extends Equatable {
 
   factory SalaryModel.fromMap(Map<String, dynamic> map) {
     return SalaryModel(
-      employee: EmployeeModel.fromMap(map['employee'] as Map<String, dynamic>),
-      salaryAmount: map['salaryAmount'] as double,
-      date: map['date'] as String,
-      payAmount: map['payAmount'] as double,
-      remainAmount: map['remainAmount'] as double,
+      employee: const EmployeeModel(
+          id: 0,
+          currentAddress: "currentAddress",
+          permenentAddress: "permenentAddress",
+          startDate: 'startDate',
+          endDate: 'endDate',
+          jobTitle: 'jobTitle',
+          salary: 1200,
+          firstName: "firstName",
+          lastName: "lastName",
+          profile: "profile",
+          email: "email",
+          phoneNumber: "phoneNumber"),
+      salaryAmount: double.parse(map['salary'].toString()),
+      date: map['created_at'] as String,
+      payAmount: double.parse(map['paid'].toString()),
+      remainAmount:
+          map['remainAmount'] == null ? 0 : map['remainAmount'] as double,
     );
   }
 
