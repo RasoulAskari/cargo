@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: implementation_imports, depend_on_referenced_packages
 import 'package:intl_phone_number_input/src/models/country_model.dart';
+// ignore: implementation_imports, depend_on_referenced_packages
 import 'package:intl_phone_number_input/src/widgets/input_widget.dart';
 
 /// [CountryComparator] takes two countries: A and B.
