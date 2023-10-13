@@ -15,7 +15,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
   final http.Client httpClient;
 
   SalaryBloc({required this.httpClient}) : super(const SalaryState()) {
-    on<AddSalaryEvent>(_onAddSalaryOutGoingEvent);
+    on<AddSalaryEvent>(_onAddSalaryEvent);
     on<FetchSalaryEvent>(_onFetchSalaryOutGoingEvent);
   }
   Future<void> _onFetchSalaryOutGoingEvent(
@@ -65,10 +65,12 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     }
   }
 
-  Future<void> _onAddSalaryOutGoingEvent(
+  Future<void> _onAddSalaryEvent(
       AddSalaryEvent event, Emitter<SalaryState> emitter) async {
-    if (state.hasReachedMax) return;
+    print("object");
+
     SalaryModel salary = event.salary;
+
     final data = {
       'employee_id': salary.employee.id,
       'created_at': salary.date.toString(),
