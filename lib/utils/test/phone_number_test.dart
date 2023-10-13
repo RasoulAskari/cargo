@@ -1,7 +1,10 @@
 import 'dart:async';
 
+// ignore: depend_on_referenced_packages
 import 'package:collection/collection.dart' show IterableExtension;
+// ignore: depend_on_referenced_packages, implementation_imports
 import 'package:intl_phone_number_input/src/models/country_list.dart';
+// ignore: depend_on_referenced_packages, implementation_imports
 import 'package:intl_phone_number_input/src/utils/phone_number/phone_number_util.dart';
 
 class PhoneNumberTest {
@@ -50,13 +53,13 @@ class PhoneNumberTest {
         '',
       );
     } else {
-      throw new Exception('ISO Code is "${phoneNumber.isoCode}"');
+      throw Exception('ISO Code is "${phoneNumber.isoCode}"');
     }
   }
 
   String parseNumber() {
-    return this
-        .phoneNumber!
+    return phoneNumber!
+        // ignore: unnecessary_this
         .replaceAll(RegExp('^([\\+]?${this.dialCode}[\\s]?)'), '');
   }
 
