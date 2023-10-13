@@ -1,5 +1,6 @@
 import 'package:cargo/presentation/widgets/form/c_date_picker_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 class CDatePicker extends StatefulWidget {
@@ -24,9 +25,7 @@ class _CDatePickerState extends State<CDatePicker> {
   @override
   void initState() {
     setState(() {
-      widget.value != null
-          ? txt.text = widget.value.toString() as String
-          : txt.text;
+      widget.value != null ? txt.text = widget.value.toString() : txt.text;
       _selectedDate = widget.value ?? DateTime.now();
     });
     super.initState();
