@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:cargo/constants/routes.dart';
-import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
@@ -11,6 +8,7 @@ import 'package:cargo/presentation/widgets/order_steps/step2.dart';
 import 'package:cargo/presentation/widgets/order_steps/step3.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
