@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
 
 enum BioValidationError { max, invalid }
