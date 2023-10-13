@@ -8,7 +8,7 @@ class UserModel extends Equatable {
   final String name;
   final String email;
 
-  UserModel({required this.name, required this.email, required this.id});
+  const UserModel({required this.name, required this.email, required this.id});
 
   UserModel copyWith({
     String? name,
@@ -40,6 +40,5 @@ class UserModel extends Equatable {
       UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  // TODO: implement props
   List<Object?> get props => [id, name, email];
 }
