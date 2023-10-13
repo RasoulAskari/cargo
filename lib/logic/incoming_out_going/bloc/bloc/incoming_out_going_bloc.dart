@@ -50,13 +50,13 @@ class IncomingOutGoingBloc
 
     try {
       if (state.status == IncomingOutGoingStatus.initial) {
-        final incoming_out_going =
+        final incomingOutGoing =
             await _fetchincoming_out_going(page: state.page);
         return emitter(
           state.copyWith(
             status: IncomingOutGoingStatus.success,
-            incoming_out_going: incoming_out_going,
-            hasReachedMax: incoming_out_going.length < _postLimit,
+            incoming_out_going: incomingOutGoing,
+            hasReachedMax: incomingOutGoing.length < _postLimit,
           ),
         );
       }
@@ -88,9 +88,7 @@ class IncomingOutGoingBloc
         },
         body: jsonEncode(data),
       );
-      print(response.body);
     } catch (e) {
-      print(e.toString() + "catch");
       return;
     }
   }
@@ -125,11 +123,11 @@ class IncomingOutGoingBloc
         ),
       );
     } catch (e) {
-      print(e.toString());
       return;
     }
   }
 
+  // ignore: non_constant_identifier_names
   Future<List<IncomingOutGoing>> _fetchincoming_out_going({int? page}) async {
     try {
       final response = await httpClient.get(
@@ -149,7 +147,6 @@ class IncomingOutGoingBloc
       }
       return [];
     } catch (e) {
-      print(e);
       return [];
     }
   }
