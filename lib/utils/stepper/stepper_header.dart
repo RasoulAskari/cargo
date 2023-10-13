@@ -23,6 +23,7 @@ class StepperHeader extends StatefulWidget {
 }
 
 class _StepperHeaderState extends State<StepperHeader> {
+  // ignore: deprecated_member_use
   final d = MediaQueryData.fromWindow(window).padding.top;
 
   @override
