@@ -75,7 +75,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             order['group_number'] = value['group_number'],
             order['car_id'] = value['car_id'],
           });
-      final response = await http.post(
+      await http.post(
         Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -87,7 +87,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       emitter(state.copyWith(
         orders: List.of(state.orders)..insert(0, event.order),
       ));
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
   }
 
   Future<void> _onOrdersFetched(
@@ -169,7 +171,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
       );
       if (res.body == "1") {
-        print("this is");
         emitter(
           state.copyWith(
             orders: state.orders
@@ -179,7 +180,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         );
       }
     } catch (e) {
-      print(e);
+      return;
     }
   }
 }
