@@ -92,7 +92,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         },
         body: jsonEncode(data),
       );
-
+      print(response.body);
       emitter(
         state.copyWith(
           salary: List.of(state.salary)..insert(0, event.salary),
