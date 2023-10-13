@@ -47,6 +47,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
     context.read<SalaryBloc>().add(
           AddSalaryEvent(
             salary: SalaryModel(
+                id: 0,
                 employee: employee,
                 salaryAmount: _amount.value,
                 date: _date.toString(),
