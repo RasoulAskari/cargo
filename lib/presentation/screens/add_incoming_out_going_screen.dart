@@ -8,6 +8,7 @@ import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/incoming_out_going_type.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,18 +27,19 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   Amount amount = const Amount.pure();
   IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
   Future<void> _addIncoming() async {
-    IncomingOutGoing _incomingOutGoing = IncomingOutGoing(
+    IncomingOutGoing incomingOutGoing = IncomingOutGoing(
       id: 1,
       createdAt: _date.toString(),
       name: name.value,
       type: incomingOutGoingType.value,
       amount: double.parse(amount.value.toString()),
-      createdBy: UserModel(email: "admin@admin.com", name: "admin", id: 1),
+      createdBy:
+          const UserModel(email: "admin@admin.com", name: "admin", id: 1),
     );
 
     context.read<IncomingOutGoingBloc>().add(
           AddIncomingOutGoingEvent(
-              incomingOutGoing: _incomingOutGoing, date: _date),
+              incomingOutGoing: incomingOutGoing, date: _date),
         );
 
     Navigator.of(context).pop();
@@ -62,14 +64,15 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   }
 
   _editIncoming() {
-    final _in = widget.incomingOutGoing;
+    final inco = widget.incomingOutGoing;
     IncomingOutGoing incoming = IncomingOutGoing(
-      id: _in!.id,
+      id: inco!.id,
       createdAt: _date.toString(),
       name: name.value,
       type: incomingOutGoingType.value,
       amount: amount.value,
-      createdBy: UserModel(name: "admin", email: "admin@admin.com", id: 1),
+      createdBy:
+          const UserModel(name: "admin", email: "admin@admin.com", id: 1),
     );
 
     context.read<IncomingOutGoingBloc>().add(
@@ -122,7 +125,6 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 value: incomingOutGoingType.value,
                 hintText: "Type",
                 setValue: (value) {
-                  print(value);
                   incomingOutGoingType = IncomingOutGoingType.dirty(value);
                 },
                 items: const [
@@ -145,7 +147,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                   try {
                     double intValue = double.parse(value);
                     amount = Amount.dirty(intValue);
-                  } catch (e) {}
+                  } catch (e) {
+                    return;
+                  }
                 },
               ),
               const SizedBox(height: 15),
