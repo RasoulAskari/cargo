@@ -103,4 +103,28 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
       return;
     }
   }
+
+  Future<void> _onDleteIncomingOutGoingEvent(
+      DeleteSalaryEvent event, Emitter<SalaryState> emitter) async {
+    var res = await httpClient.delete(
+      getServerRoute(
+        route: '/api/v1/salary-payments/${event.id}',
+      ),
+      headers: <String, String>{
+        'Authorization':
+            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      },
+    );
+    if (res.body == "true") {
+      emitter(
+        state.copyWith(
+          salary: state.salary
+              .where(
+                (element) => element.id != event.id,
+              )
+              .toList(),
+        ),
+      );
+    }
+  }
 }
