@@ -78,7 +78,7 @@ class IncomingOutGoingBloc
     };
 
     try {
-      final response = await http.put(
+      await http.put(
         Uri.parse(
             'http://localhost:8000/api/v1/income-outgoing/${incoming.id}'),
         headers: <String, String>{
@@ -106,7 +106,7 @@ class IncomingOutGoingBloc
     };
 
     try {
-      final response = await http.post(
+      await http.post(
         Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
