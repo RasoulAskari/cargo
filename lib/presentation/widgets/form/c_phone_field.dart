@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/intl_phone_number_util.dart';
 
 // ignore: must_be_immutable
