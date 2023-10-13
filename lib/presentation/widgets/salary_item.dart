@@ -12,6 +12,6 @@ class SalaryItem extends StatefulWidget {
 class _SalaryItemState extends State<SalaryItem> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Text(widget.salary.employee.toString());
   }
 }
