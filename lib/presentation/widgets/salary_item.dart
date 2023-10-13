@@ -1,6 +1,7 @@
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SalaryItem extends StatefulWidget {
