@@ -46,7 +46,7 @@ class OrderStaff extends StatelessWidget {
             title: Container(
               margin: const EdgeInsets.only(bottom: 8),
               child: Text(
-                "${order.name}",
+                order.name,
                 style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
@@ -54,7 +54,7 @@ class OrderStaff extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              "${order.type}",
+              order.type,
               style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 12,
