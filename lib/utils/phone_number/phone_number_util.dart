@@ -1,4 +1,6 @@
-// ignore: depend_on_referenced_packages, implementation_imports
+// ignore_for_file: camel_case_extensions, implementation_imports
+
+// ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/src/utils/phone_number.dart';
 // ignore: depend_on_referenced_packages
 import 'package:libphonenumber_plugin/libphonenumber_plugin.dart' as p;
@@ -126,7 +128,6 @@ class PhoneNumberTypeUtil {
   }
 }
 
-// ignore: camel_case_extensions
 /// Extension on PhoneNumberType
 extension phonenumbertypeproperties on PhoneNumberType {
   /// Returns the index [int] of the current `PhoneNumberType`
