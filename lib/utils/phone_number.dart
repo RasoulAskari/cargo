@@ -1,23 +1,38 @@
 import 'dart:async';
 
+// ignore: depend_on_referenced_packages
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:equatable/equatable.dart';
+// ignore: depend_on_referenced_packages, implementation_imports
 import 'package:intl_phone_number_input/src/models/country_list.dart';
+// ignore: depend_on_referenced_packages, implementation_imports
 import 'package:intl_phone_number_input/src/utils/phone_number/phone_number_util.dart';
 
 /// Type of phone numbers.
 enum PhoneNumberType {
+  // ignore: constant_identifier_names
   FIXED_LINE, // : 0,
+  // ignore: constant_identifier_names
   MOBILE, //: 1,
+  // ignore: constant_identifier_names
   FIXED_LINE_OR_MOBILE, //: 2,
+  // ignore: constant_identifier_names
   TOLL_FREE, //: 3,
+  // ignore: constant_identifier_names
   PREMIUM_RATE, //: 4,
+  // ignore: constant_identifier_names
   SHARED_COST, //: 5,
+  // ignore: constant_identifier_names
   VOIP, //: 6,
+  // ignore: constant_identifier_names
   PERSONAL_NUMBER, //: 7,
+  // ignore: constant_identifier_names
   PAGER, //: 8,
+  // ignore: constant_identifier_names
   UAN, //: 9,
+  // ignore: constant_identifier_names
   VOICEMAIL, //: 10,
+  // ignore: constant_identifier_names
   UNKNOWN, //: -1
 }
 
