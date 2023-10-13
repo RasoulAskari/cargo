@@ -51,6 +51,7 @@ class Country {
   }
 
   @override
+  // ignore: sdk_version_since
   int get hashCode => Object.hashAll([alpha2Code, alpha3Code, dialCode]);
 
   @override
