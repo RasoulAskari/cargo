@@ -2,6 +2,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IncomingOutGoingItem extends StatefulWidget {
@@ -160,7 +161,6 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
         )
       ],
     );
-    ;
   }
 
   onDelete() async {
