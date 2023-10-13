@@ -51,6 +51,8 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         },
       );
 
+      print(response.body);
+
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
 
