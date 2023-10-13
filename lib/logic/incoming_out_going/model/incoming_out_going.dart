@@ -23,7 +23,6 @@ class IncomingOutGoing extends Equatable {
   });
 
   @override
-  // TODO: implement props
   List<Object?> get props => [name, type, amount, createdBy];
 
   Map<String, dynamic> toMap() {
