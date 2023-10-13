@@ -61,7 +61,6 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
       }
       return [];
     } catch (e) {
-      print(e);
       return [];
     }
   }
@@ -84,7 +83,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     };
 
     try {
-      final response = await http.post(
+      await http.post(
         Uri.parse('http://localhost:8000/api/v1/salary-payments'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -93,14 +92,12 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         },
         body: jsonEncode(data),
       );
-      print(response.body);
       emitter(
         state.copyWith(
           salary: List.of(state.salary)..insert(0, event.salary),
         ),
       );
     } catch (e) {
-      print(e.toString());
       return;
     }
   }
