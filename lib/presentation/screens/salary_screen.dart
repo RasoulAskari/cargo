@@ -1,6 +1,7 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/widgets/salary_item.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../logic/salary/bloc/salary_bloc.dart';
