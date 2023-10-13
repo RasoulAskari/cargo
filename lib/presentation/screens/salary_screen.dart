@@ -45,7 +45,13 @@ class _SalaryScreenState extends State<SalaryScreen> {
         ),
         body: BlocBuilder<SalaryBloc, SalaryState>(
           builder: (context, state) {
+            if (state.status == SalaryStatus.initial) {
+              const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
             return ListView.builder(
+              
               itemCount: state.salary.length,
               itemBuilder: (context, index) {
                 SalaryItem(salary: state.salary[index]);
