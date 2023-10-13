@@ -17,6 +17,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
   SalaryBloc({required this.httpClient}) : super(const SalaryState()) {
     on<AddSalaryEvent>(_onAddSalaryEvent);
     on<FetchSalaryEvent>(_onFetchSalaryOutGoingEvent);
+    on<DeleteSalaryEvent>(_onDleteSalaryEvent);
   }
   Future<void> _onFetchSalaryOutGoingEvent(
       FetchSalaryEvent event, Emitter<SalaryState> emitter) async {
@@ -104,7 +105,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     }
   }
 
-  Future<void> _onDleteIncomingOutGoingEvent(
+  Future<void> _onDleteSalaryEvent(
       DeleteSalaryEvent event, Emitter<SalaryState> emitter) async {
     var res = await httpClient.delete(
       getServerRoute(
@@ -115,7 +116,8 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
             'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
       },
     );
-    if (res.body == "true") {
+    print(res.body);
+    if (res.body == "1") {
       emitter(
         state.copyWith(
           salary: state.salary
