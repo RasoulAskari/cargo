@@ -12,6 +12,9 @@ class SalaryItem extends StatefulWidget {
 class _SalaryItemState extends State<SalaryItem> {
   @override
   Widget build(BuildContext context) {
-    return Text(widget.salary.employee.toString());
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Text(widget.salary.employee.toString()),
+    );
   }
 }
