@@ -45,7 +45,12 @@ class _SalaryScreenState extends State<SalaryScreen> {
         ),
         body: BlocBuilder<SalaryBloc, SalaryState>(
           builder: (context, state) {
-            return 
+            return ListView.builder(
+              itemCount: state.salary.length,
+              itemBuilder: (context, index) {
+                SalaryItem(salary: state.salary[index]);
+              },
+            );
           },
         ));
   }
