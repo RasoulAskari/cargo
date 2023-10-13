@@ -1,8 +1,5 @@
-import 'dart:convert';
 import 'package:bloc/bloc.dart';
-import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/login/login_model.dart';
-import 'package:cargo/logic/login/user_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
