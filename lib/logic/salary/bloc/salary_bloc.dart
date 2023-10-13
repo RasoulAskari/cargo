@@ -116,7 +116,6 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
             'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
       },
     );
-    print(res.body);
     if (res.body == "1") {
       emitter(
         state.copyWith(
