@@ -87,7 +87,9 @@ class _SalaryItemState extends State<SalaryItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      // context.read<SalaryBloc>().add(DeleteSalaryEvent(id: widget.salary))
+                      context
+                          .read<SalaryBloc>()
+                          .add(DeleteSalaryEvent(id: widget.salary.id));
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
