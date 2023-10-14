@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 class ExchnageMoneyModel extends Equatable {
@@ -53,4 +55,39 @@ class ExchnageMoneyModel extends Equatable {
       senderName: senderName ?? this.senderName,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'amount': amount,
+      'currency': currency,
+      'date': date,
+      'exchnageId': exchnageId,
+      'phoneNumber': phoneNumber,
+      'receiverIdNo': receiverIdNo,
+      'receiverName': receiverName,
+      'receiverFathername': receiverFathername,
+      'senderName': senderName,
+    };
+  }
+
+  factory ExchnageMoneyModel.fromMap(Map<String, dynamic> map) {
+    return ExchnageMoneyModel(
+      id: map['id'] as int,
+      amount: map['amount'] as double,
+      currency: map['currency'] as String,
+      date: map['date'] as String,
+      exchnageId: map['exchnageId'] as String,
+      phoneNumber: map['phoneNumber'] as String,
+      receiverIdNo: map['receiverIdNo'] as String,
+      receiverName: map['receiverName'] as String,
+      receiverFathername: map['receiverFathername'] as String,
+      senderName: map['senderName'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory ExchnageMoneyModel.fromJson(String source) =>
+      ExchnageMoneyModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
