@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:flutter/material.dart';
 
 class ExchangeMoneyScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class ExchangeMoneyScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                // Navigator.of(context).pushNamed(addEmployee);
+                Navigator.of(context).pushNamed(addExchangeMoneyScreen);
               },
               icon: const Icon(
                 Icons.add,
