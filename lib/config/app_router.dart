@@ -6,6 +6,7 @@ import 'package:cargo/presentation/screens/add_incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/add_order_screen.dart';
 import 'package:cargo/presentation/screens/add_salary_screen.dart';
 import 'package:cargo/presentation/screens/employee_screen.dart';
+import 'package:cargo/presentation/screens/exchange_money_screen.dart';
 import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/main_screen.dart';
 import 'package:cargo/presentation/screens/order_screen.dart';
@@ -62,6 +63,10 @@ class AppRouter {
       case addSalaryScreen:
         return MaterialPageRoute(
           builder: (context) => const AddSalaryScreen(),
+        );
+      case exchangeMoneyScreen:
+        return MaterialPageRoute(
+          builder: (context) => const ExchangeMoneyScreen(),
         );
 
       default:
