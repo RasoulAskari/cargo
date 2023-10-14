@@ -19,6 +19,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
       step = step + 1;
     });
   }
+
   prev(steps) {
     if (step == 1) {
       Navigator.of(context).pop();
@@ -29,12 +30,8 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
