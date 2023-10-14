@@ -19,6 +19,17 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
       step = step + 1;
     });
   }
+  prev(steps) {
+    if (step == 1) {
+      Navigator.of(context).pop();
+      return;
+    }
+    setState(() {
+      step = step - 1;
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
