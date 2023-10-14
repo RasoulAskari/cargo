@@ -57,7 +57,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: CStepper(
-        stepAmount: 3,
+        stepAmount: 2,
         steps: steps,
         step: step,
         next: () {
