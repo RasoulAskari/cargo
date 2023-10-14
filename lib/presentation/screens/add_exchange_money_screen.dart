@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class AddExchangeMoneyScreen extends StatelessWidget {
+class AddExchangeMoneyScreen extends StatefulWidget {
   const AddExchangeMoneyScreen({super.key});
 
+  @override
+  State<AddExchangeMoneyScreen> createState() => _AddExchangeMoneyScreenState();
+}
+
+class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
