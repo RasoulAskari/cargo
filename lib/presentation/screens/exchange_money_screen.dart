@@ -28,7 +28,7 @@ class ExchangeMoneyScreen extends StatelessWidget {
             )),
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Employee Screen",
+          "Exhange Money Screen",
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
