@@ -1,5 +1,6 @@
 import 'package:cargo/presentation/widgets/exchange_money_steps/step1.dart';
 import 'package:cargo/presentation/widgets/exchange_money_steps/step2.dart';
+import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -54,25 +55,19 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () {
-            Navigator.of(context).pop();
-          },
-          child: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Add Exchange money screen",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+      resizeToAvoidBottomInset: false,
+      body: CStepper(
+        stepAmount: 3,
+        steps: steps,
+        step: step,
+        next: () {
+          next(steps);
+        },
+        onSubmit: () async {},
+        prev: () {
+          prev(steps);
+        },
+        loading: loading,
       ),
     );
   }
