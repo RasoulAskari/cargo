@@ -9,6 +9,17 @@ class AddExchangeMoneyScreen extends StatefulWidget {
 }
 
 class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
+  late http.Client httpClient;
+
+  var step = 1;
+  bool loading = false;
+
+  next(steps) {
+    setState(() {
+      step = step + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
