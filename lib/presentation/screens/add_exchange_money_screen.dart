@@ -1,3 +1,5 @@
+import 'package:cargo/presentation/widgets/exchange_money_steps/step1.dart';
+import 'package:cargo/presentation/widgets/exchange_money_steps/step2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -32,6 +34,25 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List steps = [
+      {
+        'title': "Info About The Person\nwhom Order ",
+        'step': Step1(
+          next: next,
+          prev: prev,
+        ),
+        'validate': true
+      },
+      {
+        'title': "Info About The Receiver",
+        'step': Step2(
+          next: next,
+          prev: prev,
+        ),
+        'validate': true
+      },
+    ];
+
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
