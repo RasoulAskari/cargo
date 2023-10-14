@@ -14,18 +14,21 @@ class ExchnageMoneyModel extends Equatable {
   final String receiverName;
   final String receiverFathername;
   final String senderName;
+  final String province;
 
-  const ExchnageMoneyModel(
-      {required this.id,
-      required this.amount,
-      required this.currency,
-      required this.date,
-      required this.exchnageId,
-      required this.phoneNumber,
-      required this.receiverIdNo,
-      required this.receiverName,
-      required this.receiverFathername,
-      required this.senderName});
+  const ExchnageMoneyModel({
+    required this.id,
+    required this.province,
+    required this.amount,
+    required this.currency,
+    required this.date,
+    required this.exchnageId,
+    required this.phoneNumber,
+    required this.receiverIdNo,
+    required this.receiverName,
+    required this.receiverFathername,
+    required this.senderName,
+  });
 
   @override
   List<Object?> get props => [];
@@ -46,6 +49,7 @@ class ExchnageMoneyModel extends Equatable {
       id: id ?? this.id,
       amount: amount ?? this.amount,
       currency: currency ?? this.currency,
+      province: province ?? this.province,
       date: date ?? this.date,
       exchnageId: exchnageId ?? this.exchnageId,
       phoneNumber: phoneNumber ?? this.phoneNumber,
@@ -76,6 +80,7 @@ class ExchnageMoneyModel extends Equatable {
       id: map['id'] as int,
       amount: map['amount'] as double,
       currency: map['currency'] as String,
+      province: map['province'] as String,
       date: map['date'] as String,
       exchnageId: map['exchnage_id'] as String,
       phoneNumber: map['phone_number'] as String,
