@@ -2,6 +2,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
+import 'package:cargo/presentation/screens/add_exchange_money_screen.dart';
 import 'package:cargo/presentation/screens/add_incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/add_order_screen.dart';
 import 'package:cargo/presentation/screens/add_salary_screen.dart';
@@ -67,6 +68,10 @@ class AppRouter {
       case exchangeMoneyScreen:
         return MaterialPageRoute(
           builder: (context) => const ExchangeMoneyScreen(),
+        );
+      case addExchangeMoneyScreen:
+        return MaterialPageRoute(
+          builder: (context) => const AddExchangeMoneyScreen(),
         );
 
       default:
