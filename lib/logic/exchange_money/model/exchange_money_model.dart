@@ -44,6 +44,7 @@ class ExchnageMoneyModel extends Equatable {
     String? receiverName,
     String? receiverFathername,
     String? senderName,
+    String? province,
   }) {
     return ExchnageMoneyModel(
       id: id ?? this.id,
