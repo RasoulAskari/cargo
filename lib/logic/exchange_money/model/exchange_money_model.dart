@@ -77,12 +77,12 @@ class ExchnageMoneyModel extends Equatable {
       amount: map['amount'] as double,
       currency: map['currency'] as String,
       date: map['date'] as String,
-      exchnageId: map['exchnageId'] as String,
-      phoneNumber: map['phoneNumber'] as String,
-      receiverIdNo: map['receiverIdNo'] as String,
-      receiverName: map['receiverName'] as String,
-      receiverFathername: map['receiverFathername'] as String,
-      senderName: map['senderName'] as String,
+      exchnageId: map['exchnage_id'] as String,
+      phoneNumber: map['phone_number'] as String,
+      receiverIdNo: map['receiver_id_no'] as String,
+      receiverName: map['receiver_name'] as String,
+      receiverFathername: map['receiver_fathername'] as String,
+      senderName: map['sender_name'] as String,
     );
   }
 
