@@ -5,19 +5,19 @@ class ExchnageMoneyModel extends Equatable {
   final double amount;
   final String currency;
   final String date;
-  final String exchnage_id;
+  final String exchnageId;
   final String phoneNumber;
   final String receiverIdNo;
   final String receiverName;
   final String receiverFathername;
   final String senderName;
 
-  ExchnageMoneyModel(
+  const ExchnageMoneyModel(
       {required this.id,
       required this.amount,
       required this.currency,
       required this.date,
-      required this.exchnage_id,
+      required this.exchnageId,
       required this.phoneNumber,
       required this.receiverIdNo,
       required this.receiverName,
