@@ -46,6 +46,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.of(context).pushNamed(salaryScreen);
         }
       },
+      {
+        'name': 'Exchange Money',
+        'image': "",
+        'function': () {
+          Navigator.of(context).pushNamed(exchangeMoneyScreen);
+        }
+      },
       {'name': 'Setting', 'image': "", 'function': () {}},
       {
         'name': 'Logout',
