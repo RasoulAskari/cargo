@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
@@ -16,6 +14,13 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
     final sName = FirstName.dirty(name);
     emit(state.copyWith(
       senderName: sName,
+    ));
+  }
+
+  void receiverFatherNameChange(String name) {
+    final sFName = FirstName.dirty(name);
+    emit(state.copyWith(
+      receiverFathername: sFName,
     ));
   }
 
