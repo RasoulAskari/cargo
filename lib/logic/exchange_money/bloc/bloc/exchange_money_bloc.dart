@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 part 'exchange_money_event.dart';
@@ -34,21 +35,24 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     };
 
     try {
-      await httpClient.post(
+      final res = await httpClient.post(
         headers: <String, String>{
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
         getServerRoute(
-          route: '/api/v1/exchangeMoneys',
+          route: '/api/v1/exchange-money',
           params: data,
         ),
       );
+      debugPrint(res.body);
+
       emitter(state.copyWith(
         exchangeMoneys: List.of(state.exchangeMoneys)
           ..insert(0, event.exchangeMoney),
       ));
     } catch (e) {
+      debugPrint(e.toString());
       return;
     }
   }
