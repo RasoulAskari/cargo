@@ -44,7 +44,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
       };
 
       final res = await http.put(
-        Uri.parse('http://localhost:8000/api/v1/exhange-money/${exchange.id}'),
+        Uri.parse('http://localhost:8000/api/v1/exhange-money'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
