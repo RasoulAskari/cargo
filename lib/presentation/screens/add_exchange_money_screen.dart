@@ -116,7 +116,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
           final state = context.read<ExchangeMoneyCubit>().state;
 
           ExchnageMoneyModel exchangeMoney = ExchnageMoneyModel(
-            id: 0,
+            id: widget.exchange != null ? widget.exchange!.id : 0,
             province: state.province.value,
             amount: state.amount.value,
             currency: state.currency.value,
