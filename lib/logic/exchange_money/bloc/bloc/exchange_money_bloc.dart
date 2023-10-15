@@ -35,7 +35,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     if (res.body == "true") {
       emitter(
         state.copyWith(
-          incoming_out_going: state.incoming_out_going
+          exchangeMoneys: state.exchangeMoneys
               .where((element) => element.id != event.id)
               .toList(),
         ),
