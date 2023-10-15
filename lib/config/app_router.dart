@@ -79,7 +79,9 @@ class AppRouter {
             : null;
 
         return MaterialPageRoute(
-          builder: (context) => AddExchangeMoneyScreen(exchange: exchange),
+          builder: (context) => AddExchangeMoneyScreen(
+            exchange: exchange,
+          ),
         );
 
       default:
