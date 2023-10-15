@@ -28,6 +28,19 @@ class Step2 extends StatelessWidget {
             },
           ),
           const SizedBox(height: 30),
+          BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
+            builder: (context, state) {
+              return CTextField(
+                  value: state.receiverFathername.value,
+                  hintText: "Receiver Fathername",
+                  setValue: (value) {
+                    context
+                        .read<ExchangeMoneyCubit>()
+                        .receiverFatherNameChange(value);
+                  });
+            },
+          ),
+          const SizedBox(height: 30),
         ],
       ),
     );
