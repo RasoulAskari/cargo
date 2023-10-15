@@ -51,10 +51,15 @@ class MyApp extends StatelessWidget {
           httpClient: http.Client(),
         )..add(FetchExchangeMoneyEvent()),
       ),
-      BlocProvider<OrderCubit>(create: (context) => OrderCubit()),
-      BlocProvider<OrderItemCubit>(create: (context) => OrderItemCubit()),
+      BlocProvider<OrderCubit>(
+        create: (context) => OrderCubit(),
+      ),
+      BlocProvider<OrderItemCubit>(
+        create: (context) => OrderItemCubit(),
+      ),
       BlocProvider<ExchangeMoneyCubit>(
-          create: (context) => ExchangeMoneyCubit())
+        create: (context) => ExchangeMoneyCubit(),
+      )
     ], child: const CargoApp());
   }
 }
