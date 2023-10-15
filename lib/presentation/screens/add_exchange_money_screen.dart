@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class AddExchangeMoneyScreen extends StatefulWidget {
   final ExchnageMoneyModel? exchange;
@@ -49,15 +50,20 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   }
 
   _checkExchange() {
+    String p = widget.exchange!.phoneNumber.substring(0, 3);
+    String s = widget.exchange!.phoneNumber.substring(0, 2);
+
+    String? pho = s == "+1"
+        ? PhoneNumber.getISO2CodeByPrefix(s)
+        : PhoneNumber.getISO2CodeByPrefix(p);
+
     if (widget.exchange != null) {
       final exchange = widget.exchange;
       context.read<ExchangeMoneyCubit>().dateChange(exchange!.date.toString());
       context.read<ExchangeMoneyCubit>().amountChange(exchange.amount);
       context.read<ExchangeMoneyCubit>().currencyChange(exchange.currency);
       context.read<ExchangeMoneyCubit>().exchangeIdChange(exchange.exchnageId);
-      context
-          .read<ExchangeMoneyCubit>()
-          .phoneNumberChange(exchange.phoneNumber);
+      context.read<ExchangeMoneyCubit>().phoneNumberChange(pho);
       context.read<ExchangeMoneyCubit>().provinceChange(exchange.province);
       context
           .read<ExchangeMoneyCubit>()
