@@ -10,7 +10,11 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddExchangeMoneyScreen extends StatefulWidget {
-  const AddExchangeMoneyScreen({super.key});
+  final ExchnageMoneyModel? exchange;
+  const AddExchangeMoneyScreen({
+    super.key,
+    this.exchange,
+  });
 
   @override
   State<AddExchangeMoneyScreen> createState() => _AddExchangeMoneyScreenState();

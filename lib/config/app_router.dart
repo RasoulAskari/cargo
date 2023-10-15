@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
+import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
 import 'package:cargo/presentation/screens/add_exchange_money_screen.dart';
@@ -20,7 +21,9 @@ class AppRouter {
   ) {
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (context) => const MainScreen());
+        return MaterialPageRoute(
+          builder: (context) => const MainScreen(),
+        );
       case addEmployee:
         EmployeeModel? employee;
         settings.arguments != null
@@ -70,6 +73,7 @@ class AppRouter {
           builder: (context) => const ExchangeMoneyScreen(),
         );
       case addExchangeMoneyScreen:
+
         return MaterialPageRoute(
           builder: (context) => const AddExchangeMoneyScreen(),
         );
