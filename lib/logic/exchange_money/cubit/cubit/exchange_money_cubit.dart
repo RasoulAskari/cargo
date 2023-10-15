@@ -72,4 +72,11 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
       date: date,
     ));
   }
+
+  void phoneNumberChange(value) {
+    final phoneNumber = PhoneNo.dirty(value);
+    emit(
+      state.copyWith(phoneNumber: phoneNumber),
+    );
+  }
 }
