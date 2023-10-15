@@ -1,4 +1,7 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 class ExchangeMoneyScreen extends StatelessWidget {
@@ -33,6 +36,11 @@ class ExchangeMoneyScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
+      ),
+      body: BlocBuilder<ExchangeMoneyBloc, ExchangeMoneyState>(
+        builder: (context, state) {
+          return Container();
+        },
       ),
     );
   }
