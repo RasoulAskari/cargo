@@ -22,6 +22,40 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     on<DeleteExchangeMoneyEvent>(_onDeleteExchangeEvent);
   }
 
+  Future<void> _onEditExchangeEvent(UpdateExchangeMoneyEvent event,
+      Emitter<ExchangeMoneyState> emitter) async {
+    if (state.hasReachedMax) return;
+    ExchnageMoneyModel exchange = event.exchangeMoney;
+
+    try {
+      ExchnageMoneyModel exchangeMoney = event.exchangeMoney;
+      final data = {
+        'phone_number': exchangeMoney.phoneNumber,
+        'sender_name': exchangeMoney.senderName,
+        'receiver_name': exchangeMoney.receiverName,
+        'receiver_father_name': exchangeMoney.receiverFathername,
+        'amount': exchangeMoney.amount,
+        'currency': exchangeMoney.currency,
+        'date': exchangeMoney.date,
+        'exchange_id': exchangeMoney.exchnageId,
+        'province': exchangeMoney.province,
+        'receiver_id_no': exchangeMoney.receiverIdNo,
+      };
+
+      await http.put(
+        Uri.parse('http://localhost:8000/api/v1/exhange-money/${exchange.id}'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+        body: jsonEncode(data),
+      );
+    } catch (e) {
+      return;
+    }
+  }
+
   Future<void> _onDeleteExchangeEvent(DeleteExchangeMoneyEvent event,
       Emitter<ExchangeMoneyState> emitter) async {
     var res = await httpClient.delete(
