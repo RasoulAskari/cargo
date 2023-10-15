@@ -19,6 +19,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
       : super(const ExchangeMoneyState()) {
     on<AddExchangeMoneyEvent>(_onAddExchangeMoney);
     on<FetchExchangeMoneyEvent>(_onIncomingOutGoingEvent);
+    on<DeleteExchangeMoneyEvent>(_onDeleteExchangeEvent);
   }
 
   Future<void> _onDeleteExchangeEvent(DeleteExchangeMoneyEvent event,
