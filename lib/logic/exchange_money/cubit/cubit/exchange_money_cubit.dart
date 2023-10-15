@@ -10,52 +10,59 @@ part 'exchange_money_state.dart';
 class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
   ExchangeMoneyCubit() : super(ExchangeMoneyInitial());
 
-  void senderNameChange(String name) {
-    final sName = FirstName.dirty(name);
+  void senderNameChange(String value) {
+    final sName = FirstName.dirty(value);
     emit(state.copyWith(
       senderName: sName,
     ));
   }
 
-  void receiverFatherNameChange(String name) {
-    final sFName = FirstName.dirty(name);
+  void receiverFatherNameChange(String value) {
+    final sFName = FirstName.dirty(value);
     emit(state.copyWith(
       receiverFathername: sFName,
     ));
   }
 
-  void receiverNameChange(String name) {
-    final rName = FirstName.dirty(name);
+  void receiverNameChange(String value) {
+    final rName = FirstName.dirty(value);
     emit(state.copyWith(
       receiverName: rName,
     ));
   }
 
-  void amountChange(double amount) {
-    final sAmount = Amount.dirty(amount);
+  void amountChange(double value) {
+    final sAmount = Amount.dirty(value);
     emit(state.copyWith(
       amount: sAmount,
     ));
   }
 
-  void currencyChange(String currency) {
-    final sCurrency = CString.dirty(currency);
+  void currencyChange(String value) {
+    final sCurrency = CString.dirty(value);
     emit(state.copyWith(
       currency: sCurrency,
     ));
   }
 
-  void provinceChange(String province) {
-    final sProvince = CString.dirty(province);
+  void provinceChange(String value) {
+    final sProvince = CString.dirty(value);
     emit(state.copyWith(
       province: sProvince,
     ));
   }
 
-  void exchangeIdChange(String exchangeId) {
-    final sExchangeId = CString.dirty(exchangeId);
+  void exchangeIdChange(String value) {
+    final sExchangeId = CString.dirty(value);
     emit(state.copyWith(
       exchangeId: sExchangeId,
+    ));
+  }
+
+  void receiverIdNoChange(String value) {
+    final sExchangeId = CString.dirty(value);
+    emit(state.copyWith(
+      receiverIdNo: sExchangeId,
     ));
   }
 }
