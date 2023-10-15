@@ -60,8 +60,8 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
     ));
   }
 
-  void receiverIdNoChange(String value) {
-    final sExchangeId = CString.dirty(value);
+  void receiverIdNoChange(int value) {
+    final sExchangeId = Number.dirty(value);
     emit(state.copyWith(
       receiverIdNo: sExchangeId,
     ));
