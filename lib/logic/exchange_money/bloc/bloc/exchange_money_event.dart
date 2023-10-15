@@ -6,3 +6,9 @@ sealed class ExchangeMoneyEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class AddExchangeMoneyEvent extends ExchangeMoneyEvent {
+  final ExchnageMoneyModel exchangeMoney;
+
+  const AddExchangeMoneyEvent({required this.exchangeMoney});
+}
