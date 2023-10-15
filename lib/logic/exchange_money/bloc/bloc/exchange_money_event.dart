@@ -13,6 +13,13 @@ class AddExchangeMoneyEvent extends ExchangeMoneyEvent {
   const AddExchangeMoneyEvent({required this.exchangeMoney});
 }
 
+class UpdateExchangeMoneyEvent extends ExchangeMoneyEvent {
+  final ExchnageMoneyModel exchangeMoney;
+
+  const UpdateExchangeMoneyEvent({required this.exchangeMoney});
+}
+
+
 class FetchExchangeMoneyEvent extends ExchangeMoneyEvent {}
 
 class DeleteExchangeMoneyEvent extends ExchangeMoneyEvent {
