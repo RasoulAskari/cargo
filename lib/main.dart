@@ -1,5 +1,6 @@
 import 'package:cargo/app.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
@@ -44,6 +45,11 @@ class MyApp extends StatelessWidget {
         create: (context) => SalaryBloc(
           httpClient: http.Client(),
         )..add(FetchSalaryEvent()),
+      ),
+      BlocProvider<ExchangeMoneyBloc>(
+        create: (context) => ExchangeMoneyBloc(
+          httpClient: http.Client(),
+        ),
       ),
       BlocProvider<OrderCubit>(create: (context) => OrderCubit()),
       BlocProvider<OrderItemCubit>(create: (context) => OrderItemCubit()),
