@@ -34,7 +34,14 @@ class Step1 extends StatelessWidget {
                 hintText: "Amount",
                 value: state.amount.value.toString(),
                 setValue: (value) {
-                  context.read<ExchangeMoneyCubit>().amountChange(value);
+                  double val;
+                  if (value == "") {
+                    val = 1;
+                  } else {
+                    val = double.parse(value);
+                  }
+
+                  context.read<ExchangeMoneyCubit>().amountChange(val);
                 },
               );
             },
