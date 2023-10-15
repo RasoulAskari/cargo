@@ -63,7 +63,10 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
       context.read<ExchangeMoneyCubit>().amountChange(exchange.amount);
       context.read<ExchangeMoneyCubit>().currencyChange(exchange.currency);
       context.read<ExchangeMoneyCubit>().exchangeIdChange(exchange.exchnageId);
-      context.read<ExchangeMoneyCubit>().phoneNumberChange(pho);
+      context.read<ExchangeMoneyCubit>().phoneNumberChange(PhoneNumber(
+          phoneNumber: widget.exchange!.phoneNumber,
+          dialCode: p,
+          isoCode: pho));
       context.read<ExchangeMoneyCubit>().provinceChange(exchange.province);
       context
           .read<ExchangeMoneyCubit>()
