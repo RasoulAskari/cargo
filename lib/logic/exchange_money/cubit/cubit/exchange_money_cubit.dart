@@ -3,6 +3,7 @@ import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/form_models/models.dart';
+import 'package:cargo/logic/form_models/number.dart';
 import 'package:equatable/equatable.dart';
 
 part 'exchange_money_state.dart';
