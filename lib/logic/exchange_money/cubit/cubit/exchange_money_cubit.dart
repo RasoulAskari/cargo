@@ -51,4 +51,11 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
       province: sProvince,
     ));
   }
+
+  void exchangeIdChange(String exchangeId) {
+    final sExchangeId = CString.dirty(exchangeId);
+    emit(state.copyWith(
+      exchangeId: sExchangeId,
+    ));
+  }
 }

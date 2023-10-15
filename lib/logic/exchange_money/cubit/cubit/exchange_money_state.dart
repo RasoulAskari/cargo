@@ -5,7 +5,7 @@ class ExchangeMoneyState extends Equatable {
   final Amount amount;
   final CString currency;
   final MyDate date;
-  final CString exchnageId;
+  final CString exchangeId;
   final PhoneNo phoneNumber;
   final CString receiverIdNo;
   final FirstName receiverName;
@@ -17,7 +17,7 @@ class ExchangeMoneyState extends Equatable {
       {this.amount = const Amount.pure(),
       this.currency = const CString.pure(),
       this.date = const MyDate.pure(),
-      this.exchnageId = const CString.pure(),
+      this.exchangeId = const CString.pure(),
       this.phoneNumber = const PhoneNo.pure(),
       this.receiverIdNo = const CString.pure(),
       this.receiverName = const FirstName.pure(),
@@ -30,7 +30,7 @@ class ExchangeMoneyState extends Equatable {
         amount,
         currency,
         date,
-        exchnageId,
+        exchangeId,
         phoneNumber,
         receiverIdNo,
         receiverName,
@@ -43,7 +43,7 @@ class ExchangeMoneyState extends Equatable {
     Amount? amount,
     CString? currency,
     MyDate? date,
-    CString? exchnageId,
+    CString? exchangeId,
     PhoneNo? phoneNumber,
     CString? receiverIdNo,
     FirstName? receiverName,
@@ -55,7 +55,7 @@ class ExchangeMoneyState extends Equatable {
       amount: amount ?? this.amount,
       currency: currency ?? this.currency,
       date: date ?? this.date,
-      exchnageId: exchnageId ?? this.exchnageId,
+      exchangeId: exchangeId ?? this.exchangeId,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       receiverIdNo: receiverIdNo ?? this.receiverIdNo,
       receiverName: receiverName ?? this.receiverName,
