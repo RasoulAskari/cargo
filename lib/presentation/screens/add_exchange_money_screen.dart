@@ -1,8 +1,11 @@
+import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
+import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/presentation/widgets/exchange_money_steps/step1.dart';
 import 'package:cargo/presentation/widgets/exchange_money_steps/step2.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddExchangeMoneyScreen extends StatefulWidget {
   const AddExchangeMoneyScreen({super.key});
@@ -63,7 +66,21 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
         next: () {
           next(steps);
         },
-        onSubmit: () async {},
+        onSubmit: () async {
+          final state = context.read<ExchangeMoneyCubit>().state;
+          ExchnageMoneyModel(
+              id: 0,
+              province: state.province.value,
+              amount: state.amount.value,
+              currency: state.currency.value,
+              date: state.date.value,
+              exchnageId: state.exchangeId.value,
+              phoneNumber: state.phoneNumber.value.phoneNumber,
+              receiverIdNo: state.receiverIdNo.value,
+              receiverName: state.receiverName.value,
+              receiverFathername: state.receiverFathername.value,
+              senderName: state.senderName.value);
+        },
         prev: () {
           prev(steps);
         },
