@@ -61,7 +61,6 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
       'receiver_id_no': exchangeMoney.receiverIdNo,
     };
 
-    print(data);
     try {
       final res = await http.post(
         Uri.parse('http://localhost:8000/api/v1/exchange-money'),
@@ -104,6 +103,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     }
   }
 
+  // ignore: non_constant_identifier_names
   Future<List<ExchnageMoneyModel>> _fetch_exchange_money({int? page}) async {
     try {
       final response = await httpClient.get(
@@ -115,7 +115,6 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
-      print(response.body);
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
@@ -125,7 +124,6 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
       }
       return [];
     } catch (e) {
-      print(e);
       return [];
     }
   }
