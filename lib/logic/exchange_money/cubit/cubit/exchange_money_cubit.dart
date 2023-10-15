@@ -65,4 +65,11 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
       receiverIdNo: sExchangeId,
     ));
   }
+
+  void dateChange(String value) {
+    final date = MyDate.dirty(value);
+    emit(state.copyWith(
+      date: date,
+    ));
+  }
 }
