@@ -63,6 +63,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
+          const SizedBox(height: 30),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
