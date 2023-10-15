@@ -58,7 +58,14 @@ class _Step2State extends State<Step2> {
                 hintText: "Receiver ID No",
                 value: state.receiverIdNo.value.toString(),
                 setValue: (value) {
-                  context.read<ExchangeMoneyCubit>().receiverIdNoChange(value);
+                  int val;
+                  if (value == "") {
+                    val = 1;
+                  } else {
+                    val = int.parse(value);
+                  }
+
+                  context.read<ExchangeMoneyCubit>().receiverIdNoChange(val);
                 },
               );
             },
