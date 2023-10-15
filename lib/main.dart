@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       BlocProvider<ExchangeMoneyBloc>(
         create: (context) => ExchangeMoneyBloc(
           httpClient: http.Client(),
-        ),
+        )..add(FetchExchangeMoneyEvent()),
       ),
       BlocProvider<OrderCubit>(create: (context) => OrderCubit()),
       BlocProvider<OrderItemCubit>(create: (context) => OrderItemCubit()),
