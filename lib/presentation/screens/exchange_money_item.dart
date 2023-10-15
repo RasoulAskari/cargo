@@ -1,5 +1,8 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 class ExchangeMoneyItem extends StatefulWidget {
@@ -91,9 +94,7 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      // context
-                      //     .read<SalaryBloc>()
-                      //     .add(DeleteSalaryEvent(id: widget.salary.id));
+                      onDelete();
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -161,6 +162,45 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
           ),
         )
       ],
+    );
+  }
+
+  onDelete() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: const Text(
+            "Are You Sure You Want to Delete This?",
+            style: TextStyle(fontSize: 18),
+          ),
+          actions: [
+            TextButton(
+              child: const Text("Cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(Theme.of(context).primaryColor),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+              ),
+              onPressed: () {
+                context
+                    .read<ExchangeMoneyBloc>()
+                    .add(DeleteExchangeMoneyEvent(id: widget.exchange.id));
+                Navigator.of(context).pop();
+              },
+              child: const Text("Delete"),
+            ),
+          ],
+        );
+      },
     );
   }
 }
