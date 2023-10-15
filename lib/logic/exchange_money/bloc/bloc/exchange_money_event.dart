@@ -14,3 +14,7 @@ class AddExchangeMoneyEvent extends ExchangeMoneyEvent {
 }
 
 class FetchExchangeMoneyEvent extends ExchangeMoneyEvent {}
+
+class DeleteExchangeMoneyEvent extends ExchangeMoneyEvent {
+  
+}
