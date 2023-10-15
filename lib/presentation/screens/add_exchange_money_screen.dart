@@ -84,9 +84,10 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
             receiverFathername: state.receiverFathername.value,
             senderName: state.senderName.value,
           );
-          context
-              .read<ExchangeMoneyBloc>()
-              .add(AddExchangeMoneyEvent(exchangeMoney: exchangeMoney));
+          context.read<ExchangeMoneyBloc>().add(
+                AddExchangeMoneyEvent(exchangeMoney: exchangeMoney),
+              );
+          Navigator.of(context).pop();
         },
         prev: () {
           prev(steps);
