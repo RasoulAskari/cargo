@@ -25,7 +25,18 @@ sealed class ExchangeMoneyState extends Equatable {
       this.province = const CString.pure()});
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [
+        amount,
+        currency,
+        date,
+        exchnageId,
+        phoneNumber,
+        receiverIdNo,
+        receiverName,
+        receiverFathername,
+        senderName,
+        province
+      ];
 }
 
 final class ExchangeMoneyInitial extends ExchangeMoneyState {}
