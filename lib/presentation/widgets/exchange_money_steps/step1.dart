@@ -77,6 +77,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
+          const SizedBox(height: 50),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CDropdown(
@@ -87,12 +88,16 @@ class Step1 extends StatelessWidget {
                 },
                 items: const [
                   {
-                    'value': 'incoming',
-                    'label': 'Incoming',
+                    'value': 'Dollor',
+                    'label': 'Dollor',
                   },
                   {
-                    'value': 'outgoing',
-                    'label': 'Outgoing',
+                    'value': 'Afghani',
+                    'label': 'Afghani',
+                  },
+                  {
+                    'value': 'Calldor',
+                    'label': 'Calldor',
                   },
                 ],
               );
