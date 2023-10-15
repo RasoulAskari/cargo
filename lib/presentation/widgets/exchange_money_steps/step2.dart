@@ -80,6 +80,18 @@ class _Step2State extends State<Step2> {
             },
           ),
           const SizedBox(height: 30),
+          BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
+            builder: (context, state) {
+              return CTextField(
+                hintText: "Province",
+                value: state.province.value,
+                setValue: (value) {
+                  context.read<ExchangeMoneyCubit>().provinceChange(value);
+                },
+              );
+            },
+          ),
+          const SizedBox(height: 30),
         ],
       ),
     );
