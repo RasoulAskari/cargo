@@ -1,3 +1,4 @@
+import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/presentation/widgets/exchange_money_steps/step1.dart';
@@ -69,7 +70,8 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
         },
         onSubmit: () async {
           final state = context.read<ExchangeMoneyCubit>().state;
-          ExchnageMoneyModel(
+
+          ExchnageMoneyModel exchangeMoney = ExchnageMoneyModel(
               id: 0,
               province: state.province.value,
               amount: state.amount.value,
@@ -81,6 +83,9 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
               receiverName: state.receiverName.value,
               receiverFathername: state.receiverFathername.value,
               senderName: state.senderName.value);
+          context
+              .read<ExchangeMoneyBloc>()
+              .add(AddExchangeMoneyEvent(exchangeMoney: exchangeMoney));
         },
         prev: () {
           prev(steps);
