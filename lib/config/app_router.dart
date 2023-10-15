@@ -73,9 +73,13 @@ class AppRouter {
           builder: (context) => const ExchangeMoneyScreen(),
         );
       case addExchangeMoneyScreen:
+        ExchnageMoneyModel? exchange;
+        settings.arguments != null
+            ? exchange = settings.arguments as ExchnageMoneyModel?
+            : null;
 
         return MaterialPageRoute(
-          builder: (context) => const AddExchangeMoneyScreen(),
+          builder: (context) => AddExchangeMoneyScreen(exchange: exchange),
         );
 
       default:
