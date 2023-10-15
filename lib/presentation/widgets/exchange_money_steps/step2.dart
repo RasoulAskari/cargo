@@ -54,8 +54,9 @@ class _Step2State extends State<Step2> {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
+                textInputType: TextInputType.number,
                 hintText: "Receiver ID No",
-                value: state.receiverIdNo.value,
+                value: state.receiverIdNo.value.toString(),
                 setValue: (value) {
                   context.read<ExchangeMoneyCubit>().receiverIdNoChange(value);
                 },
