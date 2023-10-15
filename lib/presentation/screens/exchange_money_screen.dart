@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
+import 'package:cargo/presentation/screens/exchange_money_item.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,12 @@ class ExchangeMoneyScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          return Text(state.exchangeMoneys.toString());
+          return ListView.builder(
+            itemCount: state.exchangeMoneys.length,
+            itemBuilder: (context, index) {
+              return ExchangeMoneyItem(exchange: state.exchangeMoneys[index]);
+            },
+          );
         },
       ),
     );
