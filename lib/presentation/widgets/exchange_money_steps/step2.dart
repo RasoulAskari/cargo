@@ -1,4 +1,5 @@
-import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
+import 'package:cargo/logic/ExchangeMoney/cubit/cubit/ExchangeMoney_cubit.dart';
+import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -15,6 +16,19 @@ class Step2 extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
       child: Column(
         children: [
+          BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
+            builder: (context, state) {
+              return CTextField(
+                  value: state.receiverName.value,
+                  hintText: "Name",
+                  setValue: (value) {
+                    context
+                        .read<ExchangeMoneyCubit>()
+                        .receiverNameChange(value);
+                  });
+            },
+          ),
+          const SizedBox(height: 30),
         ],
       ),
     );
