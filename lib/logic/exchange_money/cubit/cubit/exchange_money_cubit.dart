@@ -18,4 +18,11 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
       senderName: sName,
     ));
   }
+
+  void amountChange(double amount) {
+    final sAmount = Amount.dirty(amount);
+    emit(state.copyWith(
+      amount: sAmount,
+    ));
+  }
 }
