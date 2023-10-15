@@ -24,6 +24,13 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
     ));
   }
 
+  void receiverNameChange(String name) {
+    final rFName = FirstName.dirty(name);
+    emit(state.copyWith(
+      receiverName: rFName,
+    ));
+  }
+
   void amountChange(double amount) {
     final sAmount = Amount.dirty(amount);
     emit(state.copyWith(
