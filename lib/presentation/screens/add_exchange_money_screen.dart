@@ -72,17 +72,18 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
           final state = context.read<ExchangeMoneyCubit>().state;
 
           ExchnageMoneyModel exchangeMoney = ExchnageMoneyModel(
-              id: 0,
-              province: state.province.value,
-              amount: state.amount.value,
-              currency: state.currency.value,
-              date: state.date.value,
-              exchnageId: state.exchangeId.value,
-              phoneNumber: state.phoneNumber.value.phoneNumber,
-              receiverIdNo: state.receiverIdNo.value,
-              receiverName: state.receiverName.value,
-              receiverFathername: state.receiverFathername.value,
-              senderName: state.senderName.value);
+            id: 0,
+            province: state.province.value,
+            amount: state.amount.value,
+            currency: state.currency.value,
+            date: state.date.value,
+            exchnageId: state.exchangeId.value,
+            phoneNumber: state.phoneNumber.value.phoneNumber,
+            receiverIdNo: state.receiverIdNo.value,
+            receiverName: state.receiverName.value,
+            receiverFathername: state.receiverFathername.value,
+            senderName: state.senderName.value,
+          );
           context
               .read<ExchangeMoneyBloc>()
               .add(AddExchangeMoneyEvent(exchangeMoney: exchangeMoney));

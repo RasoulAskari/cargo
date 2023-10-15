@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
@@ -24,26 +26,26 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     final data = {
       'phone_number': exchangeMoney.phoneNumber,
       'sender_name': exchangeMoney.senderName,
-      'reciver_name': exchangeMoney.receiverName,
+      'receiver_name': exchangeMoney.receiverName,
       'receiver_father_name': exchangeMoney.receiverFathername,
       'amount': exchangeMoney.amount,
       'currency': exchangeMoney.currency,
-      'employment_end_date': exchangeMoney.date,
+      'date': exchangeMoney.date,
       'exchange_id': exchangeMoney.exchnageId,
       'province': exchangeMoney.province,
       'receiver_id_no': exchangeMoney.receiverIdNo,
     };
 
+    print(data);
     try {
-      final res = await httpClient.post(
+      final res = await http.post(
+        Uri.parse('http://localhost:8000/api/v1/exchange-money'),
         headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
-        getServerRoute(
-          route: '/api/v1/exchange-money',
-          params: data,
-        ),
+        body: jsonEncode(data),
       );
       debugPrint(res.body);
 
@@ -52,8 +54,31 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
           ..insert(0, event.exchangeMoney),
       ));
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint(e.toString() + "dodidi");
       return;
+    }
+  }
+
+  Future<List<ExchnageMoneyModel>> _fetch_exchange_money({int? page}) async {
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/exchange-money',
+        ),
+        headers: <String, String>{
+          'Authorization':
+              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        },
+      );
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body)["data"] as List;
+        return body.map((e) {
+          return ExchnageMoneyModel.fromMap(e);
+        }).toList();
+      }
+      return [];
+    } catch (e) {
+      return [];
     }
   }
 }
