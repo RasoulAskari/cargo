@@ -13,7 +13,9 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
   final http.Client httpClient;
 
   ExchangeMoneyBloc({required this.httpClient})
-      : super(const ExchangeMoneyState()) {}
+      : super(const ExchangeMoneyState()) {
+    on<AddExchangeMoneyEvent>(_onAddExchangeMoney);
+  }
 
   Future<void> _onAddExchangeMoney(
       AddExchangeMoneyEvent event, Emitter<ExchangeMoneyState> emitter) async {
