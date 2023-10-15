@@ -18,7 +18,11 @@ class Step1 extends StatelessWidget {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
-                  value: state.senderName.value, setValue: (value) {});
+                value: state.senderName.value,
+                setValue: (value) {
+                  context.read<ExchangeMoneyCubit>().senderNameChange(value);
+                },
+              );
             },
           )
         ],
