@@ -1,5 +1,7 @@
 import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
+import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
+import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -27,7 +29,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 50),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
@@ -47,7 +49,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 50),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CDatePicker(
@@ -63,7 +65,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 50),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
@@ -75,6 +77,28 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
+          BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
+            builder: (context, state) {
+              return CDropdown(
+                value: state.currency.value,
+                hintText: "Type",
+                setValue: (value) {
+                  context.read<ExchangeMoneyCubit>().currencyChange(value);
+                },
+                items: const [
+                  {
+                    'value': 'incoming',
+                    'label': 'Incoming',
+                  },
+                  {
+                    'value': 'outgoing',
+                    'label': 'Outgoing',
+                  },
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 15),
         ],
       ),
     );
