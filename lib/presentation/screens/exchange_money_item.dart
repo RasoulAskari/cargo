@@ -95,7 +95,6 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                   GestureDetector(
                     onTap: () {
                       onDelete();
-
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
