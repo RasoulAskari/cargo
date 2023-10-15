@@ -19,7 +19,7 @@ class Step2 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                   value: state.receiverName.value,
-                  hintText: "Name",
+                  hintText: "Receiver Name",
                   setValue: (value) {
                     context
                         .read<ExchangeMoneyCubit>()
