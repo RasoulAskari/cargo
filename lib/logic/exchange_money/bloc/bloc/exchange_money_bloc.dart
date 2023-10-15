@@ -21,6 +21,28 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     on<FetchExchangeMoneyEvent>(_onIncomingOutGoingEvent);
   }
 
+  Future<void> _onDeleteExchangeEvent(DeleteExchangeMoneyEvent event,
+      Emitter<ExchangeMoneyState> emitter) async {
+    var res = await httpClient.delete(
+      getServerRoute(
+        route: '/api/v1/exchange-money/${event.id}',
+      ),
+      headers: <String, String>{
+        'Authorization':
+            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      },
+    );
+    if (res.body == "true") {
+      emitter(
+        state.copyWith(
+          incoming_out_going: state.incoming_out_going
+              .where((element) => element.id != event.id)
+              .toList(),
+        ),
+      );
+    }
+  }
+
   Future<void> _onAddExchangeMoney(
       AddExchangeMoneyEvent event, Emitter<ExchangeMoneyState> emitter) async {
     ExchnageMoneyModel exchangeMoney = event.exchangeMoney;
