@@ -12,3 +12,5 @@ class AddExchangeMoneyEvent extends ExchangeMoneyEvent {
 
   const AddExchangeMoneyEvent({required this.exchangeMoney});
 }
+
+class FetchExchangeMoneyEvent extends ExchangeMoneyEvent {}
