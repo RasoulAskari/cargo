@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:flutter/material.dart';
 
@@ -70,7 +71,12 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed(
+                        addExchangeMoneyScreen,
+                        arguments: widget.exchange,
+                      );
+                    },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 5),
