@@ -37,4 +37,11 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
       amount: sAmount,
     ));
   }
+
+  void currencyChange(String currency) {
+    final sCurrency = CString.dirty(currency);
+    emit(state.copyWith(
+      currency: sCurrency,
+    ));
+  }
 }
