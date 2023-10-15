@@ -1,7 +1,9 @@
+import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:flutter/material.dart';
 
 class ExchangeMoneyItem extends StatefulWidget {
-  const ExchangeMoneyItem({super.key});
+  final ExchnageMoneyModel exchange;
+  const ExchangeMoneyItem({super.key, required this.exchange});
 
   @override
   State<ExchangeMoneyItem> createState() => _ExchangeMoneyItemState();
