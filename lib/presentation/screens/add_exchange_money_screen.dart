@@ -133,7 +133,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
                     AddExchangeMoneyEvent(exchangeMoney: exchangeMoney),
                   )
               : context.read<ExchangeMoneyBloc>().add(
-                    AddExchangeMoneyEvent(exchangeMoney: exchangeMoney),
+                  UpdateExchangeMoneyEvent(exchangeMoney: exchangeMoney),
                   );
           Navigator.of(context).pop();
         },
