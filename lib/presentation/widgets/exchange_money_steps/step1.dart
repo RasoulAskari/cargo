@@ -7,8 +7,11 @@ class Step1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+      child: Column(
+        children: [],
+      ),
     );
   }
 }
