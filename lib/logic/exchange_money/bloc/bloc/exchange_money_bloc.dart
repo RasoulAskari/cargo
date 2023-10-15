@@ -54,7 +54,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
           ..insert(0, event.exchangeMoney),
       ));
     } catch (e) {
-      debugPrint(e.toString() + "dodidi");
+      debugPrint("${e}dodidi");
       return;
     }
   }
@@ -70,6 +70,8 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
               'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
         },
       );
+      print(response.body);
+
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         return body.map((e) {
@@ -78,6 +80,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
