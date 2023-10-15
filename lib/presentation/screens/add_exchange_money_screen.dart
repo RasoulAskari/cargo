@@ -79,7 +79,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
             date: state.date.value,
             exchnageId: state.exchangeId.value,
             phoneNumber: state.phoneNumber.value.phoneNumber,
-            receiverIdNo: 12,
+            receiverIdNo: state.receiverIdNo.value,
             receiverName: state.receiverName.value,
             receiverFathername: state.receiverFathername.value,
             senderName: state.senderName.value,
