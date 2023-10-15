@@ -10,7 +10,7 @@ class ExchnageMoneyModel extends Equatable {
   final String date;
   final String exchnageId;
   final String phoneNumber;
-  final String receiverIdNo;
+  final int receiverIdNo;
   final String receiverName;
   final String receiverFathername;
   final String senderName;
@@ -40,7 +40,7 @@ class ExchnageMoneyModel extends Equatable {
     String? date,
     String? exchnageId,
     String? phoneNumber,
-    String? receiverIdNo,
+    int? receiverIdNo,
     String? receiverName,
     String? receiverFathername,
     String? senderName,
@@ -79,15 +79,15 @@ class ExchnageMoneyModel extends Equatable {
   factory ExchnageMoneyModel.fromMap(Map<String, dynamic> map) {
     return ExchnageMoneyModel(
       id: map['id'] as int,
-      amount: map['amount'] as double,
+      amount: double.parse(map['amount'].toString()),
       currency: map['currency'] as String,
       province: map['province'] as String,
       date: map['date'] as String,
-      exchnageId: map['exchnage_id'] as String,
+      exchnageId: map['exchange_id'] as String,
       phoneNumber: map['phone_number'] as String,
-      receiverIdNo: map['receiver_id_no'] as String,
+      receiverIdNo: map['receiver_id_no'] as int,
       receiverName: map['receiver_name'] as String,
-      receiverFathername: map['receiver_fathername'] as String,
+      receiverFathername: map['receiver_father_name'] as String,
       senderName: map['sender_name'] as String,
     );
   }
