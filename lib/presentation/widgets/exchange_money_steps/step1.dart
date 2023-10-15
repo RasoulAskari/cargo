@@ -10,7 +10,9 @@ class Step1 extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       child: Column(
-        children: [],
+        children: [
+          
+        ],
       ),
     );
   }
