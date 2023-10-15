@@ -59,6 +59,26 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
     }
   }
 
+  Future<void> _onIncomingOutGoingEvent(FetchExchangeMoneyEvent event,
+      Emitter<ExchangeMoneyState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    try {
+      if (state.status == ExchangeMoneyStatus.initial) {
+        final incomingOutGoing = await _fetch_exchange_money(page: state.page);
+        return emitter(
+          state.copyWith(
+            status: ExchangeMoneyStatus.success,
+            exchangeMoneys: incomingOutGoing,
+            hasReachedMax: incomingOutGoing.length < _postLimit,
+          ),
+        );
+      }
+    } catch (e) {
+      return;
+    }
+  }
+
   Future<List<ExchnageMoneyModel>> _fetch_exchange_money({int? page}) async {
     try {
       final response = await httpClient.get(
