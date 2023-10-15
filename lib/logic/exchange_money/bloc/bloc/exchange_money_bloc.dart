@@ -6,9 +6,5 @@ part 'exchange_money_event.dart';
 part 'exchange_money_state.dart';
 
 class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
-  ExchangeMoneyBloc() : super(ExchangeMoneyInitial()) {
-    on<ExchangeMoneyEvent>((event, emit) {
-      // TODO: implement event handler
-    });
-  }
+  ExchangeMoneyBloc() : super(const ExchangeMoneyState()) {}
 }
