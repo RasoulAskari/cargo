@@ -39,7 +39,12 @@ class ExchangeMoneyScreen extends StatelessWidget {
       ),
       body: BlocBuilder<ExchangeMoneyBloc, ExchangeMoneyState>(
         builder: (context, state) {
-          return Container();
+          if (state.status == ExchangeMoneyStatus.initial) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Text(state.exchangeMoneys.toString());
         },
       ),
     );
