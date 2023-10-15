@@ -43,6 +43,36 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   }
 
   @override
+  void initState() {
+    _checkExchange();
+    super.initState();
+  }
+
+  _checkExchange() {
+    if (widget.exchange != null) {
+      final exchange = widget.exchange;
+      context.read<ExchangeMoneyCubit>().dateChange(exchange!.date.toString());
+      context.read<ExchangeMoneyCubit>().amountChange(exchange.amount);
+      context.read<ExchangeMoneyCubit>().currencyChange(exchange.currency);
+      context.read<ExchangeMoneyCubit>().exchangeIdChange(exchange.exchnageId);
+      context
+          .read<ExchangeMoneyCubit>()
+          .phoneNumberChange(exchange.phoneNumber);
+      context.read<ExchangeMoneyCubit>().provinceChange(exchange.province);
+      context
+          .read<ExchangeMoneyCubit>()
+          .receiverFatherNameChange(exchange.receiverFathername);
+      context
+          .read<ExchangeMoneyCubit>()
+          .receiverNameChange(exchange.receiverName);
+      context
+          .read<ExchangeMoneyCubit>()
+          .receiverFatherNameChange(exchange.senderName);
+      context.read<ExchangeMoneyCubit>().senderNameChange(exchange.senderName);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     List steps = [
       {
