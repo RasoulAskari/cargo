@@ -25,12 +25,12 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
 
   Future<void> _onEditExchangeEvent(UpdateExchangeMoneyEvent event,
       Emitter<ExchangeMoneyState> emitter) async {
-    if (state.hasReachedMax) return;
     ExchnageMoneyModel exchange = event.exchangeMoney;
 
     try {
       ExchnageMoneyModel exchangeMoney = event.exchangeMoney;
       final data = {
+        "id": exchange.id,
         'phone_number': exchangeMoney.phoneNumber,
         'sender_name': exchangeMoney.senderName,
         'receiver_name': exchangeMoney.receiverName,
@@ -43,7 +43,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
         'receiver_id_no': exchangeMoney.receiverIdNo,
       };
 
-      await http.put(
+      final res = await http.put(
         Uri.parse('http://localhost:8000/api/v1/exhange-money/${exchange.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -52,7 +52,9 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
         },
         body: jsonEncode(data),
       );
+      print(res.body);
     } catch (e) {
+      print(e);
       return;
     }
   }
