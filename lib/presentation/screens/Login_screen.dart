@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
@@ -22,11 +24,22 @@ class _LoginScreenState extends State<LoginScreen> {
   Email email = const Email.pure();
   CString password = const CString.pure();
 
-  Future<void> check() async {
-    return context.read<LoginBloc>().add(SetLoginEvent(
-          email: email.value,
-          password: password.value,
-        ));
+  Future<void> login() async {
+    final data = {
+      "email": email.value,
+      "password": password.value,
+    };
+    final res = await http.post(
+      Uri.parse('http://localhost:8000/api/v1/login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(data),
+    );
+
+    final response = jsonDecode(res.body);
+
+    if (response['result']) {}
   }
 
   @override
@@ -66,20 +79,11 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
-              check().then((value) {});
+            onPressed: () async {
+              await login();
             },
             child: const Text("Login"),
           ),
-          BlocBuilder<LoginBloc, LoginState>(
-            builder: (context, state) {
-              print(state.user);
-              return ElevatedButton(
-                onPressed: () {},
-                child: const Text("Login"),
-              );
-            },
-          )
         ],
       ),
     ));
