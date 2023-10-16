@@ -37,7 +37,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       final response = jsonDecode(res.body);
 
-      final log = LoginModel(
+      LoginModel log = LoginModel(
           token: response['token'],
           date: response['user']['created_at'],
           email: response['user']['email'],
