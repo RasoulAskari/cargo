@@ -36,8 +36,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       );
 
       final response = jsonDecode(res.body);
-      print(response);
-    } catch (e) {}
+
+      final log = LoginModel(
+          token: response['token'],
+          date: response['user']['created_at'],
+          email: response['user']['email'],
+          password: 'password');
+      print(log);
+    } catch (e) {
+      print(e.toString() + "idididid");
+    }
   }
 
   Future<void> _onSetEmailEvent(
