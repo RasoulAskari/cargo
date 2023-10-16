@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
   final Function isLogin;
+  
   const LoginScreen({
     super.key,
     required this.isLogin,
