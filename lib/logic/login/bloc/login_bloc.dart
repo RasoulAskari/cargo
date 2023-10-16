@@ -18,14 +18,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future<void> _onLoginningEvent(
-      SetLoginEvent event, Emitter<LoginState> emitter) async {
-      
-
-  }
+      SetLoginEvent event, Emitter<LoginState> emitter) async {}
 
   Future<void> _onSetEmailEvent(
       SetEmailEvent event, Emitter<LoginState> emitter) async {
-    if (state.hasReachedMax) return;
+    await http.post(
+      Uri.parse('http://localhost:8000/api/v1/orders'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization':
+            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+      },
+      // body: jsonEncode(order),
+    );
 
     try {
       if (state.status == EmployeeStatus.initial) {}
