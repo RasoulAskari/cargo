@@ -46,6 +46,8 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   Future<void> _onEditEmployees(
       EditEmployeeEvent event, Emitter<EmployeeState> emitter) async {
     EmployeeModel employee = event.employee;
+    final _token = await getAuthToken();
+
     final data = {
       'phone_number': employee.phoneNumber,
       'first_name': employee.firstName,
@@ -62,8 +64,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     try {
       await httpClient.put(
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $_token',
         },
         getServerRoute(
           route: '/api/v1/employees/${event.employee.id}',
@@ -77,6 +78,8 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   Future<void> _onAddEmployees(
       AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
+    final _token = await getAuthToken();
+
     EmployeeModel employee = event.employee;
     final data = {
       'phone_number': employee.phoneNumber,
@@ -94,8 +97,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     try {
       await httpClient.post(
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $_token',
         },
         getServerRoute(
           route: '/api/v1/employees',
