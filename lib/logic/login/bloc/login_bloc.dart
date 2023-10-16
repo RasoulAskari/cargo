@@ -19,14 +19,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<SetLoginEvent>(_onLoginningEvent);
   }
 
-  Future<void> _onLoginningEvent(
+  Future<bool> _onLoginningEvent(
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     try {
       final data = {
         "email": event.email,
         "password": event.password,
       };
-      print(data);
       final res = await http.post(
         Uri.parse('http://localhost:8000/api/v1/login'),
         headers: <String, String>{
@@ -34,10 +33,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         },
         body: jsonEncode(data),
       );
-      print(res.body);
+
+      final response = jsonDecode(res.body);
+      if (response['result']) {
+        return true;
+      }
+      return false;
     } catch (e) {
-      print(e);
-      return;
+      return false;
     }
   }
 
