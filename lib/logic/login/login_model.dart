@@ -39,4 +39,18 @@ class LoginModel extends Equatable {
 
   factory LoginModel.fromJson(String source) =>
       LoginModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  LoginModel copyWith({
+    String? email,
+    String? password,
+    String? token,
+    String? date,
+  }) {
+    return LoginModel(
+      email: email ?? this.email,
+      password: password ?? this.password,
+      token: token ?? this.token,
+      date: date ?? this.date,
+    );
+  }
 }
