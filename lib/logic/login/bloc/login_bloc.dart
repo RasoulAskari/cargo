@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<SetLoginEvent>(_onLoginningEvent);
   }
 
-  Future<bool> _onLoginningEvent(
+  Future<void> _onLoginningEvent(
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     try {
       final data = {
@@ -36,13 +36,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       );
 
       final response = jsonDecode(res.body);
-      if (response['result']) {
-        return true;
-      }
-      return false;
-    } catch (e) {
-      return false;
-    }
+      print(response);
+    } catch (e) {}
   }
 
   Future<void> _onSetEmailEvent(
