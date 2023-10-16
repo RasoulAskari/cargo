@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:js_interop';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
@@ -43,6 +44,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       }
       return false;
     } catch (e) {
+      print(e.toString() + "catch");
       return false;
     }
   }
