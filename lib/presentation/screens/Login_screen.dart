@@ -3,7 +3,6 @@ import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -74,11 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           BlocBuilder<LoginBloc, LoginState>(
             builder: (context, state) {
-              print(state.)
+              print(state.user);
               return ElevatedButton(
-                onPressed: () {
-                  
-                },
+                onPressed: () {},
                 child: const Text("Login"),
               );
             },

@@ -21,7 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<SetLoginEvent>(_onLoginningEvent);
   }
 
-  Future<void> _onLoginningEvent(
+  Future<bool> _onLoginningEvent(
       SetLoginEvent event, Emitter<LoginState> emitter) async {
     try {
       final data = {
@@ -38,21 +38,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       final response = jsonDecode(res.body);
 
-      print(response['token']);
-
-      emitter(
-        state.copyWith(
-          user: [
-            LoginModel(
-                token: response['token'],
-                date: response['user']['created_at'],
-                email: response['user']['email'],
-                password: "password")
-          ],
-        ),
-      );
+      if (response['result']) {
+        return true;
+      }
+      return false;
     } catch (e) {
-      print(e.toString() + "idididid");
+      return false;
     }
   }
 
