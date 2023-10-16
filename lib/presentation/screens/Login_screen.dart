@@ -48,15 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CTextField(
-              hintText: "Email",
-              value: '',
-              maxlines: 1,
-              setValue: (value) {
-                setState(() {
-                  myEmail = value;
-                });
-              },
-            ),
+                hintText: "Email",
+                value: '',
+                maxlines: 1,
+                setValue: (value) {
+                  email = Email.dirty(value);
+                }),
           ),
           const SizedBox(
             height: 16,
@@ -68,9 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
               value: '',
               maxlines: 1,
               setValue: (value) {
-                setState(() {
-                  myPassword = value;
-                });
+                password = CString.dirty(value);
               },
             ),
           ),
