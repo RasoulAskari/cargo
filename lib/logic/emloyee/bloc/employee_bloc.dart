@@ -19,10 +19,10 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     on<DeleteEmployeeEvent>(_onDeleteEmployee);
   }
 
-  final _token = getAuthToken();
-
   Future<void> _onDeleteEmployee(
       DeleteEmployeeEvent event, Emitter<EmployeeState> emitter) async {
+    final _token = await getAuthToken();
+    print(_token);
     var res = await httpClient.delete(
       getServerRoute(
         route: '/api/v1/employees/${event.id}',
@@ -132,14 +132,15 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
+    final _token = await getAuthToken();
+
     try {
       final response = await httpClient.get(
         getServerRoute(
           route: '/api/v1/employees',
         ),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $_token',
         },
       );
 

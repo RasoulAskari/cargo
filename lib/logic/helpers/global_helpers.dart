@@ -28,7 +28,7 @@ Future<String?> getAuthToken() async {
   try {
     final jsonModel = await _storage.read(key: 'user');
     final jsonData = jsonDecode(jsonModel.toString());
-    return jsonData['token'];
+    return await jsonData['token'];
   } catch (e) {
     return null;
   }
