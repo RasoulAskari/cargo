@@ -21,14 +21,13 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   Future<void> _onDeleteEmployee(
       DeleteEmployeeEvent event, Emitter<EmployeeState> emitter) async {
-    final _token = await getAuthToken();
-    print(_token);
+    final token = await getAuthToken();
     var res = await httpClient.delete(
       getServerRoute(
         route: '/api/v1/employees/${event.id}',
       ),
       headers: <String, String>{
-        'Authorization': 'Bearer $_token',
+        'Authorization': 'Bearer $token',
       },
     );
 
@@ -46,7 +45,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   Future<void> _onEditEmployees(
       EditEmployeeEvent event, Emitter<EmployeeState> emitter) async {
     EmployeeModel employee = event.employee;
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     final data = {
       'phone_number': employee.phoneNumber,
@@ -64,7 +63,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     try {
       await httpClient.put(
         headers: <String, String>{
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $token',
         },
         getServerRoute(
           route: '/api/v1/employees/${event.employee.id}',
@@ -78,7 +77,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
   Future<void> _onAddEmployees(
       AddEmployeeEvent event, Emitter<EmployeeState> emitter) async {
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     EmployeeModel employee = event.employee;
     final data = {
@@ -97,7 +96,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     try {
       await httpClient.post(
         headers: <String, String>{
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $token',
         },
         getServerRoute(
           route: '/api/v1/employees',
@@ -134,7 +133,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   }
 
   Future<List<EmployeeModel>> _fetchEmployees({int? page}) async {
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     try {
       final response = await httpClient.get(
@@ -142,7 +141,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           route: '/api/v1/employees',
         ),
         headers: <String, String>{
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $token',
         },
       );
 
