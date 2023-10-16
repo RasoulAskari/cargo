@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/login/login_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';

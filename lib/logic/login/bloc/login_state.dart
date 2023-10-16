@@ -15,7 +15,7 @@ class LoginState extends Equatable {
 
   LoginState copyWith({
     EmployeeStatus? status,
-    List<LoginModel>? employees,
+    LoginModel? employees,
     bool? hasReachedMax,
     int? page,
   }) {

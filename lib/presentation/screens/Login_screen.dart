@@ -20,13 +20,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _storage = const FlutterSecureStorage();
-
   Email email = const Email.pure();
   CString password = const CString.pure();
 
   Future<void> check() async {
-    context.read<LoginBloc>().add(SetLoginEvent(
+    return context.read<LoginBloc>().add(SetLoginEvent(
           email: email.value,
           password: password.value,
         ));
@@ -70,10 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              check().then((value) async {
-                await _storage.read(key: 'token');
-                widget.isLogin();
-              });
+              check().then((value) {});
             },
             child: const Text("Login"),
           )
