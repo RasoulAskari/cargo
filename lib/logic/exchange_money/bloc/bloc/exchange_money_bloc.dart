@@ -43,15 +43,6 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
         'province': exchangeMoney.province,
         'receiver_id_no': exchangeMoney.receiverIdNo,
       };
-
-      final res = await http.put(
-        Uri.parse('http://localhost:8000/api/v1/exhange-money'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': 'Bearer $token',
-        },
-        body: jsonEncode(data),
-      );
     } catch (e) {
       return;
     }
