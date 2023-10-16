@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
   final Function isLogin;
-  
+
   const LoginScreen({
     super.key,
     required this.isLogin,
@@ -90,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ElevatedButton(
             onPressed: () async {
               await login();
+              await widget.isLogin();
             },
             child: const Text("Login"),
           ),

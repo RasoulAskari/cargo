@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:cargo/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   bool login = false;
-  final _storeage = const FlutterSecureStorage();
+  final _storage = const FlutterSecureStorage();
 
   @override
   void initState() {
@@ -21,9 +23,12 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void isLogin() async {
-    final exist = await _storeage.read(key: 'token');
+    final jsonModel = await _storage.read(key: 'user');
+    final jsonData = jsonDecode(jsonModel.toString());
 
-    if (exist != null) {
+    if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
+      print(jsonData['user']['created_at']);
+      print(jsonData['token']);
       setState(() {
         login = true;
       });
