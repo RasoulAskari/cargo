@@ -30,7 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
           email: email.value,
           password: password.value,
         ));
-    await _storage.read(key: 'token');
   }
 
   @override
