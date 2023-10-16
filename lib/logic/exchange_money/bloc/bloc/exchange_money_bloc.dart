@@ -26,7 +26,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
   Future<void> _onEditExchangeEvent(UpdateExchangeMoneyEvent event,
       Emitter<ExchangeMoneyState> emitter) async {
     ExchnageMoneyModel exchange = event.exchangeMoney;
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     try {
       ExchnageMoneyModel exchangeMoney = event.exchangeMoney;
@@ -48,27 +48,25 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
         Uri.parse('http://localhost:8000/api/v1/exhange-money'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode(data),
       );
-      print(res.body);
     } catch (e) {
-      print(e);
       return;
     }
   }
 
   Future<void> _onDeleteExchangeEvent(DeleteExchangeMoneyEvent event,
       Emitter<ExchangeMoneyState> emitter) async {
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     var res = await httpClient.delete(
       getServerRoute(
         route: '/api/v1/exchange-money/${event.id}',
       ),
       headers: <String, String>{
-        'Authorization': 'Bearer $_token',
+        'Authorization': 'Bearer $token',
       },
     );
 
@@ -85,7 +83,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
 
   Future<void> _onAddExchangeMoney(
       AddExchangeMoneyEvent event, Emitter<ExchangeMoneyState> emitter) async {
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     ExchnageMoneyModel exchangeMoney = event.exchangeMoney;
     final data = {
@@ -106,7 +104,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
         Uri.parse('http://localhost:8000/api/v1/exchange-money'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode(data),
       );
@@ -144,7 +142,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
 
   // ignore: non_constant_identifier_names
   Future<List<ExchnageMoneyModel>> _fetch_exchange_money({int? page}) async {
-    final _token = await getAuthToken();
+    final token = await getAuthToken();
 
     try {
       final response = await httpClient.get(
@@ -152,7 +150,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
           route: '/api/v1/exchange-money',
         ),
         headers: <String, String>{
-          'Authorization': 'Bearer $_token',
+          'Authorization': 'Bearer $token',
         },
       );
 
