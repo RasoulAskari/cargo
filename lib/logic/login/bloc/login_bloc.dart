@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/login/login_model.dart';
 import 'package:equatable/equatable.dart';

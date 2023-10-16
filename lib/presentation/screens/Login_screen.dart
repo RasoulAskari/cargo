@@ -5,6 +5,7 @@ import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +24,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   Email email = const Email.pure();
   CString password = const CString.pure();
+  final storage = const FlutterSecureStorage();
 
   Future<void> login() async {
     final data = {
@@ -39,7 +41,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final response = jsonDecode(res.body);
 
-    if (response['result']) {}
+    if (response['result']) {
+      final jsonDataEncoded = jsonEncode(response);
+      await storage.write(key: "user", value: jsonDataEncoded);
+      final jsonModel = await storage.read(key: 'user');
+      final jsonData = jsonDecode(jsonModel.toString());
+      print(jsonData);
+    }
   }
 
   @override
