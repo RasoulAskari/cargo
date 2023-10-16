@@ -1,3 +1,5 @@
+import 'package:cargo/logic/form_models/c_string.dart';
+import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +21,14 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _storage = const FlutterSecureStorage();
-  String myEmail = '';
-  String myPassword = '';
+
+  Email email = const Email.pure();
+  CString password = const CString.pure();
 
   Future<void> check() async {
     context.read<LoginBloc>().add(SetLoginEvent(
-          email: myEmail,
-          password: myPassword,
+          email: email.value,
+          password: password.value,
         ));
     await _storage.read(key: 'token');
   }
