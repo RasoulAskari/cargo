@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/login/login_model.dart';
 import 'package:equatable/equatable.dart';
@@ -22,21 +24,21 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Future<void> _onSetEmailEvent(
       SetEmailEvent event, Emitter<LoginState> emitter) async {
-    await http.post(
-      Uri.parse('http://localhost:8000/api/v1/orders'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization':
-            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
-      },
-      // body: jsonEncode(order),
-    );
-
     try {
-      if (state.status == EmployeeStatus.initial) {}
-
-      // final employees = await _fetchEmployees(page: state.page + 1);
+      final data = {
+        "email": event.email,
+        "password": event.password,
+      };
+      final res = await http.post(
+        Uri.parse('http://localhost:8000/api/v1/login'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(data),
+      );
+      print(res.body);
     } catch (e) {
+      print(e);
       return;
     }
   }
