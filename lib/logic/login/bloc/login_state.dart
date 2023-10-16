@@ -1,26 +1,32 @@
 part of 'login_bloc.dart';
 
-enum EmployeeStatus { initial, success, failure }
+enum LoginStatus { initial, success, failure }
 
 class LoginState extends Equatable {
   const LoginState({
-    this.status = EmployeeStatus.initial,
+    this.status = LoginStatus.initial,
+    // ignore: non_constant_identifier_names
+    this.user = const <LoginModel>[],
     this.hasReachedMax = false,
     this.page = 0,
   });
 
-  final EmployeeStatus status;
+  final LoginStatus status;
+  // ignore: non_constant_identifier_names
+  final List<LoginModel> user;
   final int page;
   final bool hasReachedMax;
 
   LoginState copyWith({
-    EmployeeStatus? status,
-    LoginModel? employees,
+    LoginStatus? status,
+    // ignore: non_constant_identifier_names
+    List<LoginModel>? user,
     bool? hasReachedMax,
     int? page,
   }) {
     return LoginState(
       status: status ?? this.status,
+      user: user ?? this.user,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
       page: page ?? this.page,
     );
@@ -28,9 +34,9 @@ class LoginState extends Equatable {
 
   @override
   String toString() {
-    return '''login state { status: $status, hasReachedMax: $hasReachedMax,  }''';
+    return '''LoginState { status: $status, hasReachedMax: $hasReachedMax, user: ${user.length} }''';
   }
 
   @override
-  List<Object> get props => [status, hasReachedMax, page];
+  List<Object> get props => [status, user, hasReachedMax, page];
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
@@ -37,12 +38,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       final response = jsonDecode(res.body);
 
-      LoginModel log = LoginModel(
-          token: response['token'],
-          date: response['user']['created_at'],
-          email: response['user']['email'],
-          password: 'password');
-      print(log);
+      print(response['token']);
+
+      emitter(
+        state.copyWith(
+          user: [
+            LoginModel(
+                token: response['token'],
+                date: response['user']['created_at'],
+                email: response['user']['email'],
+                password: "password")
+          ],
+        ),
+      );
     } catch (e) {
       print(e.toString() + "idididid");
     }

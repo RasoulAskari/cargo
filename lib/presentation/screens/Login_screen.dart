@@ -71,6 +71,17 @@ class _LoginScreenState extends State<LoginScreen> {
               check().then((value) {});
             },
             child: const Text("Login"),
+          ),
+          BlocBuilder<LoginBloc, LoginState>(
+            builder: (context, state) {
+              print(state.)
+              return ElevatedButton(
+                onPressed: () {
+                  
+                },
+                child: const Text("Login"),
+              );
+            },
           )
         ],
       ),
