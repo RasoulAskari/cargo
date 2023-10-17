@@ -42,13 +42,14 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
   Future<List<SalaryModel>> _fetchEmployees({int? page}) async {
     try {
+      final token = await getAuthToken();
+
       final response = await httpClient.get(
         getServerRoute(
           route: '/api/v1/salary-payments',
         ),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
       );
 
@@ -67,6 +68,8 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
   Future<void> _onAddSalaryEvent(
       AddSalaryEvent event, Emitter<SalaryState> emitter) async {
+    final token = await getAuthToken();
+
     SalaryModel salary = event.salary;
 
     final data = {
@@ -87,8 +90,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         Uri.parse('http://localhost:8000/api/v1/salary-payments'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode(data),
       );
@@ -104,13 +106,14 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
   Future<void> _onDleteSalaryEvent(
       DeleteSalaryEvent event, Emitter<SalaryState> emitter) async {
+    final token = await getAuthToken();
+
     var res = await httpClient.delete(
       getServerRoute(
         route: '/api/v1/salary-payments/${event.id}',
       ),
       headers: <String, String>{
-        'Authorization':
-            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        'Authorization': 'Bearer $token',
       },
     );
     if (res.body == "1") {
