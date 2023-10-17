@@ -24,13 +24,14 @@ class IncomingOutGoingBloc
 
   Future<void> _onDleteIncomingOutGoingEvent(DeleteIncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
+    final token = await getAuthToken();
+
     var res = await httpClient.delete(
       getServerRoute(
         route: '/api/v1/income-outgoing/${event.id}',
       ),
       headers: <String, String>{
-        'Authorization':
-            'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+        'Authorization': 'Bearer $token',
       },
     );
     if (res.body == "true") {
@@ -67,6 +68,8 @@ class IncomingOutGoingBloc
 
   Future<void> _onEditIncomingOutGoingEvent(EditIncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
+    final token = await getAuthToken();
+
     if (state.hasReachedMax) return;
     IncomingOutGoing incoming = event.incomingOutGoing;
     final data = {
@@ -83,8 +86,7 @@ class IncomingOutGoingBloc
             'http://localhost:8000/api/v1/income-outgoing/${incoming.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode(data),
       );
@@ -95,6 +97,8 @@ class IncomingOutGoingBloc
 
   Future<void> _onAddIncomingOutGoingEvent(AddIncomingOutGoingEvent event,
       Emitter<IncomingOutGoingState> emitter) async {
+    final token = await getAuthToken();
+
     if (state.hasReachedMax) return;
     IncomingOutGoing incoming = event.incomingOutGoing;
     final data = {
@@ -110,8 +114,7 @@ class IncomingOutGoingBloc
         Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode(data),
       );
@@ -129,14 +132,15 @@ class IncomingOutGoingBloc
 
   // ignore: non_constant_identifier_names
   Future<List<IncomingOutGoing>> _fetchincoming_out_going({int? page}) async {
+    final token = await getAuthToken();
+
     try {
       final response = await httpClient.get(
         getServerRoute(
           route: '/api/v1/income-outgoing',
         ),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
       );
       if (response.statusCode == 200) {
