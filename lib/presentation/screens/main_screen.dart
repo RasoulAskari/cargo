@@ -22,18 +22,20 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void isLogin() async {
-    final jsonModel = await _storage.read(key: 'user');
-    final jsonData = jsonDecode(jsonModel.toString());
+    try {
+      final jsonModel = await _storage.read(key: 'user');
+      final jsonData = jsonDecode(jsonModel.toString());
 
-    if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
-      setState(() {
-        login = true;
-      });
-    } else {
-      setState(() {
-        login = false;
-      });
-    }
+      if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
+        setState(() {
+          login = true;
+        });
+      } else {
+        setState(() {
+          login = false;
+        });
+      }
+    } catch (e) {}
   }
 
   @override

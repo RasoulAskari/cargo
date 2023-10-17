@@ -45,9 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (response['result']) {
       final jsonDataEncoded = jsonEncode(response);
       await storage.write(key: "user", value: jsonDataEncoded);
-      final jsonModel = await storage.read(key: 'user');
-      final jsonData = jsonDecode(jsonModel.toString());
-      print(jsonData);
+      await storage.read(key: 'user');
     }
   }
 
