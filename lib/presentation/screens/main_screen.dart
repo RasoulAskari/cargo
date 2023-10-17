@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:cargo/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,11 @@ class _MainScreenState extends State<MainScreen> {
           login = false;
         });
       }
-    } catch (e) {}
+    } catch (e) {
+      setState(() {
+        login = false;
+      });
+    }
   }
 
   @override

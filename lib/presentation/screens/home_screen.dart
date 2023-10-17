@@ -59,8 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
         'image': "",
         'function': () async {
           try {
-            await _storage.delete(key: 'user');
-            await widget.isLogin();
+            await _storage
+                .delete(key: 'user')
+                .then((value) => {widget.isLogin()});
           } catch (e) {
             print(e);
           }
