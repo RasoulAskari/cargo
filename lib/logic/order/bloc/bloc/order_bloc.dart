@@ -22,12 +22,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   }
 
   Future<Map<String, dynamic>> fetchData() async {
+    final token = await getAuthToken();
     try {
       final response = await http.get(
         Uri.parse('http://localhost:8000/api/v1/current-car'),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
       );
       if (response.statusCode == 200) {
@@ -44,6 +44,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       AddOrderEvent event, Emitter<OrderState> emitter) async {
     try {
       OrderModel data = event.order;
+      final token = await getAuthToken();
 
       final order = {
         'customer_name': data.customerName,
@@ -79,8 +80,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         Uri.parse('http://localhost:8000/api/v1/orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode(order),
       );
@@ -114,14 +114,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   Future<Map> _fetchCurrentCar(
       FetchCurrentCar event, Emitter<OrderState> emitter) async {
+    final token = await getAuthToken();
     try {
       final response = await httpClient.get(
         getServerRoute(
           route: '/api/v1/current-car',
         ),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
       );
       if (response.statusCode == 200) {
@@ -134,14 +134,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   }
 
   Future<List<OrderModel>> _fetchOrders({int? page}) async {
+    final token = await getAuthToken();
     try {
       final response = await httpClient.get(
         getServerRoute(
           route: '/api/v1/orders',
         ),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
       );
 
@@ -161,13 +161,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   Future<void> _onDeleteOrder(
       DeleteOrderEvent event, Emitter<OrderState> emitter) async {
     try {
+      final token = await getAuthToken();
       final ids = event.id;
       const type = 'delete';
       var res = await http.delete(
         Uri.parse("http://localhost:8000/api/v1/$type/orders/$ids"),
         headers: <String, String>{
-          'Authorization':
-              'Bearer 1|2bcCa0xSXyODRPkS4AhEZSFSmr4OkmGVr9jv6Zw02881823b',
+          'Authorization': 'Bearer $token',
         },
       );
       if (res.body == "1") {
