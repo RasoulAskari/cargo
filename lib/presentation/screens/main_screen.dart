@@ -27,8 +27,6 @@ class _MainScreenState extends State<MainScreen> {
     final jsonData = jsonDecode(jsonModel.toString());
 
     if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
-      print(jsonData['user']['created_at']);
-      print(jsonData['token']);
       setState(() {
         login = true;
       });
