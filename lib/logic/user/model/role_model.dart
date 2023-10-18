@@ -44,10 +44,10 @@ class RoleModel extends Equatable {
 
   factory RoleModel.fromMap(Map<String, dynamic> map) {
     return RoleModel(
-      systemId: map['systemId'] as String,
-      systemName: map['systemName'] as String,
+      systemId: map['system_id'] as String,
+      systemName: map['system_name'] as String,
       action: List<String>.from((map['action'] as List<String>)),
-      allowRole: List<String>.from((map['allowRole'] as List<String>)),
+      allowRole: List<String>.from((map['allow_role'] as List<String>)),
     );
   }
 
