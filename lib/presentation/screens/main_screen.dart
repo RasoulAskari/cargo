@@ -41,7 +41,6 @@ class _MainScreenState extends State<MainScreen> {
         });
       }
     } catch (e) {
-      print(e);
       setState(() {
         login = false;
       });
