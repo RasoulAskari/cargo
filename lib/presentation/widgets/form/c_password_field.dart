@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CPasswordField extends StatefulWidget {
-  const CPasswordField({super.key});
+  final String value;
+  final Function setValue;
+  final String? hintText;
+
+  const CPasswordField(
+      {super.key, required this.value, required this.setValue, this.hintText});
 
   @override
   State<CPasswordField> createState() => _CPasswordFieldState();
