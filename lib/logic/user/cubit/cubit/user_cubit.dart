@@ -30,4 +30,11 @@ class UserCubit extends Cubit<UserState> {
       confirmPassword: password,
     ));
   }
+
+  void emailChange(String value) {
+    final email = Email.dirty(value);
+    emit(state.copyWith(
+      email: email,
+    ));
+  }
 }
