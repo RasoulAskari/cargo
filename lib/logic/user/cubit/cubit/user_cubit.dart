@@ -16,4 +16,11 @@ class UserCubit extends Cubit<UserState> {
       name: name,
     ));
   }
+
+  void passwordChange(String value) {
+    final password = CString.dirty(value);
+    emit(state.copyWith(
+      password: password,
+    ));
+  }
 }
