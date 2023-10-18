@@ -17,7 +17,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final List<dynamic> data = [
-      {'name': 'User', 'image': "", 'function': () {}},
+      {
+        'name': 'User',
+        'image': "",
+        'function': () {
+          Navigator.of(context).pushNamed(userScreen);
+        }
+      },
       {
         'name': 'Employee',
         'image': "",
