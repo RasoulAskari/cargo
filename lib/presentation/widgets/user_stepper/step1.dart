@@ -18,8 +18,20 @@ class Step1 extends StatelessWidget {
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
-                hintText: "Sender Name",
+                hintText: "Name",
                 value: state.name.value,
+                setValue: (value) {
+                  // context.read<UserCubit>().senderNameChange(value);
+                },
+              );
+            },
+          ),
+          const SizedBox(height: 50),
+          BlocBuilder<UserCubit, UserState>(
+            builder: (context, state) {
+              return CTextField(
+                hintText: "Email",
+                value: state.email.value,
                 setValue: (value) {
                   // context.read<UserCubit>().senderNameChange(value);
                 },
