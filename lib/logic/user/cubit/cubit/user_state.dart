@@ -7,7 +7,7 @@ class UserState extends Equatable {
   final CString password;
   final CString confirmPassword;
   final CString role;
-  final ItemsList premissions;
+  final UserList premissions;
 
   const UserState({
     this.name = const FirstName.pure(),
@@ -15,7 +15,7 @@ class UserState extends Equatable {
     this.password = const CString.pure(),
     this.confirmPassword = const CString.pure(),
     this.role = const CString.pure(),
-    this.premissions = const ItemsList.pure(),
+    this.premissions = const UserList.pure(),
   });
 
   @override
@@ -34,7 +34,7 @@ class UserState extends Equatable {
     CString? password,
     CString? confirmPassword,
     CString? role,
-    ItemsList? premissions,
+    UserList? premissions,
   }) {
     return UserState(
       name: name ?? this.name,
