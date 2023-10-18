@@ -1,4 +1,6 @@
+import 'package:cargo/logic/login/login_model.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
+import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_password_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
@@ -6,11 +8,23 @@ import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Step1 extends StatelessWidget {
   final Function next;
   final Function prev;
 
-  const Step1({super.key, required this.next, required this.prev});
+  Step1({super.key, required this.next, required this.prev});
+  List<RoleModel> systemList = [
+    const RoleModel(systemId: "users", systemName: "Users", action: [
+      'user_view',
+      'user_create',
+      'user_delete',
+      'user_restore',
+      'user_force_delete'
+    ], allowRole: [
+      'admin'
+    ])
+  ];
 
   @override
   Widget build(BuildContext context) {
