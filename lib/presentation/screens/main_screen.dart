@@ -28,6 +28,10 @@ class _MainScreenState extends State<MainScreen> {
       final jsonData = jsonDecode(jsonModel.toString());
 
       if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
+        DateTime created_at = DateTime.parse(jsonData['user']['created_at']);
+        DateTime n = DateTime.now();
+        final res = n.difference(created_at).inDays;
+        print(jsonData);
         setState(() {
           login = true;
         });
@@ -37,6 +41,7 @@ class _MainScreenState extends State<MainScreen> {
         });
       }
     } catch (e) {
+      print(e);
       setState(() {
         login = false;
       });
