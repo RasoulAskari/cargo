@@ -13,6 +13,7 @@ import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:cargo/presentation/screens/main_screen.dart';
 import 'package:cargo/presentation/screens/order_screen.dart';
 import 'package:cargo/presentation/screens/salary_screen.dart';
+import 'package:cargo/presentation/screens/user_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -71,6 +72,10 @@ class AppRouter {
       case exchangeMoneyScreen:
         return MaterialPageRoute(
           builder: (context) => const ExchangeMoneyScreen(),
+        );
+      case userScreen:
+        return MaterialPageRoute(
+          builder: (context) => const UserScreen(),
         );
       case addExchangeMoneyScreen:
         ExchnageMoneyModel? exchange;
