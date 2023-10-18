@@ -2,6 +2,7 @@ import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_password_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
