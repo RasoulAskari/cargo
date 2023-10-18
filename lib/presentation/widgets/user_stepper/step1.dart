@@ -1,4 +1,3 @@
-import 'package:cargo/logic/login/login_model.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -36,7 +35,7 @@ class Step1 extends StatelessWidget {
     ], allowRole: [
       'admin'
     ]),
-    RoleModel(
+    const RoleModel(
       systemId: 'salaries',
       systemName: 'معاشات',
       action: [
@@ -48,7 +47,7 @@ class Step1 extends StatelessWidget {
       ],
       allowRole: ['admin', 'finance_manager'],
     ),
-    RoleModel(
+    const RoleModel(
       systemId: 'exchanges',
       systemName: 'حواله',
       action: [
@@ -60,7 +59,7 @@ class Step1 extends StatelessWidget {
       ],
       allowRole: ['admin', 'finance_manager', 'bank_manager'],
     ),
-    RoleModel(
+    const RoleModel(
       systemId: 'orders',
       systemName: 'سفارشات',
       action: [
@@ -72,7 +71,7 @@ class Step1 extends StatelessWidget {
       ],
       allowRole: ['admin', 'finance_manager'],
     ),
-    RoleModel(
+    const RoleModel(
       systemId: 'cars',
       systemName: 'موتر ها',
       action: [
@@ -84,7 +83,7 @@ class Step1 extends StatelessWidget {
       ],
       allowRole: ['admin', 'finance_manager'],
     ),
-    RoleModel(
+    const RoleModel(
       systemId: 'incomes',
       systemName: 'رفت و آمد',
       action: [
@@ -156,7 +155,7 @@ class Step1 extends StatelessWidget {
                 value: state.role.value,
                 hintText: "Role",
                 setValue: (value) {
-                  // context.read<UserCubit>().currencyChange(value);
+                  systemList.map((e1) => {print(e1)});
                 },
                 items: const [
                   {
