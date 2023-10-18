@@ -1,4 +1,5 @@
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
+import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_password_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,6 +63,32 @@ class Step1 extends StatelessWidget {
             },
           ),
           const SizedBox(height: 50),
+          BlocBuilder<UserCubit, UserState>(
+            builder: (context, state) {
+              return CDropdown(
+                value: state.role.value,
+                hintText: "Type",
+                setValue: (value) {
+                  // context.read<UserCubit>().currencyChange(value);
+                },
+                items: const [
+                  {
+                    'value': 'Dollor',
+                    'label': 'Dollor',
+                  },
+                  {
+                    'value': 'Afghani',
+                    'label': 'Afghani',
+                  },
+                  {
+                    'value': 'Calldor',
+                    'label': 'Calldor',
+                  },
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 15),
         ],
       ),
     );
