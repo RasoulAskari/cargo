@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class AddUserScreen extends StatefulWidget {
   const AddUserScreen({super.key});
@@ -8,6 +9,17 @@ class AddUserScreen extends StatefulWidget {
 }
 
 class _AddUserScreenState extends State<AddUserScreen> {
+  late http.Client httpClient;
+
+  var step = 1;
+  bool loading = false;
+
+  next(steps) {
+    setState(() {
+      step = step + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
