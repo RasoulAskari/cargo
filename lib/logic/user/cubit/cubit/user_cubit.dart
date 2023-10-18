@@ -9,4 +9,11 @@ part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
+
+  void nameChange(String value) {
+    final name = FirstName.dirty(value);
+    emit(state.copyWith(
+      name: name,
+    ));
+  }
 }
