@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Step2 extends StatefulWidget {
-  const Step2({super.key});
+  final Function next;
+  final Function prev;
+  const Step2({super.key, required this.next, required this.prev});
 
   @override
   State<Step2> createState() => _Step2State();
