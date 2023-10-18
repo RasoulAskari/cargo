@@ -5,8 +5,12 @@ class CPasswordField extends StatefulWidget {
   final Function setValue;
   final String? hintText;
 
-  const CPasswordField(
-      {super.key, required this.value, required this.setValue, this.hintText});
+  const CPasswordField({
+    super.key,
+    required this.value,
+    required this.setValue,
+    this.hintText,
+  });
 
   @override
   State<CPasswordField> createState() => _CPasswordFieldState();
@@ -14,6 +18,12 @@ class CPasswordField extends StatefulWidget {
 
 class _CPasswordFieldState extends State<CPasswordField> {
   bool _passwordVisible = false;
+  late TextEditingController _controller;
+  @override
+  void initState() {
+    _controller = TextEditingController()..text = widget.value;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
