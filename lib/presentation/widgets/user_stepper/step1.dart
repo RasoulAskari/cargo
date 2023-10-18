@@ -67,22 +67,22 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CDropdown(
                 value: state.role.value,
-                hintText: "Type",
+                hintText: "Role",
                 setValue: (value) {
                   // context.read<UserCubit>().currencyChange(value);
                 },
                 items: const [
                   {
-                    'value': 'Dollor',
-                    'label': 'Dollor',
+                    'value': 'admin',
+                    'label': 'Admin',
                   },
                   {
-                    'value': 'Afghani',
-                    'label': 'Afghani',
+                    'value': 'Finance Manager',
+                    'label': 'finance_manager',
                   },
                   {
-                    'value': 'Calldor',
-                    'label': 'Calldor',
+                    'value': 'bank_manager',
+                    'label': 'Bank Manager',
                   },
                 ],
               );
