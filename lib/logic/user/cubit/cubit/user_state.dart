@@ -18,7 +18,14 @@ class UserState extends Equatable {
   });
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [
+        name,
+        email,
+        password,
+        confirmPassword,
+        role,
+        premissions,
+      ];
 }
 
 final class UserInitial extends UserState {}
