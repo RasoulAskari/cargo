@@ -62,7 +62,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
               prev(steps);
             },
             loading: loading,
-            stepAmount: 3,
+            stepAmount: 2,
             steps: steps,
             step: step,
             next: () {
