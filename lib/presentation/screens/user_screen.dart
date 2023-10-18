@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:flutter/material.dart';
 
 class UserScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class UserScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                // Navigator.of(context).pushNamed(addEmployee);
+                Navigator.of(context).pushNamed(addUserScreen);
               },
               icon: const Icon(
                 Icons.add,
