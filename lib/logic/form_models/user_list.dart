@@ -11,7 +11,6 @@ class UserList extends FormzInput<List<UserModel>?, List<String>> {
     if (value == null || value.isEmpty) {
       return ['The list cannot be empty.'];
     }
-    // Add more custom validation logic as needed.
     return null;
   }
 }
