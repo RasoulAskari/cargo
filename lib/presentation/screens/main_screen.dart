@@ -28,9 +28,9 @@ class _MainScreenState extends State<MainScreen> {
       final jsonData = jsonDecode(jsonModel.toString());
 
       if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
-        DateTime created_at = DateTime.parse(jsonData['user']['created_at']);
-        DateTime n = DateTime.now();
-        n.difference(created_at).inDays;
+        // DateTime created_at = DateTime.parse(jsonData['user']['created_at']);
+        // DateTime n = DateTime.now();
+        // n.difference(created_at).inDays;
 
         setState(() {
           login = true;

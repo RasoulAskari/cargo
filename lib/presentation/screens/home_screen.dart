@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 .delete(key: 'user')
                 .then((value) => {widget.isLogin()});
           } catch (e) {
-            print(e);
+            return;
           }
         }
       },
