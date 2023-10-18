@@ -10,3 +10,4 @@ const String addSalaryScreen = '/addSalaryScreen';
 const String exchangeMoneyScreen = '/exchangeMoneyScreen';
 const String userScreen = 'userScreen';
 const String addExchangeMoneyScreen = '/addExchangeMoneyScreen';
+const String addUserScreen = '/addUserScreen';
