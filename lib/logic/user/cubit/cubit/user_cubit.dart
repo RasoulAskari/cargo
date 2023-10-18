@@ -37,4 +37,11 @@ class UserCubit extends Cubit<UserState> {
       email: email,
     ));
   }
+
+  void roleChange(String value) {
+    final role = CString.dirty(value);
+    emit(state.copyWith(
+      role: role,
+    ));
+  }
 }
