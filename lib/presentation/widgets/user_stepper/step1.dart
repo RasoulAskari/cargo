@@ -13,8 +13,6 @@ class Step1 extends StatelessWidget {
   final Function prev;
 
   Step1({super.key, required this.next, required this.prev});
-  List<RoleModel> newSystemList = [];
-
   List<RoleModel> systemList = [
     const RoleModel(
       systemId: "users",
@@ -156,15 +154,14 @@ class Step1 extends StatelessWidget {
               return CDropdown(
                 value: state.role.value,
                 hintText: "Role",
-                setValue: (value) async {
-                  systemList.map((e1) {
+                setValue: (value) {
+                  final da = systemList.map((e1) {
                     return e1.allowRole.map((e2) {
                       if (e2 == value) {
-                        newSystemList.add(e1);
+                        return e1;
                       }
                     });
                   });
-                  print(newSystemList);
                 },
                 items: const [
                   {
