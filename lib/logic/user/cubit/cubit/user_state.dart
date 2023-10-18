@@ -8,11 +8,11 @@ class UserState extends Equatable {
   final CString role;
 
   const UserState({
-    required this.name,
-    required this.email,
-    required this.password,
-    required this.confirmPassword,
-    required this.role,
+    this.name = const FirstName.pure(),
+    this.email = const Email.pure(),
+    this.password = const CString.pure(),
+    this.confirmPassword = const CString.pure(),
+    this.role = const CString.pure(),
   });
 
   @override
