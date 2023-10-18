@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'user_cubit.dart';
 
 class UserState extends Equatable {
@@ -18,8 +19,32 @@ class UserState extends Equatable {
   });
 
   @override
-  List<Object> get props =>
-      [name, email, password, confirmPassword, role, premissions,];
+  List<Object> get props => [
+        name,
+        email,
+        password,
+        confirmPassword,
+        role,
+        premissions,
+      ];
+
+  UserState copyWith({
+    FirstName? name,
+    Email? email,
+    CString? password,
+    CString? confirmPassword,
+    CString? role,
+    ItemsList? premissions,
+  }) {
+    return UserState(
+      name: name ?? this.name,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      confirmPassword: confirmPassword ?? this.confirmPassword,
+      role: role ?? this.role,
+      premissions: premissions ?? this.premissions,
+    );
+  }
 }
 
 final class UserInitial extends UserState {}
