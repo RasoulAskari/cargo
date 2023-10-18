@@ -28,6 +28,7 @@ class _CPasswordFieldState extends State<CPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: _controller,
       onChanged: (value) {
         widget.setValue(value);
       },
