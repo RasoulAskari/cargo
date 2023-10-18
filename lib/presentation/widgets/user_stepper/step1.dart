@@ -1,4 +1,5 @@
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
+import 'package:cargo/presentation/widgets/form/c_password_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -38,10 +39,10 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-
           const SizedBox(height: 50),
-          
-
+          CPasswordField(
+            
+          )
         ],
       ),
     );
