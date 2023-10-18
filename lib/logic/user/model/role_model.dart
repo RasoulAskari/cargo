@@ -16,9 +16,6 @@ class RoleModel extends Equatable {
     required this.allowRole,
   });
 
-  @override
-  List<Object?> get props => throw UnimplementedError();
-
   RoleModel copyWith({
     String? systemId,
     String? systemName,
@@ -55,4 +52,11 @@ class RoleModel extends Equatable {
 
   factory RoleModel.fromJson(String source) =>
       RoleModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  @override
+  List<Object?> get props => [
+        systemId,
+        systemName,
+        allowRole,
+        action,
+      ];
 }
