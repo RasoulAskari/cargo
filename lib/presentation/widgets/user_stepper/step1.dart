@@ -163,8 +163,8 @@ class Step1 extends StatelessWidget {
                     'label': 'Admin',
                   },
                   {
-                    'label': 'Finance Manager',
                     'value': 'finance_manager',
+                    'label': 'Finance Manager',
                   },
                   {
                     'value': 'bank_manager',
