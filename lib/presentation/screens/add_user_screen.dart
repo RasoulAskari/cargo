@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../../utils/stepper/c_stepper.dart';
-import '../widgets/user_stepper/step.dart';
+import '../widgets/user_stepper/step1.dart';
 
 class AddUserScreen extends StatefulWidget {
   const AddUserScreen({super.key});
