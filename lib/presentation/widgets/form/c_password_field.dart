@@ -28,6 +28,9 @@ class _CPasswordFieldState extends State<CPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (value) {
+        widget.setValue(value);
+      },
       obscureText: !_passwordVisible,
       decoration: InputDecoration(
         filled: true,
