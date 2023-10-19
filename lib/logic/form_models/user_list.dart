@@ -1,13 +1,14 @@
 import 'package:cargo/logic/login/user_model.dart';
+import 'package:cargo/logic/user/model/role_model.dart';
 // ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
 
-class UserList extends FormzInput<List<UserModel>?, List<String>> {
+class UserList extends FormzInput<List<RoleModel>?, List<String>> {
   const UserList.pure() : super.pure(null);
-  const UserList.dirty(List<UserModel> value) : super.dirty(value);
+  const UserList.dirty(List<RoleModel> value) : super.dirty(value);
 
   @override
-  List<String>? validator(List<UserModel>? value) {
+  List<String>? validator(List<RoleModel>? value) {
     if (value == null || value.isEmpty) {
       return ['The list cannot be empty.'];
     }
