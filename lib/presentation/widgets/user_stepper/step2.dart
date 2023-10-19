@@ -27,12 +27,12 @@ class _Step2State extends State<Step2> {
           });
 
           return Container(
-            width: 200,
+            width: 350,
             height: 1000,
             child: GridView.builder(
               itemCount: role.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, // Number of columns
+                crossAxisCount: 5, // Number of columns
                 crossAxisSpacing: 8.0, // Spacing between columns
                 mainAxisSpacing: 8.0, // Spacing between rows
               ),
