@@ -19,22 +19,25 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Checkbox(
-          value: isChecked,
-          onChanged: (newValue) {
-            setState(() {
-              isChecked = newValue!;
-            });
-          },
-        ),
-        Expanded(
-            child: Text(
-          widget.value,
-          style: TextStyle(fontSize: 16),
-        )),
-      ],
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        children: <Widget>[
+          Checkbox(
+            value: isChecked,
+            onChanged: (newValue) {
+              setState(() {
+                isChecked = newValue!;
+              });
+            },
+          ),
+          Expanded(
+              child: Text(
+            widget.value,
+            style: const TextStyle(fontSize: 13),
+          )),
+        ],
+      ),
     );
   }
 }
