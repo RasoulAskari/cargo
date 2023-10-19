@@ -3,7 +3,6 @@ import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/form_models/user_list.dart';
-import 'package:cargo/logic/login/user_model.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:equatable/equatable.dart';
 
