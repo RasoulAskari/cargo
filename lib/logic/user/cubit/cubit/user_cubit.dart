@@ -58,13 +58,14 @@ class UserCubit extends Cubit<UserState> {
     //   }).toList();
     // }).toList();
 
+    // ignore: avoid_function_literals_in_foreach_calls
     value.forEach(
+      // ignore: avoid_function_literals_in_foreach_calls
       (element) => element.forEach((element2) {
         element2?.action.forEach((element3) {
           data.add(element3);
         });
       }),
     );
-
   }
 }
