@@ -16,7 +16,7 @@ class _Step2State extends State<Step2> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       child: BlocBuilder<UserCubit, UserState>(
         builder: (context, state) {
           List<String> role = [];
@@ -28,9 +28,8 @@ class _Step2State extends State<Step2> {
           });
 
           return Container(
-            padding: const EdgeInsets.all(10),
             width: 5540,
-            height: 1000,
+            height: 900,
             child: GridView.builder(
               itemCount: role.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
