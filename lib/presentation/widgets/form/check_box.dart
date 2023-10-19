@@ -26,7 +26,6 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
           Checkbox(
             value: isChecked,
             onChanged: (val) {
-              print(val);
               setState(() {
                 isChecked = val as bool;
               });
