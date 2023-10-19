@@ -37,8 +37,7 @@ class _Step2State extends State<Step2> {
                 var data = e.toString().replaceAll("_", " ");
 
                 return SizedBox(
-                  width: MediaQuery.of(context).size.width /
-                      2.8, // For two columns
+                  width: MediaQuery.of(context).size.width / 2.8,
                   child: ActionCheckBox(
                     data: e,
                     value: data[0].toUpperCase() + data.substring(1),
