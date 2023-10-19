@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Step2 extends StatefulWidget {
   final Function next;
   final Function prev;
-  
+
   const Step2({super.key, required this.next, required this.prev});
 
   @override
@@ -40,6 +40,7 @@ class _Step2State extends State<Step2> {
                   width: MediaQuery.of(context).size.width /
                       2.8, // For two columns
                   child: ActionCheckBox(
+                    data: e,
                     value: data[0].toUpperCase() + data.substring(1),
                     setValue: (value) {},
                   ),
