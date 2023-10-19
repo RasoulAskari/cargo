@@ -143,7 +143,7 @@ class Step1 extends StatelessWidget {
               return CPasswordField(
                 value: state.confirmPassword.value,
                 setValue: (value) {
-                  // context.read<UserCubit>().senderNameChange(value);
+                  context.read<UserCubit>().confirmPasswordChange(value);
                 },
               );
             },
