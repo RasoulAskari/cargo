@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ActionCheckBox extends StatefulWidget {
-  const ActionCheckBox({super.key});
+  final String value;
+  final Function setValue;
+  const ActionCheckBox({
+    super.key,
+    required this.value,
+    required this.setValue,
+  });
 
   @override
   // ignore: library_private_types_in_public_api
