@@ -15,6 +15,9 @@ class Step2 extends StatefulWidget {
 }
 
 class _Step2State extends State<Step2> {
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,7 +44,9 @@ class _Step2State extends State<Step2> {
                   child: ActionCheckBox(
                     data: e,
                     value: data[0].toUpperCase() + data.substring(1),
-                    setValue: (value) {},
+                    setValue: (value) {
+                      
+                    },
                   ),
                 );
               }).toList())
