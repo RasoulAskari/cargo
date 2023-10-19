@@ -27,7 +27,8 @@ class _Step2State extends State<Step2> {
           });
 
           return Container(
-            width: 350,
+            padding: const EdgeInsets.all(10),
+            width: 5540,
             height: 1000,
             child: GridView.builder(
               itemCount: role.length,
