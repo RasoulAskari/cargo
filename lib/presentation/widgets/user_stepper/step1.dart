@@ -109,7 +109,7 @@ class Step1 extends StatelessWidget {
                 hintText: "Name",
                 value: state.name.value,
                 setValue: (value) {
-                  // context.read<UserCubit>().senderNameChange(value);
+                  context.read<UserCubit>().nameChange(value);
                 },
               );
             },
@@ -121,7 +121,8 @@ class Step1 extends StatelessWidget {
                 hintText: "Email",
                 value: state.email.value,
                 setValue: (value) {
-context.read<UserCubit>().emailChange(value);                },
+                  context.read<UserCubit>().emailChange(value);
+                },
               );
             },
           ),
