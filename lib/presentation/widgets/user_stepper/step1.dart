@@ -162,6 +162,7 @@ class Step1 extends StatelessWidget {
                       }
                     });
                   });
+                  context.read<UserCubit>().              
                 },
                 items: const [
                   {
