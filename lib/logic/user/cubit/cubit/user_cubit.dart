@@ -47,24 +47,7 @@ class UserCubit extends Cubit<UserState> {
     ));
   }
 
-  void permissionChange(List<RoleModel?> value) {
+  void permissionChange(List<RoleModel> value) {
     print(value);
-    // final da = value.map((e) {
-    //   return e.map((e1) {
-    //     return e1?.action.map((e2) {
-    //       return e2;
-    //     }).toList();
-    //   }).toList();
-    // }).toList();
-
-    // ignore: avoid_function_literals_in_foreach_calls
-    // value.forEach(
-    //   // ignore: avoid_function_literals_in_foreach_calls
-    //   (element) => element.forEach((element2) {
-    //     element2?.action.forEach((element3) {
-    //       data.add(element3);
-    //     });
-    //   }),
-    // );
   }
 }
