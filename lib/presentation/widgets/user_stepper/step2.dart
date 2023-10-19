@@ -20,27 +20,28 @@ class _Step2State extends State<Step2> {
         builder: (context, state) {
           List<String> role = [];
 
-          // state.premissions.value?.forEach((element1) {
-          //   element1.action.forEach((element2) {
-          //     role.add(element2);
-          //   });
-          // });
+          state.premissions.value?.forEach((element1) {
+            element1.action.forEach((element2) {
+              role.add(element2);
+            });
+          });
 
           return Container(
-              padding: const EdgeInsets.all(10),
-              width: 5540,
-              height: 1000,
-              child: Table(
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(),
-                children: state.premissions.value!.map((e) {
-                  return TableRow(
-                      children: e.action
-                          .map((e1) =>
-                              TableCell(child: TableCell(child: Text(e1))))
-                          .toList());
-                }).toList(),
-              ));
+            padding: const EdgeInsets.all(10),
+            width: 5540,
+            height: 1000,
+            child: GridView.builder(
+              itemCount: role.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 5, // Number of columns
+                crossAxisSpacing: 8.0, // Spacing between columns
+                mainAxisSpacing: 8.0, // Spacing between rows
+              ),
+              itemBuilder: (context, index) {
+                return Text(role[index]);
+              },
+            ),
+          );
         },
       ),
     );
