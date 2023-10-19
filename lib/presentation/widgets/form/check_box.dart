@@ -29,7 +29,11 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
             });
           },
         ),
-        Text(widget.value),
+        Expanded(
+            child: Text(
+          widget.value,
+          style: TextStyle(fontSize: 16),
+        )),
       ],
     );
   }

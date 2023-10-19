@@ -39,8 +39,9 @@ class _Step2State extends State<Step2> {
                 mainAxisSpacing: 8.0, // Spacing between rows
               ),
               itemBuilder: (context, index) {
+                var data = role[index].toString().replaceAll("_", " ");
                 return ActionCheckBox(
-                    value: role[index].toString().replaceAll("_", " "),
+                    value: data[0].toUpperCase() + data.substring(1),
                     setValue: (value) {});
               },
             ),
