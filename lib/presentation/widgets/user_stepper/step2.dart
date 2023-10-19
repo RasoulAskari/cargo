@@ -1,4 +1,5 @@
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
+import 'package:cargo/presentation/widgets/form/check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,12 +34,12 @@ class _Step2State extends State<Step2> {
             child: GridView.builder(
               itemCount: role.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5, // Number of columns
+                crossAxisCount: 2, // Number of columns
                 crossAxisSpacing: 8.0, // Spacing between columns
                 mainAxisSpacing: 8.0, // Spacing between rows
               ),
               itemBuilder: (context, index) {
-                return Text(role[index]);
+                return ActionCheckBox(value: role[index], setValue: (value) {});
               },
             ),
           );
