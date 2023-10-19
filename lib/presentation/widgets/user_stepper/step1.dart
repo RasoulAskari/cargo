@@ -165,6 +165,18 @@ class Step1 extends StatelessWidget {
                   //   }).toList();
                   // }).toList();
 
+                  systemList.forEach((element1) {
+                    element1.allowRole.forEach((element2) {
+                      if (element2 == value) {
+                        data.add(RoleModel(
+                            systemId: element1.systemId,
+                            systemName: element1.systemName,
+                            action: element1.action,
+                            allowRole: element1.allowRole));
+                      }
+                    });
+                  });
+
                   context.read<UserCubit>().permissionChange(data);
                 },
                 items: const [

@@ -48,8 +48,7 @@ class UserCubit extends Cubit<UserState> {
   }
 
   void permissionChange(List<RoleModel?> value) {
-    List<String> data = [];
-
+    print(value);
     // final da = value.map((e) {
     //   return e.map((e1) {
     //     return e1?.action.map((e2) {
