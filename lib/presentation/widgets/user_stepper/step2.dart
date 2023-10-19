@@ -28,7 +28,7 @@ class _Step2State extends State<Step2> {
           });
 
           return SizedBox(
-            height: 1000,
+            height: MediaQuery.of(context).size.height / 7 * 5,
             child: ListView(children: <Widget>[
               Wrap(
                   children: role.map((e) {
