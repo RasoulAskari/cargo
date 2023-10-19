@@ -26,49 +26,20 @@ class _Step2State extends State<Step2> {
               role.add(element2);
             }
           });
-          return Container(
+          return SizedBox(
             height: 1000,
             child: ListView(children: <Widget>[
               Wrap(
+                  spacing: 20,
                   children: role.map((e) {
-                return SizedBox(
-                  width: MediaQuery.of(context).size.width /
-                      2.8, // For two columns
-                  child: ActionCheckBox(value: e, setValue: () {}),
-                );
-              }).toList())
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width /
+                          2.8, // For two columns
+                      child: ActionCheckBox(value: e, setValue: () {}),
+                    );
+                  }).toList())
             ]),
           );
-
-          // return Flex(
-          //     direction: Axis.vertical,
-          //     children: role
-          //         .map((e) => ActionCheckBox(value: e, setValue: () {}))
-          //         .toList());
-
-          // return SizedBox(
-          //     width: 5540,
-          //     height: 900,
-          //     child: Wrap(
-
-          //         children: role
-          //             .map((e) => ActionCheckBox(value: e, setValue: () {}))
-          //             .toList())
-          //     // GridView.builder(
-          //     //   itemCount: role.length,
-          //     //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //     //     crossAxisCount: 2, // Number of columns
-          //     //     crossAxisSpacing: 0, // Spacing between columns
-          //     //     mainAxisSpacing: 0, // Spacing between rows
-          //     //   ),
-          //     //   itemBuilder: (context, index) {
-          //     //     var data = role[index].toString().replaceAll("_", " ");
-          //     //     return ActionCheckBox(
-          //     //         value: data[0].toUpperCase() + data.substring(1),
-          //     //         setValue: (value) {});
-          //     //   },
-          //     // ),
-          //     );
         },
       ),
     );
