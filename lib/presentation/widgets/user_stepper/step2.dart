@@ -39,7 +39,9 @@ class _Step2State extends State<Step2> {
                 mainAxisSpacing: 8.0, // Spacing between rows
               ),
               itemBuilder: (context, index) {
-                return ActionCheckBox(value: role[index], setValue: (value) {});
+                return ActionCheckBox(
+                    value: role[index].toString().replaceAll("_", " "),
+                    setValue: (value) {});
               },
             ),
           );
