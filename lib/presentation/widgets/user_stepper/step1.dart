@@ -155,15 +155,17 @@ class Step1 extends StatelessWidget {
                 value: state.role.value,
                 hintText: "Role",
                 setValue: (value) {
-                  final da = systemList.map((e1) {
-                    return e1.allowRole.map((e2) {
-                      if (e2 == value) {
-                        return e1;
-                      }
-                    }).toList();
-                  }).toList();
+                  List<RoleModel> data = [];
 
-                  context.read<UserCubit>().permissionChange(da);
+                  // final da = systemList.map((e1) {
+                  //   return e1.allowRole.map((e2) {
+                  //     if (e2 == value) {
+                  //       return e1;
+                  //     }
+                  //   }).toList();
+                  // }).toList();
+
+                  context.read<UserCubit>().permissionChange(data);
                 },
                 items: const [
                   {

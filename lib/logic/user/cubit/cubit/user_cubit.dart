@@ -47,7 +47,7 @@ class UserCubit extends Cubit<UserState> {
     ));
   }
 
-  void permissionChange(List<List<RoleModel?>> value) {
+  void permissionChange(List<RoleModel?> value) {
     List<String> data = [];
 
     // final da = value.map((e) {
@@ -59,13 +59,13 @@ class UserCubit extends Cubit<UserState> {
     // }).toList();
 
     // ignore: avoid_function_literals_in_foreach_calls
-    value.forEach(
-      // ignore: avoid_function_literals_in_foreach_calls
-      (element) => element.forEach((element2) {
-        element2?.action.forEach((element3) {
-          data.add(element3);
-        });
-      }),
-    );
+    // value.forEach(
+    //   // ignore: avoid_function_literals_in_foreach_calls
+    //   (element) => element.forEach((element2) {
+    //     element2?.action.forEach((element3) {
+    //       data.add(element3);
+    //     });
+    //   }),
+    // );
   }
 }
