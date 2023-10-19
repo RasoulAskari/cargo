@@ -162,7 +162,9 @@ class Step1 extends StatelessWidget {
                       }
                     });
                   });
-                  context.read<UserCubit>().              
+                  context
+                      .read<UserCubit>()
+                      .permissionChange(da.map((e1) => e1) as List<RoleModel>);
                 },
                 items: const [
                   {
