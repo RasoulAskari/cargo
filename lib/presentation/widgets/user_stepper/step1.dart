@@ -170,6 +170,7 @@ class Step1 extends StatelessWidget {
                   }
 
                   context.read<UserCubit>().permissionChange(data);
+                  context.read<UserCubit>().roleChange(value);
                 },
                 items: const [
                   {
