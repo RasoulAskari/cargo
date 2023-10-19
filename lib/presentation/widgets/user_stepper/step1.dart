@@ -157,16 +157,8 @@ class Step1 extends StatelessWidget {
                 setValue: (value) {
                   List<RoleModel> data = [];
 
-                  // final da = systemList.map((e1) {
-                  //   return e1.allowRole.map((e2) {
-                  //     if (e2 == value) {
-                  //       return e1;
-                  //     }
-                  //   }).toList();
-                  // }).toList();
-
-                  systemList.forEach((element1) {
-                    element1.allowRole.forEach((element2) {
+                  for (var element1 in systemList) {
+                    for (var element2 in element1.allowRole) {
                       if (element2 == value) {
                         data.add(RoleModel(
                             systemId: element1.systemId,
@@ -174,8 +166,8 @@ class Step1 extends StatelessWidget {
                             action: element1.action,
                             allowRole: element1.allowRole));
                       }
-                    });
-                  });
+                    }
+                  }
 
                   context.read<UserCubit>().permissionChange(data);
                 },
