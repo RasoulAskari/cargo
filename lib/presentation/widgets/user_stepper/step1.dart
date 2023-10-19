@@ -162,8 +162,8 @@ class Step1 extends StatelessWidget {
                       }
                     }).toList();
                   }).toList();
-                  print(da);
-                  // context.read<UserCubit>().permissionChange(da as List);
+
+                  context.read<UserCubit>().permissionChange(da);
                 },
                 items: const [
                   {
