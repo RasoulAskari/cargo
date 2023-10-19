@@ -32,7 +32,7 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
               setState(() {
                 isChecked = val as bool;
               });
-              widget.setValue(widget.data);
+              widget.setValue({"data": widget.data, 'check': isChecked});
             },
           ),
           Expanded(
