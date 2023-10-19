@@ -47,8 +47,19 @@ class UserCubit extends Cubit<UserState> {
     ));
   }
 
-  void permissionChange(value) {
+  void permissionChange(List<dynamic> value) {
+    List<String> data = [];
+
     print(value);
+
+    value.map((e1) {
+      return e1.map((e2) {
+        return data.add(e2['action']);
+      });
+    });
+
+    print(data);
+
     // final items = UserList.dirty(value);
 
     // emit(

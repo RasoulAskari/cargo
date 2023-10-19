@@ -160,11 +160,10 @@ class Step1 extends StatelessWidget {
                       if (e2 == value) {
                         return e1;
                       }
-                    });
-                  });
-                  context
-                      .read<UserCubit>()
-                      .permissionChange(da.map((e1) => e1) as List<RoleModel>);
+                    }).toList();
+                  }).toList();
+                  print(da);
+                  // context.read<UserCubit>().permissionChange(da as List);
                 },
                 items: const [
                   {
