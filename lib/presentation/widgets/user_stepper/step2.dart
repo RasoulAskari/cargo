@@ -21,9 +21,9 @@ class _Step2State extends State<Step2> {
           List<String> role = [];
 
           state.premissions.value?.forEach((element1) {
-            element1.action.forEach((element2) {
+            for (var element2 in element1.action) {
               role.add(element2);
-            });
+            }
           });
 
           return Container(
