@@ -25,16 +25,17 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
         children: <Widget>[
           Checkbox(
             value: isChecked,
-            onChanged: (newValue) {
+            onChanged: (val) {
               setState(() {
-                isChecked = newValue!;
+                isChecked = val as bool;
               });
+              widget.setValue(widget.value);
             },
           ),
           Expanded(
               child: Text(
             widget.value,
-            style: const TextStyle(fontSize: 13),
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
           )),
         ],
       ),

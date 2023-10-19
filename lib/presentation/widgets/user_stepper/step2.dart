@@ -39,7 +39,9 @@ class _Step2State extends State<Step2> {
                       2.8, // For two columns
                   child: ActionCheckBox(
                     value: data[0].toUpperCase() + data.substring(1),
-                    setValue: () {},
+                    setValue: (value) {
+                      print(value);
+                    },
                   ),
                 );
               }).toList())
