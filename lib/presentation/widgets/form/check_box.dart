@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 class ActionCheckBox extends StatefulWidget {
   final String value;
+  final String data;
   final Function setValue;
+
   const ActionCheckBox({
     super.key,
     required this.value,
     required this.setValue,
+    required this.data,
   });
 
   @override
@@ -29,7 +32,7 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
               setState(() {
                 isChecked = val as bool;
               });
-              widget.setValue(widget.value);
+              widget.setValue(widget.data);
             },
           ),
           Expanded(

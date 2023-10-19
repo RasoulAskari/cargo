@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Step2 extends StatefulWidget {
   final Function next;
   final Function prev;
+  
   const Step2({super.key, required this.next, required this.prev});
 
   @override
