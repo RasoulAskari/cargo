@@ -29,7 +29,7 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
             });
           },
         ),
-        Text('Check this box'),
+        Text(widget.value),
       ],
     );
   }
