@@ -1,6 +1,7 @@
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/presentation/widgets/form/check_box.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Step2 extends StatefulWidget {
@@ -39,44 +40,12 @@ class _Step2State extends State<Step2> {
                       2.8, // For two columns
                   child: ActionCheckBox(
                     value: data[0].toUpperCase() + data.substring(1),
-                    setValue: (value) {
-                      print(value);
-                    },
+                    setValue: (value) {},
                   ),
                 );
               }).toList())
             ]),
           );
-
-          // return Flex(
-          //     direction: Axis.vertical,
-          //     children: role
-          //         .map((e) => ActionCheckBox(value: e, setValue: () {}))
-          //         .toList());
-
-          // return SizedBox(
-          //     width: 5540,
-          //     height: 900,
-          //     child: Wrap(
-
-          //         children: role
-          //             .map((e) => ActionCheckBox(value: e, setValue: () {}))
-          //             .toList())
-          //     // GridView.builder(
-          //     //   itemCount: role.length,
-          //     //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //     //     crossAxisCount: 2, // Number of columns
-          //     //     crossAxisSpacing: 0, // Spacing between columns
-          //     //     mainAxisSpacing: 0, // Spacing between rows
-          //     //   ),
-          //     //   itemBuilder: (context, index) {
-          //     //     var data = role[index].toString().replaceAll("_", " ");
-          //     //     return ActionCheckBox(
-          //     //         value: data[0].toUpperCase() + data.substring(1),
-          //     //         setValue: (value) {});
-          //     //   },
-          //     // ),
-          //     );
         },
       ),
     );
