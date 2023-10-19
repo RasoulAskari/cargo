@@ -48,6 +48,10 @@ class UserCubit extends Cubit<UserState> {
   }
 
   void permissionChange(List<RoleModel> value) {
-    print(value);
+    final items = UserList.dirty(value);
+
+    emit(
+      state.copyWith(premissions: items),
+    );
   }
 }
