@@ -27,24 +27,28 @@ class _Step2State extends State<Step2> {
             }
           });
 
-          return Container(
-            width: 5540,
-            height: 900,
-            child: GridView.builder(
-              itemCount: role.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Number of columns
-                crossAxisSpacing: 8.0, // Spacing between columns
-                mainAxisSpacing: 8.0, // Spacing between rows
-              ),
-              itemBuilder: (context, index) {
-                var data = role[index].toString().replaceAll("_", " ");
-                return ActionCheckBox(
-                    value: data[0].toUpperCase() + data.substring(1),
-                    setValue: (value) {});
-              },
-            ),
-          );
+          return SizedBox(
+              width: 5540,
+              height: 900,
+              child: Wrap(
+                  children: role
+                      .map((e) => ActionCheckBox(value: e, setValue: () {}))
+                      .toList())
+              // GridView.builder(
+              //   itemCount: role.length,
+              //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              //     crossAxisCount: 2, // Number of columns
+              //     crossAxisSpacing: 0, // Spacing between columns
+              //     mainAxisSpacing: 0, // Spacing between rows
+              //   ),
+              //   itemBuilder: (context, index) {
+              //     var data = role[index].toString().replaceAll("_", " ");
+              //     return ActionCheckBox(
+              //         value: data[0].toUpperCase() + data.substring(1),
+              //         setValue: (value) {});
+              //   },
+              // ),
+              );
         },
       ),
     );
