@@ -62,6 +62,5 @@ class UserCubit extends Cubit<UserState> {
     emit(
       state.copyWith(privileges: items),
     );
-    print(state.privileges.value);
   }
 }
