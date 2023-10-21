@@ -15,10 +15,9 @@ class Step2 extends StatefulWidget {
 }
 
 class _Step2State extends State<Step2> {
-
-  
-
   @override
+  void addItem(Map<String, dynamic> item) {}
+
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
@@ -45,7 +44,7 @@ class _Step2State extends State<Step2> {
                     data: e,
                     value: data[0].toUpperCase() + data.substring(1),
                     setValue: (value) {
-                      
+                      addItem(value);
                     },
                   ),
                 );
