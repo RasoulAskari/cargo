@@ -15,7 +15,9 @@ part 'user_state.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
   final http.Client httpClient;
 
-  UserBloc(this.httpClient) : super(const UserState()) {}
+  UserBloc(this.httpClient) : super(const UserState()) {
+    on<AddUserEvent>(_onAddEmployees);
+  }
 
   Future<void> _onAddEmployees(
       AddUserEvent event, Emitter<UserState> emitter) async {
