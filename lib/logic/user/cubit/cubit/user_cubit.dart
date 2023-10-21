@@ -56,7 +56,7 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-  void privilegeChange(List<UserPrivileage> value) {
+  void privilegeChange(UserPrivileage value) {
     final items = Privilege.dirty(value);
 
     emit(

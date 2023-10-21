@@ -1,4 +1,5 @@
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
+import 'package:cargo/logic/user/model/user_privileges.dart';
 import 'package:cargo/presentation/widgets/form/check_box.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -27,8 +28,11 @@ class _Step2State extends State<Step2> {
       );
     }
 
-    context.read<>()
-
+    context.read<UserCubit>().privilegeChange(
+          UserPrivileage(
+            allowRole: dataItem.map((e) => e['data'].toString()).toList(),
+          ),
+        );
   }
 
   Widget build(BuildContext context) {
