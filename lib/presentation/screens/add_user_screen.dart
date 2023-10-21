@@ -1,6 +1,10 @@
+import 'package:cargo/logic/user/bloc/user_bloc.dart';
+import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
+import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:cargo/presentation/widgets/user_stepper/step2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../utils/stepper/c_stepper.dart';
 import '../widgets/user_stepper/step1.dart';
@@ -14,6 +18,20 @@ class AddUserScreen extends StatefulWidget {
 
 class _AddUserScreenState extends State<AddUserScreen> {
   late http.Client httpClient;
+
+  Future<void> _submit() async {
+    final state = context.read<UserCubit>().state;
+
+    MyUser user = MyUser(
+        name: state.name.value,
+        email: state.email.value,
+        role: state.role.value,
+        password: state.password.value,
+        confirmPassword: state.confirmPassword.value,
+        permissions:
+            state.premissions.value!.map((e) => e.toString()).toList());
+    context.read<UserBloc>().add(AddUserEvent(user: user));
+  }
 
   var step = 1;
   bool loading = false;
