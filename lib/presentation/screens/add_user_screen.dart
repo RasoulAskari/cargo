@@ -92,6 +92,8 @@ class _AddUserScreenState extends State<AddUserScreen> {
             next: () {
               next(steps);
             },
-            onSubmit: () async {}));
+            onSubmit: () async {
+              _submit();
+            }));
   }
 }
