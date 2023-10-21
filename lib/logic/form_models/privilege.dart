@@ -1,4 +1,3 @@
-import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/logic/user/model/user_privileges.dart';
 // ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
