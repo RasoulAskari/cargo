@@ -16,6 +16,8 @@ class Step2 extends StatefulWidget {
 
 class _Step2State extends State<Step2> {
   @override
+  List<Map<String, dynamic>> dateItem = [];
+
   void addItem(Map<String, dynamic> item) {}
 
   Widget build(BuildContext context) {
