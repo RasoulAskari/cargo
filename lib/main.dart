@@ -49,7 +49,10 @@ class MyApp extends StatelessWidget {
         )..add(FetchSalaryEvent()),
       ),
       BlocProvider<UserBloc>(
-          create: (context) => UserBloc(httpClient: http.Client())),
+        create: (context) => UserBloc(
+          httpClient: http.Client(),
+        ),
+      ),
       BlocProvider<ExchangeMoneyBloc>(
         create: (context) => ExchangeMoneyBloc(
           httpClient: http.Client(),
