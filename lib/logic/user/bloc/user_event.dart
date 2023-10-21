@@ -10,5 +10,5 @@ sealed class UserEvent extends Equatable {
 class AddUserEvent extends UserEvent {
   final MyUser user;
 
-  AddUserEvent({required this.user});
+  const AddUserEvent({required this.user});
 }
