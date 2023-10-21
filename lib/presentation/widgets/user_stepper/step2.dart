@@ -24,7 +24,9 @@ class _Step2State extends State<Step2> {
       dataItem.add(item);
     } else {
       dataItem.remove(
-        dataItem.firstWhere((element) => element['data'] == item['data']),
+        dataItem.firstWhere(
+          (element) => element['data'] == item['data'],
+        ),
       );
     }
 
