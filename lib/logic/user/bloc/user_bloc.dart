@@ -15,7 +15,7 @@ part 'user_state.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
   final http.Client httpClient;
 
-  UserBloc(this.httpClient) : super(const UserState()) {
+  UserBloc({required this.httpClient}) : super(const UserState()) {
     on<AddUserEvent>(_onAddEmployees);
   }
 

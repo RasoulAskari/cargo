@@ -8,6 +8,7 @@ import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
+import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -47,6 +48,8 @@ class MyApp extends StatelessWidget {
           httpClient: http.Client(),
         )..add(FetchSalaryEvent()),
       ),
+      BlocProvider<UserBloc>(
+          create: (context) => UserBloc(httpClient: http.Client())),
       BlocProvider<ExchangeMoneyBloc>(
         create: (context) => ExchangeMoneyBloc(
           httpClient: http.Client(),
