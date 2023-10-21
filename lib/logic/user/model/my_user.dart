@@ -51,4 +51,22 @@ class MyUser extends Equatable {
 
   factory MyUser.fromJson(String source) =>
       MyUser.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  MyUser copyWith({
+    String? name,
+    String? email,
+    String? role,
+    String? password,
+    String? confirmPassword,
+    List<String>? permissions,
+  }) {
+    return MyUser(
+      name: name ?? this.name,
+      email: email ?? this.email,
+      role: role ?? this.role,
+      password: password ?? this.password,
+      confirmPassword: confirmPassword ?? this.confirmPassword,
+      permissions: permissions ?? this.permissions,
+    );
+  }
 }
