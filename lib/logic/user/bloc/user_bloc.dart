@@ -21,6 +21,17 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       AddUserEvent event, Emitter<UserState> emitter) async {
     final token = await getAuthToken();
 
+    MyUser userData = event.user;
+
+    final data = {
+      'email': userData.email,
+      'password': userData.password,
+      'confirm_password': userData.confirmPassword,
+      'role': userData.role,
+      'permissions': userData.permissions,
+      'name': userData.name,
+    };
+
     try {
       await httpClient.post(
         headers: <String, String>{
@@ -28,12 +39,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         },
         getServerRoute(
           route: '/api/v1/employees',
-          // params: data,
+          params: data,
         ),
       );
-      // emitter(state.copyWith(
-      //   users: List.of(state.users)..insert(0, event.employee),
-      // ));
+      emitter(state.copyWith(
+        users: List.of(state.users)..insert(0, event.user),
+      ));
     } catch (e) {
       return;
     }
