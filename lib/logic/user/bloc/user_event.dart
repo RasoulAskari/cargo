@@ -7,4 +7,8 @@ sealed class UserEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AddUserEvent extends UserEvent {}
+class AddUserEvent extends UserEvent {
+  final MyUser user;
+
+  AddUserEvent({required this.user});
+}
