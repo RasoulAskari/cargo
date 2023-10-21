@@ -5,6 +5,7 @@ import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/form_models/privilege.dart';
 import 'package:cargo/logic/form_models/user_list.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
+import 'package:cargo/logic/user/model/user_privileges.dart';
 import 'package:equatable/equatable.dart';
 
 part 'user_state.dart';
@@ -52,6 +53,14 @@ class UserCubit extends Cubit<UserState> {
 
     emit(
       state.copyWith(premissions: items),
+    );
+  }
+
+  void privilegeChange(List<UserPrivileage> value) {
+    final items = Privilege.dirty(value);
+
+    emit(
+      state.copyWith(privileges: items),
     );
   }
 }
