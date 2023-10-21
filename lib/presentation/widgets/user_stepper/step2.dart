@@ -26,7 +26,9 @@ class _Step2State extends State<Step2> {
         dataItem.firstWhere((element) => element['data'] == item['data']),
       );
     }
-    print(dataItem);
+
+    context.read<>()
+
   }
 
   Widget build(BuildContext context) {

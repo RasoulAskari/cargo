@@ -8,15 +8,16 @@ class UserState extends Equatable {
   final CString confirmPassword;
   final CString role;
   final UserList premissions;
+  final Privilege privileges;
 
-  const UserState({
-    this.name = const FirstName.pure(),
-    this.email = const Email.pure(),
-    this.password = const CString.pure(),
-    this.confirmPassword = const CString.pure(),
-    this.role = const CString.pure(),
-    this.premissions = const UserList.pure(),
-  });
+  const UserState(
+      {this.name = const FirstName.pure(),
+      this.email = const Email.pure(),
+      this.password = const CString.pure(),
+      this.confirmPassword = const CString.pure(),
+      this.role = const CString.pure(),
+      this.premissions = const UserList.pure(),
+      this.privileges = const Privilege.pure()});
 
   @override
   List<Object> get props => [
@@ -26,6 +27,7 @@ class UserState extends Equatable {
         confirmPassword,
         role,
         premissions,
+        privileges,
       ];
 
   UserState copyWith({
@@ -35,15 +37,16 @@ class UserState extends Equatable {
     CString? confirmPassword,
     CString? role,
     UserList? premissions,
+    Privilege? privileges,
   }) {
     return UserState(
-      name: name ?? this.name,
-      email: email ?? this.email,
-      password: password ?? this.password,
-      confirmPassword: confirmPassword ?? this.confirmPassword,
-      role: role ?? this.role,
-      premissions: premissions ?? this.premissions,
-    );
+        name: name ?? this.name,
+        email: email ?? this.email,
+        password: password ?? this.password,
+        confirmPassword: confirmPassword ?? this.confirmPassword,
+        role: role ?? this.role,
+        premissions: premissions ?? this.premissions,
+        privileges: privileges ?? this.privileges);
   }
 }
 
