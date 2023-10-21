@@ -8,7 +8,7 @@ class MyUser extends Equatable {
   final String confirmPassword;
   final List<String> permissions;
 
-  MyUser({
+  const MyUser({
     required this.name,
     required this.email,
     required this.role,
