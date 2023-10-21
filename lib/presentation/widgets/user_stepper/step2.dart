@@ -16,9 +16,18 @@ class Step2 extends StatefulWidget {
 
 class _Step2State extends State<Step2> {
   @override
-  List<Map<String, dynamic>> dateItem = [];
+  List<Map<String, dynamic>> dataItem = [];
 
-  void addItem(Map<String, dynamic> item) {}
+  void addItem(Map<String, dynamic> item) {
+    if (item['check']) {
+      dataItem.add(item);
+    } else {
+      dataItem.remove(
+        dataItem.firstWhere((element) => element['data'] == item['data']),
+      );
+    }
+    print(dataItem);
+  }
 
   Widget build(BuildContext context) {
     return Padding(
