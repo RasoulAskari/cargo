@@ -45,7 +45,12 @@ class UserScreen extends StatelessWidget {
             return const CircularProgressIndicator();
           }
 
-          return Text(state.users.toString());
+          return ListView.builder(
+            itemCount: state.users.length,
+            itemBuilder: (context, index) {
+              return Text(state.users[index].name);
+            },
+          );
         },
       ),
     );
