@@ -23,16 +23,17 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     final token = await getAuthToken();
 
     MyUser userData = event.user;
-    // final per = userData.permissions;
 
     final data = {
       'email': userData.email,
       'password': userData.password,
       'confirm_password': userData.confirmPassword,
       'role': userData.role,
-      'permissions': userData.permissions,
+      'permissions': userData.permissions.toString(),
       'name': userData.name,
     };
+
+    print(data);
 
     try {
       await httpClient.post(

@@ -23,7 +23,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
     final state = context.read<UserCubit>().state;
 
     final data = state.privileges.value!.allowRole;
-    print(data);
 
     MyUser user = MyUser(
         name: state.name.value,
