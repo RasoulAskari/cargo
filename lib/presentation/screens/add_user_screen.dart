@@ -2,6 +2,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
+import 'package:cargo/logic/user/model/user_privileges.dart';
 import 'package:cargo/presentation/widgets/user_stepper/step2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -20,10 +21,21 @@ class AddUserScreen extends StatefulWidget {
 }
 
 class _AddUserScreenState extends State<AddUserScreen> {
-
   @override
   void initState() {
     super.initState();
+  }
+
+  _checkUser() {
+    if (widget.user != null) {
+      final user = widget.user;
+      context.read<UserCubit>().nameChange(user!.name);
+      context.read<UserCubit>().emailChange(user.email);
+      context.read<UserCubit>().roleChange(user.role);
+      context
+          .read<UserCubit>()
+          .privilegeChange(UserPrivileage(allowRole: user.permissions));
+    }
   }
 
   late http.Client httpClient;
