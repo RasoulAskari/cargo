@@ -113,25 +113,36 @@ class UserItem extends StatelessWidget {
           ),
           margin: const EdgeInsets.symmetric(horizontal: 10),
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(3),
-                    decoration: const BoxDecoration(
-                      color: Colors.black12,
-                      shape: BoxShape.circle,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: const BoxDecoration(
+                        color: Colors.black12,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.calendar_month_outlined),
                     ),
-                    child: const Icon(Icons.calendar_month_outlined),
-                  ),
-                  const SizedBox(width: 10),
-                  Text(user.role)
-                ],
-              ),
-              Row(children: user.permissions.map((e) => Text(e)).toList()),
-            ],
+                    const SizedBox(width: 10),
+                    Text(user.role)
+                  ],
+                ),
+                Row(
+                    children: user.permissions
+                        .map(
+                          (e) => Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            child: Text(e),
+                          ),
+                        )
+                        .toList()),
+              ],
+            ),
           ),
         )
       ],

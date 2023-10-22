@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
+import 'package:cargo/presentation/widgets/user_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -48,7 +49,7 @@ class UserScreen extends StatelessWidget {
           return ListView.builder(
             itemCount: state.users.length,
             itemBuilder: (context, index) {
-              return Text(state.users[index].name);
+              return UserItem(user: state.users[index]);
             },
           );
         },
