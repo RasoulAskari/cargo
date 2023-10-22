@@ -23,6 +23,7 @@ class AddUserScreen extends StatefulWidget {
 class _AddUserScreenState extends State<AddUserScreen> {
   @override
   void initState() {
+    _checkUser();
     super.initState();
   }
 
