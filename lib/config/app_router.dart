@@ -2,6 +2,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
+import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
 import 'package:cargo/presentation/screens/add_exchange_money_screen.dart';
 import 'package:cargo/presentation/screens/add_incoming_out_going_screen.dart';
@@ -79,6 +80,11 @@ class AppRouter {
           builder: (context) => const UserScreen(),
         );
       case addUserScreen:
+        MyUser? user;
+        settings.arguments != null
+            ? user = settings.arguments as MyUser?
+            : null;
+
         return MaterialPageRoute(
           builder: (context) => const AddUserScreen(),
         );
