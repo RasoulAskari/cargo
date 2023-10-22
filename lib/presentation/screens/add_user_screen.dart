@@ -36,7 +36,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
           AddUserEvent(user: user),
         );
 
-    Navigator.of(context).pushReplacementNamed(addUserScreen);
+    Navigator.of(context).pushReplacementNamed(userScreen);
   }
 
   var step = 1;
