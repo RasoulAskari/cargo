@@ -1,7 +1,7 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:flutter/material.dart';
-im
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
@@ -38,6 +38,15 @@ class UserScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+      ),
+      body: BlocBuilder<UserBloc, UserState>(
+        builder: (context, state) {
+          if (state.status == UserStatus.initial) {
+            return const CircularProgressIndicator();
+          }
+
+          return Text(state.users.toString());
+        },
       ),
     );
   }

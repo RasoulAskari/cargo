@@ -14,8 +14,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final http.Client httpClient;
 
   UserBloc({required this.httpClient}) : super(const UserState()) {
+    on<FetchUserEvent>(_on_fetch_user);
     on<AddUserEvent>(_onAddEmployees);
-    on<AddUserEvent>(_onAddUser);
   }
 
   Future<void> _onAddEmployees(
@@ -50,8 +50,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     }
   }
 
-  Future<void> _onAddUser(
-      AddUserEvent event, Emitter<UserState> emitter) async {
+  // ignore: non_constant_identifier_names
+  Future<void> _on_fetch_user(
+      FetchUserEvent event, Emitter<UserState> emitter) async {
     if (state.hasReachedMax) return;
 
     try {
@@ -83,14 +84,17 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           'Authorization': 'Bearer $token',
         },
       );
+
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
+        print(body);
         return body.map((e) {
           return MyUser.fromMap(e);
         }).toList();
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
