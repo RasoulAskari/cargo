@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
@@ -31,14 +33,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     };
 
     try {
-      await httpClient.post(
+      await http.post(
+        Uri.parse('http://localhost:8000/api/v1/users'),
         headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
         },
-        getServerRoute(
-          route: '/api/v1/users',
-          params: data,
-        ),
+        body: jsonEncode(data),
       );
       emitter(state.copyWith(
         users: List.of(state.users)..insert(0, event.user),
