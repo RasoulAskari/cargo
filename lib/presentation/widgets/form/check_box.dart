@@ -1,7 +1,5 @@
-import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
-import 'package:flutter_bloc/flutter_blo\c.dart';
 
 class ActionCheckBox extends StatefulWidget {
   final String value;
