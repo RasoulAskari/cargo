@@ -12,7 +12,8 @@ import '../../utils/stepper/c_stepper.dart';
 import '../widgets/user_stepper/step1.dart';
 
 class AddUserScreen extends StatefulWidget {
-  const AddUserScreen({super.key});
+  final MyUser? user;
+  const AddUserScreen({super.key, this.user});
 
   @override
   State<AddUserScreen> createState() => _AddUserScreenState();
