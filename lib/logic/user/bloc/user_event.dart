@@ -12,3 +12,5 @@ class AddUserEvent extends UserEvent {
 
   const AddUserEvent({required this.user});
 }
+
+class FetchUserEvent extends UserEvent {}
