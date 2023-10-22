@@ -1,4 +1,7 @@
+import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_bloc/flutter_blo\c.dart';
 
 class ActionCheckBox extends StatefulWidget {
   final String value;
@@ -18,10 +21,9 @@ class ActionCheckBox extends StatefulWidget {
 }
 
 class _ActionCheckBoxState extends State<ActionCheckBox> {
-
-
   bool isChecked = false;
 
+  @override
   @override
   Widget build(BuildContext context) {
     return Container(
