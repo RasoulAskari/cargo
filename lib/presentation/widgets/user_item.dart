@@ -1,5 +1,7 @@
+import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserItem extends StatelessWidget {
   final MyUser user;
@@ -83,7 +85,7 @@ class UserItem extends StatelessWidget {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      // onDelete();
+                      onDelete(context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -140,42 +142,40 @@ class UserItem extends StatelessWidget {
     );
   }
 
-  // onDelete() async {
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(20),
-  //         ),
-  //         content: const Text(
-  //           "Are You Sure You Want to Delete This?",
-  //           style: TextStyle(fontSize: 18),
-  //         ),
-  //         actions: [
-  //           TextButton(
-  //             child: const Text("Cancel"),
-  //             onPressed: () {
-  //               Navigator.of(context).pop();
-  //             },
-  //           ),
-  //           ElevatedButton(
-  //             style: ButtonStyle(
-  //               backgroundColor:
-  //                   MaterialStatePropertyAll(Theme.of(context).primaryColor),
-  //               foregroundColor: const MaterialStatePropertyAll(Colors.white),
-  //             ),
-  //             onPressed: () {
-  //               context
-  //                   .read<EmployeeBloc>()
-  //                   .add(DeleteEmployeeEvent(id: widget.employee.id));
-  //               Navigator.of(context).pop();
-  //             },
-  //             child: const Text("Delete"),
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
+  onDelete(context) async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: const Text(
+            "Are You Sure You Want to Delete This?",
+            style: TextStyle(fontSize: 18),
+          ),
+          actions: [
+            TextButton(
+              child: const Text("Cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(Theme.of(context).primaryColor),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+              ),
+              onPressed: () {
+                context.read<UserBloc>().add(DeleteUserEvent(id: user.id));
+                Navigator.of(context).pop();
+              },
+              child: const Text("Delete"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
