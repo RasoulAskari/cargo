@@ -86,7 +86,7 @@ class AppRouter {
             : null;
 
         return MaterialPageRoute(
-          builder: (context) => const AddUserScreen(),
+          builder: (context) => AddUserScreen(user: user ),
         );
       case addExchangeMoneyScreen:
         ExchnageMoneyModel? exchange;
