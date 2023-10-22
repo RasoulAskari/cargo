@@ -47,7 +47,7 @@ class MyUser extends Equatable {
 
   factory MyUser.fromMap(Map<String, dynamic> map) {
     return MyUser(
-      id: map['name'] as int,
+      id: map['id'] as int,
       name: map['name'] as String,
       email: map['email'] as String,
       role: map['role'] as String,
