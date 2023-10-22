@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
+import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:http/http.dart' as http;
@@ -20,20 +23,19 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     final token = await getAuthToken();
 
     MyUser userData = event.user;
+    // final per = userData.permissions;
 
     final data = {
       'email': userData.email,
       'password': userData.password,
       'confirm_password': userData.confirmPassword,
       'role': userData.role,
-      'permissions': userData.permissions.map((e) =>),
+      'permissions': [],
       'name': userData.name,
     };
 
-  
-
     try {
-      // final res = await httpClient.post(
+      // await httpClient.post(
       //   headers: <String, String>{
       //     'Authorization': 'Bearer $token',
       //   },
@@ -45,9 +47,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       // emitter(state.copyWith(
       //   users: List.of(state.users)..insert(0, event.user),
       // ));
-      // print(res);
     } catch (e) {
-      print(e);
       return;
     }
   }

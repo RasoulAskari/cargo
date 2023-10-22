@@ -22,18 +22,16 @@ class _AddUserScreenState extends State<AddUserScreen> {
   Future<void> _submit() async {
     final state = context.read<UserCubit>().state;
 
+    final data = state.privileges.value!.allowRole;
+    print(data);
+
     MyUser user = MyUser(
-      name: state.name.value,
-      email: state.email.value,
-      role: state.role.value,
-      password: state.password.value,
-      confirmPassword: state.confirmPassword.value,
-      permissions: state.premissions.value!
-          .map(
-            (e) => e.toString(),
-          )
-          .toList(),
-    );
+        name: state.name.value,
+        email: state.email.value,
+        role: state.role.value,
+        password: state.password.value,
+        confirmPassword: state.confirmPassword.value,
+        permissions: []);
     context.read<UserBloc>().add(
           AddUserEvent(user: user),
         );
