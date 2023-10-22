@@ -29,7 +29,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'password': userData.password,
       'confirm_password': userData.confirmPassword,
       'role': userData.role,
-      'permissions': userData.permissions.toString(),
+      'permissions': userData.permissions.map((e) => e.toString()).toList(),
       'name': userData.name,
     };
 
@@ -88,6 +88,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
         print(body);
+
         return body.map((e) {
           return MyUser.fromMap(e);
         }).toList();

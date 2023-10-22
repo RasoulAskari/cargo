@@ -46,10 +46,10 @@ class MyUser extends Equatable {
       name: map['name'] as String,
       email: map['email'] as String,
       role: map['role'] as String,
-      password: map['password'] as String,
-      confirmPassword: map['confirmPassword'] as String,
+      password: "",
+      confirmPassword: "",
       permissions: List<String>.from(
-        (map['permissions'] as List<String>),
+        (map['permissions'] as List<dynamic>),
       ),
     );
   }
