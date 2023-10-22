@@ -15,7 +15,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   UserBloc({required this.httpClient}) : super(const UserState()) {
     on<AddUserEvent>(_onAddEmployees);
-    // on<AddUserEvent>(_onAddUser);
+    on<AddUserEvent>(_onAddUser);
   }
 
   Future<void> _onAddEmployees(
