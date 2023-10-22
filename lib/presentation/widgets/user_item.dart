@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:flutter/material.dart';
@@ -69,8 +70,8 @@ class UserItem extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Navigator.of(context)
-                      //     .pushNamed(addEmployee, arguments: widget.employee);
+                      Navigator.of(context)
+                          .pushNamed(addUserScreen, arguments: user);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
