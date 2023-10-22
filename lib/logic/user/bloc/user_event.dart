@@ -12,5 +12,10 @@ class AddUserEvent extends UserEvent {
 
   const AddUserEvent({required this.user});
 }
+class DeleteUserEvent extends UserEvent {
+  final int id;
+
+  const DeleteUserEvent({required this.id});
+}
 
 class FetchUserEvent extends UserEvent {}
