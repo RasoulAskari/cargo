@@ -20,6 +20,12 @@ class AddUserScreen extends StatefulWidget {
 }
 
 class _AddUserScreenState extends State<AddUserScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   late http.Client httpClient;
 
   Future<void> _submit() async {
