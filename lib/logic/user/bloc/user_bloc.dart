@@ -48,4 +48,28 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       return;
     }
   }
+
+  Future<List<MyUser>> _fetch_users({int? page}) async {
+    final token = await getAuthToken();
+
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/users',
+        ),
+        headers: <String, String>{
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body)["data"] as List;
+        return body.map((e) {
+          return MyUser.fromMap(e);
+        }).toList();
+      }
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
 }
