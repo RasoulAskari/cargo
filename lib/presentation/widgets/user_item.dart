@@ -145,7 +145,9 @@ class UserItem extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 5),
                     child: Text(
                       data[0].toUpperCase() + data.substring(1),
-                        
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   );
                 }).toList()),
