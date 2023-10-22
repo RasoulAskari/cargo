@@ -26,6 +26,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
     final data = state.privileges.value!.allowRole;
 
     MyUser user = MyUser(
+        id: 0,
         name: state.name.value,
         email: state.email.value,
         role: state.role.value,
