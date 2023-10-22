@@ -51,14 +51,14 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   }
 
   _checkExchange() {
-    String p = widget.exchange!.phoneNumber.substring(0, 3);
-    String s = widget.exchange!.phoneNumber.substring(0, 2);
-
-    String? pho = s == "+1"
-        ? PhoneNumber.getISO2CodeByPrefix(s)
-        : PhoneNumber.getISO2CodeByPrefix(p);
-
     if (widget.exchange != null) {
+      String p = widget.exchange!.phoneNumber.substring(0, 3);
+      String s = widget.exchange!.phoneNumber.substring(0, 2);
+
+      String? pho = s == "+1"
+          ? PhoneNumber.getISO2CodeByPrefix(s)
+          : PhoneNumber.getISO2CodeByPrefix(p);
+
       final exchange = widget.exchange;
       context.read<ExchangeMoneyCubit>().dateChange(exchange!.date.toString());
       context.read<ExchangeMoneyCubit>().amountChange(exchange.amount);
