@@ -106,7 +106,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     var res = await httpClient.delete(
       getServerRoute(
-        route: '/api/v1/income-outgoing/${event.id}',
+        route: '/api/v1/users/${event.id}',
       ),
       headers: <String, String>{
         'Authorization': 'Bearer $token',
