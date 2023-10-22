@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class MyUser extends Equatable {
+  final int id;
   final String name;
   final String email;
   final String role;
@@ -12,6 +13,7 @@ class MyUser extends Equatable {
   final List<String> permissions;
 
   const MyUser({
+    required this.id,
     required this.name,
     required this.email,
     required this.role,
@@ -22,6 +24,7 @@ class MyUser extends Equatable {
 
   @override
   List<Object?> get props => [
+        id,
         name,
         email,
         password,
@@ -32,6 +35,7 @@ class MyUser extends Equatable {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'name': name,
       'email': email,
       'role': role,
@@ -43,6 +47,7 @@ class MyUser extends Equatable {
 
   factory MyUser.fromMap(Map<String, dynamic> map) {
     return MyUser(
+      id: map['name'] as int,
       name: map['name'] as String,
       email: map['email'] as String,
       role: map['role'] as String,
@@ -61,6 +66,7 @@ class MyUser extends Equatable {
 
   MyUser copyWith({
     String? name,
+    int? id,
     String? email,
     String? role,
     String? password,
@@ -68,6 +74,7 @@ class MyUser extends Equatable {
     List<String>? permissions,
   }) {
     return MyUser(
+      id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
       role: role ?? this.role,
