@@ -113,7 +113,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         'Authorization': 'Bearer $token',
       },
     );
-    if (res.body == "true") {
+    print(res.body);
+    // ignore: unrelated_type_equality_checks
+    if (res.body == "1") {
       emitter(
         state.copyWith(
           users:
