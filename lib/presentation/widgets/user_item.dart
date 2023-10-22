@@ -116,43 +116,24 @@ class UserItem extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(3),
-                      decoration: const BoxDecoration(
-                        color: Colors.black12,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.calendar_month_outlined),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(user.role)
-                  ],
-                ),
-                Row(
-                    children: user.permissions.map((e) {
-                  var data = e.toString().replaceAll("_", " ");
+                children: user.permissions.map((e) {
+              var data = e.toString().replaceAll("_", " ");
 
-                  return Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                        color: const Color(0x55ff711b),
-                        borderRadius: BorderRadius.circular(10)),
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Text(
-                      data[0].toUpperCase() + data.substring(1),
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                  );
-                }).toList()),
-              ],
-            ),
+              return Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                decoration: BoxDecoration(
+                    color: const Color(0x55ff711b),
+                    borderRadius: BorderRadius.circular(10)),
+                margin: const EdgeInsets.symmetric(horizontal: 5),
+                child: Text(
+                  data[0].toUpperCase() + data.substring(1),
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              );
+            }).toList()),
           ),
         )
       ],
