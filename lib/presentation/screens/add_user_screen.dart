@@ -5,6 +5,7 @@ import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:cargo/presentation/widgets/user_stepper/step2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../utils/stepper/c_stepper.dart';
