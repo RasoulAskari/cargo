@@ -133,14 +133,22 @@ class UserItem extends StatelessWidget {
                   ],
                 ),
                 Row(
-                    children: user.permissions
-                        .map(
-                          (e) => Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Text(e),
-                          ),
-                        )
-                        .toList()),
+                    children: user.permissions.map((e) {
+                  var data = e.toString().replaceAll("_", " ");
+
+                  return Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                        color: const Color(0x55ff711b),
+                        borderRadius: BorderRadius.circular(10)),
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Text(
+                      data[0].toUpperCase() + data.substring(1),
+                        
+                    ),
+                  );
+                }).toList()),
               ],
             ),
           ),
