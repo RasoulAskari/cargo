@@ -5,12 +5,14 @@ class ActionCheckBox extends StatefulWidget {
   final String value;
   final String data;
   final Function setValue;
+  final List<String>? updateData;
 
   const ActionCheckBox({
     super.key,
     required this.value,
     required this.setValue,
     required this.data,
+    this.updateData,
   });
 
   @override
