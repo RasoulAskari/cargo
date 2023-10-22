@@ -99,4 +99,26 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       return [];
     }
   }
+
+  Future<void> _onDeleteUserEvent(
+      DeleteUserEvent event, Emitter<UserState> emitter) async {
+    final token = await getAuthToken();
+
+    var res = await httpClient.delete(
+      getServerRoute(
+        route: '/api/v1/income-outgoing/${event.id}',
+      ),
+      headers: <String, String>{
+        'Authorization': 'Bearer $token',
+      },
+    );
+    if (res.body == "true") {
+      emitter(
+        state.copyWith(
+          users:
+              state.users.where((element) => element.id != event.id).toList(),
+        ),
+      );
+    }
+  }
 }
