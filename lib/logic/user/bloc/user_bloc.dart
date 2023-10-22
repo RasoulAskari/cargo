@@ -26,24 +26,28 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'password': userData.password,
       'confirm_password': userData.confirmPassword,
       'role': userData.role,
-      'permissions': userData.permissions,
+      'permissions': userData.permissions.map((e) =>),
       'name': userData.name,
     };
 
+  
+
     try {
-      await httpClient.post(
-        headers: <String, String>{
-          'Authorization': 'Bearer $token',
-        },
-        getServerRoute(
-          route: '/api/v1/employees',
-          params: data,
-        ),
-      );
-      emitter(state.copyWith(
-        users: List.of(state.users)..insert(0, event.user),
-      ));
+      // final res = await httpClient.post(
+      //   headers: <String, String>{
+      //     'Authorization': 'Bearer $token',
+      //   },
+      //   getServerRoute(
+      //     route: '/api/v1/users',
+      //     params: data,
+      //   ),
+      // );
+      // emitter(state.copyWith(
+      //   users: List.of(state.users)..insert(0, event.user),
+      // ));
+      // print(res);
     } catch (e) {
+      print(e);
       return;
     }
   }
