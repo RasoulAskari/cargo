@@ -31,7 +31,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
         role: state.role.value,
         password: state.password.value,
         confirmPassword: state.confirmPassword.value,
-        permissions: []);
+        permissions: data);
     context.read<UserBloc>().add(
           AddUserEvent(user: user),
         );

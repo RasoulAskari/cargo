@@ -30,7 +30,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'password': userData.password,
       'confirm_password': userData.confirmPassword,
       'role': userData.role,
-      'permissions': [],
+      'permissions': userData.,
       'name': userData.name,
     };
 
