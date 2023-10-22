@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       BlocProvider<OrderCubit>(
         create: (context) => OrderCubit(),
       ),
-      BlocProvider<OrderItemCubit>( 
+      BlocProvider<OrderItemCubit>(
         create: (context) => OrderItemCubit(),
       ),
       BlocProvider<ExchangeMoneyCubit>(
