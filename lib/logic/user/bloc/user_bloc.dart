@@ -15,6 +15,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   UserBloc({required this.httpClient}) : super(const UserState()) {
     on<AddUserEvent>(_onAddEmployees);
+    // on<AddUserEvent>(_onAddUser);
   }
 
   Future<void> _onAddEmployees(
@@ -49,6 +50,27 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     }
   }
 
+  Future<void> _onAddUser(
+      AddUserEvent event, Emitter<UserState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    try {
+      if (state.status == UserStatus.initial) {
+        final incomingOutGoing = await _fetch_users(page: state.page);
+        return emitter(
+          state.copyWith(
+            status: UserStatus.success,
+            users: incomingOutGoing,
+            hasReachedMax: incomingOutGoing.length < _postLimit,
+          ),
+        );
+      }
+    } catch (e) {
+      return;
+    }
+  }
+
+  // ignore: non_constant_identifier_names
   Future<List<MyUser>> _fetch_users({int? page}) async {
     final token = await getAuthToken();
 

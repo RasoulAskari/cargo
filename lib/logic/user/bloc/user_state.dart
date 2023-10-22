@@ -1,22 +1,24 @@
 part of 'user_bloc.dart';
 
-enum EmployeeStatus { initial, success, failure }
+enum UserStatus { initial, success, failure }
+
+const _postLimit = 10;
 
 class UserState extends Equatable {
   const UserState({
-    this.status = EmployeeStatus.initial,
+    this.status = UserStatus.initial,
     this.users = const <MyUser>[],
     this.hasReachedMax = false,
     this.page = 0,
   });
 
-  final EmployeeStatus status;
+  final UserStatus status;
   final List<MyUser> users;
   final int page;
   final bool hasReachedMax;
 
   UserState copyWith({
-    EmployeeStatus? status,
+    UserStatus? status,
     List<MyUser>? users,
     bool? hasReachedMax,
     int? page,
