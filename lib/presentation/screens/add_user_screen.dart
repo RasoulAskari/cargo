@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
@@ -34,6 +35,8 @@ class _AddUserScreenState extends State<AddUserScreen> {
     context.read<UserBloc>().add(
           AddUserEvent(user: user),
         );
+
+    Navigator.of(context).pushReplacementNamed(addUserScreen);
   }
 
   var step = 1;
