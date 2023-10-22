@@ -56,7 +56,7 @@ class UserItem extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              "${user.email}",
+              user.email,
               style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 12,
