@@ -88,7 +88,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
 
         return body.map((e) {
           return MyUser.fromMap(e);
@@ -96,7 +95,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       }
       return [];
     } catch (e) {
-      print(e);
       return [];
     }
   }
@@ -113,7 +111,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         'Authorization': 'Bearer $token',
       },
     );
-    print(res.body);
     // ignore: unrelated_type_equality_checks
     if (res.body == "1") {
       emitter(
