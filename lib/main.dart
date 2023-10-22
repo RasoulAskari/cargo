@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
       BlocProvider<UserBloc>(
         create: (context) => UserBloc(
           httpClient: http.Client(),
-        ),
+        )..add(FetchUserEvent()),
       ),
       BlocProvider<ExchangeMoneyBloc>(
         create: (context) => ExchangeMoneyBloc(
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       BlocProvider<OrderCubit>(
         create: (context) => OrderCubit(),
       ),
-      BlocProvider<OrderItemCubit>(
+      BlocProvider<OrderItemCubit>( 
         create: (context) => OrderItemCubit(),
       ),
       BlocProvider<ExchangeMoneyCubit>(
