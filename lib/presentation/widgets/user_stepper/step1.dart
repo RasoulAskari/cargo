@@ -8,17 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Step1 extends StatefulWidget {
+class Step1 extends StatelessWidget {
   final Function next;
   final Function prev;
 
   Step1({super.key, required this.next, required this.prev});
-
-  @override
-  State<Step1> createState() => _Step1State();
-}
-
-class _Step1State extends State<Step1> {
   List<RoleModel> systemList = [
     const RoleModel(
       systemId: "users",
@@ -104,33 +98,32 @@ class _Step1State extends State<Step1> {
   ];
 
   @override
-  void initState() { 
-    
-    super.initState();
-    
-  }
+  Widget build(BuildContext context) {
+    _changeRole(String value) {
+      List<RoleModel> data = [];
 
-  _changeRole(context, String value) {
-    List<RoleModel> data = [];
-
-    for (var element1 in systemList) {
-      for (var element2 in element1.allowRole) {
-        if (element2 == value) {
-          data.add(RoleModel(
-              systemId: element1.systemId,
-              systemName: element1.systemName,
-              action: element1.action,
-              allowRole: element1.allowRole));
+      for (var element1 in systemList) {
+        for (var element2 in element1.allowRole) {
+          if (element2 == value) {
+            data.add(RoleModel(
+                systemId: element1.systemId,
+                systemName: element1.systemName,
+                action: element1.action,
+                allowRole: element1.allowRole));
+          }
         }
       }
+
+      context.read<UserCubit>().permissionChange(data);
+      context.read<UserCubit>().roleChange(value);
     }
 
-    context.read<UserCubit>().permissionChange(data);
-    context.read<UserCubit>().roleChange(value);
-  }
+    final user = context.read<UserCubit>().state.role.value;
 
-  @override
-  Widget build(BuildContext context) {
+    if (user.length > 0) {
+      _changeRole(user);
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       child: Column(
@@ -187,7 +180,7 @@ class _Step1State extends State<Step1> {
                 value: state.role.value,
                 hintText: "Role",
                 setValue: (value) {
-                  _changeRole(context, value);
+                  _changeRole(value);
                 },
                 items: const [
                   {
