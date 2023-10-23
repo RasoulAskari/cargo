@@ -1,5 +1,4 @@
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
-import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
