@@ -17,6 +17,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<FetchUserEvent>(_on_fetch_user);
     on<AddUserEvent>(_onAddEmployees);
     on<DeleteUserEvent>(_onDeleteUserEvent);
+    on<UpdateUserEvent>(_onEditUserEvent);
   }
 
   Future<void> _onEditUserEvent(
