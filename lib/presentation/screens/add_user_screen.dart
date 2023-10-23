@@ -54,9 +54,14 @@ class _AddUserScreenState extends State<AddUserScreen> {
         password: state.password.value,
         confirmPassword: state.confirmPassword.value,
         permissions: data);
-    context.read<UserBloc>().add(
-          AddUserEvent(user: user),
-        );
+
+    widget.user == null
+        ? context.read<UserBloc>().add(
+              AddUserEvent(user: user),
+            )
+        : context.read<UserBloc>().add(
+              UpdateUserEvent(user: user),
+            );
 
     Navigator.of(context).pushReplacementNamed(userScreen);
   }
