@@ -27,8 +27,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     try {
       final data = {
         'email': userData.email,
-        'password': userData.password,
-        'confirm_password': userData.confirmPassword,
         'role': userData.role,
         'permissions': userData.permissions.map((e) => e.toString()).toList(),
         'name': userData.name,
