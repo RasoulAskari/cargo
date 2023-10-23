@@ -19,6 +19,34 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<DeleteUserEvent>(_onDeleteUserEvent);
   }
 
+  Future<void> _onEditUser(
+      UpdateUserEvent event, Emitter<UserState> emitter) async {
+    MyUser userData = event.user;
+    final token = await getAuthToken();
+
+    try {
+      final data = {
+        'email': userData.email,
+        'password': userData.password,
+        'confirm_password': userData.confirmPassword,
+        'role': userData.role,
+        'permissions': userData.permissions.map((e) => e.toString()).toList(),
+        'name': userData.name,
+      };
+
+      await http.put(
+        Uri.parse('http://localhost:8000/api/v1/exhange-money'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode(data),
+      );
+    } catch (e) {
+      return;
+    }
+  }
+
   Future<void> _onAddEmployees(
       AddUserEvent event, Emitter<UserState> emitter) async {
     final token = await getAuthToken();
