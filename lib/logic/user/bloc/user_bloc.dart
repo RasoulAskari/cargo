@@ -33,7 +33,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       };
 
       await http.put(
-        Uri.parse('http://localhost:8000/api/v1/users'),
+        Uri.parse('http://localhost:8000/api/v1/users/${event.user.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
