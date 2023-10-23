@@ -26,6 +26,15 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
   @override
   @override
   Widget build(BuildContext context) {
+    if (widget.updateData!.isNotEmpty) {
+      final da = widget.updateData!.contains(widget.value);
+      print(da);
+
+      // var data = widget.updateData!.firstWhere(
+      //   (element) => element == widget.value,
+      // );
+      // print(data);
+    }
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Row(

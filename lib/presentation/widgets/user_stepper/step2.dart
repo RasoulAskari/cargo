@@ -36,14 +36,6 @@ class _Step2State extends State<Step2> {
         );
   }
 
-  void initState() {
-    var data = context.read<UserCubit>().state.privileges;
-    final da = data.value?.allowRole;
-    final newData = da?.firstWhere((element) => element == "");
-    if (newData != null) {}
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
