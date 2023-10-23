@@ -99,6 +99,7 @@ class Step1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
       List<RoleModel> data = [];
 
@@ -120,6 +121,7 @@ class Step1 extends StatelessWidget {
 
     final user = context.read<UserCubit>().state.role.value;
 
+    // ignore: prefer_is_empty
     if (user.length > 0) {
       _changeRole(user);
     }
