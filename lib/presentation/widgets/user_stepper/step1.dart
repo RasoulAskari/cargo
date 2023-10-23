@@ -97,6 +97,8 @@ class Step1 extends StatelessWidget {
     )
   ];
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -155,22 +157,6 @@ class Step1 extends StatelessWidget {
                 value: state.role.value,
                 hintText: "Role",
                 setValue: (value) {
-                  List<RoleModel> data = [];
-
-                  for (var element1 in systemList) {
-                    for (var element2 in element1.allowRole) {
-                      if (element2 == value) {
-                        data.add(RoleModel(
-                            systemId: element1.systemId,
-                            systemName: element1.systemName,
-                            action: element1.action,
-                            allowRole: element1.allowRole));
-                      }
-                    }
-                  }
-
-                  context.read<UserCubit>().permissionChange(data);
-                  context.read<UserCubit>().roleChange(value);
                 },
                 items: const [
                   {
