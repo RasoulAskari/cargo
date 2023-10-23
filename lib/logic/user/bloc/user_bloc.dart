@@ -19,8 +19,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<DeleteUserEvent>(_onDeleteUserEvent);
   }
 
-    Future<void> _onEditUserEvent(UpdateUserEvent event,
-      Emitter<UserState> emitter) async {
+  Future<void> _onEditUserEvent(
+      UpdateUserEvent event, Emitter<UserState> emitter) async {
     MyUser userData = event.user;
     final token = await getAuthToken();
 
@@ -33,7 +33,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       };
 
       await http.put(
-        Uri.parse('http://localhost:8000/api/v1/exhange-money'),
+        Uri.parse('http://localhost:8000/api/v1/users'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -44,7 +44,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       return;
     }
   }
-
 
   Future<void> _onEditUser(
       UpdateUserEvent event, Emitter<UserState> emitter) async {
