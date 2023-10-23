@@ -8,11 +8,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Step1 extends StatelessWidget {
+class Step1 extends StatefulWidget {
   final Function next;
   final Function prev;
 
   Step1({super.key, required this.next, required this.prev});
+
+  @override
+  State<Step1> createState() => _Step1State();
+}
+
+class _Step1State extends State<Step1> {
   List<RoleModel> systemList = [
     const RoleModel(
       systemId: "users",
@@ -97,6 +103,13 @@ class Step1 extends StatelessWidget {
     )
   ];
 
+  @override
+  void initState() { 
+    
+    super.initState();
+    
+  }
+
   _changeRole(context, String value) {
     List<RoleModel> data = [];
 
@@ -173,7 +186,9 @@ class Step1 extends StatelessWidget {
               return CDropdown(
                 value: state.role.value,
                 hintText: "Role",
-                setValue: (value) {},
+                setValue: (value) {
+                  _changeRole(context, value);
+                },
                 items: const [
                   {
                     'value': 'admin',
