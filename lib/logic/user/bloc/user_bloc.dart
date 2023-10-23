@@ -27,25 +27,27 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     try {
       final data = {
+        "id": userData.id,
         'email': userData.email,
         'role': userData.role,
         'permissions': userData.permissions.map((e) => e.toString()).toList(),
         'name': userData.name,
       };
 
-      await http.put(
-        Uri.parse('http://localhost:8000/api/v1/users/${event.user.id}'),
+      final res = await http.put(
+        Uri.parse('http://localhost:8000/api/v1/users'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
         },
         body: jsonEncode(data),
       );
+      print(res.body);
     } catch (e) {
+      print(e);
       return;
     }
   }
-
 
   Future<void> _onAddEmployees(
       AddUserEvent event, Emitter<UserState> emitter) async {
