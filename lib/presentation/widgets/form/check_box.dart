@@ -27,8 +27,12 @@ class _ActionCheckBoxState extends State<ActionCheckBox> {
   @override
   Widget build(BuildContext context) {
     if (widget.updateData!.isNotEmpty) {
-      final da = widget.updateData!.contains(widget.value);
-      print(da);
+      final da = widget.updateData!.contains(widget.data);
+      if (da) {
+        setState(() {
+          isChecked = true;
+        });
+      }
 
       // var data = widget.updateData!.firstWhere(
       //   (element) => element == widget.value,

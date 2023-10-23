@@ -60,12 +60,15 @@ class _Step2State extends State<Step2> {
                 return SizedBox(
                   width: MediaQuery.of(context).size.width / 2.8,
                   child: ActionCheckBox(
-                    updateData: context
-                        .read<UserCubit>()
-                        .state
-                        .privileges
-                        .value!
-                        .allowRole,
+                    updateData:
+                        context.read<UserCubit>().state.privileges.value == null
+                            ? []
+                            : context
+                                .read<UserCubit>()
+                                .state
+                                .privileges
+                                .value!
+                                .allowRole,
                     data: e,
                     value: data[0].toUpperCase() + data.substring(1),
                     setValue: (value) {
