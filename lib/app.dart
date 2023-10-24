@@ -31,3 +31,4 @@ class _CargoAppState extends State<CargoApp> {
     );
   }
 }
+
