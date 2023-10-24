@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final List<dynamic> data = [
       {
-        'name': AppLocalizations.of(context)!.helloWorld,
+        'name': AppLocalizations.of(context)!.user,
         'image': "",
         'function': () {
           Navigator.of(context).pushNamed(userScreen);
