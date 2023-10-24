@@ -2,5 +2,6 @@
   "user": "User",  
   "employee": "Employee",  
   "incoming_outgoing": "ّIncoming Outgoing",  
-  "order": "Order"  
+  "order": "Order",  
+  "salary": "Salary"  
 }
