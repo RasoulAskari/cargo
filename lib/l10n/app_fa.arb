@@ -1,5 +1,6 @@
 {
     "user": "کاربر",
     "employee": "کارمند",
-    "incoming_outgoing": "رفت و آمد"
+    "incoming_outgoing": "رفت و آمد",
+    "order": "سفارش"
 }
