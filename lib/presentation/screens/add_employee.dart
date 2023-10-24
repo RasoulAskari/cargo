@@ -158,7 +158,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                   });
                 },
                 hintText: AppLocalizations.of(context)?.firstname,
-                errorText: fristname.isNotValid ? "error" : null,
+                // errorText: fristname.isNotValid ? "error" : null,
               ),
               const SizedBox(height: 15),
               CTextField(
@@ -169,7 +169,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                   });
                 },
                 hintText: AppLocalizations.of(context)?.lastname,
-                errorText: lastname.isNotValid ? "error" : null,
+                // errorText: lastname.isNotValid ? "error" : null,
               ),
               const SizedBox(height: 15),
               CTextField(
@@ -180,11 +180,11 @@ class _AddEmployeeState extends State<AddEmployee> {
                   });
                 },
                 hintText: AppLocalizations.of(context)?.email,
-                errorText: email.isNotValid ? "error" : null,
+                // errorText: email.isNotValid ? "error" : null,
               ),
               const SizedBox(height: 15),
               CPhoneField(
-                hintText: AppLocalizations.of(context)!.phone_number,
+                hintText: AppLocalizations.of(context)!.phone_num,
                 setValue: (PhoneNumber phone) {
                   setState(() {
                     phoneNo = PhoneNo.dirty(phone);
