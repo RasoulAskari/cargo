@@ -7,5 +7,6 @@
     "exchange_money": "حواله",
     "setting": "تنظمات",
     "logout": "خروج",
-    "employee_screen": "صفحه کامندان"
+    "employee_screen": "صفحه کامندان",
+    "add_employee_screen": "صفحه اضافه نمودن کامندان"
 }
