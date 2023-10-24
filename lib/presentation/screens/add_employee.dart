@@ -210,7 +210,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               ),
               const SizedBox(height: 15),
               CTextField(
-                hintText: "Premenent Address",
+                hintText: AppLocalizations.of(context)?.premenent_address,
                 maxlines: 3,
                 value: premenentAddress.value,
                 setValue: (value) {
