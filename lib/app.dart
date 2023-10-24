@@ -22,7 +22,6 @@ class _CargoAppState extends State<CargoApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('en'), // English
         Locale('fa'), // Spanish
       ],
       theme: AppThemes.appThemeData[AppTheme.lightTheme],
