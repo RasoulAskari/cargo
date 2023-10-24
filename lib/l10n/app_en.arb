@@ -6,5 +6,6 @@
   "salary": "Salary",  
   "exchange_money": "Exchange Money",  
   "setting": "Setting",  
-  "logout": "Logout"
+  "logout": "Logout",
+  "employee_screen": "Employee Screen"
 }
