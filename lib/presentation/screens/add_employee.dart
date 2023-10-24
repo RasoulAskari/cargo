@@ -168,7 +168,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     lastname = FirstName.dirty(lastnameValue);
                   });
                 },
-                hintText: "FirstName",
+                hintText: AppLocalizations.of(context)?.lastname,
                 errorText: lastname.isNotValid ? "error" : null,
               ),
               const SizedBox(height: 15),
