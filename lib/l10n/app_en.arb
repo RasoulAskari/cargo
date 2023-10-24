@@ -13,4 +13,5 @@
   "lastname": "Lastname",
   "email": "Email",
   "current_address": "Current Address",
+  "premenent_address": "Permenent Address",
 }
