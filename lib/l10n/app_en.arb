@@ -7,5 +7,6 @@
   "exchange_money": "Exchange Money",  
   "setting": "Setting",  
   "logout": "Logout",
-  "employee_screen": "Employee Screen"
+  "employee_screen": "Employee Screen",
+  "add_employee_screen": "Add Employee Screen"
 }
