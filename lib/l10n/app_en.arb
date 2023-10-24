@@ -10,6 +10,7 @@
   "employee_screen": "Employee Screen",
   "user_screen": "User Screen",
   "add_employee_screen": "Add Employee Screen",
+  "add_user_screen": "Add User Screen",
   "firstname": "Fristname",
   "lastname": "Lastname",
   "email": "Email",
