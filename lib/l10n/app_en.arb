@@ -9,5 +9,6 @@
   "logout": "Logout",
   "employee_screen": "Employee Screen",
   "add_employee_screen": "Add Employee Screen",
-  "firstname": "Fristname"
+  "firstname": "Fristname",
+  "lastname": "Lastname",
 }
