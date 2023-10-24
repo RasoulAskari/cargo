@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
       {
-        'name': 'Salary',
+        'name': AppLocalizations.of(context)?.salary,
         'image': "",
         'function': () {
           Navigator.of(context).pushNamed(salaryScreen);
