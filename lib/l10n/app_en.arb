@@ -1,4 +1,5 @@
 {
   "user": "User",  
-  "employee": "Employee"  
+  "employee": "Employee",  
+  "incoming_outgoing": "رفت و آمد"  
 }
