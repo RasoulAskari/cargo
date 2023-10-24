@@ -10,7 +10,6 @@
     "employee_screen": "صفحه کامندان",
     "user_screen": "صفحه کابر",
     "add_employee_screen": "صفحه اضافه نمودن کامندان",
-    "add_user_screen": "صفحه اضافه نمودن کابر",
     "firstname": "نام",
     "lastname": "تخلص",
     "email": "ایمیل",
@@ -19,5 +18,7 @@
     "start_date": "تاریخ شروع",
     "end_date": "تاریخ ختم",
     "phone_num": "شماره تیلفون"
+    "user_step1_title": "معلومات درباره شخص سفارش دهنده"
+    "user_step2_title": "معلومات درباره گیرنده دهنده"
 
 }  
