@@ -179,7 +179,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     email = Email.dirty(emailValue);
                   });
                 },
-                hintText: "Email",
+                hintText: AppLocalizations.of(context)?.email,
                 errorText: email.isNotValid ? "error" : null,
               ),
               const SizedBox(height: 15),
