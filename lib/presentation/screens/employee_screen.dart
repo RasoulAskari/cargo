@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/presentation/widgets/employee_item.dart';
@@ -37,9 +38,9 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               color: Colors.white,
             )),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Employee Screen",
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.employee_screen,
+          style: const TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
