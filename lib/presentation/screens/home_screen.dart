@@ -3,6 +3,7 @@ import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+
 class HomeScreen extends StatefulWidget {
   final Function isLogin;
   const HomeScreen({super.key, required this.isLogin});
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final List<dynamic> data = [
       {
-        'name': 'User',
+        'name': AppLocalizations.of(context)!.helloWorld,
         'image': "",
         'function': () {
           Navigator.of(context).pushNamed(userScreen);
