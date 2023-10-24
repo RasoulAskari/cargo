@@ -227,7 +227,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     startDate = value;
                   });
                 },
-                hintText: 'Start Data',
+                hintText: AppLocalizations.of(context)?.start_date,
               ),
               const SizedBox(height: 15),
               CDatePicker(
