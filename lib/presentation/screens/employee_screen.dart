@@ -41,7 +41,10 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
         title: Text(
           AppLocalizations.of(context)!.employee_screen,
           style: const TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
