@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
       {
-        'name': 'Orders',
+        'name': AppLocalizations.of(context)?.order,
         'image': "",
         'function': () {
           Navigator.of(context).pushNamed(ordersScreen);
