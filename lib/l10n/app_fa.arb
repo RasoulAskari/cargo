@@ -3,6 +3,7 @@
     "employee": "کارمند",
     "incoming_outgoing": "رفت و آمد",
     "order": "سفارش",
-    "salary": "معاش"
-    "exchange_money": "حواله"
+    "salary": "معاش",
+    "exchange_money": "حواله",
+    "setting": "تنظمات",
 }
