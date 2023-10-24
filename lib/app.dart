@@ -21,6 +21,10 @@ class _CargoAppState extends State<CargoApp> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('fa'), // Spanish
+      ],
       theme: AppThemes.appThemeData[AppTheme.lightTheme],
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.onGenerateRoute,
