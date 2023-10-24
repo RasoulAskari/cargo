@@ -54,13 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
       {
-        'name': 'Exchange Money',
+        'name': AppLocalizations.of(context)?.exchange_money,
         'image': "",
         'function': () {
           Navigator.of(context).pushNamed(exchangeMoneyScreen);
         }
       },
-      {'name': 'Setting', 'image': "", 'function': () {}},
+      {
+        'image': "",
+        'function': () {},
+      },
       {
         'name': 'Logout',
         'image': "",
