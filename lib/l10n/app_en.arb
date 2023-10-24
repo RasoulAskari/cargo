@@ -12,4 +12,5 @@
   "firstname": "Fristname",
   "lastname": "Lastname",
   "email": "Email",
+  "current_address": "Current Address",
 }
