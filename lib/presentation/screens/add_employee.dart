@@ -157,7 +157,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     fristname = FirstName.dirty(passedValue);
                   });
                 },
-                hintText: "FirstName",
+                hintText: AppLocalizations.of(context)?.firstname,
                 errorText: fristname.isNotValid ? "error" : null,
               ),
               const SizedBox(height: 15),
