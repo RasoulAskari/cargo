@@ -8,5 +8,6 @@
     "setting": "تنظمات",
     "logout": "خروج",
     "employee_screen": "صفحه کامندان",
-    "add_employee_screen": "صفحه اضافه نمودن کامندان"
+    "add_employee_screen": "صفحه اضافه نمودن کامندان",
+    "firstname": "نام"
 }
