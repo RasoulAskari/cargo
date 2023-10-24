@@ -184,7 +184,7 @@ class _AddEmployeeState extends State<AddEmployee> {
               ),
               const SizedBox(height: 15),
               CPhoneField(
-                hintText: "phoneNo",
+                hintText: AppLocalizations.of(context)!.phone_number,
                 setValue: (PhoneNumber phone) {
                   setState(() {
                     phoneNo = PhoneNo.dirty(phone);
