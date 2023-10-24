@@ -237,7 +237,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     endDate = value;
                   });
                 },
-                hintText: 'End Date',
+                hintText: AppLocalizations.of(context)?.end_date,
               ),
               const SizedBox(height: 15),
               ElevatedButton(
