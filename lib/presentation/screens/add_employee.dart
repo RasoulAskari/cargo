@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/address.dart';
@@ -133,9 +134,9 @@ class _AddEmployeeState extends State<AddEmployee> {
           ),
         ),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Add Employee",
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.add_employee_screen,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
