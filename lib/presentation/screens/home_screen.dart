@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'function': () {},
       },
       {
-        'name': 'Logout',
+        'name': AppLocalizations.of(context)?.logout,
         'image': "",
         'function': () async {
           try {
