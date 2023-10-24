@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
       {
-        'name': 'Incoming  \n Out Going',
+        'name': AppLocalizations.of(context)?.incoming_outgoing,
         'image': "",
         'function': () async {
           Navigator.of(context).pushNamed(inconingOutGoingScreen);
