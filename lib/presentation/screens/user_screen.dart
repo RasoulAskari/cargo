@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/presentation/widgets/user_item.dart';
@@ -27,13 +28,13 @@ class UserScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-             icon: const Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
             )),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "User Screen",
+        title: Text(
+          AppLocalizations.of(context)!.employee_screen,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
