@@ -18,6 +18,7 @@
   "finance_manager": "Finance Manager",
   "bank_manager": "Bank Manger",
   "password": "Password",
+  "add": "Add",
   "confirm_password": "Confirm Password",
   "current_address": "Current Address",
   "premenent_address": "Permenent Address",
