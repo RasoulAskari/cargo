@@ -38,7 +38,7 @@ class _Step2State extends State<Step2> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CPhoneField(
-                hintText: "Phone Num",
+                hintText: AppLocalizations.of(context)!.phone_num,
                 setValue: (value) {
                   context.read<OrderCubit>().rPhoneNumberChange(value);
                 },
