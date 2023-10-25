@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/phone_no.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
@@ -36,7 +37,7 @@ class _Step1State extends State<Step1> {
                 setValue: (value) {
                   context.read<OrderCubit>().dateChange(value.toString());
                 },
-                hintText: "Date",
+                hintText: AppLocalizations.of(context)?.date,
               );
             },
           ),
@@ -45,7 +46,7 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 value: state.customerName.value,
-                hintText: "Name",
+                hintText: A ,
                 setValue: (value) {
                   context.read<OrderCubit>().cNameChange(value);
                 },
