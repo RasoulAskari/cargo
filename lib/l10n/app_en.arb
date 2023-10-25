@@ -14,6 +14,7 @@
   "setting": "Setting",  
   "logout": "Logout",
   "employee_screen": "Employee Screen",
+  "order_screen": "Order Employee Screen",
   "user_screen": "User Screen",
   "add_employee_screen": "Add Employee Screen",
   "firstname": "Fristname",

@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/presentation/widgets/order_item.dart';
@@ -37,9 +38,9 @@ class _OrderScreenState extends State<OrderScreen> {
               color: Colors.white,
             )),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Orders Screen",
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.order_screen,
+          style: const TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
