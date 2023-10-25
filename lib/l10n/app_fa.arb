@@ -28,6 +28,7 @@
     "role": "نقش",
     "country": "کشور",
     "city": "شهر",
+    "address": "آدرس",
     "reciver_type": "نوع تحوبل دهی",
     "admin": "ادمین",
     "finance_manager": "مدیر مالی",
