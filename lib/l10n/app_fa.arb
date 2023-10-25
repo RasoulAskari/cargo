@@ -19,6 +19,7 @@
     "add_employee_screen": "صفحه اضافه نمودن کامندان",
     "firstname": "نام",
     "item_name": "نام",
+    "father_name": "نام پدر",
     "lastname": "تخلص",
     "email": "ایمیل",
     "role": "نقش",
