@@ -96,7 +96,7 @@ class _Step3State extends State<Step3> {
                     setValue: (value) {
                       context.read<OrderItemCubit>().typeChange(value);
                     },
-                    hintText: "Type",
+                    hintText: AppLocalizations.of(context)?.type,
                   );
                 },
               ),
