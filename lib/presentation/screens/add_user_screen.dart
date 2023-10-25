@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
@@ -89,7 +90,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
   Widget build(BuildContext context) {
     List steps = [
       {
-        'title': "Info About The Person\nwhom Order ",
+        'title': AppLocalizations.of(context)?.user_step1_title,
         'step': Step1(
           next: next,
           prev: prev,
@@ -97,7 +98,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
         'validate': true
       },
       {
-        'title': "Info About The Receiver",
+        'title': AppLocalizations.of(context)?.user_step2_title,
         'step': Step2(
           next: next,
           prev: prev,
