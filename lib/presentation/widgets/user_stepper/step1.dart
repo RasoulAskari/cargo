@@ -194,7 +194,7 @@ class Step1 extends StatelessWidget {
                   },
                   {
                     'value': 'finance_manager',
-                    'label': 'Finance Manager',
+                    'label': AppLocalizations.of(context)?.finance_manager,
                   },
                   {
                     'value': 'bank_manager',
