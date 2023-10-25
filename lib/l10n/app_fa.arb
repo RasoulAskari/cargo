@@ -15,6 +15,7 @@
     "email": "ایمیل",
     "role": "نقش",
     "password": "پاسورد",
+    "confirm_password": "مرور پاسورد",
     "current_address": "آدرس فعلی",
     "premenent_address": "آدرس اصلی",
     "start_date": "تاریخ شروع",
