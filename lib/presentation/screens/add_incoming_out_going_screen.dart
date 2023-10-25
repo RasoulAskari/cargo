@@ -155,7 +155,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               CTextField(
-                hintText: 'Name',
+                hintText: AppLocalizations.of(context)?.item_name,
                 value: name.value,
                 setValue: (value) {
                   setState(() {
