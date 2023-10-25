@@ -128,10 +128,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 setValue: (value) {
                   incomingOutGoingType = IncomingOutGoingType.dirty(value);
                 },
-                items: const [
+                items: [
                   {
                     'value': 'incoming',
-                    'label': 'Incoming',
+                    'label': AppLocalizations.of(context)?.incoming,
                   },
                   {
                     'value': 'outgoing',
