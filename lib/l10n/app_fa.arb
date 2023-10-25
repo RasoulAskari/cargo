@@ -29,6 +29,7 @@
     "country": "کشور",
     "city": "شهر",
     "address": "آدرس",
+    "weight": "وزن",
     "add_order_detail": "اضافه نمودن معلومات درباره سفارش",
     "reciver_type": "نوع تحوبل دهی",
     "admin": "ادمین",
