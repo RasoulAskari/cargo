@@ -13,6 +13,7 @@
   "firstname": "Fristname",
   "lastname": "Lastname",
   "email": "Email",
+  "role": "Role",
   "current_address": "Current Address",
   "premenent_address": "Permenent Address",
   "start_date": "Start Date",
