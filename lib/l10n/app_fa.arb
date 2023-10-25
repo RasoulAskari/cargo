@@ -22,6 +22,7 @@
     "father_name": "نام پدر",
     "grand_father_name": "نام پدر کلان",
     "lastname": "تخلص",
+    "id_card_num": "شماره تذکره",
     "email": "ایمیل",
     "role": "نقش",
     "admin": "ادمین",
