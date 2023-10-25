@@ -47,8 +47,8 @@
   "register_date": "Register Date",
   "phone_num": "Phone Number",
   "user_step1_title": "Info Abount َUser",
-  "user_step2_title": "Info About User privilege"
-  "order_step1_title": "Info About The Person\nwhom Order"
-  "order_step2_title": "Info About Receiver"
+  "user_step2_title": "Info About User privilege",
+  "order_step1_title": "Info About The Person\nwhom Order",
+  "order_step2_title": "Info About Receiver",
   "order_step3_title": "Info About Item"
 }

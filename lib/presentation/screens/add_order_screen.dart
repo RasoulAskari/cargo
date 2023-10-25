@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
@@ -50,7 +51,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   Widget build(BuildContext context) {
     List steps = [
       {
-        'title': "Info About The Person\nwhom Order ",
+        'title': AppLocalizations.of(context)?.order_step1_title,
         'step': Step1(
           next: next,
           prev: prev,
