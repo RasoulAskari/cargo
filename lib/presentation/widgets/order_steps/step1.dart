@@ -82,7 +82,7 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 value: state.customerIdCard.value,
-                hintText: "ID Card Number",
+                hintText: AppLocalizations.of(context)!.id_card_num,
                 setValue: (value) {
                   context.read<OrderCubit>().cTazkiraIdChange(value);
                 },
