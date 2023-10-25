@@ -124,7 +124,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               const SizedBox(height: 15),
               CDropdown(
                 value: incomingOutGoingType.value,
-                hintText: "Type",
+                hintText: AppLocalizations.of(context)?.type,
                 setValue: (value) {
                   incomingOutGoingType = IncomingOutGoingType.dirty(value);
                 },
