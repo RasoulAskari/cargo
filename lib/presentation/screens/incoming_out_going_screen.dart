@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/presentation/widgets/incoming_out_going_item.dart';
@@ -37,9 +38,9 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
               Icons.arrow_back_ios,
               color: Colors.white,
             )),
-        title: const Text(
-          "Incoming Out Going",
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.incoming_outgoing_screen,
+          style: const TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
