@@ -41,7 +41,7 @@ class _StepperHeaderState extends State<StepperHeader> {
                   widget.prev();
                 },
                 icon: const Icon(
-                  Icons.arrow_back,
+                  Icons.arrow_back_ios,
                   color: Colors.white,
                 ),
                 label: Text(
