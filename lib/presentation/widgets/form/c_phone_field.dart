@@ -56,7 +56,7 @@ class _CPhoneFieldState extends State<CPhoneField> {
         inputDecoration: InputDecoration(
           filled: true,
           fillColor: Colors.grey[200],
-          hintText: "phoneNo",
+          hintText: widget.hintText,
           contentPadding: const EdgeInsets.symmetric(
             vertical: 12,
             horizontal: 16,

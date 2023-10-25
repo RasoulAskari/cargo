@@ -69,6 +69,7 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
+                
                 value: state.customerGrandFathername.value,
                 hintText: AppLocalizations.of(context)?.grand_father_name,
                 setValue: (value) {
@@ -93,7 +94,7 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CPhoneField(
-                hintText: "Phone Num",
+                hintText: ,
                 setValue: (value) {
                   context.read<OrderCubit>().cPhoneNumberChange(value);
                 },
