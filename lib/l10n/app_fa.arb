@@ -26,6 +26,8 @@
     "email": "ایمیل",
     "price": "قیمت",
     "role": "نقش",
+    "country": "کشور",
+    "city": "شهر",
     "reciver_type": "نوع تحوبل دهی",
     "admin": "ادمین",
     "finance_manager": "مدیر مالی",
