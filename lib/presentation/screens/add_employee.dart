@@ -244,7 +244,11 @@ class _AddEmployeeState extends State<AddEmployee> {
                 onPressed: () {
                   widget.employee == null ? _addEmployee() : _editEmployee();
                 },
-                child: Text(widget.employee == null ? "Add" : "Edit"),
+                child: Text(
+                  widget.employee == null
+                      ? AppLocalizations.of(context)!.add
+                      : AppLocalizations.of(context)!.edit,
+                ),
               )
             ],
           ),
