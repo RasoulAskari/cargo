@@ -36,7 +36,7 @@ class _CPasswordFieldState extends State<CPasswordField> {
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.grey[200],
-        hintText: "password",
+        hintText: widget.hintText,
         contentPadding: const EdgeInsets.symmetric(
           vertical: 12,
           horizontal: 16,
