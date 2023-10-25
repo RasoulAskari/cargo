@@ -31,6 +31,7 @@
   "premenent_address": "Permenent Address",
   "start_date": "Start Date",
   "end_date": "End Date",
+  "register_date": "Register Date",
   "phone_num": "Phone Number",
   "user_step1_title": "Info Abount َUser",
   "user_step2_title": "Info About User privilege"
