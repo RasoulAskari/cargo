@@ -119,7 +119,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                     _date = value;
                   });
                 },
-                hintText: "Register Date",
+                hintText: AppLocalizations.of(context)?.register_date,
               ),
               const SizedBox(height: 15),
               CDropdown(
