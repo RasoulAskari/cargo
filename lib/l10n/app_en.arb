@@ -2,6 +2,7 @@
   "user": "User",  
   "employee": "Employee",  
   "incoming_outgoing": "ّIncoming Outgoing",  
+  "incoming": "ّIncoming",  
   "incoming_outgoing_screen": "ّIncoming Outgoing Screen",  
   "add_incoming_outgoing_screen": "ّAdd Incoming Outgoing Screen",  
   "order": "Order",  
