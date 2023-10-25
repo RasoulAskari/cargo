@@ -31,6 +31,7 @@
     "premenent_address": "آدرس اصلی",
     "start_date": "تاریخ شروع",
     "end_date": "تاریخ ختم",
+    "register_date": "تاریخ ثبت",
     "phone_num": "شماره تیلفون",
     "user_step1_title": "معلومات درباره کاربر",
     "user_step2_title": "معلومات درباره صلاخیت های کاربر"
