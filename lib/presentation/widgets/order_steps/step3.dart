@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
@@ -32,7 +33,7 @@ class _Step3State extends State<Step3> {
             onPressed: () {
               _addItemDetail(context);
             },
-            child:  Text(),
+            child: Text(AppLocalizations.of(context)!.add_order_detail),
           ),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
