@@ -134,7 +134,7 @@ class Step1 extends StatelessWidget {
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
-                hintText: "Name",
+                hintText: AppLocalizations.of(context)?.firstname,
                 value: state.name.value,
                 setValue: (value) {
                   context.read<UserCubit>().nameChange(value);
