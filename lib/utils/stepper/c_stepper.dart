@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/utils/stepper/bard_bg.dart';
 import 'package:cargo/utils/stepper/stepper_container.dart';
 import 'package:cargo/utils/stepper/stepper_header.dart';
@@ -38,7 +39,7 @@ class _CStepperState extends State<CStepper> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               StepperHeader(
-                backText: "Back",
+                backText: AppLocalizations.of(context)?.back,
                 title: widget.steps[widget.step - 1]['title'],
                 step: widget.step,
                 prev: widget.prev,
