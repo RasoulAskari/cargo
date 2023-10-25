@@ -187,10 +187,10 @@ class Step1 extends StatelessWidget {
                 setValue: (value) {
                   _changeRole(value);
                 },
-                items: const [
+                items: [
                   {
                     'value': 'admin',
-                    'label': 'Admin',
+                    'label': AppLocalizations.of(context)?.admin,
                   },
                   {
                     'value': 'finance_manager',
