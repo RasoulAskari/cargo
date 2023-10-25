@@ -26,6 +26,7 @@
     "email": "ایمیل",
     "price": "قیمت",
     "role": "نقش",
+    "reciver_type": "نوع تحوبل دهی",
     "admin": "ادمین",
     "finance_manager": "مدیر مالی",
     "bank_manager": "مدیر بانک",
