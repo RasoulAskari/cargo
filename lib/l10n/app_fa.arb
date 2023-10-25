@@ -24,6 +24,7 @@
     "lastname": "تخلص",
     "id_card_num": "شماره تذکره",
     "email": "ایمیل",
+    "price": "قیمت",
     "role": "نقش",
     "admin": "ادمین",
     "finance_manager": "مدیر مالی",
