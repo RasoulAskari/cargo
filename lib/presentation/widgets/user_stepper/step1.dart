@@ -181,7 +181,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CDropdown(
                 value: state.role.value,
-                hintText: "Role",
+                hintText: AppLocalizations.of(context)?.role,
                 setValue: (value) {
                   _changeRole(value);
                 },
