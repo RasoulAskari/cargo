@@ -30,6 +30,7 @@
   "finance_manager": "Finance Manager",
   "bank_manager": "Bank Manger",
   "password": "Password",
+  "reciver_type": "Reciver Type",
   "add": "Add",
   "edit": "Edit",
   "confirm_password": "Confirm Password",
