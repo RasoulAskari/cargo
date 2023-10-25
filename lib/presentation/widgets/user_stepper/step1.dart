@@ -169,6 +169,7 @@ class Step1 extends StatelessWidget {
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CPasswordField(
+                
                 value: state.confirmPassword.value,
                 setValue: (value) {
                   context.read<UserCubit>().confirmPasswordChange(value);
