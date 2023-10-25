@@ -20,6 +20,7 @@
     "firstname": "نام",
     "item_name": "نام",
     "father_name": "نام پدر",
+    "grand_father_name": "نام پدر کلان",
     "lastname": "تخلص",
     "email": "ایمیل",
     "role": "نقش",
