@@ -171,7 +171,11 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                       : _addIncoming();
                   _addIncoming();
                 },
-                child: Text(widget.incomingOutGoing != null ? AppLocalizations.of(context)!.add : "Add"),
+                child: Text(
+                  widget.incomingOutGoing != null
+                      ? AppLocalizations.of(context)!.edit
+                      : AppLocalizations.of(context)!.add,
+                ),
               )
             ],
           ),
