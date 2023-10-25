@@ -68,7 +68,7 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 value: state.country.value,
-                hintText: "Country",
+                hintText: AppLocalizations.of(context)?.country,
                 setValue: (value) {
                   context.read<OrderCubit>().countryChange(value);
                 },
