@@ -18,7 +18,7 @@
   "start_date": "Start Date",
   "end_date": "End Date",
   "phone_num": "Phone Number",
-  "user_step1_title": "Info Abount Sender",
-  "user_step2_title": "Info About Receiver"
+  "user_step1_title": "Info Abount َUser",
+  "user_step2_title": "Info About User privilege"
 
 }
