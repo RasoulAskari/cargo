@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
@@ -27,7 +28,7 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                   value: state.receiverName.value,
-                  hintText: "Name",
+                  hintText: AppLocalizations.of(context)?.firstname,
                   setValue: (value) {
                     context.read<OrderCubit>().rNameChange(value);
                   });
