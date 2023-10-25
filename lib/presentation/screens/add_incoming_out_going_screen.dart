@@ -134,7 +134,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                     'label': AppLocalizations.of(context)?.incoming,
                   },
                   {
-                    'value': 'outgoing',
+                    'value': AppLocalizations.of(context)?.outgoing,
                     'label': 'Outgoing',
                   },
                 ],
