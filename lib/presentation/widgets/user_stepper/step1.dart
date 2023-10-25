@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -145,7 +146,7 @@ class Step1 extends StatelessWidget {
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
-                hintText: "Email",
+                hintText: AppLocalizations.of(context)?.email,
                 value: state.email.value,
                 setValue: (value) {
                   context.read<UserCubit>().emailChange(value);
