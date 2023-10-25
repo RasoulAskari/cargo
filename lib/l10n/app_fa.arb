@@ -16,6 +16,7 @@
     "role": "نقش",
     "admin": "ادمین",
     "finance_manager": "مدیر مالی",
+    "bank_manager": "مدیر بانک",
     "password": "پاسورد",
     "confirm_password": "مرور پاسورد",
     "current_address": "آدرس فعلی",
