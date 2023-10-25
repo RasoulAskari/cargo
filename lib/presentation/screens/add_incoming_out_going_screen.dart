@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/full_name.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
@@ -94,9 +95,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
           ),
         ),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Add Incoming Out Going",
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.add_incoming_outgoing_screen,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
