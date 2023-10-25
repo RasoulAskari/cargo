@@ -110,7 +110,7 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
-                hintText: "Price",
+                hintText: AppLocalizations.of(context)!.price,
                 value: state.pricePerKelo.value.toString(),
                 setValue: (value) {
                   double val;
