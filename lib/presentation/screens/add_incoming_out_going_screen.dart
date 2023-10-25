@@ -142,7 +142,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               const SizedBox(height: 15),
               CTextField(
                 textInputType: TextInputType.number,
-                hintText: "Amount",
+                hintText: AppLocalizations.of(context)?.amount,
                 value: amount.value.toString(),
                 setValue: (value) {
                   try {
