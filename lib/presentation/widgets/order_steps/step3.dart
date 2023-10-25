@@ -32,7 +32,7 @@ class _Step3State extends State<Step3> {
             onPressed: () {
               _addItemDetail(context);
             },
-            child: const Text("Add Item detail"),
+            child:  Text(),
           ),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {

@@ -36,6 +36,7 @@
   "city": "City",
   "address": "address",
   "edit": "Edit",
+  "add_order_detail": "Add Order Detail",
   "confirm_password": "Confirm Password",
   "current_address": "Current Address",
   "premenent_address": "Permenent Address",
