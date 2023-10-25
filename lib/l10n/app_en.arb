@@ -17,6 +17,7 @@
   "user_screen": "User Screen",
   "add_employee_screen": "Add Employee Screen",
   "firstname": "Fristname",
+  "item_name": "Name",
   "lastname": "Lastname",
   "email": "Email",
   "role": "Role",
