@@ -15,6 +15,7 @@
   "email": "Email",
   "role": "Role",
   "password": "Password",
+  "confirm_password": "Confirm Password",
   "current_address": "Current Address",
   "premenent_address": "Permenent Address",
   "start_date": "Start Date",
