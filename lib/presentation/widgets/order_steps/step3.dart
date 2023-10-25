@@ -142,7 +142,7 @@ class _Step3State extends State<Step3> {
 
                       context.read<OrderItemCubit>().weightChange(val);
                     },
-                    hintText: "Weight",
+                    hintText: AppLocalizations.of(context)?.weight,
                   );
                 },
               ),
