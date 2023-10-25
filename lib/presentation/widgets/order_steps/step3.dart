@@ -119,7 +119,7 @@ class _Step3State extends State<Step3> {
 
                       context.read<OrderItemCubit>().countChange(val);
                     },
-                    hintText: "Amount",
+                    hintText: AppLocalizations.of(context)?.amount,
                   );
                 },
               ),
