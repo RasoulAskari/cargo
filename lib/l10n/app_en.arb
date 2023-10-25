@@ -16,6 +16,7 @@
   "role": "Role",
   "admin": "Admin",
   "finance_manager": "Finance Manager",
+  "bank_manager": "Bank Manger",
   "password": "Password",
   "confirm_password": "Confirm Password",
   "current_address": "Current Address",
