@@ -15,6 +15,7 @@
   "email": "Email",
   "role": "Role",
   "admin": "Admin",
+  "finance_manager": "Finance Manager",
   "password": "Password",
   "confirm_password": "Confirm Password",
   "current_address": "Current Address",
