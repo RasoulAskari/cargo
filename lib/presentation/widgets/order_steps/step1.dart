@@ -70,7 +70,7 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 value: state.customerGrandFathername.value,
-                hintText: "Grand Fathername",
+                hintText: AppLocalizations.of(context)?.grand_father_name,
                 setValue: (value) {
                   context.read<OrderCubit>().cGrandFathernameChange(value);
                 },
