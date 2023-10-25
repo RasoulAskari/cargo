@@ -4,6 +4,7 @@
   "incoming_outgoing": "ّIncoming Outgoing",  
   "outgoing": "Outgoing",  
   "incoming": "ّIncoming",  
+  "type": "Type",  
   "incoming_outgoing_screen": "ّIncoming Outgoing Screen",  
   "add_incoming_outgoing_screen": "ّAdd Incoming Outgoing Screen",  
   "order": "Order",  
