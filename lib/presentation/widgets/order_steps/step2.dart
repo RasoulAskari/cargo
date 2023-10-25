@@ -91,7 +91,7 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 value: state.address.value,
-                hintText: "Address",
+                hintText: AppLocalizations.of(context)?.address,
                 setValue: (value) {
                   context.read<OrderCubit>().addressChange(value);
                 },
