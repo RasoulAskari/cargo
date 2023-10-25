@@ -13,6 +13,7 @@
     "firstname": "نام",
     "lastname": "تخلص",
     "email": "ایمیل",
+    "role": "نقش",
     "current_address": "آدرس فعلی",
     "premenent_address": "آدرس اصلی",
     "start_date": "تاریخ شروع",
