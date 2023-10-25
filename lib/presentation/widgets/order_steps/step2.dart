@@ -56,7 +56,7 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 value: state.typeReceiver.value,
-                hintText: "Type of Receiver",
+                hintText: AppLocalizations.of(context)!.reciver_type,
                 setValue: (value) {
                   context.read<OrderCubit>().typeChange(value);
                 },
