@@ -5,6 +5,7 @@
     "outgoing": "رفت",
     "incoming": "آمد",
     "type": "نوع",
+    "amount": "مقدار",
     "incoming_outgoing_screen": " صفحه رفت و آمد ",
     "add_incoming_outgoing_screen": " صفحه اضافه نمودن رفت و آمد ",
     "order": "سفارش",
