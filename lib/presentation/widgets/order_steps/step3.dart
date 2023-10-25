@@ -169,7 +169,7 @@ class _Step3State extends State<Step3> {
 
                         Navigator.of(context).pop();
                       },
-                      child: Text(AppLocalizations.of(context).add),
+                      child: Text(AppLocalizations.of(context)!.add),
                     );
                   },
                 );
