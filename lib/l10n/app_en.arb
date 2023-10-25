@@ -19,6 +19,7 @@
   "bank_manager": "Bank Manger",
   "password": "Password",
   "add": "Add",
+  "edit": "Edit",
   "confirm_password": "Confirm Password",
   "current_address": "Current Address",
   "premenent_address": "Permenent Address",
