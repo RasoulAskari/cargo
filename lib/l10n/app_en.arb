@@ -7,6 +7,7 @@
   "type": "Type",  
   "amount": "Amount",  
   "incoming_outgoing_screen": "ّIncoming Outgoing Screen",  
+  "salary_screen": "ّSalary Screen",  
   "add_incoming_outgoing_screen": "ّAdd Incoming Outgoing Screen",  
   "order": "Order",  
   "salary": "Salary",  
