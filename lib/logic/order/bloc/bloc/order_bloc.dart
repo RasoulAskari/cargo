@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:equatable/equatable.dart';
@@ -25,7 +26,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     final token = await getAuthToken();
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/current-car'),
+        Uri.parse('${apiRoute}current-car'),
         headers: <String, String>{
           'Authorization': 'Bearer $token',
         },
