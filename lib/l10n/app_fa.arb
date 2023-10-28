@@ -17,6 +17,7 @@
     "salary": "معاش",
     "exchange_money": "حواله",
     "exchange_money_id": "نمبر حواله",
+    "receiver_id": "نمبر گیرنده",
     "setting": "تنظمات",
     "logout": "خروج",
     "employee_screen": "صفحه کامندان",
