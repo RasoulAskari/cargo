@@ -93,7 +93,7 @@ class Step1 extends StatelessWidget {
                   },
                   {
                     'value': 'Afghani',
-                    'label': 'Afghani',
+                    'label': AppLocalizations.of(context)?.afghani,
                   },
                   {
                     'value': 'Calldor',
