@@ -112,7 +112,7 @@ class IncomingOutGoingBloc
 
     try {
       await http.post(
-        Uri.parse('http://10.0.2.2:8000/api/v1/income-outgoing'),
+        Uri.parse('${apiRoute}income-outgoing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
