@@ -34,6 +34,7 @@
   "role": "Role",
   "admin": "Admin",
   "usd": "USD",
+  "pakistan_rupee": "Pakistan Rupee",
   "finance_manager": "Finance Manager",
   "bank_manager": "Bank Manger",
   "password": "Password",
