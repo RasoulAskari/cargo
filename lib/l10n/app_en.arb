@@ -26,6 +26,8 @@
   "add_employee_screen": "Add Employee Screen",
   "firstname": "Fristname",
   "item_name": "Name",
+  "receiver_name": "Receiver Name",
+
   "sender_name": "Sender Name",
   "price": "Price",
   "father_name": "Father Name",

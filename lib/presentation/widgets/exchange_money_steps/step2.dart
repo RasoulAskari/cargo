@@ -30,7 +30,7 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                   value: state.receiverName.value,
-                  hintText: "Receiver Name",
+                  hintText: AppLocalizations.of(context).re,
                   setValue: (value) {
                     context
                         .read<ExchangeMoneyCubit>()
