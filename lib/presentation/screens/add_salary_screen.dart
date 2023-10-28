@@ -161,7 +161,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
 
                     _amount = Amount.dirty(val);
                   },
-                  hintText: "Amount Remain",
+                  hintText: AppLocalizations.of(context)?.remain_amount,
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
