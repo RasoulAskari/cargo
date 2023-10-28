@@ -6,6 +6,7 @@
     "incoming": "آمد",
     "type": "نوع",
     "amount": "مقدار",
+    "pay_amount": "مقدار پرداخت",
     "incoming_outgoing_screen": " صفحه رفت و آمد ",
     "order_screen": "صفحه سفارش",
     "salary_screen": "صفحه معاشات",
