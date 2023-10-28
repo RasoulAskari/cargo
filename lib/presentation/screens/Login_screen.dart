@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CTextField(
-                hintText: AppLocalizations.of(context)?.email ,
+                hintText: AppLocalizations.of(context)?.email,
                 value: '',
                 maxlines: 1,
                 setValue: (value) {
