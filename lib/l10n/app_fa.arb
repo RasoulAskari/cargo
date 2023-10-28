@@ -7,6 +7,7 @@
     "type": "نوع",
     "amount": "مقدار",
     "pay_amount": "مقدار پرداخت",
+    "remain_amount": "مقدار باقی مانده",
     "incoming_outgoing_screen": " صفحه رفت و آمد ",
     "order_screen": "صفحه سفارش",
     "salary_screen": "صفحه معاشات",
