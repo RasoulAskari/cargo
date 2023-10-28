@@ -33,9 +33,9 @@ class ExchangeMoneyScreen extends StatelessWidget {
               color: Colors.white,
             )),
         backgroundColor: Theme.of(context).primaryColor,
-        title:  Text(
+        title: Text(
           AppLocalizations.of(context)!.exchange_money_screen,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
