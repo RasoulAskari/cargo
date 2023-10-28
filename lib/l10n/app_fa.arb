@@ -16,6 +16,7 @@
     "order": "سفارش",
     "salary": "معاش",
     "exchange_money": "حواله",
+    "exchange_money_id": "حواله نمبر",
     "setting": "تنظمات",
     "logout": "خروج",
     "employee_screen": "صفحه کامندان",
