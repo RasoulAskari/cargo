@@ -6,6 +6,7 @@
   "incoming": "ّIncoming",  
   "type": "Type",  
   "amount": "Amount",  
+  "payment_amount": "Payment Amount",  
   "incoming_outgoing_screen": "ّIncoming Outgoing Screen",  
   "salary_screen": "ّSalary Screen",  
   "add_salary_screen": "ّAdd Salary Screen",  
