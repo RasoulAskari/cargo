@@ -146,7 +146,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                     _amountPay = Amount.dirty(val);
                     _findRemainSalary(_amount.value, val);
                   },
-                  hintText: "Amount Pay",
+                  hintText: AppLocalizations.of(context)?.payment_amount,
                 ),
                 const SizedBox(height: 30),
                 CDisableTextField(
