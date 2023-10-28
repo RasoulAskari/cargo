@@ -130,7 +130,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                       _date = value;
                     });
                   },
-                  hintText: "Salary Date",
+                  hintText: AppLocalizations.of(context)?.date,
                 ),
                 const SizedBox(height: 30),
                 CTextField(
