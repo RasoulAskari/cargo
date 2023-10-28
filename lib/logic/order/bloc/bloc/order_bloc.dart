@@ -166,7 +166,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       final ids = event.id;
       const type = 'delete';
       var res = await http.delete(
-        Uri.parse("http://localhost:8000/api/v1/$type/orders/$ids"),
+        Uri.parse("$apiRoute$type/orders/$ids"),
         headers: <String, String>{
           'Authorization': 'Bearer $token',
         },
