@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -20,7 +21,7 @@ class Step1 extends StatelessWidget {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
-                hintText: "Sender Name",
+                hintText: AppLocalizations.of(context)?.sender_name,
                 value: state.senderName.value,
                 setValue: (value) {
                   context.read<ExchangeMoneyCubit>().senderNameChange(value);
