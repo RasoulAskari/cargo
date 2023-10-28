@@ -67,7 +67,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     try {
       await http.post(
-        Uri.parse('http://localhost:8000/api/v1/users'),
+        Uri.parse('${apiRoute}users'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
