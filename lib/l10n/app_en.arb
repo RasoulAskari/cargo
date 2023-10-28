@@ -17,6 +17,7 @@
   "id_card_num": "ID Card Number",  
   "exchange_money": "Exchange Money",  
   "exchange_money_id": "Exchange ID No",  
+  "receiver_id": "Receiver ID No",  
   "setting": "Setting",  
   "logout": "Logout",
   "employee_screen": "Employee Screen",
