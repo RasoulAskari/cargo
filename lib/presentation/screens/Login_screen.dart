@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
@@ -69,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CTextField(
-                hintText: "Email",
+                hintText: AppLocalizations.of(context)?.email ,
                 value: '',
                 maxlines: 1,
                 setValue: (value) {
