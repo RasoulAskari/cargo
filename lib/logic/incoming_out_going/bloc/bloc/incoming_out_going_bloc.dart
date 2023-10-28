@@ -5,6 +5,8 @@ import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../../constants/routes.dart';
+
 part 'incoming_out_going_event.dart';
 part 'incoming_out_going_state.dart';
 
@@ -82,8 +84,7 @@ class IncomingOutGoingBloc
 
     try {
       await http.put(
-        Uri.parse(
-            'http://localhost:8000/api/v1/income-outgoing/${incoming.id}'),
+        Uri.parse('${apiRoute}income-outgoing/${incoming.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
