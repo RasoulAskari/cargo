@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CTextField(
-              hintText: "Password",
+              hintText: AppLocalizations.of(context)?.password,
               value: '',
               maxlines: 1,
               setValue: (value) {
