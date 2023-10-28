@@ -170,7 +170,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                         element.id == double.parse(_employee.value));
                     _addSalary(emp);
                   },
-                  child: const Text("Save"),
+                  child: Text(AppLocalizations.of(context)!.add),
                 )
               ],
             );
