@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/widgets/salary_item.dart';
 import 'package:flutter/material.dart';
@@ -38,9 +39,9 @@ class _SalaryScreenState extends State<SalaryScreen> {
                 color: Colors.white,
               )),
           backgroundColor: Theme.of(context).primaryColor,
-          title: const Text(
-            "Salary Screen",
-            style: TextStyle(
+          title:  Text(
+            AppLocalizations.of(context)!.salary_screen,
+            style: const TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
