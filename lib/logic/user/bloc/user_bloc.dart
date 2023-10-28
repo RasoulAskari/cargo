@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:equatable/equatable.dart';
@@ -35,7 +36,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       };
 
       final res = await http.put(
-        Uri.parse('http://localhost:8000/api/v1/edit-users'),
+        Uri.parse('${apiRoute}edit-users'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
