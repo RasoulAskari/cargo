@@ -111,7 +111,7 @@ class IncomingOutGoingBloc
 
     try {
       await http.post(
-        Uri.parse('http://localhost:8000/api/v1/income-outgoing'),
+        Uri.parse('http://10.0.2.2:8000/api/v1/income-outgoing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -139,8 +139,8 @@ class IncomingOutGoingBloc
         getServerRoute(
           route: '/api/v1/income-outgoing',
         ),
-         headers: <String, String>{
-           'Authorization': 'Bearer $token',
+        headers: <String, String>{
+          'Authorization': 'Bearer $token',
         },
       );
       if (response.statusCode == 200) {
