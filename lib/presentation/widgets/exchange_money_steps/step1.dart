@@ -97,7 +97,7 @@ class Step1 extends StatelessWidget {
                   },
                   {
                     'value': 'Calldor',
-                    'label': 'Calldor',
+                    'label': AppLocalizations.of(context)?.pakistan_rupee,
                   },
                 ],
               );
