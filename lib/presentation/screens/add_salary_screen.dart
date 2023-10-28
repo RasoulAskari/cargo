@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
@@ -73,9 +74,9 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
           ),
         ),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Add Salary",
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.add_salary_screen,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
