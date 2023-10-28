@@ -120,7 +120,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
 
                     _amount = Amount.dirty(val);
                   },
-                  hintText: "Salary Amount",
+                  hintText: AppLocalizations.of(context)?.amount,
                 ),
                 const SizedBox(height: 30),
                 CDatePicker(
