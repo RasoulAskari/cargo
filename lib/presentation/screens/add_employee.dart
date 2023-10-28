@@ -135,7 +135,7 @@ class _AddEmployeeState extends State<AddEmployee> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
-          AppLocalizations.of(context)!.add_employee_screen,
+          AppLocalizations.of(context)!.,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
