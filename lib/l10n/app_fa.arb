@@ -25,6 +25,7 @@
     "add_employee_screen": "صفحه اضافه نمودن کامندان",
     "firstname": "نام",
     "item_name": "نام",
+    "receiver_name": "نام گیرنده",
     "sender_name": "نام فرستنده",
     "father_name": "نام پدر",
     "grand_father_name": "نام پدر کلان",
