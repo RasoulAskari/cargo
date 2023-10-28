@@ -39,7 +39,7 @@ class _SalaryScreenState extends State<SalaryScreen> {
                 color: Colors.white,
               )),
           backgroundColor: Theme.of(context).primaryColor,
-          title:  Text(
+          title: Text(
             AppLocalizations.of(context)!.salary_screen,
             style: const TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
