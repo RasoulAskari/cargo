@@ -61,7 +61,7 @@ class Step1 extends StatelessWidget {
                       .read<ExchangeMoneyCubit>()
                       .dateChange(value.toString());
                 },
-                hintText: "Date",
+                hintText: AppLocalizations.of(context)?.date,
               );
             },
           ),
