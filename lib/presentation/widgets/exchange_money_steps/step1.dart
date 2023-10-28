@@ -82,7 +82,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CDropdown(
                 value: state.currency.value,
-                hintText: "Type",
+                hintText: AppLocalizations.of(context)?.type,
                 setValue: (value) {
                   context.read<ExchangeMoneyCubit>().currencyChange(value);
                 },
