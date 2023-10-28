@@ -26,6 +26,7 @@
     "firstname": "نام",
     "item_name": "نام",
     "receiver_name": "نام گیرنده",
+    "receiver_father_name": "نام پدر گیرنده",
     "sender_name": "نام فرستنده",
     "father_name": "نام پدر",
     "grand_father_name": "نام پدر کلان",
