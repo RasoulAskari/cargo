@@ -104,7 +104,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                             'label': e.firstName,
                           })
                       .toList(),
-                  hintText: "Employee",
+                  hintText: AppLocalizations.of(context)?.employee,
                 ),
                 const SizedBox(height: 30),
                 CDisableTextField(
