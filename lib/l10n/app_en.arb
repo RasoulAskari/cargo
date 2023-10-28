@@ -52,6 +52,8 @@
   "register_date": "Register Date",
   "phone_num": "Phone Number",
   "user_step1_title": "Info Abount َUser",
+  "exchange_money_step1_title": "Info Abount Sender",
+  "exchange_money_step2_title": "Info Abount Receiver",
   "user_step2_title": "Info About User privilege",
   "order_step1_title": "Info About The Person\nwhom Order",
   "order_step2_title": "Info About Receiver",

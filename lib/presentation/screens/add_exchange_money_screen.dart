@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
@@ -86,7 +87,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   Widget build(BuildContext context) {
     List steps = [
       {
-        'title': "Info About The Person\nwhom Order ",
+        'title': AppLocalizations.of(context),
         'step': Step1(
           next: next,
           prev: prev,
