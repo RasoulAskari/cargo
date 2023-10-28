@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:equatable/equatable.dart';
@@ -87,7 +88,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
     try {
       await http.post(
-        Uri.parse('http://localhost:8000/api/v1/salary-payments'),
+        Uri.parse('${apiRoute}salary-payments'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
