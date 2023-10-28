@@ -75,7 +75,7 @@ class _Step2State extends State<Step2> {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CPhoneField(
-                hintText: "Phone Num",
+                hintText: AppLocalizations.of(context)!.phone_num,
                 setValue: (value) {
                   context.read<ExchangeMoneyCubit>().phoneNumberChange(value);
                 },
