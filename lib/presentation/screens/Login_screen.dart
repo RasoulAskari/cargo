@@ -28,25 +28,29 @@ class _LoginScreenState extends State<LoginScreen> {
   final storage = const FlutterSecureStorage();
 
   Future<void> login() async {
-    
     final data = {
       "email": email.value,
       "password": password.value,
     };
-    final res = await http.post(
-      Uri.parse('http://localhost:8000/api/v1/login'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(data),
-    );
+    try {
+      final res = await http.post(
+        Uri.parse('http://10.0.2.2:8000/api/v1/login'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(data),
+      );
 
-    final response = jsonDecode(res.body);
+      final response = jsonDecode(res.body);
 
-    if (response['result']) {
-      final jsonDataEncoded = jsonEncode(response);
-      await storage.write(key: "user", value: jsonDataEncoded);
-      await storage.read(key: 'user');
+      if (response['result']) {
+        final jsonDataEncoded = jsonEncode(response);
+        await storage.write(key: "user", value: jsonDataEncoded);
+        await storage.read(key: 'user');
+      }
+      print(res.body);
+    } catch (e) {
+      print(e.toString());
     }
   }
 
