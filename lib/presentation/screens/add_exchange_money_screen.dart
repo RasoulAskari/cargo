@@ -87,7 +87,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   Widget build(BuildContext context) {
     List steps = [
       {
-        'title': AppLocalizations.of(context),
+        'title': AppLocalizations.of(context)?.exchange_money_step1_title,
         'step': Step1(
           next: next,
           prev: prev,
