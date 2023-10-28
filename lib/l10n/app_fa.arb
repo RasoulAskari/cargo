@@ -12,6 +12,7 @@
     "order_screen": "صفحه سفارش",
     "salary_screen": "صفحه معاشات",
     "add_salary_screen": "صفحه پرداخت معاشات",
+    "add_employee_screen": "صفحه کارمندان",
     "add_incoming_outgoing_screen": " صفحه اضافه نمودن رفت و آمد ",
     "order": "سفارش",
     "salary": "معاش",
