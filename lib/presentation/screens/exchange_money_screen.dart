@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/presentation/screens/exchange_money_item.dart';
@@ -32,8 +33,8 @@ class ExchangeMoneyScreen extends StatelessWidget {
               color: Colors.white,
             )),
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          "Exhange Money Screen",
+        title:  Text(
+          AppLocalizations.of(context)!.exchange_money_screen,
           style: TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
