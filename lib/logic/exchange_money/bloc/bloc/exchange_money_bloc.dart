@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:equatable/equatable.dart';
@@ -45,7 +46,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
       };
 
       await http.put(
-        Uri.parse('http://localhost:8000/api/v1/exhange-money'),
+        Uri.parse("${apiRoute}exchange-money"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -101,7 +102,7 @@ class ExchangeMoneyBloc extends Bloc<ExchangeMoneyEvent, ExchangeMoneyState> {
 
     try {
       final res = await http.post(
-        Uri.parse('http://localhost:8000/api/v1/exchange-money'),
+        Uri.parse('${apiRoute}exchange-money'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
