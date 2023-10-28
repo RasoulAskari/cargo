@@ -86,10 +86,10 @@ class Step1 extends StatelessWidget {
                 setValue: (value) {
                   context.read<ExchangeMoneyCubit>().currencyChange(value);
                 },
-                items: const [
+                items: [
                   {
                     'value': 'Dollor',
-                    'label': 'Dollor',
+                    'label': AppLocalizations.of(context)?.usd,
                   },
                   {
                     'value': 'Afghani',
