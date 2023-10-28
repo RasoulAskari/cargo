@@ -34,7 +34,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                 textInputType: TextInputType.number,
-                hintText: "Amount",
+                hintText: AppLocalizations.of(context)?.amount,
                 value: state.amount.value.toString(),
                 setValue: (value) {
                   double val;
