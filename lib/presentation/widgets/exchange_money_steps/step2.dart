@@ -92,7 +92,7 @@ class _Step2State extends State<Step2> {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
-                hintText: "Province",
+                hintText: AppLocalizations.of(context).,
                 value: state.province.value,
                 setValue: (value) {
                   context.read<ExchangeMoneyCubit>().provinceChange(value);

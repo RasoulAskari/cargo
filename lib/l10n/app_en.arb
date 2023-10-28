@@ -26,9 +26,9 @@
   "add_employee_screen": "Add Employee Screen",
   "firstname": "Fristname",
   "item_name": "Name",
+  "province": "Province",
   "receiver_name": "Receiver Name",
   "receiver_father_name": "Receiver Father Name",
-
   "sender_name": "Sender Name",
   "price": "Price",
   "father_name": "Father Name",
