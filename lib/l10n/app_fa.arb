@@ -51,6 +51,7 @@
     "back": "بازگشت",
     "register_date": "تاریخ ثبت",
     "phone_num": "شماره تیلفون",
+    "exchange_money_step1_title": "معلومات درباره فرستنده حواله",
     "user_step1_title": "معلومات درباره کاربر",
     "user_step2_title": "معلومات درباره صلاخیت های کاربر",
     "order_step1_title": "معلومات درباره سفارش دهنده",
