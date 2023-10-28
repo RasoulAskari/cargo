@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/phone_no.dart';
 import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
@@ -55,7 +56,7 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 textInputType: TextInputType.number,
-                hintText: "Receiver ID No",
+                hintText: AppLocalizations.of(context)?.receiver_id,
                 value: state.receiverIdNo.value.toString(),
                 setValue: (value) {
                   int val;
