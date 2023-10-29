@@ -1,4 +1,4 @@
-import 'dart:convert';
+// ignore_for_file: file_names
 
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
@@ -10,6 +10,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:convert';
 
 class LoginScreen extends StatefulWidget {
   final Function isLogin;
@@ -49,10 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await storage.write(key: "user", value: jsonDataEncoded);
         await storage.read(key: 'user');
       }
-      print(res.body);
-    } catch (e) {
-      print(e.toString());
-    }
+    } catch (e) {}
   }
 
   @override
