@@ -83,7 +83,7 @@ class IncomingOutGoingBloc
     };
 
     try {
-      await http.put(
+      final res = await http.put(
         Uri.parse('${apiRoute}income-outgoing/${incoming.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -91,6 +91,15 @@ class IncomingOutGoingBloc
         },
         body: jsonEncode(data),
       );
+
+      emitter(state.copyWith(
+          incoming_out_going: state.incoming_out_going.map((e) {
+        if (e.id == event.incomingOutGoing.id) {
+          return IncomingOutGoing.fromJson(res.body);
+        } else {
+          return e;
+        }
+      }).toList()));
     } catch (e) {
       return;
     }
