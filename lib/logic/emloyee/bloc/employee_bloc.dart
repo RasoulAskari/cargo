@@ -61,7 +61,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      await httpClient.put(
+      final res = await httpClient.put(
         headers: <String, String>{
           'Authorization': 'Bearer $token',
         },
@@ -70,6 +70,15 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
+      emitter(state.copyWith(
+        employees: state.employees.map((e) {
+          if (e.id == event.employee.id) {
+            return EmployeeModel.fromJson(res.body);
+          } else {
+            return e;
+          }
+        }).toList(),
+      ));
     } catch (e) {
       return;
     }
