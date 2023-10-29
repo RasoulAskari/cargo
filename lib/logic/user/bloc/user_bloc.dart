@@ -43,7 +43,18 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         },
         body: jsonEncode(data),
       );
-      print(res.body);
+
+      final resp = jsonDecode(res.body);
+      print(resp['name']);
+
+      emitter(state.copyWith(
+          users: state.users.map((e) {
+        if (e.id == event.user.id) {
+          return MyUser.fromJson(resp);
+        } else {
+          return e;
+        }
+      }).toList()));
     } catch (e) {
       print(e);
       return;
