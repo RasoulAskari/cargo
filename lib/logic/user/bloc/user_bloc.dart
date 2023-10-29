@@ -53,7 +53,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         }
       }).toList()));
     } catch (e) {
-      print(e);
       return;
     }
   }
