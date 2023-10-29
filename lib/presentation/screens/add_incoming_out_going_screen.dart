@@ -79,6 +79,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     context.read<IncomingOutGoingBloc>().add(
           EditIncomingOutGoingEvent(incomingOutGoing: incoming),
         );
+  Navigator.of(context).pop();
   }
 
   @override
