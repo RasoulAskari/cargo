@@ -35,7 +35,7 @@ class UserScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
           AppLocalizations.of(context)!.employee_screen,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
