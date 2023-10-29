@@ -147,110 +147,112 @@ class _AddEmployeeState extends State<AddEmployee> {
         create: (context) => EmployeeBloc(httpClient: http.Client()),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 15),
-              CTextField(
-                value: fristname.value,
-                setValue: (passedValue) {
-                  setState(() {
-                    fristname = FirstName.dirty(passedValue);
-                  });
-                },
-                hintText: AppLocalizations.of(context)?.firstname,
-                // errorText: fristname.isNotValid ? "error" : null,
-              ),
-              const SizedBox(height: 15),
-              CTextField(
-                value: lastname.value,
-                setValue: (lastnameValue) {
-                  setState(() {
-                    lastname = FirstName.dirty(lastnameValue);
-                  });
-                },
-                hintText: AppLocalizations.of(context)?.lastname,
-                // errorText: lastname.isNotValid ? "error" : null,
-              ),
-              const SizedBox(height: 15),
-              CTextField(
-                value: email.value,
-                setValue: (emailValue) {
-                  setState(() {
-                    email = Email.dirty(emailValue);
-                  });
-                },
-                hintText: AppLocalizations.of(context)?.email,
-                // errorText: email.isNotValid ? "error" : null,
-              ),
-              const SizedBox(height: 15),
-              CPhoneField(
-                hintText: AppLocalizations.of(context)!.phone_num,
-                setValue: (PhoneNumber phone) {
-                  setState(() {
-                    phoneNo = PhoneNo.dirty(phone);
-                  });
-                },
-                setValid: (bool? isValidPassed) {
-                  setState(() {
-                    isValid = isValidPassed ?? false;
-                  });
-                },
-                value: phoneNo.value,
-              ),
-              const SizedBox(height: 15),
-              CTextField(
-                hintText: AppLocalizations.of(context)?.current_address,
-                maxlines: 3,
-                value: currentAddress.value,
-                setValue: (value) {
-                  setState(() {
-                    currentAddress = Address.dirty(value);
-                  });
-                },
-              ),
-              const SizedBox(height: 15),
-              CTextField(
-                hintText: AppLocalizations.of(context)?.premenent_address,
-                maxlines: 3,
-                value: premenentAddress.value,
-                setValue: (value) {
-                  setState(() {
-                    premenentAddress = Address.dirty(value);
-                  });
-                },
-              ),
-              const SizedBox(height: 15),
-              CDatePicker(
-                value: startDate,
-                setValue: (value) {
-                  setState(() {
-                    startDate = value;
-                  });
-                },
-                hintText: AppLocalizations.of(context)?.start_date,
-              ),
-              const SizedBox(height: 15),
-              CDatePicker(
-                value: endDate,
-                setValue: (value) {
-                  setState(() {
-                    endDate = value;
-                  });
-                },
-                hintText: AppLocalizations.of(context)?.end_date,
-              ),
-              const SizedBox(height: 15),
-              ElevatedButton(
-                onPressed: () {
-                  widget.employee == null ? _addEmployee() : _editEmployee();
-                },
-                child: Text(
-                  widget.employee == null
-                      ? AppLocalizations.of(context)!.add
-                      : AppLocalizations.of(context)!.edit,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 15),
+                CTextField(
+                  value: fristname.value,
+                  setValue: (passedValue) {
+                    setState(() {
+                      fristname = FirstName.dirty(passedValue);
+                    });
+                  },
+                  hintText: AppLocalizations.of(context)?.firstname,
+                  // errorText: fristname.isNotValid ? "error" : null,
                 ),
-              )
-            ],
+                const SizedBox(height: 15),
+                CTextField(
+                  value: lastname.value,
+                  setValue: (lastnameValue) {
+                    setState(() {
+                      lastname = FirstName.dirty(lastnameValue);
+                    });
+                  },
+                  hintText: AppLocalizations.of(context)?.lastname,
+                  // errorText: lastname.isNotValid ? "error" : null,
+                ),
+                const SizedBox(height: 15),
+                CTextField(
+                  value: email.value,
+                  setValue: (emailValue) {
+                    setState(() {
+                      email = Email.dirty(emailValue);
+                    });
+                  },
+                  hintText: AppLocalizations.of(context)?.email,
+                  // errorText: email.isNotValid ? "error" : null,
+                ),
+                const SizedBox(height: 15),
+                CPhoneField(
+                  hintText: AppLocalizations.of(context)!.phone_num,
+                  setValue: (PhoneNumber phone) {
+                    setState(() {
+                      phoneNo = PhoneNo.dirty(phone);
+                    });
+                  },
+                  setValid: (bool? isValidPassed) {
+                    setState(() {
+                      isValid = isValidPassed ?? false;
+                    });
+                  },
+                  value: phoneNo.value,
+                ),
+                const SizedBox(height: 15),
+                CTextField(
+                  hintText: AppLocalizations.of(context)?.current_address,
+                  maxlines: 3,
+                  value: currentAddress.value,
+                  setValue: (value) {
+                    setState(() {
+                      currentAddress = Address.dirty(value);
+                    });
+                  },
+                ),
+                const SizedBox(height: 15),
+                CTextField(
+                  hintText: AppLocalizations.of(context)?.premenent_address,
+                  maxlines: 3,
+                  value: premenentAddress.value,
+                  setValue: (value) {
+                    setState(() {
+                      premenentAddress = Address.dirty(value);
+                    });
+                  },
+                ),
+                const SizedBox(height: 15),
+                CDatePicker(
+                  value: startDate,
+                  setValue: (value) {
+                    setState(() {
+                      startDate = value;
+                    });
+                  },
+                  hintText: AppLocalizations.of(context)?.start_date,
+                ),
+                const SizedBox(height: 15),
+                CDatePicker(
+                  value: endDate,
+                  setValue: (value) {
+                    setState(() {
+                      endDate = value;
+                    });
+                  },
+                  hintText: AppLocalizations.of(context)?.end_date,
+                ),
+                const SizedBox(height: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    widget.employee == null ? _addEmployee() : _editEmployee();
+                  },
+                  child: Text(
+                    widget.employee == null
+                        ? AppLocalizations.of(context)!.add
+                        : AppLocalizations.of(context)!.edit,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
