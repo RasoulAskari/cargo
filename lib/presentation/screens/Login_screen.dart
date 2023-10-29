@@ -50,7 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
         await storage.write(key: "user", value: jsonDataEncoded);
         await storage.read(key: 'user');
       }
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
   }
 
   @override
