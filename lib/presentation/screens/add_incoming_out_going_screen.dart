@@ -1,4 +1,5 @@
 import 'package:cargo/config/localization.dart';
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/form_models/full_name.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
@@ -79,7 +80,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     context.read<IncomingOutGoingBloc>().add(
           EditIncomingOutGoingEvent(incomingOutGoing: incoming),
         );
-  Navigator.of(context).pop();
+    Navigator.of(context).pushReplacementNamed(addIncomingOutGoing);
   }
 
   @override
