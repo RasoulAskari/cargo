@@ -24,27 +24,26 @@ class AddSalaryScreen extends StatefulWidget {
 
 class _AddSalaryScreenState extends State<AddSalaryScreen> {
   DateTime? _date;
-  IncomingOutGoingType _employee = const IncomingOutGoingType.pure();
+  IncomingOutGoingType _employee = IncomingOutGoingType.pure();
   Amount _amount = const Amount.pure();
   Amount _amountPay = const Amount.pure();
   Amount _amountRemain = const Amount.pure();
 
   @override
   void initState() {
-    _checkSalary();
     super.initState();
+    _checkSalary();
   }
 
   _checkSalary() {
     if (widget.salary != null) {
       final salary = widget.salary;
-      setState(() {
-        _employee = IncomingOutGoingType.dirty(salary!.employee.id.toString());
-        _date = DateTime.parse(salary!.date);
-        _amount = Amount.dirty(salary.salaryAmount);
-        _amountPay = Amount.dirty(salary.payAmount);
-        _amountRemain = Amount.dirty(salary.remainAmount);
-      });
+
+      _employee = IncomingOutGoingType.dirty(salary!.employee.id.toString());
+      _date = DateTime.parse(salary.date);
+      _amount = Amount.dirty(salary.salaryAmount);
+      _amountPay = Amount.dirty(salary.payAmount);
+      _amountRemain = Amount.dirty(salary.remainAmount);
     }
   }
 
