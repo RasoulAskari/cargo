@@ -60,7 +60,6 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         }
       }).toList()));
     } catch (e) {
-      print(e);
       return;
     }
   }
