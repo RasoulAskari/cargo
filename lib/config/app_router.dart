@@ -2,6 +2,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
+import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:cargo/presentation/screens/add_employee.dart';
 import 'package:cargo/presentation/screens/add_exchange_money_screen.dart';
@@ -68,8 +69,15 @@ class AppRouter {
           builder: (context) => const SalaryScreen(),
         );
       case addSalaryScreen:
+        SalaryModel? salary;
+        settings.arguments != null
+            ? salary = settings.arguments as SalaryModel?
+            : null;
+
         return MaterialPageRoute(
-          builder: (context) => const AddSalaryScreen(),
+          builder: (context) => AddSalaryScreen(
+            salary: salary,
+          ),
         );
       case exchangeMoneyScreen:
         return MaterialPageRoute(
