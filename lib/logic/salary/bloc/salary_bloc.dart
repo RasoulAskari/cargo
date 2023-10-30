@@ -19,6 +19,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     on<AddSalaryEvent>(_onAddSalaryEvent);
     on<FetchSalaryEvent>(_onFetchSalaryOutGoingEvent);
     on<DeleteSalaryEvent>(_onDleteSalaryEvent);
+    on<EditSalaryEvent>(_onEditSalaryEvent);
   }
 
   Future<void> _onEditSalaryEvent(
