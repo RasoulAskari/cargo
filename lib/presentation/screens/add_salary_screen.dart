@@ -39,6 +39,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
     if (widget.salary != null) {
       final salary = widget.salary;
       setState(() {
+        _employee = IncomingOutGoingType.dirty(salary!.employee.id.toString());
         _date = DateTime.parse(salary!.date);
         _amount = Amount.dirty(salary.salaryAmount);
         _amountPay = Amount.dirty(salary.payAmount);
