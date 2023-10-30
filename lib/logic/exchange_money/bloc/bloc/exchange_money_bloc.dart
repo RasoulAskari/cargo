@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
-import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
