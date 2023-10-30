@@ -38,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final res = _permission.contains('ary_create');
-    print(res);
+    final res = _permission.contains('');
+
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
