@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> _permission = [];
+
   @override
   void initState() {
     _checkUser();
@@ -22,6 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final _storage = const FlutterSecureStorage();
   _checkUser() async {
     final data = await _storage.read(key: 'user');
+    final p = jsonDecode(data.toString())['user'];
+    print(p);
   }
 
   @override
