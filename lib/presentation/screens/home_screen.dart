@@ -26,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final _storage = const FlutterSecureStorage();
   _checkUser() async {
     final data = await _storage.read(key: 'user');
-    final p = jsonDecode(data.toString())['user'];
-    print(p);
+    final p = jsonDecode(data.toString())['user']['permissions'];
+    
   }
 
   @override
