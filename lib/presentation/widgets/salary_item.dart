@@ -87,11 +87,7 @@ class _SalaryItemState extends State<SalaryItem> {
                   ),
                   const SizedBox(width: 3),
                   GestureDetector(
-                    onTap: () {
-                      context
-                          .read<SalaryBloc>()
-                          .add(DeleteSalaryEvent(id: widget.salary.id));
-                    },
+                    onTap: () {},
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 5),
@@ -158,6 +154,45 @@ class _SalaryItemState extends State<SalaryItem> {
           ),
         )
       ],
+    );
+  }
+
+  onDelete() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: const Text(
+            "Are You Sure You Want to Delete This?",
+            style: TextStyle(fontSize: 18),
+          ),
+          actions: [
+            TextButton(
+              child: const Text("Cancel"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(Theme.of(context).primaryColor),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white),
+              ),
+              onPressed: () {
+                context
+                    .read<SalaryBloc>()
+                    .add(DeleteSalaryEvent(id: widget.salary.id));
+                Navigator.of(context).pop();
+              },
+              child: const Text("Delete"),
+            ),
+          ],
+        );
+      },
     );
   }
 }
