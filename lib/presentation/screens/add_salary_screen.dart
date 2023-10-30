@@ -77,7 +77,19 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                   remainAmount: _amountRemain.value),
             ),
           );
-    } else {}
+    } else {
+      context.read<SalaryBloc>().add(
+            EditSalaryEvent(
+              salary: SalaryModel(
+                  id: widget.salary!.id,
+                  employee: employee,
+                  salaryAmount: _amount.value,
+                  date: _date.toString(),
+                  payAmount: _amountPay.value,
+                  remainAmount: _amountRemain.value),
+            ),
+          );
+    }
     Navigator.of(context).pushReplacementNamed(salaryScreen);
   }
 
