@@ -13,7 +13,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+
+  
+
+  void initState() {
+    super.initState();
+  }
+
   final _storage = const FlutterSecureStorage();
+  _checkUser() async {
+    final data = await _storage.read(key: 'user');
+  }
 
   @override
   Widget build(BuildContext context) {
