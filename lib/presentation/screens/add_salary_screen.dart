@@ -15,7 +15,8 @@ import 'package:flutter/material.dart';
 import "package:flutter_bloc/flutter_bloc.dart";
 
 class AddSalaryScreen extends StatefulWidget {
-  const AddSalaryScreen({super.key});
+  final SalaryModel? salary;
+  const AddSalaryScreen({super.key, this.salary});
 
   @override
   State<AddSalaryScreen> createState() => _AddSalaryScreenState();
