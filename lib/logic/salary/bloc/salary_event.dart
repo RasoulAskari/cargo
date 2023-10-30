@@ -14,6 +14,7 @@ class AddSalaryEvent extends SalaryEvent {
 
   const AddSalaryEvent({required this.salary});
 }
+
 class EditSalaryEvent extends SalaryEvent {
   final SalaryModel salary;
 

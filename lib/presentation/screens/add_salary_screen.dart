@@ -65,17 +65,19 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   }
 
   void _addSalary(EmployeeModel employee) {
-    context.read<SalaryBloc>().add(
-          AddSalaryEvent(
-            salary: SalaryModel(
-                id: 0,
-                employee: employee,
-                salaryAmount: _amount.value,
-                date: _date.toString(),
-                payAmount: _amountPay.value,
-                remainAmount: _amountRemain.value),
-          ),
-        );
+    if (widget.salary == null) {
+      context.read<SalaryBloc>().add(
+            AddSalaryEvent(
+              salary: SalaryModel(
+                  id: 0,
+                  employee: employee,
+                  salaryAmount: _amount.value,
+                  date: _date.toString(),
+                  payAmount: _amountPay.value,
+                  remainAmount: _amountRemain.value),
+            ),
+          );
+    } else {}
     Navigator.of(context).pushReplacementNamed(salaryScreen);
   }
 
