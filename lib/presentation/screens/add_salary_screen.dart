@@ -29,6 +29,18 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   Amount _amountPay = const Amount.pure();
   Amount _amountRemain = const Amount.pure();
 
+  _checkSalary() {
+    if (widget.salary != null) {
+      final salary = widget.salary;
+      setState(() {
+        _date = DateTime.parse(salary!.date);
+        _amount = Amount.dirty(salary.salaryAmount);
+        _amountPay = Amount.dirty(salary.payAmount);
+        _amountRemain = Amount.dirty(salary.remainAmount);
+      });
+    }
+  }
+
   final a = TextEditingController();
   Future<void> _findSalary(int id, List<EmployeeModel> employees) async {
     EmployeeModel emp = employees.firstWhere((element) => element.id == id);
