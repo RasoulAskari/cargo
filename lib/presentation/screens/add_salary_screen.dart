@@ -29,6 +29,12 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
   Amount _amountPay = const Amount.pure();
   Amount _amountRemain = const Amount.pure();
 
+  @override
+  void initState() {
+    _checkSalary();
+    super.initState();
+  }
+
   _checkSalary() {
     if (widget.salary != null) {
       final salary = widget.salary;
