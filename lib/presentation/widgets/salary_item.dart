@@ -87,7 +87,9 @@ class _SalaryItemState extends State<SalaryItem> {
                   ),
                   const SizedBox(width: 3),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      onDelete();
+                    },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 5),
