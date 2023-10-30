@@ -24,7 +24,7 @@ class AddSalaryScreen extends StatefulWidget {
 
 class _AddSalaryScreenState extends State<AddSalaryScreen> {
   DateTime? _date;
-  IncomingOutGoingType _employee = IncomingOutGoingType.pure();
+  IncomingOutGoingType _employee = const IncomingOutGoingType.pure();
   Amount _amount = const Amount.pure();
   Amount _amountPay = const Amount.pure();
   Amount _amountRemain = const Amount.pure();
