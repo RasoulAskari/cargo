@@ -20,6 +20,49 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
     on<FetchSalaryEvent>(_onFetchSalaryOutGoingEvent);
     on<DeleteSalaryEvent>(_onDleteSalaryEvent);
   }
+
+  Future<void> _onEditSalaryEvent(
+      EditSalaryEvent event, Emitter<SalaryState> emitter) async {
+    final token = await getAuthToken();
+
+    SalaryModel salary = event.salary;
+
+    final data = {
+      'employee_id': salary.employee.id,
+      'created_at': salary.date.toString(),
+      'employee': {
+        'id': salary.employee.id,
+        "salary": salary.employee.salary,
+        'first_name': salary.employee.firstName,
+        'last_name': salary.employee.lastName
+      },
+      'amount': salary.salaryAmount,
+      "paid": salary.payAmount
+    };
+
+    try {
+      final res = await http.put(
+        Uri.parse('${apiRoute}income-outgoing/${salary.id}'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode(data),
+      );
+
+      emitter(state.copyWith(
+          salary: state.salary.map((e) {
+        if (e.id == event.salary.id) {
+          return SalaryModel.fromJson(res.body);
+        } else {
+          return e;
+        }
+      }).toList()));
+    } catch (e) {
+      return;
+    }
+  }
+
   Future<void> _onFetchSalaryOutGoingEvent(
       FetchSalaryEvent event, Emitter<SalaryState> emitter) async {
     if (state.hasReachedMax) return;
