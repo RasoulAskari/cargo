@@ -15,29 +15,37 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> _permission = [];
+  List<dynamic> _permission = [];
 
   @override
   void initState() {
     _checkUser();
+
     super.initState();
   }
 
   final _storage = const FlutterSecureStorage();
   _checkUser() async {
-    final data = await _storage.read(key: 'user');
-    final p = jsonDecode(data.toString())['user']['permissions'];
-    
+    try {
+      final data = await _storage.read(key: 'user');
+      final p = jsonDecode(data.toString())['user']['permissions'] as List;
+
+      setState(() {
+        _permission += p;
+      });
+    } catch (e) {}
   }
 
   @override
   Widget build(BuildContext context) {
+    final res = _permission.contains('ary_create');
+    print(res);
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
         'function': () {
-          Navigator.of(context).pushNamed(userScreen);
+          res ? Navigator.of(context).pushNamed(userScreen) : null;
         }
       },
       {
