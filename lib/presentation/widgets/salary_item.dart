@@ -1,3 +1,4 @@
+import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,10 @@ class _SalaryItemState extends State<SalaryItem> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(addSalaryScreen, arguments: widget.salary);
+                    },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 5),
