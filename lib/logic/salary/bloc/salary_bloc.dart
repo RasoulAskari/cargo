@@ -43,7 +43,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
 
     try {
       final res = await http.put(
-        Uri.parse('${apiRoute}income-outgoing/${salary.id}'),
+        Uri.parse('${apiRoute}salary-payments/${salary.id}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
@@ -60,6 +60,7 @@ class SalaryBloc extends Bloc<SalaryEvent, SalaryState> {
         }
       }).toList()));
     } catch (e) {
+      print(e);
       return;
     }
   }
