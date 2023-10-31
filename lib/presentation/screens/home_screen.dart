@@ -20,6 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final res = checkUserPermission('ididi');
+    print(res);
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
