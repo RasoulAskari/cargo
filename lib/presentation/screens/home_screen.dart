@@ -36,8 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
       {
         'name': AppLocalizations.of(context)?.employee,
         'image': "",
-        'function': () {
-          Navigator.of(context).pushNamed(employeeScreen);
+        'function': () async {
+          final res = await checkUserPermission('employee_view');
+          res
+              // ignore: use_build_context_synchronously
+              ? Navigator.of(context).pushNamed(employeeScreen)
+              : Toast.show("Access Deny");
         }
       },
       {
