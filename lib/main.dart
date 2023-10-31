@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
-import 'package:toast/toast.dart';
 
 void main() => runApp(const MyApp());
 
