@@ -59,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': AppLocalizations.of(context)?.exchange_money,
         'image': "",
         'function': () {
+          checkPermission(exchangeMoneyScreen, 'exchange_view', context);
         }
       },
       {
