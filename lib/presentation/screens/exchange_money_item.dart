@@ -102,15 +102,16 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                       }, 'exchange_delete', context);
                     },
                     child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
-                            color: const Color(0x55ff711b),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Icon(
-                          Icons.delete_forever,
-                          color: Theme.of(context).primaryColor,
-                        )),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      decoration: BoxDecoration(
+                          color: const Color(0x55ff711b),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Icon(
+                        Icons.delete_forever,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
                   ),
                 ],
               ),
