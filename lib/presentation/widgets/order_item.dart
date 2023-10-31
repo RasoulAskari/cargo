@@ -1,4 +1,5 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
 import 'package:flutter/material.dart';
@@ -70,10 +71,13 @@ class OrderItem extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context
-                          .read<OrderBloc>()
-                          .add(DeleteOrderEvent(id: order.id));
-                      Navigator.of(context).pushReplacementNamed(ordersScreen);
+                      checkPermissionAction(() {
+                        context
+                            .read<OrderBloc>()
+                            .add(DeleteOrderEvent(id: order.id));
+                        Navigator.of(context)
+                            .pushReplacementNamed(ordersScreen);
+                      }, "order_delete", context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
