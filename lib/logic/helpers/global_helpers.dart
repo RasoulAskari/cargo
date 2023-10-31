@@ -59,7 +59,6 @@ Future<void> checkPermissionRoute(
       ? Navigator.of(context).pushNamed(route)
       : Toast.show("Access Deny");
 }
-
 Future<void> checkPermissionAction(
     Function function, String role, BuildContext context) async {
   ToastContext().init(context);
