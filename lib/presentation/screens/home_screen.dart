@@ -19,14 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ToastContext().init(context);
+
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
         'function': () async {
-          final res = await checkUserPermission('order_create');
-          // ignore: use_build_context_synchronously
+          final res = await checkUserPermission('user_view');
           res
+              // ignore: use_build_context_synchronously
               ? Navigator.of(context).pushNamed(userScreen)
               : Toast.show("Access Deny");
         }
