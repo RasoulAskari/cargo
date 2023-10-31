@@ -1,6 +1,7 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/screens/exchange_money_item.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,8 @@ class ExchangeMoneyScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(addExchangeMoneyScreen);
+                checkPermissionRoute(
+                    addExchangeMoneyScreen, 'exchange_create', context);
               },
               icon: const Icon(
                 Icons.add,
