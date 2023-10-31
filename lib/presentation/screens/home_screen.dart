@@ -38,14 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': AppLocalizations.of(context)?.incoming_outgoing,
         'image': "",
         'function': () async {
-          checkPermission(inconingOutGoingScreen, 'incoming_view', context);
+          checkPermission(inconingOutGoingScreen, 'income_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.order,
         'image': "",
         'function': () {
-          Navigator.of(context).pushNamed(ordersScreen);
+          checkPermission(ordersScreen, 'order_view', context);
         }
       },
       {
