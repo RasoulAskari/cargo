@@ -76,8 +76,10 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushNamed(addIncomingOutGoing,
-                          arguments: widget.item);
+                      checkPermissionAction(() {
+                        Navigator.of(context).pushNamed(addIncomingOutGoing,
+                            arguments: widget.item);
+                      }, "incom_restore", context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
