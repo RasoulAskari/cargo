@@ -76,8 +76,9 @@ class _SalaryItemState extends State<SalaryItem> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context)
+                      checkPermissionAction((){  Navigator.of(context)
                           .pushNamed(addSalaryScreen, arguments: widget.salary);
+                    }, 'salary_delete', context)
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
