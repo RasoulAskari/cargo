@@ -1,4 +1,5 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,9 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      onDelete();
+                      checkPermissionAction(() {
+                        onDelete();
+                      }, 'incom_delete', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(

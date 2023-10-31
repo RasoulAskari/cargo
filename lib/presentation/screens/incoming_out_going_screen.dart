@@ -23,8 +23,8 @@ class _IncomingOutGoingScreenState extends State<IncomingOutGoingScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                checkPermissionRoute(addIncomingOutGoing, 'incom_create', context);
-                
+                checkPermissionRoute(
+                    addIncomingOutGoing, 'incom_create', context);
               },
               icon: const Icon(
                 Icons.add,
