@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/presentation/widgets/user_item.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class UserScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(addUserScreen);
+                checkPermissionRoute(addUserScreen, 'user_create', context);
               },
               icon: const Icon(
                 Icons.add,
