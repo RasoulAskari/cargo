@@ -1,4 +1,5 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,9 @@ class _SalaryItemState extends State<SalaryItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      onDelete();
+                      checkPermissionAction(() {
+                        onDelete();
+                      }, 'salary_delete', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
