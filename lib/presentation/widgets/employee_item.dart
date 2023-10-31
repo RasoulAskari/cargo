@@ -1,6 +1,7 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,8 +76,10 @@ class _EmployeeItemState extends State<EmployeeItem> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(addEmployee, arguments: widget.employee);
+                      checkPermissionAction(() {
+                        Navigator.of(context)
+                            .pushNamed(addEmployee, arguments: widget.employee);
+                      }, "employee_retore", context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -92,7 +95,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      onDelete();
+                      checkPermissionAction(() {
+                        onDelete();
+                      }, 'employee_delete', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
