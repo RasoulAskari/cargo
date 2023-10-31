@@ -23,42 +23,42 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
         'function': () {
-          checkPermission(userScreen, 'user_view', context);
+          checkPermissionRoute(userScreen, 'user_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.employee,
         'image': "",
         'function': () {
-          checkPermission(employeeScreen, 'employee_view', context);
+          checkPermissionRoute(employeeScreen, 'employee_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.incoming_outgoing,
         'image': "",
         'function': () async {
-          checkPermission(inconingOutGoingScreen, 'income_view', context);
+          checkPermissionRoute(inconingOutGoingScreen, 'income_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.order,
         'image': "",
         'function': () {
-          checkPermission(ordersScreen, 'order_view', context);
+          checkPermissionRoute(ordersScreen, 'order_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.salary,
         'image': "",
         'function': () {
-          checkPermission(salaryScreen, 'salary_view', context);
+          checkPermissionRoute(salaryScreen, 'salary_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.exchange_money,
         'image': "",
         'function': () {
-          checkPermission(exchangeMoneyScreen, 'exchange_view', context);
+          checkPermissionRoute(exchangeMoneyScreen, 'exchange_view', context);
         }
       },
       {

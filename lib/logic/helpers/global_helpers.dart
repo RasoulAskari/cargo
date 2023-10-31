@@ -49,7 +49,7 @@ Future<bool> checkUserPermission(String permission) async {
   }
 }
 
-Future<void> checkPermission(
+Future<void> checkPermissionRoute(
     String route, String role, BuildContext context) async {
   ToastContext().init(context);
 
