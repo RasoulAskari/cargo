@@ -4,6 +4,7 @@ import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:cargo/config/localization.dart';
+import 'package:toast/toast.dart';
 
 class HomeScreen extends StatefulWidget {
   final Function isLogin;
@@ -25,7 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
         'function': () async {
           final res = await checkUserPermission('order_create');
           // ignore: use_build_context_synchronously
-          res ? Navigator.of(context).pushNamed(userScreen) : null;
+          res
+              ? Navigator.of(context).pushNamed(userScreen)
+              : Toast.show("Access Deny");
         }
       },
       {
