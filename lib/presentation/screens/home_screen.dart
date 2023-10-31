@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -15,38 +16,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<dynamic> _permission = [];
-
-  @override
-  void initState() {
-    _checkUser();
-
-    super.initState();
-  }
-
   final _storage = const FlutterSecureStorage();
-  _checkUser() async {
-    try {
-      final data = await _storage.read(key: 'user');
-      final p = jsonDecode(data.toString())['user']['permissions'] as List;
-
-      setState(() {
-        _permission += p;
-      });
-    } catch (e) {}
-  }
 
   @override
   Widget build(BuildContext context) {
-    final res = _permission.contains('');
-
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
-        'function': () {
-          res ? Navigator.of(context).pushNamed(userScreen) : null;
-        }
+        'function': () {}
       },
       {
         'name': AppLocalizations.of(context)?.employee,

@@ -33,3 +33,14 @@ Future<String?> getAuthToken() async {
     return null;
   }
 }
+
+Future<bool> checkUserPermission(String permission) async {
+  try {
+    final data = await _storage.read(key: 'user');
+    final p = jsonDecode(data.toString())['user']['permissions'] as List;
+    final res = p.contains(permission);
+    return res;
+  } catch (e) {
+    return false;
+  }
+}
