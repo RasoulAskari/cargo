@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/salary_item.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -22,7 +23,8 @@ class _SalaryScreenState extends State<SalaryScreen> {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(addSalaryScreen);
+                  checkPermissionRoute(
+                      addSalaryScreen, 'salary_create', context);
                 },
                 icon: const Icon(
                   Icons.add,
