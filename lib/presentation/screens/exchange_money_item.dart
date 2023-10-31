@@ -76,10 +76,12 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushNamed(
-                        addExchangeMoneyScreen,
-                        arguments: widget.exchange,
-                      );
+                      checkPermissionAction(() {
+                        Navigator.of(context).pushNamed(
+                          addExchangeMoneyScreen,
+                          arguments: widget.exchange,
+                        );
+                      }, 'exchange_restore', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
