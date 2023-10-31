@@ -1,6 +1,7 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +95,9 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      onDelete();
+                      checkPermissionAction(() {
+                        onDelete();
+                      }, 'exchange_delete', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
