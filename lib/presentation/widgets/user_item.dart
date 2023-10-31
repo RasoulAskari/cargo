@@ -1,4 +1,5 @@
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +88,6 @@ class UserItem extends StatelessWidget {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
-                      onDelete(context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
