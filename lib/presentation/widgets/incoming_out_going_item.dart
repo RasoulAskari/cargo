@@ -79,7 +79,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                       checkPermissionAction(() {
                         Navigator.of(context).pushNamed(addIncomingOutGoing,
                             arguments: widget.item);
-                      }, "incom_restore", context);
+                      }, "income_restore", context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -97,7 +97,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                     onTap: () {
                       checkPermissionAction(() {
                         onDelete();
-                      }, 'incom_delete', context);
+                      }, 'income_delete', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
