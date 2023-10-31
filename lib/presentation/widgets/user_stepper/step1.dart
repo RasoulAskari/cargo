@@ -1,4 +1,6 @@
 import 'package:cargo/config/localization.dart';
+import 'package:cargo/logic/form_models/first_name.dart';
+import 'package:cargo/logic/form_models/full_name.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -97,6 +99,19 @@ class Step1 extends StatelessWidget {
       allowRole: ['admin', 'finance_manager'],
     )
   ];
+
+  String? getFirstnameError(FirstNameValidationError error) {
+    switch (error) {
+      case FirstNameValidationError.empty:
+        return "empty";
+      case FirstNameValidationError.min:
+        return "min";
+      case FirstNameValidationError.max:
+        return "max";
+      default:
+        return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
