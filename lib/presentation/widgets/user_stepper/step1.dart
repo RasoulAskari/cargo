@@ -100,7 +100,7 @@ class Step1 extends StatelessWidget {
     )
   ];
 
-  String? getFirstnameError(FirstNameValidationError error) {
+  String? getFirstnameError(FirstNameValidationError? error) {
     switch (error) {
       case FirstNameValidationError.empty:
         return "empty";
@@ -149,6 +149,9 @@ class Step1 extends StatelessWidget {
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.name.isNotValid
+                    ? getFirstnameError(state.name.error)
+                    : null,
                 hintText: AppLocalizations.of(context)?.firstname,
                 value: state.name.value,
                 setValue: (value) {
