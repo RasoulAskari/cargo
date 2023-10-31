@@ -38,9 +38,11 @@ Future<bool> checkUserPermission(String permission) async {
   try {
     final data = await _storage.read(key: 'user');
     final p = jsonDecode(data.toString())['user']['permissions'] as List;
+    print(p);
     final res = p.contains(permission);
     return res;
   } catch (e) {
+    print(e);
     return false;
   }
 }

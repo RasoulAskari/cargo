@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/home_item.dart';
@@ -20,13 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final res = checkUserPermission('ididi');
-    print(res);
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
-        'function': () {}
+        'function': () async {
+          final res = await checkUserPermission('order_create');
+          // ignore: use_build_context_synchronously
+          res ? Navigator.of(context).pushNamed(userScreen) : null;
+        }
       },
       {
         'name': AppLocalizations.of(context)?.employee,
