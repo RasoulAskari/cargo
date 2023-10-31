@@ -52,14 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': AppLocalizations.of(context)?.salary,
         'image': "",
         'function': () {
-          Navigator.of(context).pushNamed(salaryScreen);
+          checkPermission(salaryScreen, 'salary_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.exchange_money,
         'image': "",
         'function': () {
-          Navigator.of(context).pushNamed(exchangeMoneyScreen);
         }
       },
       {
