@@ -88,6 +88,8 @@ class UserItem extends StatelessWidget {
                   const SizedBox(width: 3),
                   GestureDetector(
                     onTap: () {
+                      checkPermissionAction(
+                          onDelete(context), 'user_delete', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
