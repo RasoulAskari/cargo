@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        ToastContext().init(context);
 
     return MultiBlocProvider(providers: [
       BlocProvider<LoginBloc>(

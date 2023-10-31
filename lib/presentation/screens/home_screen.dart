@@ -1,5 +1,6 @@
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
+import 'package:cargo/presentation/screens/incoming_out_going_screen.dart';
 import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': AppLocalizations.of(context)?.incoming_outgoing,
         'image': "",
         'function': () async {
-          Navigator.of(context).pushNamed(inconingOutGoingScreen);
+          checkPermission(inconingOutGoingScreen, 'incoming_view', context);
         }
       },
       {

@@ -52,6 +52,8 @@ Future<bool> checkUserPermission(String permission) async {
 
 Future<void> checkPermission(
     String route, String role, BuildContext context) async {
+  ToastContext().init(context);
+
   final res = await checkUserPermission(role);
   res
       // ignore: use_build_context_synchronously
