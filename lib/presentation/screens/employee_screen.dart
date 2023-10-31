@@ -1,6 +1,7 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/employee_item.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -21,7 +22,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(addEmployee);
+                checkPermissionRoute(addEmployee, 'employee_view', context);
               },
               icon: const Icon(
                 Icons.add,
