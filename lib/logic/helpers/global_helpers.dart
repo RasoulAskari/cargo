@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 import 'package:cargo/config/config.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+// ignore: depend_on_referenced_packages
+import 'package:toast/toast.dart';
 
 const _storage = FlutterSecureStorage();
 
@@ -45,4 +48,13 @@ Future<bool> checkUserPermission(String permission) async {
     print(e);
     return false;
   }
+}
+
+Future<void> checkPermission(
+    String route, String role, BuildContext context) async {
+  final res = await checkUserPermission(role);
+  res
+      // ignore: use_build_context_synchronously
+      ? Navigator.of(context).pushNamed(route)
+      : Toast.show("Access Deny");
 }

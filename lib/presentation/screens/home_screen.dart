@@ -4,7 +4,6 @@ import 'package:cargo/presentation/widgets/home_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:cargo/config/localization.dart';
-import 'package:toast/toast.dart';
 
 class HomeScreen extends StatefulWidget {
   final Function isLogin;
@@ -19,29 +18,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ToastContext().init(context);
-
     final List<dynamic> data = [
       {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
-        'function': () async {
-          final res = await checkUserPermission('user_view');
-          res
-              // ignore: use_build_context_synchronously
-              ? Navigator.of(context).pushNamed(userScreen)
-              : Toast.show("Access Deny");
+        'function': () {
+          checkPermission(userScreen, 'user_view', context);
         }
       },
       {
         'name': AppLocalizations.of(context)?.employee,
         'image': "",
-        'function': () async {
-          final res = await checkUserPermission('employee_view');
-          res
-              // ignore: use_build_context_synchronously
-              ? Navigator.of(context).pushNamed(employeeScreen)
-              : Toast.show("Access Deny");
+        'function': () {
+          checkPermission(employeeScreen, 'employee_view', context);
         }
       },
       {

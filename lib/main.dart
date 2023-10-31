@@ -14,6 +14,8 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+// ignore: depend_on_referenced_packages
+import 'package:toast/toast.dart';
 
 void main() => runApp(const MyApp());
 
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        ToastContext().init(context);
+
     return MultiBlocProvider(providers: [
       BlocProvider<LoginBloc>(
         create: (context) => LoginBloc(
