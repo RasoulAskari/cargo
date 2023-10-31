@@ -71,8 +71,10 @@ class UserItem extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(addUserScreen, arguments: user);
+                      checkPermissionAction(() {
+                        Navigator.of(context)
+                            .pushNamed(addUserScreen, arguments: user);
+                      }, 'user_restore', context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
