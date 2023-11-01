@@ -1,7 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
 
-enum EmailValidationError { empty, min, invalid }
+enum EmailValidationError { empty, invalid }
 
 class Email extends FormzInput<String, EmailValidationError> {
   const Email.pure() : super.pure('');
@@ -14,8 +14,6 @@ class Email extends FormzInput<String, EmailValidationError> {
       return EmailValidationError.empty;
     } else if (!emailRegExp.hasMatch(value)) {
       return EmailValidationError.invalid;
-    } else if (value.length < 10) {
-      return EmailValidationError.min;
     }
     return null;
   }
