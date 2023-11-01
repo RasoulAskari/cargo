@@ -115,7 +115,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CDropdown(
                 errorText: state.role.isNotValid
-                    ? getRoleError(state.role.error, context)
+                    ? getCStringError(state.role.error, context)
                     : null,
                 value: state.role.value,
                 hintText: AppLocalizations.of(context)?.role,
