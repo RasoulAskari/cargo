@@ -68,5 +68,17 @@
   "user_step2_title": "Info About User privilege",
   "order_step1_title": "Info About The Person\nwhom Order",
   "order_step2_title": "Info About Receiver",
-  "order_step3_title": "Info About Item"
+  "order_step3_title": "Info About Item",
+  "itemCanNotBeLessThanMaxCharacters": "{item} can not be less than {min} characters",
+  "@itemCanNotBeLessThanMaxCharacters": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      },
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  
 }
