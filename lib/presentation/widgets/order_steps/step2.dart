@@ -103,7 +103,9 @@ class _Step2State extends State<Step2> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
-                errorText: state.address.isNotValid ? getAddressError(state.address.error, context) : ,
+                errorText: state.address.isNotValid
+                    ? getAddressError(state.address.error, context)
+                    : null,
                 value: state.address.value,
                 hintText: AppLocalizations.of(context)?.address,
                 setValue: (value) {
