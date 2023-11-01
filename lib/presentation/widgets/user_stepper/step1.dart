@@ -54,6 +54,18 @@ class Step1 extends StatelessWidget {
       }
     }
 
+    String? getPasswordError(EmailValidationError? error) {
+      switch (error) {
+        case EmailValidationError.empty:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeEmpty(AppLocalizations.of(context)!.email);
+        case EmailValidationError.invalid:
+          return AppLocalizations.of(context)!.invalid_email;
+        default:
+          return null;
+      }
+    }
+
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
       List<RoleModel> data = [];
