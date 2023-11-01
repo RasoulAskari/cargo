@@ -4,12 +4,14 @@ class CPasswordField extends StatefulWidget {
   final String value;
   final String? hintText;
   final Function setValue;
+  final String? errorText;
 
   const CPasswordField({
     super.key,
     required this.value,
     required this.setValue,
     this.hintText,
+    this.errorText,
   });
 
   @override
