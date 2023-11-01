@@ -5,6 +5,7 @@ class CDropdown extends StatefulWidget {
   final String? value;
   final Function setValue;
   final String? hintText;
+  final String? errorText;
   final List items;
   const CDropdown({
     super.key,
@@ -12,6 +13,7 @@ class CDropdown extends StatefulWidget {
     required this.setValue,
     required this.items,
     this.hintText,
+    this.errorText,
   });
 
   @override
@@ -38,6 +40,7 @@ class _CDropdownState extends State<CDropdown> {
       controller: txt,
       readOnly: true,
       decoration: InputDecoration(
+        errorText: widget.errorText,
         filled: true,
         fillColor: Colors.grey[200],
         hintText: widget.hintText,
