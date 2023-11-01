@@ -147,6 +147,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               CTextField(
+                errorText: amount.isNotValid
+                    ? getAmountError(amount.error, context)
+                    : null,
                 textInputType: TextInputType.number,
                 hintText: AppLocalizations.of(context)?.amount,
                 value: amount.value.toString(),
