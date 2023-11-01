@@ -15,7 +15,7 @@ class OrderState extends Equatable {
   final CString typeReceiver;
   final CString country;
   final CString city;
-  final CString address;
+  final  address;
   final FormzSubmissionStatus status;
   final ItemsList items;
 
