@@ -80,5 +80,15 @@
       }
     }
   },
-  
+  "itemCanNotBeMoreThanMaxCharacters": "{item} can not be more than {max} characters",
+  "@itemCanNotBeMoreThanMaxCharacters": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  }  
 }
