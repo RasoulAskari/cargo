@@ -23,7 +23,6 @@ class Step1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
       List<RoleModel> data = [];
@@ -79,7 +78,7 @@ class Step1 extends StatelessWidget {
                   context.read<UserCubit>().emailChange(value);
                 },
                 errorText: state.email.isNotValid
-                    ? getEmailError(state.email.error)
+                    ? getEmailError(state.email.error, context)
                     : null,
               );
             },
@@ -94,7 +93,7 @@ class Step1 extends StatelessWidget {
                   context.read<UserCubit>().passwordChange(value);
                 },
                 errorText: state.password.isNotValid
-                    ? getPasswordError(state.password.error)
+                    ? getPasswordError(state.password.error, context)
                     : null,
               );
             },
@@ -116,7 +115,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CDropdown(
                 errorText: state.role.isNotValid
-                    ? getRoleError(state.role.error)
+                    ? getRoleError(state.role.error, context)
                     : null,
                 value: state.role.value,
                 hintText: AppLocalizations.of(context)?.role,
