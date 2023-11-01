@@ -124,6 +124,9 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.pricePerKelo.isNotValid
+                    ? getAmountError(state.pricePerKelo.error, context)
+                    : null,
                 hintText: AppLocalizations.of(context)!.price,
                 value: state.pricePerKelo.value.toString(),
                 setValue: (value) {
