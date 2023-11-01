@@ -26,7 +26,7 @@ class AddIncomingOutGoingScreen extends StatefulWidget {
 
 class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
-  FullName name = const FullName.pure();
+  CString name = const CString.pure();
   Amount amount = const Amount.pure();
   CString incomingOutGoingType = const CString.pure();
   Future<void> _addIncoming() async {
@@ -59,7 +59,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
       final incoming = widget.incomingOutGoing;
       setState(() {
         _date = DateTime.parse(incoming!.createdAt);
-        name = FullName.dirty(incoming.name);
+        name = CString.dirty(incoming.name);
         amount = Amount.dirty(incoming.amount);
         incomingOutGoingType = CString.dirty(incoming.type);
       });
@@ -168,7 +168,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 value: name.value,
                 setValue: (value) {
                   setState(() {
-                    name = FullName.dirty(value);
+                    name = CString.dirty(value);
                   });
                 },
               ),
