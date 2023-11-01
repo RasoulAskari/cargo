@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/permissions.dart';
+import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/form_models/password.dart';
@@ -77,6 +78,28 @@ class Step1 extends StatelessWidget {
       }
     }
 
+    String? getRoleError(CStringValidationError? error) {
+      switch (error) {
+        case CStringValidationError.empty:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeEmpty(AppLocalizations.of(context)!.role);
+        case CStringValidationError.min:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeLessThanMaxCharacters(
+            AppLocalizations.of(context)!.role,
+            8.toString(),
+          );
+        case CStringValidationError.max:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeMoreThanMaxCharacters(
+            AppLocalizations.of(context)!.role,
+            32.toString(),
+          );
+        default:
+          return null;
+      }
+    }
+
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
       List<RoleModel> data = [];
@@ -146,7 +169,9 @@ class Step1 extends StatelessWidget {
                 setValue: (value) {
                   context.read<UserCubit>().passwordChange(value);
                 },
-                errorText: state.password.isNotValid ? getPasswordError(state.password.error) : null,
+                errorText: state.password.isNotValid
+                    ? getPasswordError(state.password.error)
+                    : null,
               );
             },
           ),
@@ -166,6 +191,9 @@ class Step1 extends StatelessWidget {
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CDropdown(
+                errorText: state.role.isNotValid
+                    ? getRoleError(state.role.error)
+                    : null,
                 value: state.role.value,
                 hintText: AppLocalizations.of(context)?.role,
                 setValue: (value) {
