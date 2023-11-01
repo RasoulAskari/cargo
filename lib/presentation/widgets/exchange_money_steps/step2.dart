@@ -103,6 +103,9 @@ class _Step2State extends State<Step2> {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.province.isNotValid
+                    ? getCStringError(state.province.error, context)
+                    : null,
                 hintText: AppLocalizations.of(context)?.province,
                 value: state.province.value,
                 setValue: (value) {
