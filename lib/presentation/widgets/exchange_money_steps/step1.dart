@@ -37,6 +37,9 @@ class Step1 extends StatelessWidget {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.amount.isNotValid
+                    ? getAmountError(state.amount.error, context)
+                    : null,
                 textInputType: TextInputType.number,
                 hintText: AppLocalizations.of(context)?.amount,
                 value: state.amount.value.toString(),
