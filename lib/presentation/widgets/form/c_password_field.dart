@@ -36,6 +36,7 @@ class _CPasswordFieldState extends State<CPasswordField> {
       },
       obscureText: !_passwordVisible,
       decoration: InputDecoration(
+        errorText: widget.errorText,
         filled: true,
         fillColor: Colors.grey[200],
         hintText: widget.hintText,
