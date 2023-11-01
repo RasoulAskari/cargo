@@ -28,7 +28,9 @@ class _Step2State extends State<Step2> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
-                  errorText: state.receiverName.isNotValid ? getFirstnameError(state.receiverName.error, context) : null,
+                  errorText: state.receiverName.isNotValid
+                      ? getFirstnameError(state.receiverName.error, context)
+                      : null,
                   value: state.receiverName.value,
                   hintText: AppLocalizations.of(context)?.firstname,
                   setValue: (value) {
@@ -57,6 +59,9 @@ class _Step2State extends State<Step2> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.typeReceiver.isNotValid
+                    ? getCStringError(state.typeReceiver.error, context)
+                    : null,
                 value: state.typeReceiver.value,
                 hintText: AppLocalizations.of(context)!.reciver_type,
                 setValue: (value) {
