@@ -217,7 +217,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                       currentAddress = Address.dirty(value);
                     });
                   },
-                  errorText: lastname.isNotValid
+                  errorText: currentAddress.isNotValid
                       ? getAddressError(currentAddress.error, context)
                       : null,
                 ),
