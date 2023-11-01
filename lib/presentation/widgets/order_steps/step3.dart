@@ -78,6 +78,9 @@ class _Step3State extends State<Step3> {
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
                 builder: (context, state) {
                   return CTextField(
+                    errorText: state.name.isNotValid
+                        ? getCStringError(state.name.error, context)
+                        : null,
                     value: state.name.value,
                     setValue: (value) {
                       context.read<OrderItemCubit>().nameChange(value);
