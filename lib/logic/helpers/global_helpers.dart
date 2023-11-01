@@ -163,7 +163,7 @@ String? getAddressError(AddressValidationError? error, BuildContext context) {
     case AddressValidationError.max:
       return AppLocalizations.of(context)!.itemCanNotBeMoreThanMaxCharacters(
         AppLocalizations.of(context)!.address,
-        32.toString(),
+        200.toString(),
       );
     default:
       return null;
