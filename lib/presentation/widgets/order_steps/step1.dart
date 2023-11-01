@@ -92,6 +92,9 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.customerIdCard.isNotValid
+                    ? getCStringError(state.customerIdCard.error, context)
+                    : null,
                 value: state.customerIdCard.value,
                 hintText: AppLocalizations.of(context)!.id_card_num,
                 setValue: (value) {
