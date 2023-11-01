@@ -108,6 +108,9 @@ class Step1 extends StatelessWidget {
                 setValue: (value) {
                   context.read<UserCubit>().emailChange(value);
                 },
+                errorText: state.email.isNotValid
+                    ? getEmailError(state.email.error)
+                    : null,
               );
             },
           ),
