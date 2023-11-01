@@ -247,6 +247,9 @@ class _AddEmployeeState extends State<AddEmployee> {
                 ),
                 const SizedBox(height: 15),
                 CDatePicker(
+                  errorText: premenentAddress.isNotValid
+                      ? getAddressError(premenentAddress.error, context)
+                      : null,
                   value: endDate,
                   setValue: (value) {
                     setState(() {
