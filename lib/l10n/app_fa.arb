@@ -81,6 +81,17 @@
       }
     }
   },
+  "itemCanNotBeMoreThanMaxCharacters": "{item} نمی‌تواند بیش از {max} کاراکتر باشد",
+  "@itemCanNotBeMoreThanMaxCharacters": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  }
 
 
 
