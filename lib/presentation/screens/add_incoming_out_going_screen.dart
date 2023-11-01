@@ -1,7 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
-import 'package:cargo/logic/form_models/full_name.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
