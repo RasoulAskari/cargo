@@ -37,6 +37,7 @@
     "lastname": "تخلص",
     "id_card_num": "شماره تذکره",
     "email": "ایمیل",
+    "invalid_email": "ایمیل اشتباه می باشد",
     "price": "قیمت",
     "role": "نقش",
     "country": "کشور",
@@ -99,5 +100,5 @@
         "type": "String"
       }
     }
-  }
+  }  
 }  
