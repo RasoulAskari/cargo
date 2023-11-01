@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/items_list.dart';
 import 'package:cargo/logic/form_models/models.dart';

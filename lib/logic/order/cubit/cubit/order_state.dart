@@ -15,7 +15,7 @@ class OrderState extends Equatable {
   final CString typeReceiver;
   final CString country;
   final CString city;
-  final  address;
+  final Address address;
   final FormzSubmissionStatus status;
   final ItemsList items;
 
@@ -34,7 +34,7 @@ class OrderState extends Equatable {
     this.typeReceiver = const CString.pure(),
     this.country = const CString.pure(),
     this.city = const CString.pure(),
-    this.address = const CString.pure(),
+    this.address = const Address.pure(),
     this.status = FormzSubmissionStatus.initial,
   });
 
@@ -71,7 +71,7 @@ class OrderState extends Equatable {
     CString? typeReceiver,
     CString? country,
     CString? city,
-    CString? address,
+    Address? address,
     FormzSubmissionStatus? status,
     ItemsList? items,
   }) {
