@@ -64,7 +64,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
@@ -79,7 +79,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CPasswordField(
@@ -94,7 +94,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CPasswordField(
@@ -106,7 +106,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CDropdown(

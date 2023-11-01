@@ -124,92 +124,95 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
         ),
         child: BlocBuilder<EmployeeBloc, EmployeeState>(
           builder: (context, state) {
-            return Column(
-              children: [
-                CDropdown(
-                  value: _employee.value,
-                  setValue: (value) {
-                    _employee = IncomingOutGoingType.dirty(value);
-                    _findSalary(int.parse(value), state.employees);
-                  },
-                  items: state.employees
-                      .map((e) => {
-                            'value': e.id.toString(),
-                            'label': e.firstName,
-                          })
-                      .toList(),
-                  hintText: AppLocalizations.of(context)?.employee,
-                ),
-                const SizedBox(height: 30),
-                CDisableTextField(
-                  textInputType: TextInputType.number,
-                  value: _amount.value.toString(),
-                  setValue: (value) {
-                    double val;
-                    if (value == "") {
-                      val = 1;
-                    } else {
-                      val = double.parse(value);
-                    }
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  CDropdown(
+                    value: _employee.value,
+                    setValue: (value) {
+                      _employee = IncomingOutGoingType.dirty(value);
+                      _findSalary(int.parse(value), state.employees);
+                    },
+                    items: state.employees
+                        .map((e) => {
+                              'value': e.id.toString(),
+                              'label': e.firstName,
+                            })
+                        .toList(),
+                    hintText: AppLocalizations.of(context)?.employee,
+                  ),
+                  const SizedBox(height: 30),
+                  CDisableTextField(
+                    textInputType: TextInputType.number,
+                    value: _amount.value.toString(),
+                    setValue: (value) {
+                      double val;
+                      if (value == "") {
+                        val = 1;
+                      } else {
+                        val = double.parse(value);
+                      }
 
-                    _amount = Amount.dirty(val);
-                  },
-                  hintText: AppLocalizations.of(context)?.amount,
-                ),
-                const SizedBox(height: 30),
-                CDatePicker(
-                  value: _date,
-                  setValue: (value) {
-                    setState(() {
-                      _date = value;
-                    });
-                  },
-                  hintText: AppLocalizations.of(context)?.date,
-                ),
-                const SizedBox(height: 30),
-                CTextField(
-                  errorText: _amountPay.isNotValid
-                      ? getAmountError(_amountPay.error, context)
-                      : null,
-                  value: _amountPay.value.toString(),
-                  setValue: (value) {
-                    double val;
-                    if (value == "") {
-                      val = 1;
-                    } else {
-                      val = double.parse(value);
-                    }
+                      _amount = Amount.dirty(val);
+                    },
+                    hintText: AppLocalizations.of(context)?.amount,
+                  ),
+                  const SizedBox(height: 30),
+                  CDatePicker(
+                    value: _date,
+                    setValue: (value) {
+                      setState(() {
+                        _date = value;
+                      });
+                    },
+                    hintText: AppLocalizations.of(context)?.date,
+                  ),
+                  const SizedBox(height: 30),
+                  CTextField(
+                    errorText: _amountPay.isNotValid
+                        ? getAmountError(_amountPay.error, context)
+                        : null,
+                    value: _amountPay.value.toString(),
+                    setValue: (value) {
+                      double val;
+                      if (value == "") {
+                        val = 1;
+                      } else {
+                        val = double.parse(value);
+                      }
 
-                    _amountPay = Amount.dirty(val);
-                    _findRemainSalary(_amount.value, val);
-                  },
-                  hintText: AppLocalizations.of(context)?.payment_amount,
-                ),
-                const SizedBox(height: 30),
-                CDisableTextField(
-                  value: _amountRemain.value.toString(),
-                  setValue: (value) {
-                    double val;
-                    if (value == "") {
-                      val = 1;
-                    } else {
-                      val = double.parse(value);
-                    }
+                      _amountPay = Amount.dirty(val);
+                      _findRemainSalary(_amount.value, val);
+                    },
+                    hintText: AppLocalizations.of(context)?.payment_amount,
+                  ),
+                  const SizedBox(height: 30),
+                  CDisableTextField(
+                    value: _amountRemain.value.toString(),
+                    setValue: (value) {
+                      double val;
+                      if (value == "") {
+                        val = 1;
+                      } else {
+                        val = double.parse(value);
+                      }
 
-                    _amount = Amount.dirty(val);
-                  },
-                  hintText: AppLocalizations.of(context)?.remain_amount,
-                ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () async {
-                    EmployeeModel emp = state.employees.firstWhere((element) =>
-                        element.id == double.parse(_employee.value));
-                    _addSalary(emp);
-                  },
-                  child: Text(AppLocalizations.of(context)!.add),
-                )
-              ],
+                      _amount = Amount.dirty(val);
+                    },
+                    hintText: AppLocalizations.of(context)?.remain_amount,
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: () async {
+                      EmployeeModel emp = state.employees.firstWhere(
+                          (element) =>
+                              element.id == double.parse(_employee.value));
+                      _addSalary(emp);
+                    },
+                    child: Text(AppLocalizations.of(context)!.add),
+                  )
+                ],
+              ),
             );
           },
         ),
