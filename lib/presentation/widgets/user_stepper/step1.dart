@@ -1,6 +1,5 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
-import 'package:cargo/logic/form_models/full_name.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -16,10 +15,6 @@ class Step1 extends StatelessWidget {
   final Function prev;
 
   Step1({super.key, required this.next, required this.prev});
-
-
-
-
 
   List<RoleModel> systemList = [
     const RoleModel(
@@ -107,7 +102,6 @@ class Step1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     String? getFirstnameError(FirstNameValidationError? error) {
       switch (error) {
         case FirstNameValidationError.empty:
@@ -120,12 +114,15 @@ class Step1 extends StatelessWidget {
             6.toString(),
           );
         case FirstNameValidationError.max:
-          return "max";
+          return AppLocalizations.of(context)!
+              .itemCanNotBeMoreThanMaxCharacters(
+            AppLocalizations.of(context)!.firstname,
+            32.toString(),
+          );
         default:
           return null;
       }
     }
-
 
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
