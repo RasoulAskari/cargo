@@ -7,11 +7,13 @@ class CDatePicker extends StatefulWidget {
   final String? hintText;
   final Function setValue;
   final DateTime? value;
+  final String? errorText;
   const CDatePicker({
     super.key,
     this.hintText,
     required this.setValue,
     this.value,
+    this.errorText,
   });
 
   @override
@@ -37,6 +39,7 @@ class _CDatePickerState extends State<CDatePicker> {
       controller: txt,
       readOnly: true,
       decoration: InputDecoration(
+        errorText: widget.errorText,
         filled: true,
         fillColor: Colors.grey[200],
         hintText: widget.hintText,
