@@ -3,6 +3,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/amount.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
@@ -167,6 +168,9 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                 ),
                 const SizedBox(height: 30),
                 CTextField(
+                  errorText: _amountPay.isNotValid
+                      ? getAmountError(_amountPay.error, context)
+                      : null,
                   value: _amountPay.value.toString(),
                   setValue: (value) {
                     double val;
