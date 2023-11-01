@@ -13,7 +13,7 @@ class Password extends FormzInput<String, PasswordValidationError> {
       return PasswordValidationError.empty;
     } else if (value.length < 8) {
       return PasswordValidationError.min;
-    } else if (value.length > 16) {
+    } else if (value.length > 32) {
       return PasswordValidationError.max;
     }
     return null;

@@ -2,6 +2,7 @@ import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/permissions.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
+import 'package:cargo/logic/form_models/password.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -53,28 +54,28 @@ class Step1 extends StatelessWidget {
           return null;
       }
     }
-    String? getPasswordError(FirstNameValidationError? error) {
+
+    String? getPasswordError(PasswordValidationError? error) {
       switch (error) {
-        case FirstNameValidationError.empty:
+        case PasswordValidationError.empty:
           return AppLocalizations.of(context)!
-              .itemCanNotBeEmpty(AppLocalizations.of(context)!.firstname);
-        case FirstNameValidationError.min:
+              .itemCanNotBeEmpty(AppLocalizations.of(context)!.password);
+        case PasswordValidationError.min:
           return AppLocalizations.of(context)!
               .itemCanNotBeLessThanMaxCharacters(
-            AppLocalizations.of(context)!.firstname,
-            6.toString(),
+            AppLocalizations.of(context)!.password,
+            8.toString(),
           );
-        case FirstNameValidationError.max:
+        case PasswordValidationError.max:
           return AppLocalizations.of(context)!
               .itemCanNotBeMoreThanMaxCharacters(
-            AppLocalizations.of(context)!.firstname,
+            AppLocalizations.of(context)!.password,
             32.toString(),
           );
         default:
           return null;
       }
     }
-
 
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
