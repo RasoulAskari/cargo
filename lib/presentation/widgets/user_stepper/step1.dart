@@ -16,6 +16,11 @@ class Step1 extends StatelessWidget {
   final Function prev;
 
   Step1({super.key, required this.next, required this.prev});
+
+
+
+
+
   List<RoleModel> systemList = [
     const RoleModel(
       systemId: "users",
@@ -100,21 +105,24 @@ class Step1 extends StatelessWidget {
     )
   ];
 
-  String? getFirstnameError(FirstNameValidationError? error) {
-    switch (error) {
-      case FirstNameValidationError.empty:
-        return "empty";
-      case FirstNameValidationError.min:
-        return "min";
-      case FirstNameValidationError.max:
-        return "max";
-      default:
-        return null;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+
+    String? getFirstnameError(FirstNameValidationError? error) {
+      switch (error) {
+        case FirstNameValidationError.empty:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeEmpty(AppLocalizations.of(context)!.firstname);
+        case FirstNameValidationError.min:
+          return "min";
+        case FirstNameValidationError.max:
+          return "max";
+        default:
+          return null;
+      }
+    }
+
+
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
       List<RoleModel> data = [];
