@@ -90,5 +90,13 @@
         "type": "String"
       }
     }
+  },
+  "itemCanNotBeEmpty": "{item} can not be empty",
+  "@itemCanNotBeEmpty": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
   }  
 }
