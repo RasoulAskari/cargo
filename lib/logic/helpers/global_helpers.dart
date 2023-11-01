@@ -7,6 +7,7 @@ import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
+import 'package:cargo/logic/form_models/number.dart';
 import 'package:cargo/logic/form_models/password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -177,6 +178,21 @@ String? getAmountError(AmountValidationError? error, BuildContext context) {
       return AppLocalizations.of(context)!
           .itemCanNotBeEmpty(AppLocalizations.of(context)!.amount);
     case AmountValidationError.min:
+      return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
+        AppLocalizations.of(context)!.amount,
+        1.toString(),
+      );
+    default:
+      return null;
+  }
+}
+
+String? getNumberError(NumberValidationError? error, BuildContext context) {
+  switch (error) {
+    case NumberValidationError.empty:
+      return AppLocalizations.of(context)!
+          .itemCanNotBeEmpty(AppLocalizations.of(context)!.amount);
+    case NumberValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
         AppLocalizations.of(context)!.amount,
         1.toString(),
