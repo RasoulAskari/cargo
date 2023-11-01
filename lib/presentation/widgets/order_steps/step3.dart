@@ -134,6 +134,7 @@ class _Step3State extends State<Step3> {
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
                 builder: (context, state) {
                   return CTextField(
+                    errorText: state.weight.isNotValid ? getAmountError(state.weight.error, context) : null,
                     textInputType: TextInputType.number,
                     value: state.weight.value.toString(),
                     setValue: (value) {
