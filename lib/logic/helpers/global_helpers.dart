@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cargo/config/config.dart';
 import 'package:cargo/config/localization.dart';
+import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
@@ -140,6 +141,25 @@ String? getCStringError(CStringValidationError? error, BuildContext context) {
         8.toString(),
       );
     case CStringValidationError.max:
+      return AppLocalizations.of(context)!.itemCanNotBeMoreThanMaxCharacters(
+        AppLocalizations.of(context)!.role,
+        32.toString(),
+      );
+    default:
+      return null;
+  }
+}
+String? getAddressError(AddressValidationError? error, BuildContext context) {
+  switch (error) {
+    case AddressValidationError.empty:
+      return AppLocalizations.of(context)!
+          .itemCanNotBeEmpty(AppLocalizations.of(context)!.role);
+    case AddressValidationError.min:
+      return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
+        AppLocalizations.of(context)!.role,
+        8.toString(),
+      );
+    case AddressValidationError.max:
       return AppLocalizations.of(context)!.itemCanNotBeMoreThanMaxCharacters(
         AppLocalizations.of(context)!.role,
         32.toString(),

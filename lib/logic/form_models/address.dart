@@ -11,7 +11,9 @@ class Address extends FormzInput<String, AddressValidationError> {
   AddressValidationError? validator(String value) {
     if (value.isEmpty) {
       return AddressValidationError.empty;
-    } else if (value.length < 10) {
+    } else if (value.length < 8) {
+      return AddressValidationError.min;
+    } else if (value.length > 200) {
       return AddressValidationError.min;
     }
     return null;
