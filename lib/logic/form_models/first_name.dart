@@ -11,9 +11,9 @@ class FirstName extends FormzInput<String, FirstNameValidationError> {
   FirstNameValidationError? validator(String value) {
     if (value.isEmpty) {
       return FirstNameValidationError.empty;
-    } else if (value.length < 6) {
+    } else if (value.length < 3) {
       return FirstNameValidationError.min;
-    } else if (value.length > 32) {
+    } else if (value.length > 16) {
       return FirstNameValidationError.max;
     }
     return null;
