@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/permissions.dart';
+import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
@@ -36,6 +37,18 @@ class Step1 extends StatelessWidget {
             AppLocalizations.of(context)!.firstname,
             32.toString(),
           );
+        default:
+          return null;
+      }
+    }
+
+    String? getEmailError(EmailValidationError? error) {
+      switch (error) {
+        case EmailValidationError.empty:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeEmpty(AppLocalizations.of(context)!.email);
+        case EmailValidationError.invalid:
+          return AppLocalizations.of(context)!.invalid_email;
         default:
           return null;
       }
