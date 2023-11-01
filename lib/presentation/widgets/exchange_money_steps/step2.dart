@@ -63,6 +63,9 @@ class _Step2State extends State<Step2> {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.receiverIdNo.isNotValid
+                    ? getNumberError(state.receiverIdNo.error, context)
+                    : null,
                 textInputType: TextInputType.number,
                 hintText: AppLocalizations.of(context)?.receiver_id,
                 value: state.receiverIdNo.value.toString(),
