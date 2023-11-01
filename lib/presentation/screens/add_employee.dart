@@ -3,6 +3,7 @@ import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/email.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
@@ -172,7 +173,9 @@ class _AddEmployeeState extends State<AddEmployee> {
                     });
                   },
                   hintText: AppLocalizations.of(context)?.lastname,
-                  // errorText: lastname.isNotValid ? "error" : null,
+                  errorText: lastname.isNotValid
+                      ? getFirstnameError(lastname.error, context)
+                      : null,
                 ),
                 const SizedBox(height: 15),
                 CTextField(
