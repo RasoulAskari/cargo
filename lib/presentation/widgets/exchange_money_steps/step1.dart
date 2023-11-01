@@ -22,6 +22,9 @@ class Step1 extends StatelessWidget {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.senderName.isNotValid
+                    ? getFirstnameError(state.senderName.error, context)
+                    : null,
                 hintText: AppLocalizations.of(context)?.sender_name,
                 value: state.senderName.value,
                 setValue: (value) {
