@@ -85,6 +85,9 @@ class Step1 extends StatelessWidget {
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CDropdown(
+                errorText: state.currency.isNotValid
+                    ? getCStringError(state.currency.error, context)
+                    : null,
                 value: state.currency.value,
                 hintText: AppLocalizations.of(context)?.type,
                 setValue: (value) {
