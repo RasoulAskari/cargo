@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/phone_no.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
@@ -45,6 +46,9 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.customerName.isNotValid
+                    ? getFirstnameError(state.customerName.error, context)
+                    : null,
                 value: state.customerName.value,
                 hintText: AppLocalizations.of(context)?.firstname,
                 setValue: (value) {
