@@ -114,7 +114,11 @@ class Step1 extends StatelessWidget {
           return AppLocalizations.of(context)!
               .itemCanNotBeEmpty(AppLocalizations.of(context)!.firstname);
         case FirstNameValidationError.min:
-          return "min";
+          return AppLocalizations.of(context)!
+              .itemCanNotBeLessThanMaxCharacters(
+            AppLocalizations.of(context)!.firstname,
+            6.toString(),
+          );
         case FirstNameValidationError.max:
           return "max";
         default:
