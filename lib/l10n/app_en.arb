@@ -36,6 +36,7 @@
   "grand_father_name": "Grand Father Name",
   "lastname": "Lastname",
   "email": "Email",
+  "invalid_email": "Invalid Email",
   "role": "Role",
   "admin": "Admin",
   "usd": "USD",
