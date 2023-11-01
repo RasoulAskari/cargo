@@ -146,6 +146,7 @@ class Step1 extends StatelessWidget {
                 setValue: (value) {
                   context.read<UserCubit>().passwordChange(value);
                 },
+                errorText: state.password.isNotValid ? getPasswordError(state.password.error) : null,
               );
             },
           ),

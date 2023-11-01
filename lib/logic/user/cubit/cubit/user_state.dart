@@ -4,7 +4,7 @@ part of 'user_cubit.dart';
 class UserState extends Equatable {
   final FirstName name;
   final Email email;
-  final CString password;
+  final Password password;
   final CString confirmPassword;
   final CString role;
   final UserList premissions;
@@ -13,7 +13,7 @@ class UserState extends Equatable {
   const UserState(
       {this.name = const FirstName.pure(),
       this.email = const Email.pure(),
-      this.password = const CString.pure(),
+      this.password = const Password.pure(),
       this.confirmPassword = const CString.pure(),
       this.role = const CString.pure(),
       this.premissions = const UserList.pure(),
@@ -33,7 +33,7 @@ class UserState extends Equatable {
   UserState copyWith({
     FirstName? name,
     Email? email,
-    CString? password,
+    Password? password,
     CString? confirmPassword,
     CString? role,
     UserList? premissions,
