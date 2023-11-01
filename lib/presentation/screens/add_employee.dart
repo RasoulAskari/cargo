@@ -188,7 +188,9 @@ class _AddEmployeeState extends State<AddEmployee> {
                     });
                   },
                   hintText: AppLocalizations.of(context)?.email,
-                  // errorText: email.isNotValid ? "error" : null,
+                  errorText: email.isNotValid
+                      ? getEmailError(email.error, context)
+                      : null,
                 ),
                 const SizedBox(height: 15),
                 CPhoneField(
