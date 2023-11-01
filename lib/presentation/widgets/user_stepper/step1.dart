@@ -4,6 +4,7 @@ import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/form_models/password.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
@@ -22,83 +23,6 @@ class Step1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? getFirstnameError(FirstNameValidationError? error) {
-      switch (error) {
-        case FirstNameValidationError.empty:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeEmpty(AppLocalizations.of(context)!.firstname);
-        case FirstNameValidationError.min:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeLessThanMaxCharacters(
-            AppLocalizations.of(context)!.firstname,
-            6.toString(),
-          );
-        case FirstNameValidationError.max:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeMoreThanMaxCharacters(
-            AppLocalizations.of(context)!.firstname,
-            32.toString(),
-          );
-        default:
-          return null;
-      }
-    }
-
-    String? getEmailError(EmailValidationError? error) {
-      switch (error) {
-        case EmailValidationError.empty:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeEmpty(AppLocalizations.of(context)!.email);
-        case EmailValidationError.invalid:
-          return AppLocalizations.of(context)!.invalid_email;
-        default:
-          return null;
-      }
-    }
-
-    String? getPasswordError(PasswordValidationError? error) {
-      switch (error) {
-        case PasswordValidationError.empty:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeEmpty(AppLocalizations.of(context)!.password);
-        case PasswordValidationError.min:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeLessThanMaxCharacters(
-            AppLocalizations.of(context)!.password,
-            8.toString(),
-          );
-        case PasswordValidationError.max:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeMoreThanMaxCharacters(
-            AppLocalizations.of(context)!.password,
-            32.toString(),
-          );
-        default:
-          return null;
-      }
-    }
-
-    String? getRoleError(CStringValidationError? error) {
-      switch (error) {
-        case CStringValidationError.empty:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeEmpty(AppLocalizations.of(context)!.role);
-        case CStringValidationError.min:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeLessThanMaxCharacters(
-            AppLocalizations.of(context)!.role,
-            8.toString(),
-          );
-        case CStringValidationError.max:
-          return AppLocalizations.of(context)!
-              .itemCanNotBeMoreThanMaxCharacters(
-            AppLocalizations.of(context)!.role,
-            32.toString(),
-          );
-        default:
-          return null;
-      }
-    }
 
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
@@ -135,7 +59,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                 errorText: state.name.isNotValid
-                    ? getFirstnameError(state.name.error)
+                    ? getFirstnameError(state.name.error, context)
                     : null,
                 hintText: AppLocalizations.of(context)?.firstname,
                 value: state.name.value,
