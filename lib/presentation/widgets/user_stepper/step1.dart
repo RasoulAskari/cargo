@@ -53,18 +53,28 @@ class Step1 extends StatelessWidget {
           return null;
       }
     }
-
-    String? getPasswordError(EmailValidationError? error) {
+    String? getPasswordError(FirstNameValidationError? error) {
       switch (error) {
-        case EmailValidationError.empty:
+        case FirstNameValidationError.empty:
           return AppLocalizations.of(context)!
-              .itemCanNotBeEmpty(AppLocalizations.of(context)!.email);
-        case EmailValidationError.invalid:
-          return AppLocalizations.of(context)!.invalid_email;
+              .itemCanNotBeEmpty(AppLocalizations.of(context)!.firstname);
+        case FirstNameValidationError.min:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeLessThanMaxCharacters(
+            AppLocalizations.of(context)!.firstname,
+            6.toString(),
+          );
+        case FirstNameValidationError.max:
+          return AppLocalizations.of(context)!
+              .itemCanNotBeMoreThanMaxCharacters(
+            AppLocalizations.of(context)!.firstname,
+            32.toString(),
+          );
         default:
           return null;
       }
     }
+
 
     // ignore: no_leading_underscores_for_local_identifiers
     _changeRole(String value) {
