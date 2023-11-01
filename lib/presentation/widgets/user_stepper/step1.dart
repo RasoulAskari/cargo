@@ -1,9 +1,5 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/permissions.dart';
-import 'package:cargo/logic/form_models/c_string.dart';
-import 'package:cargo/logic/form_models/email.dart';
-import 'package:cargo/logic/form_models/first_name.dart';
-import 'package:cargo/logic/form_models/password.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
 import 'package:cargo/logic/user/model/role_model.dart';
@@ -19,7 +15,7 @@ class Step1 extends StatelessWidget {
   final Function next;
   final Function prev;
 
-  Step1({super.key, required this.next, required this.prev});
+  const Step1({super.key, required this.next, required this.prev});
 
   @override
   Widget build(BuildContext context) {
