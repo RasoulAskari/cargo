@@ -45,7 +45,7 @@ class Step1 extends StatelessWidget {
     _changeRole(String value) {
       List<RoleModel> data = [];
 
-      for (var element1 in systemList) {
+      for (var element1 in myPermissions) {
         for (var element2 in element1.allowRole) {
           if (element2 == value) {
             data.add(RoleModel(
