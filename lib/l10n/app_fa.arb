@@ -91,8 +91,13 @@
         "type": "String"
       }
     }
+  },
+    "itemCanNotBeEmpty": "{item} نمی تواند خالی باشد",
+    "@itemCanNotBeEmpty": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
   }
-
-
-
 }  
