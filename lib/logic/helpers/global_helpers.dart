@@ -129,7 +129,7 @@ String? getPasswordError(PasswordValidationError? error, BuildContext context) {
   }
 }
 
-String? getRoleError(CStringValidationError? error, BuildContext context) {
+String? getCStringError(CStringValidationError? error, BuildContext context) {
   switch (error) {
     case CStringValidationError.empty:
       return AppLocalizations.of(context)!
