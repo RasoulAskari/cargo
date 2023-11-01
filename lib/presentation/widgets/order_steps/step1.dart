@@ -76,6 +76,10 @@ class _Step1State extends State<Step1> {
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
+                errorText: state.customerGrandFathername.isNotValid
+                    ? getFirstnameError(
+                        state.customerGrandFathername.error, context)
+                    : null,
                 value: state.customerGrandFathername.value,
                 hintText: AppLocalizations.of(context)?.grand_father_name,
                 setValue: (value) {
