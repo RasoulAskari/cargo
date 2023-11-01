@@ -217,6 +217,9 @@ class _AddEmployeeState extends State<AddEmployee> {
                       currentAddress = Address.dirty(value);
                     });
                   },
+                  errorText: lastname.isNotValid
+                      ? getAddressError(currentAddress.error, context)
+                      : null,
                 ),
                 const SizedBox(height: 15),
                 CTextField(
