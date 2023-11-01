@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:cargo/config/localization.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
@@ -107,6 +108,9 @@ class _Step3State extends State<Step3> {
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
                 builder: (context, state) {
                   return CTextField(
+                    errorText: state.count.isNotValid
+                        ? getNumberError(state.count.error, context)
+                        : null,
                     textInputType: TextInputType.number,
                     value: state.type.value,
                     setValue: (value) {
