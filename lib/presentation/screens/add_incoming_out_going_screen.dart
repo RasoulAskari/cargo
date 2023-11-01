@@ -164,6 +164,9 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               CTextField(
+                errorText: name.isNotValid
+                    ? getCStringError(name.error, context)
+                    : null,
                 hintText: AppLocalizations.of(context)?.item_name,
                 value: name.value,
                 setValue: (value) {
