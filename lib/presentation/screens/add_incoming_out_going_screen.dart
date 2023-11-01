@@ -1,6 +1,8 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
+import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/full_name.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
 import 'package:cargo/logic/login/user_model.dart';
@@ -27,7 +29,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   DateTime? _date;
   FullName name = const FullName.pure();
   Amount amount = const Amount.pure();
-  IncomingOutGoingType incomingOutGoingType = const IncomingOutGoingType.pure();
+  CString incomingOutGoingType = const CString.pure();
   Future<void> _addIncoming() async {
     IncomingOutGoing incomingOutGoing = IncomingOutGoing(
       id: 1,
@@ -60,7 +62,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
         _date = DateTime.parse(incoming!.createdAt);
         name = FullName.dirty(incoming.name);
         amount = Amount.dirty(incoming.amount);
-        incomingOutGoingType = IncomingOutGoingType.dirty(incoming.type);
+        incomingOutGoingType = CString.dirty(incoming.type);
       });
     }
   }
@@ -125,10 +127,13 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               ),
               const SizedBox(height: 15),
               CDropdown(
+                errorText: incomingOutGoingType.isNotValid
+                    ? getCStringError(incomingOutGoingType.error, context)
+                    : null,
                 value: incomingOutGoingType.value,
                 hintText: AppLocalizations.of(context)?.type,
                 setValue: (value) {
-                  incomingOutGoingType = IncomingOutGoingType.dirty(value);
+                  incomingOutGoingType = CString.dirty(value);
                 },
                 items: [
                   {
