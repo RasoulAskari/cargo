@@ -162,7 +162,9 @@ class _AddEmployeeState extends State<AddEmployee> {
                     });
                   },
                   hintText: AppLocalizations.of(context)?.firstname,
-                  // errorText: fristname.isNotValid ? "error" : null,
+                  errorText: fristname.isNotValid
+                      ? getFirstnameError(fristname.error, context)
+                      : null,
                 ),
                 const SizedBox(height: 15),
                 CTextField(
