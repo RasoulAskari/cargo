@@ -60,7 +60,7 @@ class _CPhoneFieldState extends State<CPhoneField> {
           contentPadding: const EdgeInsets.symmetric(
             vertical: 12,
             horizontal: 16,
-          ),
+          ),  
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6.0),
             borderSide: const BorderSide(
