@@ -97,7 +97,8 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.customerIdCard.isNotValid
-                    ? getCStringError(state.customerIdCard.error, context)
+                    ? getCStringError(state.customerIdCard.error, context,
+                        AppLocalizations.of(context)!.id_card_num)
                     : null,
                 value: state.customerIdCard.value,
                 hintText: AppLocalizations.of(context)!.id_card_num,
