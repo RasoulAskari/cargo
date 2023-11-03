@@ -25,7 +25,7 @@ class AddEmployee extends StatefulWidget {
 }
 
 class _AddEmployeeState extends State<AddEmployee> {
-  FirstName fristname = const FirstName.pure();
+  FirstName firstname = const FirstName.pure();
   FirstName lastname = const FirstName.pure();
   PhoneNo phoneNo = const PhoneNo.pure();
   Email email = const Email.pure();
@@ -51,7 +51,7 @@ class _AddEmployeeState extends State<AddEmployee> {
           : PhoneNumber.getISO2CodeByPrefix(p);
 
       setState(() {
-        fristname = FirstName.dirty(widget.employee!.firstName);
+        firstname = FirstName.dirty(widget.employee!.firstName);
         lastname = FirstName.dirty(widget.employee!.lastName);
         email = Email.dirty(widget.employee!.email);
         phoneNo = PhoneNo.dirty(PhoneNumber(
@@ -69,6 +69,13 @@ class _AddEmployeeState extends State<AddEmployee> {
   }
 
   Future<void> _editEmployee() async {
+    bool validation = firstname.isValid &&
+        lastname.isValid &&
+        phoneNo.isValid &&
+        email.isValid &&
+        currentAddress.isValid &&
+        premenentAddress.isValid;
+
     EmployeeModel emp = EmployeeModel(
       salary: widget.employee!.salary,
       id: widget.employee!.id,
@@ -77,14 +84,13 @@ class _AddEmployeeState extends State<AddEmployee> {
       startDate: startDate.toString(),
       endDate: endDate.toString(),
       jobTitle: "Developer",
-      firstName: fristname.value,
+      firstName: firstname.value,
       lastName: lastname.value,
       email: email.value,
       phoneNumber: phoneNo.value.phoneNumber,
       profile: '',
     );
 
-    context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
 
     Navigator.of(context).pop();
   }
@@ -112,7 +118,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       startDate: startDate.toString(),
       endDate: endDate.toString(),
       jobTitle: "Developer",
-      firstName: fristname.value,
+      firstName: firstname.value,
       lastName: lastname.value,
       email: email.value,
       phoneNumber: phoneNo.value.phoneNumber,
@@ -155,15 +161,15 @@ class _AddEmployeeState extends State<AddEmployee> {
               children: [
                 const SizedBox(height: 15),
                 CTextField(
-                  value: fristname.value,
+                  value: firstname.value,
                   setValue: (passedValue) {
                     setState(() {
-                      fristname = FirstName.dirty(passedValue);
+                      firstname = FirstName.dirty(passedValue);
                     });
                   },
                   hintText: AppLocalizations.of(context)?.firstname,
-                  errorText: fristname.isNotValid
-                      ? getFirstnameError(fristname.error, context,
+                  errorText: firstname.isNotValid
+                      ? getFirstnameError(firstname.error, context,
                           AppLocalizations.of(context)!.firstname)
                       : null,
                 ),
