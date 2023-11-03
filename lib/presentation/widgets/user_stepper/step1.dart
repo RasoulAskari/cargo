@@ -54,7 +54,8 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                 errorText: state.name.isNotValid
-                    ? getFirstnameError(state.name.error, context)
+                    ? getFirstnameError(state.name.error, context,
+                        AppLocalizations.of(context)!.firstname)
                     : null,
                 hintText: AppLocalizations.of(context)?.firstname,
                 value: state.name.value,
