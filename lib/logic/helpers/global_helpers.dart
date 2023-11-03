@@ -154,19 +154,19 @@ String? getCStringError(
   }
 }
 
-String? getAddressError(AddressValidationError? error, BuildContext context) {
+String? getAddressError(AddressValidationError? error, BuildContext context, String warningText) {
   switch (error) {
     case AddressValidationError.empty:
       return AppLocalizations.of(context)!
-          .itemCanNotBeEmpty(AppLocalizations.of(context)!.address);
+          .itemCanNotBeEmpty(warningText);
     case AddressValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
-        AppLocalizations.of(context)!.address,
+        warningText,
         8.toString(),
       );
     case AddressValidationError.max:
       return AppLocalizations.of(context)!.itemCanNotBeMoreThanMaxCharacters(
-        AppLocalizations.of(context)!.address,
+        warningText,
         200.toString(),
       );
     default:
