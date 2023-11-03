@@ -111,7 +111,8 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.address.isNotValid
-                    ? getAddressError(state.address.error, context)
+                    ? getAddressError(state.address.error, context,
+                        AppLocalizations.of(context)!.address)
                     : null,
                 value: state.address.value,
                 hintText: AppLocalizations.of(context)?.address,
