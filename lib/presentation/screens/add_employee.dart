@@ -15,6 +15,7 @@ import 'package:cargo/logic/form_models/models.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: depend_on_referenced_packages
 import 'package:toast/toast.dart';
 
 class AddEmployee extends StatefulWidget {
@@ -97,7 +98,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       Navigator.of(context).pop();
     } else {
       Toast.show("fill all input correctly!");
-    } 
+    }
   }
 
   String? getNameError(FullNameValidationError? error) {
