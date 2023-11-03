@@ -96,7 +96,8 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                   errorText: state.city.isNotValid
-                      ? getCStringError(state.city.error, context)
+                      ? getCStringError(state.city.error, context,
+                          AppLocalizations.of(context)!.city)
                       : null,
                   value: state.city.value,
                   hintText: AppLocalizations.of(context)?.city,
