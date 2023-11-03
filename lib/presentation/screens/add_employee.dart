@@ -220,7 +220,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                     });
                   },
                   errorText: currentAddress.isNotValid
-                      ? getAddressError(currentAddress.error, context)
+                      ? getAddressError(currentAddress.error, context, AppLocalizations.of(context)!.current_address)
                       : null,
                 ),
                 const SizedBox(height: 15),
