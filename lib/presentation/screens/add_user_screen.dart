@@ -72,9 +72,14 @@ class _AddUserScreenState extends State<AddUserScreen> {
   bool loading = false;
 
   next(steps) async {
-        var valid = await steps[step - 1]['validate']();
+    var valid = await steps[step - 1]['validate'];
+    print(valid);
 
-      
+    if (valid) {
+      setState(() {
+        step = step + 1;
+      });
+    }
   }
 
   prev(steps) {
@@ -93,7 +98,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
       state.name,
       state.email,
       state.password,
-      state.confirmPassword,
       state.role,
     ]);
     return status;
