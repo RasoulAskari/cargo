@@ -71,10 +71,10 @@ class _AddUserScreenState extends State<AddUserScreen> {
   var step = 1;
   bool loading = false;
 
-  next(steps) {
-    setState(() {
-      step = step + 1;
-    });
+  next(steps) async {
+        var valid = await steps[step - 1]['validate']();
+
+      
   }
 
   prev(steps) {
@@ -89,28 +89,14 @@ class _AddUserScreenState extends State<AddUserScreen> {
 
   validateStep1() async {
     var state = context.read<UserCubit>().state;
-    FormzStatus status = Formz.validate([
+    bool status = Formz.validate([
       state.name,
       state.email,
       state.password,
       state.confirmPassword,
       state.role,
     ]);
-    if (status == FormzStatus.valid || true) {
-      bool isEmailUnique = await isUnique('email', state.email.value);
-      bool isPhoneUnique =
-          await isUnique('phone_no', state.phone.value?.international);
-      if (isEmailUnique && isPhoneUnique) {
-        return FormzStatus.valid;
-      }
-      if (!isEmailUnique) {
-        showSnakbar('Email is already registered to a different account!');
-      }
-      if (!isPhoneUnique) {
-        showSnakbar('Phone already Exists!');
-      }
-    }
-    return FormzStatus.invalid;
+    return status;
   }
 
   @override
@@ -122,7 +108,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': true
+        'validate': validateStep1()
       },
       {
         'title': AppLocalizations.of(context)?.user_step2_title,
