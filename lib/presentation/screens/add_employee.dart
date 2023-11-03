@@ -220,7 +220,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                     });
                   },
                   errorText: currentAddress.isNotValid
-                      ? getAddressError(currentAddress.error, context, AppLocalizations.of(context)!.current_address)
+                      ? getAddressError(currentAddress.error, context,
+                          AppLocalizations.of(context)!.current_address)
                       : null,
                 ),
                 const SizedBox(height: 15),
@@ -234,7 +235,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                     });
                   },
                   errorText: premenentAddress.isNotValid
-                      ? getAddressError(premenentAddress.error, context)
+                      ? getAddressError(premenentAddress.error, context,
+                          AppLocalizations.of(context)!.premenent_address)
                       : null,
                 ),
                 const SizedBox(height: 15),
