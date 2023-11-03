@@ -126,7 +126,8 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
               const SizedBox(height: 15),
               CDropdown(
                 errorText: incomingOutGoingType.isNotValid
-                    ? getCStringError(incomingOutGoingType.error, context)
+                    ? getCStringError(incomingOutGoingType.error, context,
+                        AppLocalizations.of(context)!.type)
                     : null,
                 value: incomingOutGoingType.value,
                 hintText: AppLocalizations.of(context)?.type,
