@@ -82,7 +82,8 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                 errorText: state.exchangeId.isNotValid
-                    ? getCStringError(state.exchangeId.error, context, AppLocalizations.of(context)!.exchange_money_id)
+                    ? getCStringError(state.exchangeId.error, context,
+                        AppLocalizations.of(context)!.exchange_money_id)
                     : null,
                 hintText: AppLocalizations.of(context)?.exchange_money_id,
                 value: state.exchangeId.value,
@@ -97,7 +98,8 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CDropdown(
                 errorText: state.currency.isNotValid
-                    ? getCStringError(state.currency.error, context)
+                    ? getCStringError(state.currency.error, context,
+                        AppLocalizations.of(context)!.type)
                     : null,
                 value: state.currency.value,
                 hintText: AppLocalizations.of(context)?.type,
