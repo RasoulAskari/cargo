@@ -31,7 +31,8 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                   errorText: state.receiverName.isNotValid
-                      ? getFirstnameError(state.receiverName.error, context)
+                      ? getFirstnameError(state.receiverName.error, context,
+                          AppLocalizations.of(context)!.receiver_name)
                       : null,
                   value: state.receiverName.value,
                   hintText: AppLocalizations.of(context)?.receiver_name,
