@@ -97,7 +97,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       Navigator.of(context).pop();
     } else {
       Toast.show("fill all input correctly!");
-    }
+    } 
   }
 
   String? getNameError(FullNameValidationError? error) {
