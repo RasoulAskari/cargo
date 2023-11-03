@@ -144,7 +144,8 @@ class _Step3State extends State<Step3> {
                 builder: (context, state) {
                   return CTextField(
                     errorText: state.weight.isNotValid
-                        ? getAmountError(state.weight.error, context)
+                        ? getAmountError(state.weight.error, context,
+                            AppLocalizations.of(context)!.weight)
                         : null,
                     textInputType: TextInputType.number,
                     value: state.weight.value.toString(),
