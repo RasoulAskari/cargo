@@ -48,7 +48,9 @@ class _Step2State extends State<Step2> {
               return CTextField(
                   errorText: state.receiverFathername.isNotValid
                       ? getFirstnameError(
-                          state.receiverFathername.error, context)
+                          state.receiverFathername.error,
+                          context,
+                          AppLocalizations.of(context)!.receiver_father_name)
                       : null,
                   value: state.receiverFathername.value,
                   hintText: AppLocalizations.of(context)?.receiver_father_name,
