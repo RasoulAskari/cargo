@@ -79,7 +79,8 @@ class _Step3State extends State<Step3> {
                 builder: (context, state) {
                   return CTextField(
                     errorText: state.name.isNotValid
-                        ? getCStringError(state.name.error, context)
+                        ? getCStringError(state.name.error, context,
+                            AppLocalizations.of(context)!.item_name)
                         : null,
                     value: state.name.value,
                     setValue: (value) {
