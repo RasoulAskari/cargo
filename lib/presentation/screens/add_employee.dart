@@ -15,6 +15,7 @@ import 'package:cargo/logic/form_models/models.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toast/toast.dart';
 
 class AddEmployee extends StatefulWidget {
   final EmployeeModel? employee;
@@ -91,8 +92,11 @@ class _AddEmployeeState extends State<AddEmployee> {
       profile: '',
     );
 
-
-    Navigator.of(context).pop();
+    if (validation) {
+      context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
+      Navigator.of(context).pop();
+    } else {
+    }
   }
 
   String? getNameError(FullNameValidationError? error) {
