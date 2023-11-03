@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 
 import '../../utils/stepper/c_stepper.dart';
 import '../widgets/user_stepper/step1.dart';
@@ -84,6 +85,32 @@ class _AddUserScreenState extends State<AddUserScreen> {
     setState(() {
       step = step - 1;
     });
+  }
+
+  validateStep1() async {
+    var state = context.read<UserCubit>().state;
+    FormzStatus status = Formz.validate([
+      state.name,
+      state.email,
+      state.password,
+      state.confirmPassword,
+      state.role,
+    ]);
+    if (status == FormzStatus.valid || true) {
+      bool isEmailUnique = await isUnique('email', state.email.value);
+      bool isPhoneUnique =
+          await isUnique('phone_no', state.phone.value?.international);
+      if (isEmailUnique && isPhoneUnique) {
+        return FormzStatus.valid;
+      }
+      if (!isEmailUnique) {
+        showSnakbar('Email is already registered to a different account!');
+      }
+      if (!isPhoneUnique) {
+        showSnakbar('Phone already Exists!');
+      }
+    }
+    return FormzStatus.invalid;
   }
 
   @override
