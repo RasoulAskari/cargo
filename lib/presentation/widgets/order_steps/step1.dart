@@ -80,7 +80,9 @@ class _Step1State extends State<Step1> {
               return CTextField(
                 errorText: state.customerGrandFathername.isNotValid
                     ? getFirstnameError(
-                        state.customerGrandFathername.error, context)
+                        state.customerGrandFathername.error,
+                        context,
+                        AppLocalizations.of(context)!.grand_father_name)
                     : null,
                 value: state.customerGrandFathername.value,
                 hintText: AppLocalizations.of(context)?.grand_father_name,
