@@ -64,7 +64,8 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.typeReceiver.isNotValid
-                    ? getCStringError(state.typeReceiver.error, context)
+                    ? getCStringError(state.typeReceiver.error, context,
+                        AppLocalizations.of(context)!.reciver_type)
                     : null,
                 value: state.typeReceiver.value,
                 hintText: AppLocalizations.of(context)!.reciver_type,
