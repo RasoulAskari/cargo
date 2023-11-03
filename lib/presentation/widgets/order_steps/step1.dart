@@ -47,7 +47,8 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.customerName.isNotValid
-                    ? getFirstnameError(state.customerName.error, context)
+                    ? getFirstnameError(state.customerName.error, context,
+                        AppLocalizations.of(context)!.firstname)
                     : null,
                 value: state.customerName.value,
                 hintText: AppLocalizations.of(context)?.firstname,
@@ -62,7 +63,7 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.customerFathername.isNotValid
-                    ? getFirstnameError(state.customerFathername.error, context)
+                    ? getFirstnameError(state.customerFathername.error, context, )
                     : null,
                 value: state.customerFathername.value,
                 hintText: AppLocalizations.of(context)?.father_name,
