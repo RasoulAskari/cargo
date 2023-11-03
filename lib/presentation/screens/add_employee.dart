@@ -129,9 +129,19 @@ class _AddEmployeeState extends State<AddEmployee> {
       phoneNumber: phoneNo.value.phoneNumber,
       profile: '',
     );
+    bool validation = firstname.isValid &&
+        lastname.isValid &&
+        phoneNo.isValid &&
+        email.isValid &&
+        currentAddress.isValid &&
+        premenentAddress.isValid;
 
-    context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
-    Navigator.of(context).pop();
+    if (validation) {
+      context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
+      Navigator.of(context).pop();
+    } else {
+      Toast.show("fill all input correctly!");
+    }
   }
 
   @override
