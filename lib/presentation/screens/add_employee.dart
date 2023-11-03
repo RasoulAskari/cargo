@@ -96,6 +96,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
       Navigator.of(context).pop();
     } else {
+      Toast.show("fill all input correctly!");
     }
   }
 
