@@ -170,7 +170,8 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                   const SizedBox(height: 30),
                   CTextField(
                     errorText: _amountPay.isNotValid
-                        ? getAmountError(_amountPay.error, context)
+                        ? getAmountError(_amountPay.error, context,
+                            AppLocalizations.of(context)!.payment_amount)
                         : null,
                     value: _amountPay.value.toString(),
                     setValue: (value) {
