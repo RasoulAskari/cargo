@@ -1,7 +1,7 @@
 part of 'employee_cubit.dart';
 
 class EmployeeState extends Equatable {
-
+  
   
 
   const EmployeeState();
