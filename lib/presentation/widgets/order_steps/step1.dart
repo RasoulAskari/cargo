@@ -130,7 +130,8 @@ class _Step1State extends State<Step1> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.pricePerKelo.isNotValid
-                    ? getAmountError(state.pricePerKelo.error, context)
+                    ? getAmountError(state.pricePerKelo.error, context,
+                        AppLocalizations.of(context)!.price)
                     : null,
                 hintText: AppLocalizations.of(context)!.price,
                 value: state.pricePerKelo.value.toString(),
