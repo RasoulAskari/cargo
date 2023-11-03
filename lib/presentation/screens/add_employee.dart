@@ -163,7 +163,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                   },
                   hintText: AppLocalizations.of(context)?.firstname,
                   errorText: fristname.isNotValid
-                      ? getFirstnameError(fristname.error, context)
+                      ? getFirstnameError(fristname.error, context,
+                          AppLocalizations.of(context)!.firstname)
                       : null,
                 ),
                 const SizedBox(height: 15),
@@ -176,7 +177,8 @@ class _AddEmployeeState extends State<AddEmployee> {
                   },
                   hintText: AppLocalizations.of(context)?.lastname,
                   errorText: lastname.isNotValid
-                      ? getFirstnameError(lastname.error, context)
+                      ? getFirstnameError(lastname.error, context,
+                          AppLocalizations.of(context)!.lastname)
                       : null,
                 ),
                 const SizedBox(height: 15),
