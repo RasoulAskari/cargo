@@ -67,7 +67,8 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.receiverIdNo.isNotValid
-                    ? getNumberError(state.receiverIdNo.error, context)
+                    ? getNumberError(state.receiverIdNo.error, context,
+                        AppLocalizations.of(context)!.receiver_id)
                     : null,
                 textInputType: TextInputType.number,
                 hintText: AppLocalizations.of(context)?.receiver_id,
@@ -107,7 +108,8 @@ class _Step2State extends State<Step2> {
             builder: (context, state) {
               return CTextField(
                 errorText: state.province.isNotValid
-                    ? getCStringError(state.province.error, context)
+                    ? getCStringError(state.province.error, context,
+                        AppLocalizations.of(context)!.province)
                     : null,
                 hintText: AppLocalizations.of(context)?.province,
                 value: state.province.value,
