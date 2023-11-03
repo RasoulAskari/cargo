@@ -82,7 +82,7 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                 errorText: state.exchangeId.isNotValid
-                    ? getCStringError(state.exchangeId.error, context)
+                    ? getCStringError(state.exchangeId.error, context, AppLocalizations.of(context)!.exchange_money_id)
                     : null,
                 hintText: AppLocalizations.of(context)?.exchange_money_id,
                 value: state.exchangeId.value,
