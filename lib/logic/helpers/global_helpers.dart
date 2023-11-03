@@ -80,19 +80,21 @@ Future<void> checkPermissionAction(
 }
 
 String? getFirstnameError(
-    FirstNameValidationError? error, BuildContext context) {
+  FirstNameValidationError? error,
+  BuildContext context,
+  String fieldWarning,
+) {
   switch (error) {
     case FirstNameValidationError.empty:
-      return AppLocalizations.of(context)!
-          .itemCanNotBeEmpty(AppLocalizations.of(context)!.firstname);
+      return AppLocalizations.of(context)!.itemCanNotBeEmpty(fieldWarning);
     case FirstNameValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
-        AppLocalizations.of(context)!.firstname,
+        fieldWarning,
         6.toString(),
       );
     case FirstNameValidationError.max:
       return AppLocalizations.of(context)!.itemCanNotBeMoreThanMaxCharacters(
-        AppLocalizations.of(context)!.firstname,
+        fieldWarning,
         32.toString(),
       );
     default:
