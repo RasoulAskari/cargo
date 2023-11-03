@@ -134,19 +134,19 @@ String? getPasswordError(PasswordValidationError? error, BuildContext context) {
   }
 }
 
-String? getCStringError(CStringValidationError? error, BuildContext context) {
+String? getCStringError(
+    CStringValidationError? error, BuildContext context, String warningText) {
   switch (error) {
     case CStringValidationError.empty:
-      return AppLocalizations.of(context)!
-          .itemCanNotBeEmpty(AppLocalizations.of(context)!.role);
+      return AppLocalizations.of(context)!.itemCanNotBeEmpty(warningText);
     case CStringValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
-        AppLocalizations.of(context)!.role,
+        warningText,
         8.toString(),
       );
     case CStringValidationError.max:
       return AppLocalizations.of(context)!.itemCanNotBeMoreThanMaxCharacters(
-        AppLocalizations.of(context)!.role,
+        warningText,
         32.toString(),
       );
     default:
