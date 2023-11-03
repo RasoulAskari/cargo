@@ -22,7 +22,16 @@ class EmployeeState extends Equatable {
   });
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [
+        firstname,
+        lastname,
+        phoneNo,
+        email,
+        currentAddress,
+        premenentAddress,
+        startDate,
+        endDate,
+      ];
 }
 
 final class EmployeeInitial extends EmployeeState {}
