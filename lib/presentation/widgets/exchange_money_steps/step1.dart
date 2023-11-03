@@ -42,7 +42,8 @@ class Step1 extends StatelessWidget {
             builder: (context, state) {
               return CTextField(
                 errorText: state.amount.isNotValid
-                    ? getAmountError(state.amount.error, context)
+                    ? getAmountError(state.amount.error, context,
+                        AppLocalizations.of(context)!.amount)
                     : null,
                 textInputType: TextInputType.number,
                 hintText: AppLocalizations.of(context)?.amount,
