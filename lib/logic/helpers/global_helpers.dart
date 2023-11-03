@@ -154,11 +154,11 @@ String? getCStringError(
   }
 }
 
-String? getAddressError(AddressValidationError? error, BuildContext context, String warningText) {
+String? getAddressError(
+    AddressValidationError? error, BuildContext context, String warningText) {
   switch (error) {
     case AddressValidationError.empty:
-      return AppLocalizations.of(context)!
-          .itemCanNotBeEmpty(warningText);
+      return AppLocalizations.of(context)!.itemCanNotBeEmpty(warningText);
     case AddressValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
         warningText,
@@ -174,14 +174,14 @@ String? getAddressError(AddressValidationError? error, BuildContext context, Str
   }
 }
 
-String? getAmountError(AmountValidationError? error, BuildContext context) {
+String? getAmountError(
+    AmountValidationError? error, BuildContext context, String warningText) {
   switch (error) {
     case AmountValidationError.empty:
-      return AppLocalizations.of(context)!
-          .itemCanNotBeEmpty(AppLocalizations.of(context)!.amount);
+      return AppLocalizations.of(context)!.itemCanNotBeEmpty(warningText);
     case AmountValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
-        AppLocalizations.of(context)!.amount,
+        warningText,
         1.toString(),
       );
     default:
@@ -189,14 +189,14 @@ String? getAmountError(AmountValidationError? error, BuildContext context) {
   }
 }
 
-String? getNumberError(NumberValidationError? error, BuildContext context) {
+String? getNumberError(
+    NumberValidationError? error, BuildContext context, String warningText) {
   switch (error) {
     case NumberValidationError.empty:
-      return AppLocalizations.of(context)!
-          .itemCanNotBeEmpty(AppLocalizations.of(context)!.amount);
+      return AppLocalizations.of(context)!.itemCanNotBeEmpty(warningText);
     case NumberValidationError.min:
       return AppLocalizations.of(context)!.itemCanNotBeLessThanMaxCharacters(
-        AppLocalizations.of(context)!.amount,
+        warningText,
         1.toString(),
       );
     default:
