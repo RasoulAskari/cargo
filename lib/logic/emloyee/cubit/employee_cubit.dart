@@ -52,4 +52,11 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       state.copyWith(premenentAddress: address),
     );
   }
+
+  void startDateChange(String value) {
+    final date = MyDate.dirty(value);
+    emit(state.copyWith(
+      startDate: date,
+    ));
+  }
 }
