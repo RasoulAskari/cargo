@@ -27,15 +27,24 @@ class AddEmployee extends StatefulWidget {
 }
 
 class _AddEmployeeState extends State<AddEmployee> {
-  FirstName firstname = const FirstName.pure();
-  FirstName lastname = const FirstName.pure();
-  PhoneNo phoneNo = const PhoneNo.pure();
-  Email email = const Email.pure();
-  Address currentAddress = const Address.pure();
-  Address premenentAddress = const Address.pure();
-  DateTime? startDate;
-  DateTime? endDate;
-  bool isValid = false;
+  var step = 1;
+  bool loading = false;
+
+  next(steps) {
+    setState(() {
+      step = step + 1;
+    });
+  }
+
+  prev(steps) {
+    if (step == 1) {
+      Navigator.of(context).pop();
+      return;
+    }
+    setState(() {
+      step = step - 1;
+    });
+  }
 
   @override
   void initState() {
@@ -43,107 +52,107 @@ class _AddEmployeeState extends State<AddEmployee> {
     super.initState();
   }
 
-  _checkEmployee() {
-    if (widget.employee != null) {
-      String p = widget.employee!.phoneNumber.substring(0, 3);
-      String s = widget.employee!.phoneNumber.substring(0, 2);
+  // _checkEmployee() {
+  //   if (widget.employee != null) {
+  //     String p = widget.employee!.phoneNumber.substring(0, 3);
+  //     String s = widget.employee!.phoneNumber.substring(0, 2);
 
-      String? pho = s == "+1"
-          ? PhoneNumber.getISO2CodeByPrefix(s)
-          : PhoneNumber.getISO2CodeByPrefix(p);
+  //     String? pho = s == "+1"
+  //         ? PhoneNumber.getISO2CodeByPrefix(s)
+  //         : PhoneNumber.getISO2CodeByPrefix(p);
 
-      setState(() {
-        firstname = FirstName.dirty(widget.employee!.firstName);
-        lastname = FirstName.dirty(widget.employee!.lastName);
-        email = Email.dirty(widget.employee!.email);
-        phoneNo = PhoneNo.dirty(PhoneNumber(
-            phoneNumber: widget.employee!.phoneNumber,
-            dialCode: p,
-            isoCode: pho));
-        currentAddress = Address.dirty(
-          widget.employee!.currentAddress,
-        );
-        premenentAddress = Address.dirty(widget.employee!.permenentAddress);
-        startDate = DateTime.parse(widget.employee!.startDate);
-        endDate = DateTime.parse(widget.employee!.endDate);
-      });
-    }
-  }
+  //     setState(() {
+  //       firstname = FirstName.dirty(widget.employee!.firstName);
+  //       lastname = FirstName.dirty(widget.employee!.lastName);
+  //       email = Email.dirty(widget.employee!.email);
+  //       phoneNo = PhoneNo.dirty(PhoneNumber(
+  //           phoneNumber: widget.employee!.phoneNumber,
+  //           dialCode: p,
+  //           isoCode: pho));
+  //       currentAddress = Address.dirty(
+  //         widget.employee!.currentAddress,
+  //       );
+  //       premenentAddress = Address.dirty(widget.employee!.permenentAddress);
+  //       startDate = DateTime.parse(widget.employee!.startDate);
+  //       endDate = DateTime.parse(widget.employee!.endDate);
+  //     });
+  //   }
+  // }
 
-  Future<void> _editEmployee() async {
-    bool validation = firstname.isValid &&
-        lastname.isValid &&
-        phoneNo.isValid &&
-        email.isValid &&
-        currentAddress.isValid &&
-        premenentAddress.isValid;
+  // Future<void> _editEmployee() async {
+  //   bool validation = firstname.isValid &&
+  //       lastname.isValid &&
+  //       phoneNo.isValid &&
+  //       email.isValid &&
+  //       currentAddress.isValid &&
+  //       premenentAddress.isValid;
 
-    EmployeeModel emp = EmployeeModel(
-      salary: widget.employee!.salary,
-      id: widget.employee!.id,
-      currentAddress: currentAddress.value,
-      permenentAddress: premenentAddress.value,
-      startDate: startDate.toString(),
-      endDate: endDate.toString(),
-      jobTitle: "Developer",
-      firstName: firstname.value,
-      lastName: lastname.value,
-      email: email.value,
-      phoneNumber: phoneNo.value.phoneNumber,
-      profile: '',
-    );
+  //   EmployeeModel emp = EmployeeModel(
+  //     salary: widget.employee!.salary,
+  //     id: widget.employee!.id,
+  //     currentAddress: currentAddress.value,
+  //     permenentAddress: premenentAddress.value,
+  //     startDate: startDate.toString(),
+  //     endDate: endDate.toString(),
+  //     jobTitle: "Developer",
+  //     firstName: firstname.value,
+  //     lastName: lastname.value,
+  //     email: email.value,
+  //     phoneNumber: phoneNo.value.phoneNumber,
+  //     profile: '',
+  //   );
 
-    if (validation) {
-      context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
-      Navigator.of(context).pop();
-    } else {
-      Toast.show("fill all input correctly!");
-    }
-  }
+  //   if (validation) {
+  //     context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
+  //     Navigator.of(context).pop();
+  //   } else {
+  //     Toast.show("fill all input correctly!");
+  //   }
+  // }
 
-  String? getNameError(FullNameValidationError? error) {
-    switch (error) {
-      case FullNameValidationError.empty:
-        return "Empty";
-      case FullNameValidationError.min:
-        return "Name must be at least 6 character";
-      case FullNameValidationError.max:
-        return "Name should not be more than 32 character";
+  // String? getNameError(FullNameValidationError? error) {
+  //   switch (error) {
+  //     case FullNameValidationError.empty:
+  //       return "Empty";
+  //     case FullNameValidationError.min:
+  //       return "Name must be at least 6 character";
+  //     case FullNameValidationError.max:
+  //       return "Name should not be more than 32 character";
 
-      default:
-    }
-    return null;
-  }
+  //     default:
+  //   }
+  //   return null;
+  // }
 
-  Future<void> _addEmployee() async {
-    EmployeeModel emp = EmployeeModel(
-      id: 1,
-      salary: 1200,
-      currentAddress: currentAddress.value,
-      permenentAddress: premenentAddress.value,
-      startDate: startDate.toString(),
-      endDate: endDate.toString(),
-      jobTitle: "Developer",
-      firstName: firstname.value,
-      lastName: lastname.value,
-      email: email.value,
-      phoneNumber: phoneNo.value.phoneNumber,
-      profile: '',
-    );
-    bool validation = firstname.isValid &&
-        lastname.isValid &&
-        phoneNo.isValid &&
-        email.isValid &&
-        currentAddress.isValid &&
-        premenentAddress.isValid;
+  // Future<void> _addEmployee() async {
+  //   EmployeeModel emp = EmployeeModel(
+  //     id: 1,
+  //     salary: 1200,
+  //     currentAddress: currentAddress.value,
+  //     permenentAddress: premenentAddress.value,
+  //     startDate: startDate.toString(),
+  //     endDate: endDate.toString(),
+  //     jobTitle: "Developer",
+  //     firstName: firstname.value,
+  //     lastName: lastname.value,
+  //     email: email.value,
+  //     phoneNumber: phoneNo.value.phoneNumber,
+  //     profile: '',
+  //   );
+  //   bool validation = firstname.isValid &&
+  //       lastname.isValid &&
+  //       phoneNo.isValid &&
+  //       email.isValid &&
+  //       currentAddress.isValid &&
+  //       premenentAddress.isValid;
 
-    if (validation) {
-      context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
-      Navigator.of(context).pop();
-    } else {
-      Toast.show("fill all input correctly!");
-    }
-  }
+  //   if (validation) {
+  //     context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
+  //     Navigator.of(context).pop();
+  //   } else {
+  //     Toast.show("fill all input correctly!");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
