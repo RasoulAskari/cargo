@@ -14,7 +14,7 @@ class EmployeeCubit extends Cubit<EmployeeState> {
   void firstnameChange(String value) {
     final sName = FirstName.dirty(value);
     emit(state.copyWith(
-      firstname : sName,
+      firstname: sName,
     ));
   }
 }
