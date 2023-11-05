@@ -31,4 +31,11 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       state.copyWith(phoneNo: phoneNumber),
     );
   }
+
+  void emailChange(String value) {
+    final email = Email.dirty(value);
+    emit(state.copyWith(
+      email: email,
+    ));
+  }
 }
