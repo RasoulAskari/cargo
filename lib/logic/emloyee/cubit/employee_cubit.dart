@@ -10,4 +10,11 @@ part 'employee_state.dart';
 
 class EmployeeCubit extends Cubit<EmployeeState> {
   EmployeeCubit() : super(EmployeeInitial());
+
+  void firstnameChange(String value) {
+    final sName = FirstName.dirty(value);
+    emit(state.copyWith(
+      firstname : sName,
+    ));
+  }
 }

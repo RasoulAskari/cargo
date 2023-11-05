@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'employee_cubit.dart';
 
 class EmployeeState extends Equatable {
@@ -32,6 +33,28 @@ class EmployeeState extends Equatable {
         startDate,
         endDate,
       ];
+
+  EmployeeState copyWith({
+    FirstName? firstname,
+    FirstName? lastname,
+    PhoneNo? phoneNo,
+    Email? email,
+    Address? currentAddress,
+    Address? premenentAddress,
+    MyDate? startDate,
+    MyDate? endDate,
+  }) {
+    return EmployeeState(
+      firstname: firstname ?? this.firstname,
+      lastname: lastname ?? this.lastname,
+      phoneNo: phoneNo ?? this.phoneNo,
+      email: email ?? this.email,
+      currentAddress: currentAddress ?? this.currentAddress,
+      premenentAddress: premenentAddress ?? this.premenentAddress,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+    );
+  }
 }
 
 final class EmployeeInitial extends EmployeeState {}
