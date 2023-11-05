@@ -24,4 +24,11 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       firstname: sName,
     ));
   }
+
+  void phoneNumberChange(value) {
+    final phoneNumber = PhoneNo.dirty(value);
+    emit(
+      state.copyWith(phoneNo: phoneNumber),
+    );
+  }
 }
