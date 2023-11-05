@@ -49,6 +49,7 @@ class _AddEmployeeState extends State<AddEmployee> {
     });
   }
 
+
   // _checkEmployee() {
   //   if (widget.employee != null) {
   //     String p = widget.employee!.phoneNumber.substring(0, 3);
@@ -153,6 +154,7 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   @override
   Widget build(BuildContext context) {
+
     List steps = [
       {
         'title': AppLocalizations.of(context)?.order_step1_title,
@@ -172,6 +174,163 @@ class _AddEmployeeState extends State<AddEmployee> {
       },
     ];
 
+
+
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     leading: InkWell(
+    //       onTap: () {
+    //         Navigator.of(context).pop();
+    //       },
+    //       child: const Icon(
+    //         Icons.arrow_back_ios,
+    //         color: Colors.white,
+    //       ),
+    //     ),
+    //     backgroundColor: Theme.of(context).primaryColor,
+    //     title: Text(
+    //       AppLocalizations.of(context)!.add_employee_screen,
+    //       style: const TextStyle(
+    //         color: Colors.white,
+    //         fontSize: 16,
+    //         fontWeight: FontWeight.bold,
+    //       ),
+    //     ),
+    //   ),
+    //   body: BlocProvider(
+    //     create: (context) => EmployeeBloc(httpClient: http.Client()),
+    //     child: Padding(
+    //       padding: const EdgeInsets.all(8.0),
+    //       child: SingleChildScrollView(
+    //         child: Column(
+    //           children: [
+    //             const SizedBox(height: 15),
+    //             CTextField(
+    //               value: firstname.value,
+    //               setValue: (passedValue) {
+    //                 setState(() {
+    //                   firstname = FirstName.dirty(passedValue);
+    //                 });
+    //               },
+    //               hintText: AppLocalizations.of(context)?.firstname,
+    //               errorText: firstname.isNotValid
+    //                   ? getFirstnameError(firstname.error, context,
+    //                       AppLocalizations.of(context)!.firstname)
+    //                   : null,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CTextField(
+    //               value: lastname.value,
+    //               setValue: (lastnameValue) {
+    //                 setState(() {
+    //                   lastname = FirstName.dirty(lastnameValue);
+    //                 });
+    //               },
+    //               hintText: AppLocalizations.of(context)?.lastname,
+    //               errorText: lastname.isNotValid
+    //                   ? getFirstnameError(lastname.error, context,
+    //                       AppLocalizations.of(context)!.lastname)
+    //                   : null,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CTextField(
+    //               value: email.value,
+    //               setValue: (emailValue) {
+    //                 setState(() {
+    //                   email = Email.dirty(emailValue);
+    //                 });
+    //               },
+    //               hintText: AppLocalizations.of(context)?.email,
+    //               errorText: email.isNotValid
+    //                   ? getEmailError(email.error, context)
+    //                   : null,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CPhoneField(
+    //               hintText: AppLocalizations.of(context)!.phone_num,
+    //               setValue: (PhoneNumber phone) {
+    //                 setState(() {
+    //                   phoneNo = PhoneNo.dirty(phone);
+    //                 });
+    //               },
+    //               setValid: (bool? isValidPassed) {
+    //                 setState(() {
+    //                   isValid = isValidPassed ?? false;
+    //                 });
+    //               },
+    //               value: phoneNo.value,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CTextField(
+    //               hintText: AppLocalizations.of(context)?.current_address,
+    //               maxlines: 3,
+    //               value: currentAddress.value,
+    //               setValue: (value) {
+    //                 setState(() {
+    //                   currentAddress = Address.dirty(value);
+    //                 });
+    //               },
+    //               errorText: currentAddress.isNotValid
+    //                   ? getAddressError(currentAddress.error, context,
+    //                       AppLocalizations.of(context)!.current_address)
+    //                   : null,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CTextField(
+    //               hintText: AppLocalizations.of(context)?.premenent_address,
+    //               maxlines: 3,
+    //               value: premenentAddress.value,
+    //               setValue: (value) {
+    //                 setState(() {
+    //                   premenentAddress = Address.dirty(value);
+    //                 });
+    //               },
+    //               errorText: premenentAddress.isNotValid
+    //                   ? getAddressError(premenentAddress.error, context,
+    //                       AppLocalizations.of(context)!.premenent_address)
+    //                   : null,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CDatePicker(
+    //               value: startDate,
+    //               setValue: (value) {
+    //                 setState(() {
+    //                   startDate = value;
+    //                 });
+    //               },
+    //               hintText: AppLocalizations.of(context)?.start_date,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             CDatePicker(
+    //               errorText: premenentAddress.isNotValid
+    //                   ? getAddressError(premenentAddress.error, context,
+    //                       AppLocalizations.of(context)!.premenent_address)
+    //                   : null,
+    //               value: endDate,
+    //               setValue: (value) {
+    //                 setState(() {
+    //                   endDate = value;
+    //                 });
+    //               },
+    //               hintText: AppLocalizations.of(context)?.end_date,
+    //             ),
+    //             const SizedBox(height: 15),
+    //             ElevatedButton(
+    //               onPressed: () {
+    //                 widget.employee == null ? _addEmployee() : _editEmployee();
+    //               },
+    //               child: Text(
+    //                 widget.employee == null
+    //                     ? AppLocalizations.of(context)!.add
+    //                     : AppLocalizations.of(context)!.edit,
+    //               ),
+    //             )
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: CStepper(
@@ -181,12 +340,15 @@ class _AddEmployeeState extends State<AddEmployee> {
         next: () {
           next(steps);
         },
-        onSubmit: () async {},
+        onSubmit: () async {
+        },
         prev: () {
           prev(steps);
         },
         loading: loading,
       ),
     );
+
+
   }
 }
