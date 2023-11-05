@@ -59,4 +59,11 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       startDate: date,
     ));
   }
+
+  void endDateChange(String value) {
+    final date = MyDate.dirty(value);
+    emit(state.copyWith(
+      endDate: date,
+    ));
+  }
 }
