@@ -4,6 +4,8 @@ import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
+import 'package:cargo/presentation/widgets/employee_stepper/step1.dart';
+import 'package:cargo/presentation/widgets/employee_stepper/step2.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
@@ -46,11 +48,6 @@ class _AddEmployeeState extends State<AddEmployee> {
     });
   }
 
-  @override
-  void initState() {
-    _checkEmployee();
-    super.initState();
-  }
 
   // _checkEmployee() {
   //   if (widget.employee != null) {
@@ -156,6 +153,28 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   @override
   Widget build(BuildContext context) {
+
+    List steps = [
+      {
+        'title': AppLocalizations.of(context)?.order_step1_title,
+        'step': Step1(
+          next: next,
+          prev: prev,
+        ),
+        'validate': true
+      },
+      {
+        'title': AppLocalizations.of(context)?.order_step2_title,
+        'step': Step2(
+          next: next,
+          prev: prev,
+        ),
+        'validate': true
+      },
+    ];
+
+
+
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
