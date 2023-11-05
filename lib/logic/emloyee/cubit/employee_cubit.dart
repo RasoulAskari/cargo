@@ -38,4 +38,11 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       email: email,
     ));
   }
+
+  void currentAddressChange(String value) {
+    final address = Address.dirty(value);
+    emit(
+      state.copyWith(currentAddress: address),
+    );
+  }
 }
