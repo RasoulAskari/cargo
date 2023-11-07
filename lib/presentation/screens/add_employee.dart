@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
+import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/form_models/address.dart';
 import 'package:cargo/logic/form_models/email.dart';
@@ -49,32 +50,31 @@ class _AddEmployeeState extends State<AddEmployee> {
     });
   }
 
-  // _checkEmployee() {
-  //   if (widget.employee != null) {
-  //     String p = widget.employee!.phoneNumber.substring(0, 3);
-  //     String s = widget.employee!.phoneNumber.substring(0, 2);
+  _checkEmployee() {
+    if (widget.employee != null) {
+      String p = widget.employee!.phoneNumber.substring(0, 3);
+      String s = widget.employee!.phoneNumber.substring(0, 2);
 
-  //     String? pho = s == "+1"
-  //         ? PhoneNumber.getISO2CodeByPrefix(s)
-  //         : PhoneNumber.getISO2CodeByPrefix(p);
+      String? pho = s == "+1"
+          ? PhoneNumber.getISO2CodeByPrefix(s)
+          : PhoneNumber.getISO2CodeByPrefix(p);
 
-  //     setState(() {
-  //       firstname = FirstName.dirty(widget.employee!.firstName);
-  //       lastname = FirstName.dirty(widget.employee!.lastName);
-  //       email = Email.dirty(widget.employee!.email);
-  //       phoneNo = PhoneNo.dirty(PhoneNumber(
-  //           phoneNumber: widget.employee!.phoneNumber,
-  //           dialCode: p,
-  //           isoCode: pho));
-  //       currentAddress = Address.dirty(
-  //         widget.employee!.currentAddress,
-  //       );
-  //       premenentAddress = Address.dirty(widget.employee!.permenentAddress);
-  //       startDate = DateTime.parse(widget.employee!.startDate);
-  //       endDate = DateTime.parse(widget.employee!.endDate);
-  //     });
-  //   }
-  // }
+      context.read<EmployeeCubit>().firstnameChange(widget.employee!.firstName);
+      context.read<EmployeeCubit>().lastnameChange(widget.employee!.lastName);
+      context.read<EmployeeCubit>().emailChange(widget.employee!.email);
+      context
+          .read<EmployeeCubit>()
+          .phoneNumberChange(widget.employee!.phoneNumber);
+      context
+          .read<EmployeeCubit>()
+          .currentAddressChange(widget.employee!.currentAddress);
+      context
+          .read<EmployeeCubit>()
+          .premenentAddressChange(widget.employee!.permenentAddress);
+      context.read<EmployeeCubit>().startDateChange(widget.employee!.startDate);
+      context.read<EmployeeCubit>().endDateChange(widget.employee!.endDate);
+    }
+  }
 
   // Future<void> _editEmployee() async {
   //   bool validation = firstname.isValid &&
