@@ -2,6 +2,7 @@ import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
+import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +17,7 @@ class Step1 extends StatefulWidget {
 }
 
 class _Step1State extends State<Step1> {
+  bool isValid = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -55,7 +57,6 @@ class _Step1State extends State<Step1> {
             },
           ),
           const SizedBox(height: 30),
-          const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CTextField(
@@ -70,6 +71,22 @@ class _Step1State extends State<Step1> {
                 setValue: (value) {
                   context.read<EmployeeCubit>().emailChange(value);
                 },
+              );
+            },
+          ),
+          BlocBuilder<EmployeeCubit, EmployeeState>(
+            builder: (context, state) {
+              return CPhoneField(
+                hintText: AppLocalizations.of(context)!.phone_num,
+                setValue: (value) {
+                  context.read<EmployeeCubit>().phoneNumberChange(value);
+                },
+                setValid: (bool? isValidPassed) {
+                  setState(() {
+                    isValid = isValidPassed ?? false;
+                  });
+                },
+                value: state.phoneNo.value,
               );
             },
           ),
