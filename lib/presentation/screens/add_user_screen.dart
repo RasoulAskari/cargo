@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
 
 import '../../utils/stepper/c_stepper.dart';
@@ -73,7 +74,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
 
   next(steps) async {
     var valid = await steps[step - 1]['validate'];
-    print(valid);
 
     if (valid) {
       setState(() {
