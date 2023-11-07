@@ -2,25 +2,14 @@ import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
-import 'package:cargo/logic/form_models/address.dart';
-import 'package:cargo/logic/form_models/email.dart';
-import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/employee_stepper/step1.dart';
 import 'package:cargo/presentation/widgets/employee_stepper/step2.dart';
-import 'package:cargo/presentation/widgets/form/c_text_field.dart';
-import 'package:cargo/logic/form_models/first_name.dart';
-import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
-import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:cargo/logic/form_models/models.dart';
-import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
-// ignore: depend_on_referenced_packages
-import 'package:toast/toast.dart';
 
 class AddEmployee extends StatefulWidget {
   final EmployeeModel? employee;
@@ -155,7 +144,8 @@ class _AddEmployeeState extends State<AddEmployee> {
         next: () {
           next(steps);
         },
-        onSubmit: () async {},
+        onSubmit: () async {
+        },
         prev: () {
           prev(steps);
         },
