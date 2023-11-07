@@ -1,6 +1,7 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
+import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -58,16 +59,16 @@ class _Step2State extends State<Step2> {
           const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
-              return CTextField(
-                errorText: state.typeReceiver.isNotValid
-                    ? getCStringError(state.typeReceiver.error, context,
-                        AppLocalizations.of(context)!.reciver_type)
-                    : null,
-                value: state.typeReceiver.value,
-                hintText: AppLocalizations.of(context)!.reciver_type,
+              return CDatePicker(
+                value: state.startDate.value != ""
+                    ? DateTime.parse(state.startDate.value)
+                    : DateTime.now(),
                 setValue: (value) {
-                  context.read<EmployeeCubit>().typeChange(value);
+                  context
+                      .read<EmployeeCubit>()
+                      .startDateChange(value.toString());
                 },
+                hintText: AppLocalizations.of(context)?.date,
               );
             },
           ),
