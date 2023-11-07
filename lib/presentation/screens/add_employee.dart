@@ -62,9 +62,10 @@ class _AddEmployeeState extends State<AddEmployee> {
       context.read<EmployeeCubit>().firstnameChange(widget.employee!.firstName);
       context.read<EmployeeCubit>().lastnameChange(widget.employee!.lastName);
       context.read<EmployeeCubit>().emailChange(widget.employee!.email);
-      context
-          .read<EmployeeCubit>()
-          .phoneNumberChange(widget.employee!.phoneNumber);
+      context.read<EmployeeCubit>().phoneNumberChange(PhoneNumber(
+          phoneNumber: widget.employee!.phoneNumber,
+          dialCode: p,
+          isoCode: pho));
       context
           .read<EmployeeCubit>()
           .currentAddressChange(widget.employee!.currentAddress);
