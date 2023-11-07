@@ -55,77 +55,21 @@ class _Step1State extends State<Step1> {
             },
           ),
           const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>
-            builder: (context, state) {
-              return CTextField(
-                errorText: state.customerGrandFathername.isNotValid
-                    ? getFirstnameError(
-                        state.customerGrandFathername.error,
-                        context,
-                        AppLocalizations.of(context)!.grand_father_name)
-                    : null,
-                value: state.customerGrandFathername.value,
-                hintText: AppLocalizations.of(context)?.grand_father_name,
-                setValue: (value) {
-                  context.read<EmployeeCubit>().cGrandFathernameChange(value);
-                },
-              );
-            },
-          ),
           const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CTextField(
-                errorText: state.customerIdCard.isNotValid
-                    ? getCStringError(state.customerIdCard.error, context,
-                        AppLocalizations.of(context)!.id_card_num)
+                errorText: state.email.isNotValid
+                    ? getEmailError(
+                        state.email.error,
+                        context,
+                      )
                     : null,
-                value: state.customerIdCard.value,
+                value: state.email.value,
                 hintText: AppLocalizations.of(context)!.id_card_num,
                 setValue: (value) {
-                  context.read<EmployeeCubit>().cTazkiraIdChange(value);
+                  context.read<EmployeeCubit>().emailChange(value);
                 },
-              );
-            },
-          ),
-          const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>(
-            builder: (context, state) {
-              return CPhoneField(
-                hintText: AppLocalizations.of(context)!.phone_num,
-                setValue: (value) {
-                  context.read<EmployeeCubit>().cPhoneNumberChange(value);
-                },
-                setValid: (bool? isValidPassed) {
-                  setState(() {
-                    isValid = isValidPassed ?? false;
-                  });
-                },
-                value: state.customerPhoneNo.value,
-              );
-            },
-          ),
-          const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>(
-            builder: (context, state) {
-              return CTextField(
-                errorText: state.pricePerKelo.isNotValid
-                    ? getAmountError(state.pricePerKelo.error, context,
-                        AppLocalizations.of(context)!.price)
-                    : null,
-                hintText: AppLocalizations.of(context)!.price,
-                value: state.pricePerKelo.value.toString(),
-                setValue: (value) {
-                  double val;
-                  if (value == "") {
-                    val = 1;
-                  } else {
-                    val = double.parse(value);
-                  }
-
-                  context.read<EmployeeCubit>().pricePerKeloChange(val);
-                },
-                textInputType: TextInputType.number,
               );
             },
           ),
