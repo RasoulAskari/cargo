@@ -25,29 +25,15 @@ class _Step1State extends State<Step1> {
           const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
-              return CDatePicker(
-                value: state.date.value != ""
-                    ? DateTime.parse(state.date.value)
-                    : DateTime.now(),
-                setValue: (value) {
-                  context.read<EmployeeCubit>().dateChange(value.toString());
-                },
-                hintText: AppLocalizations.of(context)?.date,
-              );
-            },
-          ),
-          const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>(
-            builder: (context, state) {
               return CTextField(
-                errorText: state.customerName.isNotValid
-                    ? getFirstnameError(state.customerName.error, context,
+                errorText: state.firstname.isNotValid
+                    ? getFirstnameError(state.firstname.error, context,
                         AppLocalizations.of(context)!.firstname)
                     : null,
-                value: state.customerName.value,
+                value: state.firstname.value,
                 hintText: AppLocalizations.of(context)?.firstname,
                 setValue: (value) {
-                  context.read<EmployeeCubit>().cNameChange(value);
+                  context.read<EmployeeCubit>().firstnameChange(value);
                 },
               );
             },
