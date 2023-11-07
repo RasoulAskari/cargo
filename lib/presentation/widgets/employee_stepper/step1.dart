@@ -1,10 +1,10 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
-import 'package:cargo/presentation/widgets/form/c_date_picker.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Step1 extends StatefulWidget {
