@@ -73,6 +73,19 @@ class _Step2State extends State<Step2> {
             },
           ),
           const SizedBox(height: 30),
+          BlocBuilder<EmployeeCubit, EmployeeState>(
+            builder: (context, state) {
+              return CDatePicker(
+                value: state.endDate.value != ""
+                    ? DateTime.parse(state.endDate.value)
+                    : DateTime.now(),
+                setValue: (value) {
+                  context.read<EmployeeCubit>().endDateChange(value.toString());
+                },
+                hintText: AppLocalizations.of(context)?.date,
+              );
+            },
+          ),
         ],
       ),
     );
