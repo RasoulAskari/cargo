@@ -145,6 +145,7 @@ class _AddEmployeeState extends State<AddEmployee> {
           next(steps);
         },
         onSubmit: () async {
+          widget.employee != null ? _editEmployee() : _addEmployee();
         },
         prev: () {
           prev(steps);
