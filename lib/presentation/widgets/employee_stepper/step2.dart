@@ -73,53 +73,6 @@ class _Step2State extends State<Step2> {
             },
           ),
           const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>(
-            builder: (context, state) {
-              return CTextField(
-                errorText: state.country.isNotValid
-                    ? getCStringError(state.country.error, context,
-                        AppLocalizations.of(context)!.country)
-                    : null,
-                value: state.country.value,
-                hintText: AppLocalizations.of(context)?.country,
-                setValue: (value) {
-                  context.read<EmployeeCubit>().countryChange(value);
-                },
-              );
-            },
-          ),
-          const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>(
-            builder: (context, state) {
-              return CTextField(
-                  errorText: state.city.isNotValid
-                      ? getCStringError(state.city.error, context,
-                          AppLocalizations.of(context)!.city)
-                      : null,
-                  value: state.city.value,
-                  hintText: AppLocalizations.of(context)?.city,
-                  setValue: (value) {
-                    context.read<EmployeeCubit>().cityChange(value);
-                  });
-            },
-          ),
-          const SizedBox(height: 30),
-          BlocBuilder<EmployeeCubit, EmployeeState>(
-            builder: (context, state) {
-              return CTextField(
-                errorText: state.address.isNotValid
-                    ? getAddressError(state.address.error, context,
-                        AppLocalizations.of(context)!.address)
-                    : null,
-                value: state.address.value,
-                hintText: AppLocalizations.of(context)?.address,
-                setValue: (value) {
-                  context.read<EmployeeCubit>().addressChange(value);
-                },
-                maxlines: 3,
-              );
-            },
-          ),
         ],
       ),
     );
