@@ -42,14 +42,14 @@ class _Step1State extends State<Step1> {
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CTextField(
-                errorText: state.customerFathername.isNotValid
-                    ? getFirstnameError(state.customerFathername.error, context,
+                errorText: state.lastname.isNotValid
+                    ? getFirstnameError(state.lastname.error, context,
                         AppLocalizations.of(context)!.father_name)
                     : null,
-                value: state.customerFathername.value,
+                value: state.lastname.value,
                 hintText: AppLocalizations.of(context)?.father_name,
                 setValue: (value) {
-                  context.read<EmployeeCubit>().cFathernameChange(value);
+                  context.read<EmployeeCubit>().lastnameChange(value);
                 },
               );
             },
