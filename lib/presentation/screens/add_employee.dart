@@ -104,49 +104,26 @@ class _AddEmployeeState extends State<AddEmployee> {
     Navigator.of(context).pop();
   }
 
-  // String? getNameError(FullNameValidationError? error) {
-  //   switch (error) {
-  //     case FullNameValidationError.empty:
-  //       return "Empty";
-  //     case FullNameValidationError.min:
-  //       return "Name must be at least 6 character";
-  //     case FullNameValidationError.max:
-  //       return "Name should not be more than 32 character";
+  Future<void> _addEmployee() async {
+    final employee = context.read<EmployeeCubit>().state;
 
-  //     default:
-  //   }
-  //   return null;
-  // }
-
-  // Future<void> _addEmployee() async {
-  //   EmployeeModel emp = EmployeeModel(
-  //     id: 1,
-  //     salary: 1200,
-  //     currentAddress: currentAddress.value,
-  //     permenentAddress: premenentAddress.value,
-  //     startDate: startDate.toString(),
-  //     endDate: endDate.toString(),
-  //     jobTitle: "Developer",
-  //     firstName: firstname.value,
-  //     lastName: lastname.value,
-  //     email: email.value,
-  //     phoneNumber: phoneNo.value.phoneNumber,
-  //     profile: '',
-  //   );
-  //   bool validation = firstname.isValid &&
-  //       lastname.isValid &&
-  //       phoneNo.isValid &&
-  //       email.isValid &&
-  //       currentAddress.isValid &&
-  //       premenentAddress.isValid;
-
-  //   if (validation) {
-  //     context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
-  //     Navigator.of(context).pop();
-  //   } else {
-  //     Toast.show("fill all input correctly!");
-  //   }
-  // }
+    EmployeeModel emp = EmployeeModel(
+      salary: widget.employee!.salary,
+      id: widget.employee!.id,
+      currentAddress: employee.currentAddress.value,
+      permenentAddress: employee.premenentAddress.value,
+      startDate: employee.startDate.toString(),
+      endDate: employee.endDate.toString(),
+      jobTitle: "Developer",
+      firstName: employee.firstname.value,
+      lastName: employee.lastname.value,
+      email: employee.email.value,
+      phoneNumber: employee.phoneNo.value.phoneNumber,
+      profile: '',
+    );
+      context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
+      Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
