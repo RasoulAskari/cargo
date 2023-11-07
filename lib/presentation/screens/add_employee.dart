@@ -83,36 +83,26 @@ class _AddEmployeeState extends State<AddEmployee> {
     }
   }
 
-  // Future<void> _editEmployee() async {
-  //   bool validation = firstname.isValid &&
-  //       lastname.isValid &&
-  //       phoneNo.isValid &&
-  //       email.isValid &&
-  //       currentAddress.isValid &&
-  //       premenentAddress.isValid;
+  Future<void> _editEmployee() async {
+    final employee = context.read<EmployeeCubit>().state;
+    EmployeeModel emp = EmployeeModel(
+      salary: widget.employee!.salary,
+      id: widget.employee!.id,
+      currentAddress: employee.currentAddress.value,
+      permenentAddress: employee.premenentAddress.value,
+      startDate: employee.startDate.toString(),
+      endDate: employee.endDate.toString(),
+      jobTitle: "Developer",
+      firstName: employee.firstname.value,
+      lastName: employee.lastname.value,
+      email: employee.email.value,
+      phoneNumber: employee.phoneNo.value.phoneNumber,
+      profile: '',
+    );
 
-  //   EmployeeModel emp = EmployeeModel(
-  //     salary: widget.employee!.salary,
-  //     id: widget.employee!.id,
-  //     currentAddress: currentAddress.value,
-  //     permenentAddress: premenentAddress.value,
-  //     startDate: startDate.toString(),
-  //     endDate: endDate.toString(),
-  //     jobTitle: "Developer",
-  //     firstName: firstname.value,
-  //     lastName: lastname.value,
-  //     email: email.value,
-  //     phoneNumber: phoneNo.value.phoneNumber,
-  //     profile: '',
-  //   );
-
-  //   if (validation) {
-  //     context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
-  //     Navigator.of(context).pop();
-  //   } else {
-  //     Toast.show("fill all input correctly!");
-  //   }
-  // }
+    context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
+    Navigator.of(context).pop();
+  }
 
   // String? getNameError(FullNameValidationError? error) {
   //   switch (error) {
