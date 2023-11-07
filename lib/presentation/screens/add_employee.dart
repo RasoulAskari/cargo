@@ -40,6 +40,12 @@ class _AddEmployeeState extends State<AddEmployee> {
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _checkEmployee();
+  }
+
   prev(steps) {
     if (step == 1) {
       Navigator.of(context).pop();
