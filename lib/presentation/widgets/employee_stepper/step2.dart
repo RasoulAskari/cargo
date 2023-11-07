@@ -41,17 +41,17 @@ class _Step2State extends State<Step2> {
           const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
-              return CPhoneField(
-                hintText: AppLocalizations.of(context)!.phone_num,
+              return CTextField(
+                errorText: state.premenentAddress.isNotValid
+                    ? getAddressError(state.premenentAddress.error, context,
+                        AppLocalizations.of(context)!.address)
+                    : null,
+                value: state.premenentAddress.value,
+                hintText: AppLocalizations.of(context)?.address,
                 setValue: (value) {
-                  context.read<EmployeeCubit>().rPhoneNumberChange(value);
+                  context.read<EmployeeCubit>().premenentAddressChange(value);
                 },
-                setValid: (bool? isValidPassed) {
-                  setState(() {
-                    isValid = isValidPassed ?? false;
-                  });
-                },
-                value: state.receiverPhoneNo.value,
+                maxlines: 3,
               );
             },
           ),
