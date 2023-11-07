@@ -49,7 +49,6 @@ class _AddEmployeeState extends State<AddEmployee> {
     });
   }
 
-
   // _checkEmployee() {
   //   if (widget.employee != null) {
   //     String p = widget.employee!.phoneNumber.substring(0, 3);
@@ -154,7 +153,6 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   @override
   Widget build(BuildContext context) {
-
     List steps = [
       {
         'title': AppLocalizations.of(context)?.order_step1_title,
@@ -173,8 +171,6 @@ class _AddEmployeeState extends State<AddEmployee> {
         'validate': true
       },
     ];
-
-
 
     // return Scaffold(
     //   appBar: AppBar(
@@ -340,15 +336,12 @@ class _AddEmployeeState extends State<AddEmployee> {
         next: () {
           next(steps);
         },
-        onSubmit: () async {
-        },
+        onSubmit: () async {},
         prev: () {
           prev(steps);
         },
         loading: loading,
       ),
     );
-
-
   }
 }
