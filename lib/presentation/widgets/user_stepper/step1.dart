@@ -67,8 +67,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 20),
-          BlocBuilder<UserCubit, UserState>(
+InputLabel(label: AppLocalizations.of(context)!.email),          BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
                 hintText: AppLocalizations.of(context)?.email,
