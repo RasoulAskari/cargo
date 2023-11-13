@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/form_models/address.dart';
+import 'package:cargo/logic/form_models/amount.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/form_models/first_name.dart';
 import 'package:cargo/logic/form_models/my_date.dart';

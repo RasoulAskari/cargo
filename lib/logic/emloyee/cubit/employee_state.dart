@@ -10,6 +10,7 @@ class EmployeeState extends Equatable {
   final Address premenentAddress;
   final MyDate startDate;
   final MyDate endDate;
+  final Amount salary;
 
   const EmployeeState({
     this.firstname = const FirstName.pure(),
@@ -20,6 +21,7 @@ class EmployeeState extends Equatable {
     this.premenentAddress = const Address.pure(),
     this.startDate = const MyDate.pure(),
     this.endDate = const MyDate.pure(),
+    this.salary = const Amount.pure(),
   });
 
   @override
