@@ -3,6 +3,7 @@ import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ class _Step2State extends State<Step2> {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       child: Column(
         children: [
+          InputLabel(label: AppLocalizations.of(context)!.firstname),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
