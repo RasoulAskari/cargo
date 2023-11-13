@@ -24,7 +24,7 @@ class _Step2State extends State<Step2> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       child: Column(
         children: [
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
