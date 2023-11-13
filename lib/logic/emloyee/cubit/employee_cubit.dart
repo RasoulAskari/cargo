@@ -67,4 +67,11 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       endDate: date,
     ));
   }
+
+  void salaryChange(double value) {
+    final salary = Amount.dirty(value);
+    emit(state.copyWith(
+      salary: salary,
+    ));
+  }
 }
