@@ -4,6 +4,7 @@ import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/presentation/widgets/employee_stepper/step1.dart';
 import 'package:cargo/presentation/widgets/employee_stepper/step2.dart';
+import 'package:cargo/utils/phone_number/phone_number_util.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -97,8 +98,8 @@ class _AddEmployeeState extends State<AddEmployee> {
     final employee = context.read<EmployeeCubit>().state;
 
     EmployeeModel emp = EmployeeModel(
-      salary: widget.employee!.salary,
-      id: widget.employee!.id,
+      salary: employee.salary.value,
+      id: 1,
       currentAddress: employee.currentAddress.value,
       permenentAddress: employee.premenentAddress.value,
       startDate: employee.startDate.toString(),

@@ -37,6 +37,8 @@ class EmployeeState extends Equatable {
         salary
       ];
 
+  get id => null;
+
   EmployeeState copyWith(
       {FirstName? firstname,
       FirstName? lastname,
