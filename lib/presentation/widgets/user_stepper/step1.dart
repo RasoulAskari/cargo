@@ -6,6 +6,7 @@ import 'package:cargo/logic/user/model/role_model.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_password_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +51,7 @@ class Step1 extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       child: Column(
         children: [
+          InputLabel(label: AppLocalizations.of(context)!.firstname),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
