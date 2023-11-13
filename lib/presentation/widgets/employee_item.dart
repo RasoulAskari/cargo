@@ -79,7 +79,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                       checkPermissionAction(() {
                         Navigator.of(context)
                             .pushNamed(addEmployee, arguments: widget.employee);
-                      }, "employee_retore", context);
+                      }, "employee_restore", context);
                     },
                     child: Container(
                         padding: const EdgeInsets.symmetric(
