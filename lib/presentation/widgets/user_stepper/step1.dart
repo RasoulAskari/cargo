@@ -48,7 +48,7 @@ class Step1 extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       child: Column(
         children: [
           InputLabel(label: AppLocalizations.of(context)!.firstname),
@@ -109,7 +109,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 20),
+          InputLabel(label: AppLocalizations.of(context)!.role),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CDropdown(
