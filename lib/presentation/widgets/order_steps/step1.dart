@@ -109,7 +109,7 @@ class _Step1State extends State<Step1> {
               );
             },
           ),
-          const SizedBox(height: 30),
+          InputLabel(label: AppLocalizations.of(context)!.phone_num),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CPhoneField(
