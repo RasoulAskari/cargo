@@ -108,7 +108,7 @@ class _Step2State extends State<Step2> {
                   });
             },
           ),
-          const SizedBox(height: 30),
+          InputLabel(label: AppLocalizations.of(context)!.address),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CTextField(
