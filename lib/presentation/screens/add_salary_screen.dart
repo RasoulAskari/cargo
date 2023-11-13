@@ -169,7 +169,8 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                     },
                     hintText: AppLocalizations.of(context)?.date,
                   ),
-                  const SizedBox(height: 30),
+                  InputLabel(
+                      label: AppLocalizations.of(context)!.payment_amount),
                   CTextField(
                     errorText: _amountPay.isNotValid
                         ? getAmountError(_amountPay.error, context,
