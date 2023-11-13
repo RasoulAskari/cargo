@@ -34,18 +34,19 @@ class EmployeeState extends Equatable {
         premenentAddress,
         startDate,
         endDate,
+        salary
       ];
 
-  EmployeeState copyWith({
-    FirstName? firstname,
-    FirstName? lastname,
-    PhoneNo? phoneNo,
-    Email? email,
-    Address? currentAddress,
-    Address? premenentAddress,
-    MyDate? startDate,
-    MyDate? endDate,
-  }) {
+  EmployeeState copyWith(
+      {FirstName? firstname,
+      FirstName? lastname,
+      PhoneNo? phoneNo,
+      Email? email,
+      Address? currentAddress,
+      Address? premenentAddress,
+      MyDate? startDate,
+      MyDate? endDate,
+      Amount? salary}) {
     return EmployeeState(
       firstname: firstname ?? this.firstname,
       lastname: lastname ?? this.lastname,
@@ -55,6 +56,7 @@ class EmployeeState extends Equatable {
       premenentAddress: premenentAddress ?? this.premenentAddress,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
+      salary: salary ?? this.salary,
     );
   }
 }
