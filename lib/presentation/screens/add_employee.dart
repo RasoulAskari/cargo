@@ -76,7 +76,7 @@ class _AddEmployeeState extends State<AddEmployee> {
   Future<void> _editEmployee() async {
     final employee = context.read<EmployeeCubit>().state;
     EmployeeModel emp = EmployeeModel(
-      salary: widget.employee!.salary,
+      salary: employee.salary.value,
       id: widget.employee!.id,
       currentAddress: employee.currentAddress.value,
       permenentAddress: employee.premenentAddress.value,
