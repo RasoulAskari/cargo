@@ -74,6 +74,7 @@ class _Step1State extends State<Step1> {
               );
             },
           ),
+          const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CPhoneField(
