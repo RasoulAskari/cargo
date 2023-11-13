@@ -41,7 +41,7 @@ class _Step1State extends State<Step1> {
               );
             },
           ),
-          const SizedBox(height: 30),
+          InputLabel(label: AppLocalizations.of(context)!.lastname),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CTextField(
