@@ -6,6 +6,7 @@ import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
 import 'package:cargo/logic/order/model/my_order_item.dart';
 import 'package:cargo/presentation/widgets/bottom_sheet_style.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:cargo/presentation/widgets/order_staff.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -26,7 +27,7 @@ class _Step3State extends State<Step3> {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
-        vertical: 40,
+        vertical: 0,
       ),
       child: Column(
         children: [
@@ -73,6 +74,7 @@ class _Step3State extends State<Step3> {
         child: BottomSheetStyle(
           height: 450,
           children: [
+            InputLabel(label: AppLocalizations.of(context)!.item_name),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
