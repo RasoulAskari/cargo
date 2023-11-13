@@ -46,10 +46,10 @@ class _Step1State extends State<Step1> {
               return CTextField(
                 errorText: state.lastname.isNotValid
                     ? getFirstnameError(state.lastname.error, context,
-                        AppLocalizations.of(context)!.father_name)
+                        AppLocalizations.of(context)!.lastname)
                     : null,
                 value: state.lastname.value,
-                hintText: AppLocalizations.of(context)?.father_name,
+                hintText: AppLocalizations.of(context)?.lastname,
                 setValue: (value) {
                   context.read<EmployeeCubit>().lastnameChange(value);
                 },
