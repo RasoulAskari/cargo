@@ -97,7 +97,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 20),
+          InputLabel(label: AppLocalizations.of(context)!.confirm_password),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CPasswordField(
