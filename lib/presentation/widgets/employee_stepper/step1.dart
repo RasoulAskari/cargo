@@ -67,7 +67,7 @@ class _Step1State extends State<Step1> {
                       )
                     : null,
                 value: state.email.value,
-                hintText: AppLocalizations.of(context)!.id_card_num,
+                hintText: AppLocalizations.of(context)!.email,
                 setValue: (value) {
                   context.read<EmployeeCubit>().emailChange(value);
                 },
