@@ -97,7 +97,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
     bool status = Formz.validate([
       state.name,
       state.email,
-      state.password,
       state.role,
     ]);
     return status;
