@@ -103,7 +103,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      await httpClient.post(
+      final res = await httpClient.post(
         headers: <String, String>{
           'Authorization': 'Bearer $token',
         },
@@ -112,6 +112,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
+      print(res.body);
       emitter(state.copyWith(
         employees: List.of(state.employees)..insert(0, event.employee),
       ));
