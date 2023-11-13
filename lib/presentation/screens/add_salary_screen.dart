@@ -190,7 +190,8 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                     },
                     hintText: AppLocalizations.of(context)?.payment_amount,
                   ),
-                  const SizedBox(height: 30),
+                  InputLabel(
+                      label: AppLocalizations.of(context)!.remain_amount),
                   CDisableTextField(
                     value: _amountRemain.value.toString(),
                     setValue: (value) {
