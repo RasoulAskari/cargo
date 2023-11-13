@@ -11,6 +11,7 @@ import 'package:cargo/presentation/widgets/form/c_disable_text_field.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/incoming_out_going_type.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import "package:flutter_bloc/flutter_bloc.dart";
@@ -127,6 +128,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
             return SingleChildScrollView(
               child: Column(
                 children: [
+                  InputLabel(label: AppLocalizations.of(context)!.employee),
                   CDropdown(
                     value: _employee.value,
                     setValue: (value) {
