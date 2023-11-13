@@ -4,6 +4,8 @@ import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../../../constants/routes.dart';
 part 'employee_event.dart';
 part 'employee_state.dart';
 
@@ -62,15 +64,15 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      final res = await httpClient.put(
+      final res = await http.put(
+        Uri.parse('${apiRoute}employees/${event.employee.id}'),
         headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer $token',
         },
-        getServerRoute(
-          route: '/api/v1/employees/${event.employee.id}',
-          params: data,
-        ),
+        body: jsonEncode(data),
       );
+
       print(res.body);
       emitter(state.copyWith(
         employees: state.employees.map((e) {
