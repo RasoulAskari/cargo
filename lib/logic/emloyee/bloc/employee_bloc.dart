@@ -52,6 +52,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       'first_name': employee.firstName,
       'last_name': employee.lastName,
       'email': employee.email,
+      'salary': employee.salary,
       'permenent_address': employee.permenentAddress,
       'current_address': employee.currentAddress,
       'employment_start_date': employee.startDate,
@@ -70,6 +71,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
+      print(res.body);
       emitter(state.copyWith(
         employees: state.employees.map((e) {
           if (e.id == event.employee.id) {
@@ -80,6 +82,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         }).toList(),
       ));
     } catch (e) {
+      print(e);
       return;
     }
   }
@@ -112,7 +115,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           params: data,
         ),
       );
-      print(res.body);
       emitter(state.copyWith(
         employees: List.of(state.employees)..insert(0, event.employee),
       ));
