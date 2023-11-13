@@ -67,7 +67,8 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-InputLabel(label: AppLocalizations.of(context)!.email),          BlocBuilder<UserCubit, UserState>(
+          InputLabel(label: AppLocalizations.of(context)!.email),
+          BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CTextField(
                 hintText: AppLocalizations.of(context)?.email,
@@ -81,7 +82,7 @@ InputLabel(label: AppLocalizations.of(context)!.email),          BlocBuilder<Use
               );
             },
           ),
-          const SizedBox(height: 20),
+          InputLabel(label: AppLocalizations.of(context)!.password),
           BlocBuilder<UserCubit, UserState>(
             builder: (context, state) {
               return CPasswordField(
