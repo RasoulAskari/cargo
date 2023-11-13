@@ -28,7 +28,6 @@ class _Step1State extends State<Step1> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       child: Column(
         children: [
-          const SizedBox(height: 30),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
               return CDatePicker(
