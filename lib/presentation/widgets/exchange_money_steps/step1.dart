@@ -39,7 +39,7 @@ class Step1 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 50),
+          InputLabel(label: AppLocalizations.of(context)!.amount),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
