@@ -4,6 +4,7 @@ import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/form/c_phone_field.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +44,7 @@ class _Step2State extends State<Step2> {
                   });
             },
           ),
-          const SizedBox(height: 30),
+          InputLabel(label: AppLocalizations.of(context)!.receiver_father_name),
           BlocBuilder<ExchangeMoneyCubit, ExchangeMoneyState>(
             builder: (context, state) {
               return CTextField(
