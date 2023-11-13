@@ -159,7 +159,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                     },
                     hintText: AppLocalizations.of(context)?.amount,
                   ),
-                  const SizedBox(height: 30),
+                  InputLabel(label: AppLocalizations.of(context)!.date),
                   CDatePicker(
                     value: _date,
                     setValue: (value) {
