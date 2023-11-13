@@ -77,6 +77,30 @@ class _Step1State extends State<Step1> {
           const SizedBox(height: 30),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
+              return CTextField(
+                errorText: state.salary.isNotValid
+                    ? getAmountError(state.salary.error, context,
+                        AppLocalizations.of(context)!.salary)
+                    : null,
+                textInputType: TextInputType.number,
+                hintText: AppLocalizations.of(context)?.salary,
+                value: state.salary.value.toString(),
+                setValue: (value) {
+                  double val;
+                  if (value == "") {
+                    val = 1;
+                  } else {
+                    val = double.parse(value);
+                  }
+
+                  context.read<EmployeeCubit>().salaryChange(val);
+                },
+              );
+            },
+          ),
+          const SizedBox(height: 15),
+          BlocBuilder<EmployeeCubit, EmployeeState>(
+            builder: (context, state) {
               return CPhoneField(
                 hintText: AppLocalizations.of(context)!.phone_num,
                 setValue: (value) {
