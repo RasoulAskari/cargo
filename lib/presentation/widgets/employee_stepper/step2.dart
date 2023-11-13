@@ -58,7 +58,7 @@ class _Step2State extends State<Step2> {
               );
             },
           ),
-          const SizedBox(height: 30),
+          InputLabel(label: AppLocalizations.of(context)!.start_date),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CDatePicker(
