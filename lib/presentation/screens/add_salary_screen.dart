@@ -143,7 +143,7 @@ class _AddSalaryScreenState extends State<AddSalaryScreen> {
                         .toList(),
                     hintText: AppLocalizations.of(context)?.employee,
                   ),
-                  const SizedBox(height: 30),
+                  InputLabel(label: AppLocalizations.of(context)!.amount),
                   CDisableTextField(
                     textInputType: TextInputType.number,
                     value: _amount.value.toString(),
