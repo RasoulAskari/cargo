@@ -75,7 +75,7 @@ class _Step1State extends State<Step1> {
               );
             },
           ),
-          const SizedBox(height: 30),
+          InputLabel(label: AppLocalizations.of(context)!.salary),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CTextField(
@@ -99,7 +99,7 @@ class _Step1State extends State<Step1> {
               );
             },
           ),
-          const SizedBox(height: 15),
+          InputLabel(label: AppLocalizations.of(context)!.phone_num),
           BlocBuilder<EmployeeCubit, EmployeeState>(
             builder: (context, state) {
               return CPhoneField(
