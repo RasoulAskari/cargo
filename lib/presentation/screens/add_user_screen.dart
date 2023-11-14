@@ -80,6 +80,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
         step = step + 1;
       });
     }
+    setState(() {});
   }
 
   prev(steps) {
@@ -99,6 +100,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
       state.email,
       state.role,
     ]);
+    print(status);
     return status;
   }
 
