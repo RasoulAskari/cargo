@@ -74,7 +74,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
 
   next(steps) {
     var valid = steps[step - 1]['validate']();
-    print(valid);
 
     if (valid) {
       setState(() {
