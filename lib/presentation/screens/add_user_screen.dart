@@ -98,6 +98,8 @@ class _AddUserScreenState extends State<AddUserScreen> {
       state.name,
       state.email,
       state.role,
+      state.password,
+      state.confirmPassword
     ]);
     return status;
   }
