@@ -79,7 +79,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
       setState(() {
         step = step + 1;
       });
-    }
+    } else {}
   }
 
   prev(steps) {
@@ -106,9 +106,10 @@ class _AddUserScreenState extends State<AddUserScreen> {
 
   validateStep2() {
     var state = context.read<UserCubit>().state;
-    bool status = Formz.validate([
-      state.privileges
-    ]);
+    bool status = Formz.validate([state.privileges]);
+    if (state.privileges.value!.allowRole.isEmpty) {
+      return false;
+    }
     return status;
   }
 
@@ -129,7 +130,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': true
+        'validate': validateStep2
       },
     ];
 
