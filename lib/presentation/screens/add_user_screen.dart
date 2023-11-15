@@ -72,6 +72,26 @@ class _AddUserScreenState extends State<AddUserScreen> {
   var step = 1;
   bool loading = false;
 
+  next(steps) {
+    var valid = steps[step - 1]['validate']();
+    bool isValid = valid == FormzSubmissionStatus.success &&
+        valid != FormzSubmissionStatus.initial;
+    if (isValid) {
+      setState(() {
+        step = step + 1;
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Please fill up the required fields!'),
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
+        backgroundColor: Colors.red,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ));
+    }
+  }
+
   prev(steps) {
     if (step == 1) {
       Navigator.of(context).pop();
@@ -95,27 +115,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    next(steps) {
-      var valid = steps[step - 1]['validate']();
-      bool isValid = valid == FormzSubmissionStatus.success &&
-          valid != FormzSubmissionStatus.initial;
-      if (isValid) {
-        setState(() {
-          step = step + 1;
-        });
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: const Text('Please fill up the required fields!'),
-          behavior: SnackBarBehavior.floating,
-          margin: const EdgeInsets.all(16),
-          padding: const EdgeInsets.all(20),
-          backgroundColor: Colors.red,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        ));
-      }
-    }
-
     List steps = [
       {
         'title': AppLocalizations.of(context)?.user_step1_title,
