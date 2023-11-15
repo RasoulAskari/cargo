@@ -49,7 +49,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
     final state = context.read<UserCubit>().state;
 
     if (state.privileges.value == null) {
-      Toast.show("please add some primission");
+      Toast.show("please add some primissions");
     } else {
       final data = state.privileges.value!.allowRole;
 
