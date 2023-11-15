@@ -4,13 +4,13 @@ import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/presentation/widgets/employee_stepper/step1.dart';
 import 'package:cargo/presentation/widgets/employee_stepper/step2.dart';
-import 'package:cargo/utils/phone_number/phone_number_util.dart';
 import 'package:cargo/utils/stepper/c_stepper.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 
 class AddEmployee extends StatefulWidget {
   final EmployeeModel? employee;
@@ -74,7 +74,6 @@ class _AddEmployeeState extends State<AddEmployee> {
   }
 
   Future<void> _editEmployee() async {
-    print("iodidid");
     final employee = context.read<EmployeeCubit>().state;
     EmployeeModel emp = EmployeeModel(
       salary: employee.salary.value,
@@ -116,7 +115,13 @@ class _AddEmployeeState extends State<AddEmployee> {
     Navigator.of(context).pop();
   }
 
-  
+  validation1() {
+    var state = context.read<EmployeeCubit>().state;
+    bool status = Formz.validate([
+      
+    ]);
+    return status;
+  }
 
   @override
   Widget build(BuildContext context) {
