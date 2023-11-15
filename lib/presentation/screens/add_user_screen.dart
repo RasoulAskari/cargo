@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 // ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
+import 'package:toast/toast.dart';
 
 import '../../utils/stepper/c_stepper.dart';
 import '../widgets/user_stepper/step1.dart';
@@ -47,26 +48,29 @@ class _AddUserScreenState extends State<AddUserScreen> {
   Future<void> _submit() async {
     final state = context.read<UserCubit>().state;
 
-    final data = state.privileges.value!.allowRole;
+    if (state.privileges.value == null) {
+      Toast.show("please add some primission");
+    } else {
+      final data = state.privileges.value!.allowRole;
 
-    MyUser user = MyUser(
-        id: widget.user == null ? 0 : widget.user!.id,
-        name: state.name.value,
-        email: state.email.value,
-        role: state.role.value,
-        password: state.password.value,
-        confirmPassword: state.confirmPassword.value,
-        permissions: data);
+      MyUser user = MyUser(
+          id: widget.user == null ? 0 : widget.user!.id,
+          name: state.name.value,
+          email: state.email.value,
+          role: state.role.value,
+          password: state.password.value,
+          confirmPassword: state.confirmPassword.value,
+          permissions: data);
+      widget.user == null
+          ? context.read<UserBloc>().add(
+                AddUserEvent(user: user),
+              )
+          : context.read<UserBloc>().add(
+                UpdateUserEvent(user: user),
+              );
 
-    widget.user == null
-        ? context.read<UserBloc>().add(
-              AddUserEvent(user: user),
-            )
-        : context.read<UserBloc>().add(
-              UpdateUserEvent(user: user),
-            );
-
-    Navigator.of(context).pushReplacementNamed(userScreen);
+      Navigator.of(context).pushReplacementNamed(userScreen);
+    }
   }
 
   var step = 1;
