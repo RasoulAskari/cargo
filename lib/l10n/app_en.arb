@@ -1,7 +1,7 @@
 {
   "user": "User",  
   "employee": "Employee",  
-  "incoming_outgoing": "ّIncoming Outgoing",  
+  "incoming_outgoing": "ّIncoming\nOutgoing",  
   "outgoing": "Outgoing",  
   "incoming": "ّIncoming",  
   "type": "Type",  
