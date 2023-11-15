@@ -99,7 +99,6 @@ class _AddUserScreenState extends State<AddUserScreen> {
       state.email,
       state.role,
     ]);
-    print(status.toString() + "validation");
     return status;
   }
 
