@@ -79,7 +79,16 @@ class _AddUserScreenState extends State<AddUserScreen> {
       setState(() {
         step = step + 1;
       });
-    } else {}
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Please fill up the required fields!'),
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
+        backgroundColor: Colors.red,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ));
+    }
   }
 
   prev(steps) {
