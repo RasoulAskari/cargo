@@ -104,6 +104,14 @@ class _AddUserScreenState extends State<AddUserScreen> {
     return status;
   }
 
+  validateStep2() {
+    var state = context.read<UserCubit>().state;
+    bool status = Formz.validate([
+      state.privileges
+    ]);
+    return status;
+  }
+
   @override
   Widget build(BuildContext context) {
     List steps = [
