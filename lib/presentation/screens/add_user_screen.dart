@@ -74,21 +74,12 @@ class _AddUserScreenState extends State<AddUserScreen> {
 
   next(steps) {
     var valid = steps[step - 1]['validate']();
-    bool isValid = valid == FormzSubmissionStatus.success &&
-        valid != FormzSubmissionStatus.initial;
-    if (isValid) {
+    print(valid);
+
+    if (valid) {
       setState(() {
         step = step + 1;
       });
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: const Text('Please fill up the required fields!'),
-        behavior: SnackBarBehavior.floating,
-        margin: const EdgeInsets.all(16),
-        padding: const EdgeInsets.all(20),
-        backgroundColor: Colors.red,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      ));
     }
   }
 
@@ -102,14 +93,14 @@ class _AddUserScreenState extends State<AddUserScreen> {
     });
   }
 
-  validateStep1() async {
+  validateStep1() {
     var state = context.read<UserCubit>().state;
     bool status = Formz.validate([
       state.name,
       state.email,
       state.role,
     ]);
-    setState(() {});
+    print(status.toString() + "validation");
     return status;
   }
 
@@ -122,7 +113,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': validateStep1()
+        'validate': validateStep1
       },
       {
         'title': AppLocalizations.of(context)?.user_step2_title,
