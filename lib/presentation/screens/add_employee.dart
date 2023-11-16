@@ -103,8 +103,6 @@ class _AddEmployeeState extends State<AddEmployee> {
     Navigator.of(context).pop();
   }
 
-
-
   Future<void> _addEmployee() async {
     final employee = context.read<EmployeeCubit>().state;
 
@@ -166,7 +164,7 @@ class _AddEmployeeState extends State<AddEmployee> {
           next: next,
           prev: prev,
         ),
-        'validate': true
+        'validate': validation2
       },
     ];
 
