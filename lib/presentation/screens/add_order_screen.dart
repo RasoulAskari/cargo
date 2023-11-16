@@ -65,6 +65,19 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     return status;
   }
 
+  validation2() {
+    var state = context.read<OrderCubit>().state;
+    bool status = Formz.validate([
+      state.receiverName,
+      state.receiverPhoneNo,
+      state.typeReceiver,
+      state.country,
+      state.city,
+      state.address
+    ]);
+    return status;
+  }
+
   @override
   Widget build(BuildContext context) {
     List steps = [
