@@ -138,7 +138,12 @@ class _AddEmployeeState extends State<AddEmployee> {
 
   validation2() {
     var state = context.read<EmployeeCubit>().state;
-    bool status = Formz.validate([]);
+    bool status = Formz.validate([
+      state.currentAddress,
+      state.premenentAddress,
+      state.startDate,
+      state.endDate,
+    ]);
     return status;
   }
 
