@@ -60,6 +60,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
       state.customerFathername,
       state.customerGrandFathername,
       state.customerIdCard,
+      state.pricePerKelo
     ]);
     return status;
   }
