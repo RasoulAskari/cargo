@@ -160,7 +160,7 @@ class _AddEmployeeState extends State<AddEmployee> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: CStepper(
-        stepAmount: 3,
+        stepAmount: 2,
         steps: steps,
         step: step,
         next: () {
