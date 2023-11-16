@@ -95,7 +95,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': true
+        'validate': validation2
       },
       {
         'title': AppLocalizations.of(context)?.order_step3_title,
