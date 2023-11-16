@@ -50,7 +50,11 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     });
   }
 
-
+  validation1() {
+    var state = context.read<OrderCubit>().state;
+    bool status = Formz.validate([]);
+    return status;
+  }
 
   @override
   Widget build(BuildContext context) {
