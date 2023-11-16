@@ -27,9 +27,15 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   bool loading = false;
 
   next(steps) {
-    setState(() {
-      step = step + 1;
-    });
+    var valid = steps[step - 1]['validate']();
+
+    if (valid) {
+      setState(() {
+        step = step + 1;
+      });
+    } else {
+      Toast.show("fill required fields");
+    }
   }
 
   prev(steps) {
