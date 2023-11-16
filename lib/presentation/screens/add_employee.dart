@@ -82,27 +82,6 @@ class _AddEmployeeState extends State<AddEmployee> {
     }
   }
 
-  Future<void> _addEmployee() async {
-    final employee = context.read<EmployeeCubit>().state;
-
-    EmployeeModel emp = EmployeeModel(
-      salary: employee.salary.value,
-      id: 1,
-      currentAddress: employee.currentAddress.value,
-      permenentAddress: employee.premenentAddress.value,
-      startDate: employee.startDate.value,
-      endDate: employee.endDate.value,
-      jobTitle: "Developer",
-      firstName: employee.firstname.value,
-      lastName: employee.lastname.value,
-      email: employee.email.value,
-      phoneNumber: employee.phoneNo.value.phoneNumber,
-      profile: '',
-    );
-    context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
-    Navigator.of(context).pop();
-  }
-
   validation1() {
     var state = context.read<EmployeeCubit>().state;
     bool status = Formz.validate([
@@ -148,6 +127,31 @@ class _AddEmployeeState extends State<AddEmployee> {
       Navigator.of(context).pop();
     } else {
       Toast.show("validate all form");
+    }
+  }
+
+  Future<void> _addEmployee() async {
+    if (validation2()) {
+      final employee = context.read<EmployeeCubit>().state;
+
+      EmployeeModel emp = EmployeeModel(
+        salary: employee.salary.value,
+        id: 1,
+        currentAddress: employee.currentAddress.value,
+        permenentAddress: employee.premenentAddress.value,
+        startDate: employee.startDate.value,
+        endDate: employee.endDate.value,
+        jobTitle: "Developer",
+        firstName: employee.firstname.value,
+        lastName: employee.lastname.value,
+        email: employee.email.value,
+        phoneNumber: employee.phoneNo.value.phoneNumber,
+        profile: '',
+      );
+      context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
+      Navigator.of(context).pop();
+    } else {
+      Toast.show("validate all fields");
     }
   }
 
