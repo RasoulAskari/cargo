@@ -54,7 +54,13 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
 
   validation1() {
     var state = context.read<OrderCubit>().state;
-    bool status = Formz.validate([]);
+    bool status = Formz.validate([
+      state.date,
+      state.customerName,
+      state.customerFathername,
+      state.customerGrandFathername,
+      state.customerIdCard,
+    ]);
     return status;
   }
 
