@@ -82,27 +82,6 @@ class _AddEmployeeState extends State<AddEmployee> {
     }
   }
 
-  Future<void> _editEmployee() async {
-    final employee = context.read<EmployeeCubit>().state;
-    EmployeeModel emp = EmployeeModel(
-      salary: employee.salary.value,
-      id: widget.employee!.id,
-      currentAddress: employee.currentAddress.value,
-      permenentAddress: employee.premenentAddress.value,
-      startDate: employee.startDate.value,
-      endDate: employee.endDate.value,
-      jobTitle: "Developer",
-      firstName: employee.firstname.value,
-      lastName: employee.lastname.value,
-      email: employee.email.value,
-      phoneNumber: employee.phoneNo.value.phoneNumber,
-      profile: '',
-    );
-
-    context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
-    Navigator.of(context).pop();
-  }
-
   Future<void> _addEmployee() async {
     final employee = context.read<EmployeeCubit>().state;
 
@@ -145,6 +124,31 @@ class _AddEmployeeState extends State<AddEmployee> {
       state.endDate,
     ]);
     return status;
+  }
+
+  Future<void> _editEmployee() async {
+    if (validation2()) {
+      final employee = context.read<EmployeeCubit>().state;
+      EmployeeModel emp = EmployeeModel(
+        salary: employee.salary.value,
+        id: widget.employee!.id,
+        currentAddress: employee.currentAddress.value,
+        permenentAddress: employee.premenentAddress.value,
+        startDate: employee.startDate.value,
+        endDate: employee.endDate.value,
+        jobTitle: "Developer",
+        firstName: employee.firstname.value,
+        lastName: employee.lastname.value,
+        email: employee.email.value,
+        phoneNumber: employee.phoneNo.value.phoneNumber,
+        profile: '',
+      );
+
+      context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
+      Navigator.of(context).pop();
+    } else {
+      Toast.show("validate all form");
+    }
   }
 
   @override
