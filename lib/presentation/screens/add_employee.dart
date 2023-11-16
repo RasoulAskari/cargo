@@ -136,6 +136,12 @@ class _AddEmployeeState extends State<AddEmployee> {
     return status;
   }
 
+  validation2() {
+    var state = context.read<EmployeeCubit>().state;
+    bool status = Formz.validate([]);
+    return status;
+  }
+
   @override
   Widget build(BuildContext context) {
     List steps = [
