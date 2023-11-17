@@ -59,6 +59,7 @@
   "premenent_address": "Permenent Address",
   "start_date": "Start Date",
   "end_date": "End Date", 
+  "add_permissions": "Add some permissions", 
   "date": "Date",
   "back": "‌Back",
   "register_date": "Register Date",
