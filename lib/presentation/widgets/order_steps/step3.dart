@@ -183,10 +183,15 @@ class _Step3State extends State<Step3> {
                     ));
                     return ElevatedButton(
                       onPressed: () {
-                        context.read<OrderCubit>().itemsChange(orders!);
-                        context.read<OrderItemCubit>().resetOrderItem();
+                        var state = context.read<OrderItemCubit>().state;
+                        bool isvalid = true;
 
-                        Navigator.of(context).pop();
+                        if (isvalid) {
+                          context.read<OrderCubit>().itemsChange(orders!);
+                          context.read<OrderItemCubit>().resetOrderItem();
+
+                          Navigator.of(context).pop();
+                        }
                       },
                       child: Text(AppLocalizations.of(context)!.add),
                     );
