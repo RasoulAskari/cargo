@@ -198,6 +198,8 @@ class _Step3State extends State<Step3> {
                           context.read<OrderItemCubit>().resetOrderItem();
 
                           Navigator.of(context).pop();
+                        } else {
+                          Toast.show("Validate inputs");
                         }
                       },
                       child: Text(AppLocalizations.of(context)!.add),
