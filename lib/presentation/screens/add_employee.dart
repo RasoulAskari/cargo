@@ -35,7 +35,7 @@ class _AddEmployeeState extends State<AddEmployee> {
         step = step + 1;
       });
     } else {
-      Toast.show("fill required fields");
+      Toast.show(AppLocalizations.of(context)!.validate_input);
     }
   }
 
@@ -126,7 +126,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       context.read<EmployeeBloc>().add(EditEmployeeEvent(employee: emp));
       Navigator.of(context).pop();
     } else {
-      Toast.show("validate all form");
+      Toast.show(AppLocalizations.of(context)!.validate_input);
     }
   }
 
@@ -151,7 +151,7 @@ class _AddEmployeeState extends State<AddEmployee> {
       context.read<EmployeeBloc>().add(AddEmployeeEvent(employee: emp));
       Navigator.of(context).pop();
     } else {
-      Toast.show("validate all fields");
+      Toast.show(AppLocalizations.of(context)!.validate_input);
     }
   }
 
