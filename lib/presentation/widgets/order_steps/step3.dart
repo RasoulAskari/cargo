@@ -78,7 +78,10 @@ class _Step3State extends State<Step3> {
         child: BottomSheetStyle(
           height: 450,
           children: [
-            InputLabel(label: AppLocalizations.of(context)!.item_name),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: InputLabel(label: AppLocalizations.of(context)!.item_name),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
