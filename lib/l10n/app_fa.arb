@@ -71,6 +71,7 @@
     "order_step1_title": "معلومات درباره سفارش دهنده",
     "order_step2_title": "معلومات درباره گیرنده",
     "order_step3_title": "معلومات درباره جنس",
+    "validate_input": "اعتبار سنجی ورودی ها اجرا گردد",
     "itemCanNotBeLessThanMaxCharacters": "{item} نمی‌تواند کمتر از {min} کاراکتر باشد",
     "@itemCanNotBeLessThanMaxCharacters": {
     "placeholders": {
