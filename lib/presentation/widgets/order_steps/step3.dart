@@ -152,7 +152,10 @@ class _Step3State extends State<Step3> {
                 },
               ),
             ),
-            InputLabel(label: AppLocalizations.of(context)!.weight),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: InputLabel(label: AppLocalizations.of(context)!.weight),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: BlocBuilder<OrderItemCubit, OrderItemState>(
