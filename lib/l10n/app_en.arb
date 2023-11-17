@@ -71,7 +71,6 @@
   "order_step2_title": "Info About Receiver",
   "order_step3_title": "Info About Item",
   "validate_input": "Validate inputs",
-
   "itemCanNotBeLessThanMaxCharacters": "{item} can not be less than {min} characters",
   "@itemCanNotBeLessThanMaxCharacters": {
     "placeholders": {
