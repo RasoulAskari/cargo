@@ -11,6 +11,8 @@ import 'package:cargo/presentation/widgets/order_staff.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: depend_on_referenced_packages
+import 'package:formz/formz.dart';
 
 class Step3 extends StatefulWidget {
   final Function next;
@@ -184,7 +186,12 @@ class _Step3State extends State<Step3> {
                     return ElevatedButton(
                       onPressed: () {
                         var state = context.read<OrderItemCubit>().state;
-                        bool isvalid = true;
+                        bool isvalid = Formz.validate([
+                          state.name,
+                          state.count,
+                          state.type,
+                          state.weight
+                        ]);
 
                         if (isvalid) {
                           context.read<OrderCubit>().itemsChange(orders!);
