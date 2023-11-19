@@ -35,11 +35,14 @@ class _Step3State extends State<Step3> {
       ),
       child: Column(
         children: [
-          ElevatedButton(
-            onPressed: () {
-              _addItemDetail(context);
-            },
-            child: Text(AppLocalizations.of(context)!.add_order_detail),
+          Container(
+            margin: const EdgeInsets.only(top: 20),
+            child: ElevatedButton(
+              onPressed: () {
+                _addItemDetail(context);
+              },
+              child: Text(AppLocalizations.of(context)!.add_order_detail),
+            ),
           ),
           BlocBuilder<OrderCubit, OrderState>(
             builder: (context, state) {
