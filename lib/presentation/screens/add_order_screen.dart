@@ -118,7 +118,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         },
         onSubmit: () async {
           final state = context.read<OrderCubit>().state;
-          if (state.items.value!.isNotEmpty) {
+          if (state.items.value == null) {
             OrderModel order = OrderModel(
               items: state.items.value!
                   .map((e) => MyOrderItme(
