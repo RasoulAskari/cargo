@@ -145,6 +145,8 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             );
             context.read<OrderBloc>().add(AddOrderEvent(order: order));
             Navigator.of(context).pushReplacementNamed(ordersScreen);
+          } else {
+            Toast.show(AppLocalizations.of(context)!.validate_input);
           }
         },
         prev: () {
