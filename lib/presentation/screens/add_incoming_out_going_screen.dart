@@ -66,6 +66,10 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
     }
   }
 
+  validate() {
+    
+  }
+
   _editIncoming() {
     final inco = widget.incomingOutGoing;
     IncomingOutGoing incoming = IncomingOutGoing(
