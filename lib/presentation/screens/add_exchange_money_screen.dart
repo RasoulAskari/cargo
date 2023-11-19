@@ -98,6 +98,15 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   }
 
   validation2() {
+    var state = context.read<ExchangeMoneyCubit>().state;
+    bool valid = Formz.validate([
+      state.receiverName,
+      state.receiverFathername,
+      state.receiverIdNo,
+      state.phoneNumber,
+      state.province
+    ]);
+    return valid;
   }
 
   @override
