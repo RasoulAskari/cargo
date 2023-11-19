@@ -118,33 +118,34 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         },
         onSubmit: () async {
           final state = context.read<OrderCubit>().state;
-
-          OrderModel order = OrderModel(
-            items: state.items.value!
-                .map((e) => MyOrderItme(
-                    name: e.name,
-                    type: e.type,
-                    count: e.count,
-                    weight: e.weight))
-                .toList(),
-            id: 1,
-            date: state.date.value,
-            cardId: 1,
-            customerName: state.customerName.value,
-            groupNumber: state.groupNum.value,
-            fatherName: state.customerFathername.value,
-            grandFatherName: state.customerFathername.value,
-            tazkiraId: state.customerIdCard.value,
-            customerPhone: state.customerPhoneNo.value.phoneNumber,
-            receiverName: state.receiverName.value,
-            receiverPhone: state.receiverPhoneNo.value.phoneNumber,
-            country: state.country.value,
-            city: state.city.value,
-            address: state.address.value,
-            delivaryType: state.typeReceiver.value,
-          );
-          context.read<OrderBloc>().add(AddOrderEvent(order: order));
-          Navigator.of(context).pushReplacementNamed(ordersScreen);
+          if (state.items.value!.isNotEmpty) {
+            OrderModel order = OrderModel(
+              items: state.items.value!
+                  .map((e) => MyOrderItme(
+                      name: e.name,
+                      type: e.type,
+                      count: e.count,
+                      weight: e.weight))
+                  .toList(),
+              id: 1,
+              date: state.date.value,
+              cardId: 1,
+              customerName: state.customerName.value,
+              groupNumber: state.groupNum.value,
+              fatherName: state.customerFathername.value,
+              grandFatherName: state.customerFathername.value,
+              tazkiraId: state.customerIdCard.value,
+              customerPhone: state.customerPhoneNo.value.phoneNumber,
+              receiverName: state.receiverName.value,
+              receiverPhone: state.receiverPhoneNo.value.phoneNumber,
+              country: state.country.value,
+              city: state.city.value,
+              address: state.address.value,
+              delivaryType: state.typeReceiver.value,
+            );
+            context.read<OrderBloc>().add(AddOrderEvent(order: order));
+            Navigator.of(context).pushReplacementNamed(ordersScreen);
+          }
         },
         prev: () {
           prev(steps);
