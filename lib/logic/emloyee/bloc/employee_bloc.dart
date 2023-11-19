@@ -73,7 +73,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         body: jsonEncode(data),
       );
 
-      print(res.body);
       emitter(state.copyWith(
         employees: state.employees.map((e) {
           if (e.id == event.employee.id) {
@@ -84,7 +83,6 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         }).toList(),
       ));
     } catch (e) {
-      print(e);
       return;
     }
   }
@@ -108,7 +106,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     };
 
     try {
-      final res = await httpClient.post(
+      await httpClient.post(
         headers: <String, String>{
           'Authorization': 'Bearer $token',
         },
