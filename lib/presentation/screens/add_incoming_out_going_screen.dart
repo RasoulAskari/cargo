@@ -16,6 +16,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 // ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
+// ignore: depend_on_referenced_packages
+import 'package:toast/toast.dart';
 
 class AddIncomingOutGoingScreen extends StatefulWidget {
   final IncomingOutGoing? incomingOutGoing;
@@ -94,6 +96,8 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
             EditIncomingOutGoingEvent(incomingOutGoing: incoming),
           );
       Navigator.of(context).pushReplacementNamed(addIncomingOutGoing);
+    } else {
+      Toast.show(AppLocalizations.of(context)!.validate_input);
     }
   }
 
