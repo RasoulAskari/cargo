@@ -14,6 +14,8 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+// ignore: depend_on_referenced_packages
+import 'package:formz/formz.dart';
 
 class AddIncomingOutGoingScreen extends StatefulWidget {
   final IncomingOutGoing? incomingOutGoing;
@@ -67,25 +69,32 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   }
 
   validate() {
-    
+    bool valid = Formz.validate([
+      incomingOutGoingType,
+      amount,
+      name,
+    ]);
+    return valid;
   }
 
   _editIncoming() {
-    final inco = widget.incomingOutGoing;
-    IncomingOutGoing incoming = IncomingOutGoing(
-      id: inco!.id,
-      createdAt: _date.toString(),
-      name: name.value,
-      type: incomingOutGoingType.value,
-      amount: amount.value,
-      createdBy:
-          const UserModel(name: "admin", email: "admin@admin.com", id: 1),
-    );
+    if (validate() && _date != null) {
+      final inco = widget.incomingOutGoing;
+      IncomingOutGoing incoming = IncomingOutGoing(
+        id: inco!.id,
+        createdAt: _date.toString(),
+        name: name.value,
+        type: incomingOutGoingType.value,
+        amount: amount.value,
+        createdBy:
+            const UserModel(name: "admin", email: "admin@admin.com", id: 1),
+      );
 
-    context.read<IncomingOutGoingBloc>().add(
-          EditIncomingOutGoingEvent(incomingOutGoing: incoming),
-        );
-    Navigator.of(context).pushReplacementNamed(addIncomingOutGoing);
+      context.read<IncomingOutGoingBloc>().add(
+            EditIncomingOutGoingEvent(incomingOutGoing: incoming),
+          );
+      Navigator.of(context).pushReplacementNamed(addIncomingOutGoing);
+    }
   }
 
   @override
