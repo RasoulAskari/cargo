@@ -106,7 +106,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
           next: next,
           prev: prev,
         ),
-        'validate': true
+        'validate': validation1()
       },
       {
         'title': AppLocalizations.of(context)?.exchange_money_step2_title,
