@@ -13,6 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 // ignore: depend_on_referenced_packages
 import 'package:formz/formz.dart';
+// ignore: depend_on_referenced_packages
+import 'package:toast/toast.dart';
 
 class AddExchangeMoneyScreen extends StatefulWidget {
   final ExchnageMoneyModel? exchange;
