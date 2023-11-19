@@ -164,7 +164,9 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
                       UpdateExchangeMoneyEvent(exchangeMoney: exchangeMoney),
                     );
             Navigator.of(context).pop();
-          } else {}
+          } else {
+            Toast.show(AppLocalizations.of(context)!.validate_input);
+          }
         },
         prev: () {
           prev(steps);
