@@ -33,24 +33,6 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
   CString name = const CString.pure();
   Amount amount = const Amount.pure();
   CString incomingOutGoingType = const CString.pure();
-  Future<void> _addIncoming() async {
-    IncomingOutGoing incomingOutGoing = IncomingOutGoing(
-      id: 1,
-      createdAt: _date.toString(),
-      name: name.value,
-      type: incomingOutGoingType.value,
-      amount: double.parse(amount.value.toString()),
-      createdBy:
-          const UserModel(email: "admin@admin.com", name: "admin", id: 1),
-    );
-
-    context.read<IncomingOutGoingBloc>().add(
-          AddIncomingOutGoingEvent(
-              incomingOutGoing: incomingOutGoing, date: _date),
-        );
-
-    Navigator.of(context).pop();
-  }
 
   @override
   void initState() {
@@ -77,6 +59,27 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
       name,
     ]);
     return valid;
+  }
+
+  Future<void> _addIncoming() async {
+    if (validate() && _date != null) {
+      IncomingOutGoing incomingOutGoing = IncomingOutGoing(
+        id: 1,
+        createdAt: _date.toString(),
+        name: name.value,
+        type: incomingOutGoingType.value,
+        amount: double.parse(amount.value.toString()),
+        createdBy:
+            const UserModel(email: "admin@admin.com", name: "admin", id: 1),
+      );
+
+      context.read<IncomingOutGoingBloc>().add(
+            AddIncomingOutGoingEvent(
+                incomingOutGoing: incomingOutGoing, date: _date),
+          );
+
+      Navigator.of(context).pop();
+    }
   }
 
   _editIncoming() {
