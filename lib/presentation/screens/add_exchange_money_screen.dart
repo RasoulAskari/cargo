@@ -11,6 +11,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+// ignore: depend_on_referenced_packages
+import 'package:formz/formz.dart';
 
 class AddExchangeMoneyScreen extends StatefulWidget {
   final ExchnageMoneyModel? exchange;
@@ -84,7 +86,15 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
   }
 
   validation1() {
-    
+    var state = context.read<ExchangeMoneyCubit>().state;
+    bool valid = Formz.validate([
+      state.senderName,
+      state.amount,
+      state.date,
+      state.exchangeId,
+      state.currency
+    ]);
+    return valid;
   }
 
   @override
