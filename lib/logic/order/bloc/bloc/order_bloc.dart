@@ -44,6 +44,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   Future<void> _onorderAdd(
       AddOrderEvent event, Emitter<OrderState> emitter) async {
     try {
+      print("kkddk");
       OrderModel data = event.order;
       final token = await getAuthToken();
 
@@ -73,11 +74,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-      await fetchData().then((value) => {
+      print(order);
+      final res = await fetchData().then((value) => {
             order['group_number'] = value['group_number'],
             order['car_id'] = value['car_id'],
           });
-      await http.post(
+      print(res);
+      final response = await http.post(
         Uri.parse('${apiRoute}orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -85,10 +88,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
+      print(response.body);
       emitter(state.copyWith(
         orders: List.of(state.orders)..insert(0, event.order),
       ));
     } catch (e) {
+      print(e);
       return;
     }
   }

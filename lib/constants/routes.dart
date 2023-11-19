@@ -11,4 +11,6 @@ const String exchangeMoneyScreen = '/exchangeMoneyScreen';
 const String userScreen = 'userScreen';
 const String addExchangeMoneyScreen = '/addExchangeMoneyScreen';
 const String addUserScreen = '/addUserScreen';
-const String apiRoute = "http://10.0.2.2:8000/api/v1/";
+// android
+// const String apiRoute = "http://10.0.2.2:8000/api/v1/";
+const String apiRoute = "http://127.0.0.1:8000/api/v1/";
