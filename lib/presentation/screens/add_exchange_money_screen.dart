@@ -83,6 +83,10 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
     }
   }
 
+  validation1() {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     List steps = [
