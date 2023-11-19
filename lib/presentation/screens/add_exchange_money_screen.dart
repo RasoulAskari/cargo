@@ -140,29 +140,31 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
           next(steps);
         },
         onSubmit: () async {
-          final state = context.read<ExchangeMoneyCubit>().state;
+          if (validation2()) {
+            final state = context.read<ExchangeMoneyCubit>().state;
 
-          ExchnageMoneyModel exchangeMoney = ExchnageMoneyModel(
-            id: widget.exchange != null ? widget.exchange!.id : 0,
-            province: state.province.value,
-            amount: state.amount.value,
-            currency: state.currency.value,
-            date: state.date.value,
-            exchnageId: state.exchangeId.value,
-            phoneNumber: state.phoneNumber.value.phoneNumber,
-            receiverIdNo: state.receiverIdNo.value,
-            receiverName: state.receiverName.value,
-            receiverFathername: state.receiverFathername.value,
-            senderName: state.senderName.value,
-          );
-          widget.exchange == null
-              ? context.read<ExchangeMoneyBloc>().add(
-                    AddExchangeMoneyEvent(exchangeMoney: exchangeMoney),
-                  )
-              : context.read<ExchangeMoneyBloc>().add(
-                    UpdateExchangeMoneyEvent(exchangeMoney: exchangeMoney),
-                  );
-          Navigator.of(context).pop();
+            ExchnageMoneyModel exchangeMoney = ExchnageMoneyModel(
+              id: widget.exchange != null ? widget.exchange!.id : 0,
+              province: state.province.value,
+              amount: state.amount.value,
+              currency: state.currency.value,
+              date: state.date.value,
+              exchnageId: state.exchangeId.value,
+              phoneNumber: state.phoneNumber.value.phoneNumber,
+              receiverIdNo: state.receiverIdNo.value,
+              receiverName: state.receiverName.value,
+              receiverFathername: state.receiverFathername.value,
+              senderName: state.senderName.value,
+            );
+            widget.exchange == null
+                ? context.read<ExchangeMoneyBloc>().add(
+                      AddExchangeMoneyEvent(exchangeMoney: exchangeMoney),
+                    )
+                : context.read<ExchangeMoneyBloc>().add(
+                      UpdateExchangeMoneyEvent(exchangeMoney: exchangeMoney),
+                    );
+            Navigator.of(context).pop();
+          } else {}
         },
         prev: () {
           prev(steps);
