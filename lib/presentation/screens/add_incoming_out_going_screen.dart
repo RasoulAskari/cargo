@@ -79,6 +79,8 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
           );
 
       Navigator.of(context).pop();
+    } else {
+      Toast.show(AppLocalizations.of(context)!.validate_input);
     }
   }
 
