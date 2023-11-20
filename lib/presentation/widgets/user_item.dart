@@ -38,6 +38,17 @@ class UserItem extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
                 child: Table(
+                  defaultColumnWidth:
+                      const FlexColumnWidth(), // Use flexible width for columns
+
+                  columnWidths: {
+                    0: FixedColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 2,
+                    ), // Set width for the first column
+                    1: FlexColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 8,
+                    ), // Let the second column take flexible width
+                  },
                   children: [
                     TableRow(
                       children: [
