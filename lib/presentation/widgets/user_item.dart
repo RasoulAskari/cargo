@@ -40,12 +40,36 @@ class UserItem extends StatelessWidget {
                   children: [
                     TableRow(
                       children: [
-                        Text(
+                        const Text(
                           "name",
                         ),
                         Text(user.name)
                       ],
-                    )
+                    ),
+                    TableRow(
+                      children: [
+                        const Text(
+                          "Email",
+                        ),
+                        Text(user.email)
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        const Text(
+                          "Role",
+                        ),
+                        Text(user.role)
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        const Text(
+                          "Permission",
+                        ),
+                        Text(user.permissions.toString())
+                      ],
+                    ),
                   ],
                 )),
           ),
