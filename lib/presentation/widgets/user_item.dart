@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:cargo/config/colors.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
@@ -184,6 +187,35 @@ class UserItem extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+
+  showDetail(
+    context,
+  ) {
+    showModalBottomSheet(
+      barrierColor: Colors.black.withOpacity(0.5),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      context: context,
+      isScrollControlled: false,
+      backgroundColor: Colors.transparent,
+      builder: (_) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+        child: Container(
+          constraints: const BoxConstraints(maxHeight: 440),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Palette.kToGrey,
+          ),
+          child: Column(
+            children: [Text("do you ")],
+          ),
+        ),
+      ),
     );
   }
 }
