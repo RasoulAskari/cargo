@@ -35,7 +35,8 @@ class UserItem extends StatelessWidget {
               color: Palette.kToGrey,
             ),
             child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
                 child: Table(
                   children: [
                     TableRow(
