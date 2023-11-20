@@ -132,8 +132,8 @@ class _EmployeeItemState extends State<EmployeeItem> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Colors.black12, // Border color
-                    width: 3.0, // Border width
+                    color: Colors.black12,
+                    width: 3.0,
                   ),
                 ),
                 child: Container(
