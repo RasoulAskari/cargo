@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cargo/config/colors.dart';
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
@@ -54,8 +55,8 @@ class UserItem extends StatelessWidget {
                       children: [
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: const Text(
-                            "name",
+                          child: Text(
+                            AppLocalizations.of(context)!.item_name,
                           ),
                         ),
                         Container(
