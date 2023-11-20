@@ -61,7 +61,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
                           child: Text(
-                            AppLocalizations.of(context)!.item_name,
+                            AppLocalizations.of(context)!.firstname,
                           ),
                         ),
                         Container(
@@ -73,7 +73,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                       children: [
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: Text(AppLocalizations.of(context)!.email),
+                          child: Text(AppLocalizations.of(context)!.lastname),
                         ),
                         Container(
                             margin: const EdgeInsets.symmetric(vertical: 7),
@@ -85,7 +85,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
                           child: Text(
-                            AppLocalizations.of(context)!.role,
+                            AppLocalizations.of(context)!.email,
                           ),
                         ),
                         Container(
@@ -96,7 +96,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     TableRow(
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.permissions,
+                          AppLocalizations.of(context)!.phone_num,
                         ),
                         Text(widget.employee.phoneNumber)
                       ],
