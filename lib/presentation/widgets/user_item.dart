@@ -68,9 +68,7 @@ class UserItem extends StatelessWidget {
                       children: [
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: const Text(
-                            "Email",
-                          ),
+                          child: Text(AppLocalizations.of(context)!.email),
                         ),
                         Container(
                             margin: const EdgeInsets.symmetric(vertical: 7),
