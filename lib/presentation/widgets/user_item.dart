@@ -121,7 +121,7 @@ class UserItem extends StatelessWidget {
             ),
           ),
           margin: const EdgeInsets.symmetric(horizontal: 10),
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
