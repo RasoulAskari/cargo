@@ -91,7 +91,7 @@ class UserItem extends StatelessWidget {
                     TableRow(
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.add_permissions,
+                          AppLocalizations.of(context)!.permissions,
                         ),
                         Text(user.permissions.toString())
                       ],
