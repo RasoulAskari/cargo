@@ -112,6 +112,7 @@ class UserItem extends StatelessWidget {
         ),
         const SizedBox(height: 2),
         Container(
+          width: MediaQuery.of(context).size.width,
           height: 40,
           decoration: const BoxDecoration(
             color: Colors.white,
