@@ -15,11 +15,49 @@ class UserItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    showDetail() {
+      showModalBottomSheet(
+        barrierColor: Colors.black.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        isScrollControlled: false,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 440),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.kToGrey,
+            ),
+            child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Table(
+                  children: [
+                    TableRow(
+                      children: [
+                        Text(
+                          "name",
+                        ),
+                        Text(user.name)
+                      ],
+                    )
+                  ],
+                )),
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
         InkWell(
           onTap: () {
-            showDetail(context);
+            showDetail();
           },
           child: Container(
             padding: const EdgeInsets.only(right: 15),
@@ -192,35 +230,6 @@ class UserItem extends StatelessWidget {
           ],
         );
       },
-    );
-  }
-
-  showDetail(
-    context,
-  ) {
-    showModalBottomSheet(
-      barrierColor: Colors.black.withOpacity(0.5),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(25.0),
-        ),
-      ),
-      context: context,
-      isScrollControlled: false,
-      backgroundColor: Colors.transparent,
-      builder: (_) => BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-        child: Container(
-          constraints: const BoxConstraints(maxHeight: 440),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Palette.kToGrey,
-          ),
-          child: Column(
-            children: [Text("do you ")],
-          ),
-        ),
-      ),
     );
   }
 }
