@@ -79,8 +79,8 @@ class UserItem extends StatelessWidget {
                       children: [
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: const Text(
-                            "Role",
+                          child:  Text(
+                            AppLocalizations.of(context)!.role,
                           ),
                         ),
                         Container(
