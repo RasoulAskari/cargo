@@ -109,7 +109,15 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         Text(widget.employee.currentAddress)
                       ],
                     ),
-                    
+                    TableRow(
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.premenent_address,
+                        ),
+                        Text(widget.employee.permenentAddress)
+                      ],
+                    ),
+
                   ],
                 )),
           ),
