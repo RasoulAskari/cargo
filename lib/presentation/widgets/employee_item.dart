@@ -1,3 +1,7 @@
+import 'dart:ui';
+
+import 'package:cargo/config/colors.dart';
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
@@ -17,6 +21,93 @@ class EmployeeItem extends StatefulWidget {
 class _EmployeeItemState extends State<EmployeeItem> {
   @override
   Widget build(BuildContext context) {
+    showDetail() {
+      showModalBottomSheet(
+        barrierColor: Colors.black.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        isScrollControlled: false,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 440),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.kToGrey,
+            ),
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                child: Table(
+                  defaultColumnWidth:
+                      const FlexColumnWidth(), // Use flexible width for columns
+
+                  columnWidths: {
+                    0: FixedColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 2,
+                    ), // Set width for the first column
+                    1: FlexColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 8,
+                    ), // Let the second column take flexible width
+                  },
+                  children: [
+                    TableRow(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 7),
+                          child: Text(
+                            AppLocalizations.of(context)!.item_name,
+                          ),
+                        ),
+                        Container(
+                            margin: const EdgeInsets.symmetric(vertical: 7),
+                            child: Text(widget.employee.firstName))
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 7),
+                          child: Text(AppLocalizations.of(context)!.email),
+                        ),
+                        Container(
+                            margin: const EdgeInsets.symmetric(vertical: 7),
+                            child: Text(widget.employee.lastName))
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 7),
+                          child: Text(
+                            AppLocalizations.of(context)!.role,
+                          ),
+                        ),
+                        Container(
+                            margin: const EdgeInsets.symmetric(vertical: 7),
+                            child: Text(widget.employee.email))
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.permissions,
+                        ),
+                        Text(widget.employee.phoneNumber)
+                      ],
+                    ),
+                  ],
+                )),
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
         Container(
