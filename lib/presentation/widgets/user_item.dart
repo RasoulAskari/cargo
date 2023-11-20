@@ -79,7 +79,7 @@ class UserItem extends StatelessWidget {
                       children: [
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 7),
-                          child:  Text(
+                          child: Text(
                             AppLocalizations.of(context)!.role,
                           ),
                         ),
@@ -90,8 +90,8 @@ class UserItem extends StatelessWidget {
                     ),
                     TableRow(
                       children: [
-                        const Text(
-                          "Permission",
+                        Text(
+                          AppLocalizations.of(context)!.add_permissions,
                         ),
                         Text(user.permissions.toString())
                       ],
