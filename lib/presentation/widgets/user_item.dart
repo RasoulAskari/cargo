@@ -65,18 +65,28 @@ class UserItem extends StatelessWidget {
                     ),
                     TableRow(
                       children: [
-                        const Text(
-                          "Email",
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 7),
+                          child: const Text(
+                            "Email",
+                          ),
                         ),
-                        Text(user.email)
+                        Container(
+                            margin: const EdgeInsets.symmetric(vertical: 7),
+                            child: Text(user.email))
                       ],
                     ),
                     TableRow(
                       children: [
-                        const Text(
-                          "Role",
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 7),
+                          child: const Text(
+                            "Role",
+                          ),
                         ),
-                        Text(user.role)
+                        Container(
+                            margin: const EdgeInsets.symmetric(vertical: 7),
+                            child: Text(user.role))
                       ],
                     ),
                     TableRow(
