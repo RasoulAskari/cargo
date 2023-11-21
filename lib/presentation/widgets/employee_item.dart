@@ -70,17 +70,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                             child: Text(widget.employee.firstName))
                       ],
                     ),
-                    TableRow(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: Text(AppLocalizations.of(context)!.lastname),
-                        ),
-                        Container(
-                            margin: const EdgeInsets.symmetric(vertical: 7),
-                            child: Text(widget.employee.lastName))
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.lastname,
+                        title: widget.employee.lastName),
                     cTableCell(
                         label: AppLocalizations.of(context)!.email,
                         title: widget.employee.email),
