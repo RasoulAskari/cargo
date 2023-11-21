@@ -6,6 +6,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/model/employee_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
+import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -101,14 +102,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         Text(widget.employee.phoneNumber)
                       ],
                     ),
-                    TableRow(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.current_address,
-                        ),
-                        Text(widget.employee.currentAddress)
-                      ],
-                    ),
+                    cTableCell(label: AppLocalizations.of(context)!.current_address, title: widget.employee.currentAddress),
                     TableRow(
                       children: [
                         Text(
