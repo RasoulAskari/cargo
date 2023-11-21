@@ -64,8 +64,8 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                         label: AppLocalizations.of(context)!.type,
                         title: widget.item.type),
                     cTableCell(
-                        label: AppLocalizations.of(context)!.email,
-                        title: user.role),
+                        label: AppLocalizations.of(context)!.amount,
+                        title: widget.item.amount.toString()),
                     cTableCell(
                         label: AppLocalizations.of(context)!.permissions,
                         title: user.permissions.toString()),
