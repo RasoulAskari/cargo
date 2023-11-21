@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:cargo/config/colors.dart';
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/incoming_out_going/model/incoming_out_going.dart';
+import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +21,63 @@ class IncomingOutGoingItem extends StatefulWidget {
 
 class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
   @override
+
   Widget build(BuildContext context) {
+  
+      showDetail() {
+      showModalBottomSheet(
+        barrierColor: Colors.black.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        isScrollControlled: false,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 440),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.kToGrey,
+            ),
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                child: Table(
+                  defaultColumnWidth:
+                      const FlexColumnWidth(), // Use flexible width for columns
+
+                  columnWidths: {
+                    0: FixedColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 2,
+                    ), // Set width for the first column
+                    1: FlexColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 8,
+                    ), // Let the second column take flexible width
+                  },
+                  children: [
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.item_name,
+                        title: user.name),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.email,
+                        title: user.email),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.email,
+                        title: user.role),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.permissions,
+                        title: user.permissions.toString()),
+                  ],
+                )),
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
         Container(
