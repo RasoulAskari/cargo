@@ -133,6 +133,14 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         Text(widget.employee.salary.toString())
                       ],
                     ),
+                    TableRow(
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.job_title,
+                        ),
+                        Text(widget.employee.jobTitle)
+                      ],
+                    ),
                   ],
                 )),
           ),
