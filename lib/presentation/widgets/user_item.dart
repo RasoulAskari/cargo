@@ -58,19 +58,9 @@ class UserItem extends StatelessWidget {
                     cTableCell(
                         label: AppLocalizations.of(context)!.email,
                         title: user.email),
-                    TableRow(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: Text(
-                            AppLocalizations.of(context)!.role,
-                          ),
-                        ),
-                        Container(
-                            margin: const EdgeInsets.symmetric(vertical: 7),
-                            child: Text(user.role))
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.email,
+                        title: user.role),
                     TableRow(
                       children: [
                         Text(
