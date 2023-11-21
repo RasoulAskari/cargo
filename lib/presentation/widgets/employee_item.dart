@@ -109,14 +109,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     cTableCell(
                         label: AppLocalizations.of(context)!.end_date,
                         title: widget.employee.endDate),
-                    TableRow(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.job_title,
-                        ),
-                        Text(widget.employee.jobTitle)
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.job_title,
+                        title: widget.employee.jobTitle),
                   ],
                 )),
           ),
