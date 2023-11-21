@@ -125,7 +125,14 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         Text(widget.employee.startDate)
                       ],
                     ),
-
+                    TableRow(
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.salary,
+                        ),
+                        Text(widget.employee.salary.toString())
+                      ],
+                    ),
                   ],
                 )),
           ),
