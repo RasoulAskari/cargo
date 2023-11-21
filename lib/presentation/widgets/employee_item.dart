@@ -84,6 +84,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     cTableCell(
                         label: AppLocalizations.of(context)!.job_title,
                         title: widget.employee.jobTitle),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.salary,
+                        title: widget.employee.salary.toString()),
                   ],
                 )),
           ),
