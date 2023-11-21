@@ -6,6 +6,7 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/model/my_user.dart';
+import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -51,19 +52,9 @@ class UserItem extends StatelessWidget {
                     ), // Let the second column take flexible width
                   },
                   children: [
-                    TableRow(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: Text(
-                            AppLocalizations.of(context)!.item_name,
-                          ),
-                        ),
-                        Container(
-                            margin: const EdgeInsets.symmetric(vertical: 7),
-                            child: Text(user.name))
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.item_name,
+                        title: user.name),
                     TableRow(
                       children: [
                         Container(
