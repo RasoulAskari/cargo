@@ -103,22 +103,12 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     cTableCell(
                         label: AppLocalizations.of(context)!.premenent_address,
                         title: widget.employee.permenentAddress),
-                    TableRow(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.start_date,
-                        ),
-                        Text(widget.employee.startDate)
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.salary,
-                        ),
-                        Text(widget.employee.salary.toString())
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.start_date,
+                        title: widget.employee.startDate),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.end_date,
+                        title: widget.employee.endDate),
                     TableRow(
                       children: [
                         Text(
