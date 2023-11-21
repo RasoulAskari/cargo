@@ -57,19 +57,9 @@ class _EmployeeItemState extends State<EmployeeItem> {
                     ), // Let the second column take flexible width
                   },
                   children: [
-                    TableRow(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.symmetric(vertical: 7),
-                          child: Text(
-                            AppLocalizations.of(context)!.firstname,
-                          ),
-                        ),
-                        Container(
-                            margin: const EdgeInsets.symmetric(vertical: 7),
-                            child: Text(widget.employee.firstName))
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.firstname,
+                        title: widget.employee.firstName),
                     cTableCell(
                         label: AppLocalizations.of(context)!.lastname,
                         title: widget.employee.lastName),
