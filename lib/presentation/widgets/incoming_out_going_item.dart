@@ -21,10 +21,8 @@ class IncomingOutGoingItem extends StatefulWidget {
 
 class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
   @override
-
   Widget build(BuildContext context) {
-  
-      showDetail() {
+    showDetail() {
       showModalBottomSheet(
         barrierColor: Colors.black.withOpacity(0.5),
         shape: const RoundedRectangleBorder(
@@ -61,10 +59,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                   children: [
                     cTableCell(
                         label: AppLocalizations.of(context)!.item_name,
-                        title: user.name),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.email,
-                        title: user.email),
+                        title: widget.item.name),
                     cTableCell(
                         label: AppLocalizations.of(context)!.email,
                         title: user.role),
