@@ -59,6 +59,7 @@
   "premenent_address": "Permenent Address",
   "start_date": "Start Date",
   "end_date": "End Date", 
+  "job_title": "Job Title", 
   "add_permissions": "Add some permissions", 
   "permissions": "Permissions", 
   "date": "Date",
