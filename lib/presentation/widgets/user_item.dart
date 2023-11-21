@@ -61,14 +61,9 @@ class UserItem extends StatelessWidget {
                     cTableCell(
                         label: AppLocalizations.of(context)!.email,
                         title: user.role),
-                    TableRow(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.permissions,
-                        ),
-                        Text(user.permissions.toString())
-                      ],
-                    ),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.permissions,
+                        title: user.permissions.toString()),
                   ],
                 )),
           ),
