@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CTableCell extends StatelessWidget {
-  const CTableCell({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+TableRow cTableCell({required String label, required String title}) {
+  return TableRow(
+    children: [
+      Text(
+        label,
+      ),
+      Text(title)
+    ],
+  );
 }
