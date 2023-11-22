@@ -10,6 +10,7 @@ import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class EmployeeItem extends StatefulWidget {
   final EmployeeModel employee;

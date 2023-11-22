@@ -24,7 +24,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
   @override
   Widget build(BuildContext context) {
     DateTime d = DateTime.parse(widget.item.createdAt);
-    String date = DateFormat('yyyy-MM-dd').format(d);
+    String date = DateFormat('yMMMMd').format(d);
     showDetail() {
       showModalBottomSheet(
         barrierColor: Colors.black.withOpacity(0.5),
