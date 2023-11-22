@@ -52,13 +52,15 @@ class OrderItem extends StatelessWidget {
                     ), // Let the second column take flexible width
                   },
                   children: [
-                    
                     cTableCell(
                         label: AppLocalizations.of(context)!.firstname,
                         title: order.customerName),
                     cTableCell(
-                        label: AppLocalizations.of(context)!.email,
-                        title: order.email),
+                        label: AppLocalizations.of(context)!.lastname,
+                        title: order.fatherName),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.grand_father_name,
+                        title: order.grandFatherName),
                     cTableCell(
                         label: AppLocalizations.of(context)!.phone_num,
                         title: order.phoneNumber),
