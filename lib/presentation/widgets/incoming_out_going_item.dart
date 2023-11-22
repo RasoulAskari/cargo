@@ -10,6 +10,7 @@ import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class IncomingOutGoingItem extends StatefulWidget {
   const IncomingOutGoingItem({super.key, required this.item});
@@ -22,6 +23,8 @@ class IncomingOutGoingItem extends StatefulWidget {
 class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
   @override
   Widget build(BuildContext context) {
+    DateTime d = DateTime.parse(widget.item.createdAt);
+    String date = DateFormat('yyyy-MM-dd').format(d);
     showDetail() {
       showModalBottomSheet(
         barrierColor: Colors.black.withOpacity(0.5),
@@ -71,7 +74,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                         title: widget.item.createdBy.name),
                     cTableCell(
                         label: AppLocalizations.of(context)!.created_at,
-                        title: widget.item.createdAt)
+                        title: date)
                   ],
                 )),
           ),
