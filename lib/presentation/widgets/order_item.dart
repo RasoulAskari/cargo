@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:cargo/config/colors.dart';
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
@@ -49,12 +52,10 @@ class OrderItem extends StatelessWidget {
                     ), // Let the second column take flexible width
                   },
                   children: [
+                    
                     cTableCell(
                         label: AppLocalizations.of(context)!.firstname,
-                        title: order.),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.lastname,
-                        title: order.lastName),
+                        title: order.customerName),
                     cTableCell(
                         label: AppLocalizations.of(context)!.email,
                         title: order.email),
