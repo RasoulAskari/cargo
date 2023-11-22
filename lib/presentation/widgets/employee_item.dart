@@ -26,6 +26,8 @@ class _EmployeeItemState extends State<EmployeeItem> {
     DateTime s = DateTime.parse(widget.employee.startDate);
     String startDate = DateFormat('yMMMMd').format(s);
 
+    DateTime d = DateTime.parse(widget.employee.endDate);
+    String endDate = DateFormat('yMMMMd').format(d);
 
     showDetail() {
       showModalBottomSheet(
