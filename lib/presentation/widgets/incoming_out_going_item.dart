@@ -68,7 +68,10 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                         title: widget.item.amount.toString()),
                     cTableCell(
                         label: AppLocalizations.of(context)!.created_by,
-                        title: widget.item.createdBy.name ),
+                        title: widget.item.createdBy.name),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.created_at,
+                        title: widget.item.createdAt)
                   ],
                 )),
           ),
