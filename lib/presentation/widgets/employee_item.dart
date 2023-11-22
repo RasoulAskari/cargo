@@ -84,10 +84,10 @@ class _EmployeeItemState extends State<EmployeeItem> {
                         title: widget.employee.permenentAddress),
                     cTableCell(
                         label: AppLocalizations.of(context)!.start_date,
-                        title: widget.employee.startDate),
+                        title: startDate),
                     cTableCell(
                         label: AppLocalizations.of(context)!.end_date,
-                        title: widget.employee.endDate),
+                        title: endDate),
                     cTableCell(
                         label: AppLocalizations.of(context)!.job_title,
                         title: widget.employee.jobTitle),
@@ -231,7 +231,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   ),
                   const SizedBox(width: 10),
                   Text(
-                    widget.employee.startDate.toString(),
+                    startDate,
                   )
                 ],
               ),
@@ -246,7 +246,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
                       child: const Icon(Icons.calendar_month_outlined)),
                   const SizedBox(width: 10),
                   Text(
-                    widget.employee.endDate.toString(),
+                    endDate,
                   )
                 ],
               ),
