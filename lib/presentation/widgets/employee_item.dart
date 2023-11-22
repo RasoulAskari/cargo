@@ -23,6 +23,10 @@ class EmployeeItem extends StatefulWidget {
 class _EmployeeItemState extends State<EmployeeItem> {
   @override
   Widget build(BuildContext context) {
+    DateTime s = DateTime.parse(widget.employee.startDate);
+    String startDate = DateFormat('yMMMMd').format(s);
+
+
     showDetail() {
       showModalBottomSheet(
         barrierColor: Colors.black.withOpacity(0.5),
