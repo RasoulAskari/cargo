@@ -1,7 +1,9 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/model/order_model.dart';
+import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +14,78 @@ class OrderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    showDetail() {
+      showModalBottomSheet(
+        barrierColor: Colors.black.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        isScrollControlled: false,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 440),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.kToGrey,
+            ),
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                child: Table(
+                  defaultColumnWidth:
+                      const FlexColumnWidth(), // Use flexible width for columns
+
+                  columnWidths: {
+                    0: FixedColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 2,
+                    ), // Set width for the first column
+                    1: FlexColumnWidth(
+                      MediaQuery.of(context).size.width / 10 * 8,
+                    ), // Let the second column take flexible width
+                  },
+                  children: [
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.firstname,
+                        title: order.),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.lastname,
+                        title: order.lastName),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.email,
+                        title: order.email),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.phone_num,
+                        title: order.phoneNumber),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.current_address,
+                        title: order.currentAddress),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.premenent_address,
+                        title: order.permenentAddress),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.start_date,
+                        title: startDate),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.end_date,
+                        title: endDate),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.job_title,
+                        title: order.jobTitle),
+                    cTableCell(
+                        label: AppLocalizations.of(context)!.salary,
+                        title: order.salary.toString()),
+                  ],
+                )),
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
         Container(
