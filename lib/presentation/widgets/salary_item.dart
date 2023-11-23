@@ -61,8 +61,10 @@ class _SalaryItemState extends State<SalaryItem> {
                 },
                 children: [
                   cTableCell(
-                      label: AppLocalizations.of(context)!.firstname,
-                      title: order.customerName),
+                      label:
+                          "${AppLocalizations.of(context)!.employee} ${AppLocalizations.of(context)!.item_name}",
+                      title:
+                          "${widget.salary.employee.firstName} ${widget.salary.employee.lastName}"),
                   cTableCell(
                       label: AppLocalizations.of(context)!.lastname,
                       title: order.fatherName),
