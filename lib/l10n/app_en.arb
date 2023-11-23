@@ -64,6 +64,7 @@
   "permissions": "Permissions", 
   "date": "Date",
   "back": "‌Back",
+  "order_item": "‌Order Item",
   "register_date": "Register Date",
   "created_at": "Created At",
   "created_by": "Created By",
