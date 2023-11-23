@@ -64,7 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
       {
         'name': AppLocalizations.of(context)?.setting,
         'image': "",
-        'function': () {},
+        'function': () {
+          Navigator.of(context).pushNamed(settingScreen);
+        },
       },
       {
         'name': AppLocalizations.of(context)?.logout,
