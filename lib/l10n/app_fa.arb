@@ -53,6 +53,7 @@
     "add": "ایجاد",
     "edit": "ویرایش",
     "order_item": "اجزایی سفارش",
+    "delivery_type": "نوع تحویل دهی",
     "confirm_password": "مرور پاسورد",
     "current_address": "آدرس فعلی",
     "premenent_address": "آدرس اصلی",
