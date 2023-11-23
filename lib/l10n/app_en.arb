@@ -64,6 +64,8 @@
   "permissions": "Permissions", 
   "date": "Date",
   "back": "‌Back",
+  "receiver_detail": "Receiver Detail",
+
   "order_item": "‌Order Item",
   "delivery_type": "Delivery Type",
   "register_date": "Register Date",
