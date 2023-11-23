@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:cargo/config/colors.dart';
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/salary/model/salary_model.dart';
+import 'package:cargo/presentation/widgets/table_cell.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +25,86 @@ class _SalaryItemState extends State<SalaryItem> {
   Widget build(BuildContext context) {
     DateTime s = DateTime.parse(widget.salary.date);
     String date = DateFormat('yMMMMd').format(s);
+
+    showDetail() {
+      showModalBottomSheet(
+        barrierColor: Colors.black.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        isScrollControlled: false,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 440),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.kToGrey,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+              child: Table(
+                defaultColumnWidth:
+                    const FlexColumnWidth(), // Use flexible width for columns
+
+                columnWidths: {
+                  0: FixedColumnWidth(
+                    MediaQuery.of(context).size.width / 10 * 2,
+                  ), // Set width for the first column
+                  1: FlexColumnWidth(
+                    MediaQuery.of(context).size.width / 10 * 8,
+                  ), // Let the second column take flexible width
+                },
+                children: [
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.firstname,
+                      title: order.customerName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.lastname,
+                      title: order.fatherName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.grand_father_name,
+                      title: order.grandFatherName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.id_card_num,
+                      title: order.tazkiraId),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.phone_num,
+                      title: order.customerPhone),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.item_name,
+                      title: order.receiverName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.phone_num,
+                      title: order.receiverPhone),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.country,
+                      title: order.country),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.city,
+                      title: order.city),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.address,
+                      title: order.address),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.delivery_type,
+                      title: order.delivaryType),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.date, title: date),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.order_item,
+                      title: order.items.toString()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     return Column(
       children: [
