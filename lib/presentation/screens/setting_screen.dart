@@ -11,7 +11,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("app bar"),
+        title: const Text("app bar"),
       ),
       body: Column(children: [
         BlocBuilder<LanguageCubit, LanguageState>(

@@ -16,22 +16,30 @@ class CargoApp extends StatefulWidget {
 class _CargoAppState extends State<CargoApp> {
   @override
   Widget build(BuildContext context) {
-    print(context.read<LanguageCubit>().state.language.value);
+    // ignore: prefer_typing_uninitialized_variables
+    var lang;
 
-    return MaterialApp(
-      localizationsDelegates: const [
-        AppLocalizations.delegate, // Add this line
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale("fa"),
-      ],
-      theme: AppThemes.appThemeData[AppTheme.lightTheme],
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: AppRouter.onGenerateRoute,
-      title: "Cargo",
+    return BlocListener<LanguageCubit, LanguageState>(
+      listener: (context, state) {
+        setState(() {
+          lang = state.language.value;
+        });
+      },
+      child: MaterialApp(
+        localizationsDelegates: const [
+          AppLocalizations.delegate, // Add this line
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale(lang == null ? 'fa' : lang),
+        ],
+        theme: AppThemes.appThemeData[AppTheme.lightTheme],
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        title: "Cargo",
+      ),
     );
   }
 }
