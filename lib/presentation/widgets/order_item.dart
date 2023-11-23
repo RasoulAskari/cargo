@@ -21,7 +21,6 @@ class OrderItem extends StatelessWidget {
     DateTime s = DateTime.parse(order.date);
     String date = DateFormat('yMMMMd').format(s);
 
-
     showDetail() {
       showModalBottomSheet(
         barrierColor: Colors.black.withOpacity(0.5),
@@ -90,8 +89,7 @@ class OrderItem extends StatelessWidget {
                       label: AppLocalizations.of(context)!.delivery_type,
                       title: order.delivaryType),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.date,
-                      title: order.date),
+                      label: AppLocalizations.of(context)!.date, title: date),
                   cTableCell(
                       label: AppLocalizations.of(context)!.order_item,
                       title: order.items.toString()),
