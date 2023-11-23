@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:cargo/config/colors.dart';
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
 import 'package:cargo/logic/exchange_money/model/exchange_money_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
+import 'package:cargo/presentation/widgets/table_cell.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -56,10 +61,8 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                 },
                 children: [
                   cTableCell(
-                      label:
-                          "${AppLocalizations.of(context)!.employee} ${AppLocalizations.of(context)!.item_name}",
-                      title:
-                          "${widget.salary.employee.firstName} ${widget.salary.employee.lastName}"),
+                      label: AppLocalizations.of(context)!.sender_name,
+                      title: widget.exchange.senderName),
                   cTableCell(
                       label: AppLocalizations.of(context)!.amount,
                       title: widget.salary.salaryAmount.toString()),
