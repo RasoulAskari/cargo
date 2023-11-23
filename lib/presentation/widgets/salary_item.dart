@@ -66,8 +66,8 @@ class _SalaryItemState extends State<SalaryItem> {
                       title:
                           "${widget.salary.employee.firstName} ${widget.salary.employee.lastName}"),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.lastname,
-                      title: order.fatherName),
+                      label: AppLocalizations.of(context)!.amount,
+                      title: widget.salary.salaryAmount.toString()),
                   cTableCell(
                       label: AppLocalizations.of(context)!.grand_father_name,
                       title: order.grandFatherName),
