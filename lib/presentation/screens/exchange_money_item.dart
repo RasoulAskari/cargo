@@ -66,13 +66,14 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                   cTableCell(
                       label: AppLocalizations.of(context)!.date, title: date),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.amount, title: widget.exchange.amount.toString()),
+                      label: AppLocalizations.of(context)!.amount,
+                      title: widget.exchange.amount.toString()),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.,
-                      title: widget.salary.payAmount.toString()),
+                      label: AppLocalizations.of(context)!.currency,
+                      title: widget.exchange.currency),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.remain_amount,
-                      title: widget.salary.remainAmount.toString()),
+                      label: AppLocalizations.of(context)!.exchange_money_id,
+                      title: widget.exchange.exchnageId),
                 ],
               ),
             ),
