@@ -18,7 +18,16 @@ class SettingScreen extends StatelessWidget {
                 setValue: (value) {
                   context.read<LanguageCubit>().changeLanguage(value);
                 },
-                items: [{}]);
+                items: [
+                  {
+                    'value': 'fa',
+                    'label': "Persain",
+                  },
+                  {
+                    'value': 'en',
+                    'label': "English",
+                  },
+                ]);
           },
         ),
       ]),
