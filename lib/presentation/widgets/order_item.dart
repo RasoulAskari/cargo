@@ -56,9 +56,8 @@ class OrderItem extends StatelessWidget {
                 },
                 children: [
                   cTableCell(
-                      label: AppLocalizations.of(context)!.,
+                      label: AppLocalizations.of(context)!.customer_detail,
                       title: ""),
-
                   cTableCell(
                       label: AppLocalizations.of(context)!.firstname,
                       title: order.customerName),
