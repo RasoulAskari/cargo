@@ -71,8 +71,8 @@ class _SalaryItemState extends State<SalaryItem> {
                   cTableCell(
                       label: AppLocalizations.of(context)!.date, title: date),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.id_card_num,
-                      title: order.tazkiraId),
+                      label: AppLocalizations.of(context)!.payment_amount,
+                      title: widget.salary.payAmount.toString()),
                   cTableCell(
                       label: AppLocalizations.of(context)!.phone_num,
                       title: order.customerPhone),
