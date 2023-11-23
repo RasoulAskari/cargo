@@ -86,6 +86,9 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                   cTableCell(
                       label: AppLocalizations.of(context)!.receiver_father_name,
                       title: widget.exchange.receiverFathername),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.province,
+                      title: widget.exchange.province),
                 ],
               ),
             ),
