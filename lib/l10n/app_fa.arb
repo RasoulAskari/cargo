@@ -7,7 +7,7 @@
     "type": "نوع",
     "login": "وارد شدن",
     "amount": "مقدار",
-    "pay_amount": "مقدار پرداخت",
+    "payment_amount": "مقدار پرداخت",
     "remain_amount": "مقدار باقی مانده",
     "incoming_outgoing_screen": " صفحه رفت و آمد ",
     "salary_screen": "صفحه معاشات",
