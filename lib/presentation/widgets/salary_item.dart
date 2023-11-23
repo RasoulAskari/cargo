@@ -76,29 +76,6 @@ class _SalaryItemState extends State<SalaryItem> {
                   cTableCell(
                       label: AppLocalizations.of(context)!.payment_amount,
                       title: widget.salary.remainAmount.toString()),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.item_name,
-                      title: order.receiverName),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.phone_num,
-                      title: order.receiverPhone),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.country,
-                      title: order.country),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.city,
-                      title: order.city),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.address,
-                      title: order.address),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.delivery_type,
-                      title: order.delivaryType),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.date, title: date),
-                  cTableCell(
-                      label: AppLocalizations.of(context)!.order_item,
-                      title: order.items.toString()),
                 ],
               ),
             ),
