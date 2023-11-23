@@ -5,6 +5,7 @@ import 'package:cargo/logic/helpers/global_helpers.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ExchangeMoneyItem extends StatefulWidget {
   final ExchnageMoneyModel exchange;
@@ -17,6 +18,67 @@ class ExchangeMoneyItem extends StatefulWidget {
 class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
   @override
   Widget build(BuildContext context) {
+    DateTime s = DateTime.parse(widget.exchange.date);
+    String date = DateFormat('yMMMMd').format(s);
+
+    showDetail() {
+      showModalBottomSheet(
+        barrierColor: Colors.black.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25.0),
+          ),
+        ),
+        context: context,
+        isScrollControlled: false,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 440),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Palette.kToGrey,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+              child: Table(
+                defaultColumnWidth:
+                    const FlexColumnWidth(), // Use flexible width for columns
+
+                columnWidths: {
+                  0: FixedColumnWidth(
+                    MediaQuery.of(context).size.width / 10 * 2,
+                  ), // Set width for the first column
+                  1: FlexColumnWidth(
+                    MediaQuery.of(context).size.width / 10 * 8,
+                  ), // Let the second column take flexible width
+                },
+                children: [
+                  cTableCell(
+                      label:
+                          "${AppLocalizations.of(context)!.employee} ${AppLocalizations.of(context)!.item_name}",
+                      title:
+                          "${widget.salary.employee.firstName} ${widget.salary.employee.lastName}"),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.amount,
+                      title: widget.salary.salaryAmount.toString()),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.date, title: date),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.payment_amount,
+                      title: widget.salary.payAmount.toString()),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.remain_amount,
+                      title: widget.salary.remainAmount.toString()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
         Container(
