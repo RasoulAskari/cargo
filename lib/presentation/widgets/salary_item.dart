@@ -5,6 +5,7 @@ import 'package:cargo/logic/salary/model/salary_model.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class SalaryItem extends StatefulWidget {
   final SalaryModel salary;
@@ -17,6 +18,9 @@ class SalaryItem extends StatefulWidget {
 class _SalaryItemState extends State<SalaryItem> {
   @override
   Widget build(BuildContext context) {
+    DateTime s = DateTime.parse(widget.salary.date);
+    String date = DateFormat('yMMMMd').format(s);
+
     return Column(
       children: [
         Container(
