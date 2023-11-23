@@ -6,4 +6,11 @@ part 'language_state.dart';
 
 class LanguageCubit extends Cubit<LanguageState> {
   LanguageCubit() : super(LanguageInitial());
+
+  void changeLanguage(String value) {
+    final language = CString.dirty(value);
+    emit(state.copyWith(
+      language: language,
+    ));
+  }
 }
