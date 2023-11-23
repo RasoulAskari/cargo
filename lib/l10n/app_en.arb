@@ -65,6 +65,7 @@
   "date": "Date",
   "back": "‌Back",
   "receiver_detail": "Receiver Detail",
+  "customer_detail": "Customer Detail",
 
   "order_item": "‌Order Item",
   "delivery_type": "Delivery Type",
