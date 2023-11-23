@@ -82,7 +82,7 @@ class OrderItem extends StatelessWidget {
                       label: AppLocalizations.of(context)!.address,
                       title: order.address),
                   cTableCell(
-                      label: AppLocalizations.of(context)!.item_name,
+                      label: AppLocalizations.of(context)!.order_item,
                       title: order.items.toString()),
                 ],
               ),
