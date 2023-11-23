@@ -85,6 +85,9 @@ class OrderItem extends StatelessWidget {
                       label: AppLocalizations.of(context)!.delivery_type,
                       title: order.delivaryType),
                   cTableCell(
+                      label: AppLocalizations.of(context)!.date,
+                      title: order.date),
+                  cTableCell(
                       label: AppLocalizations.of(context)!.order_item,
                       title: order.items.toString()),
                 ],
