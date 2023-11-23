@@ -8,6 +8,7 @@
   "login": "Login",
   "amount": "Amount",  
   "currency": "Currency",  
+  "employee_name": "Employee Name",  
   "payment_amount": "Payment Amount",  
   "remain_amount": "Remain Amount",  
   "incoming_outgoing_screen": "ّIncoming Outgoing Screen",  
