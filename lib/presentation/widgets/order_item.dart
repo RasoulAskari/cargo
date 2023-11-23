@@ -37,56 +37,56 @@ class OrderItem extends StatelessWidget {
               color: Palette.kToGrey,
             ),
             child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-                child: Table(
-                  defaultColumnWidth:
-                      const FlexColumnWidth(), // Use flexible width for columns
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+              child: Table(
+                defaultColumnWidth:
+                    const FlexColumnWidth(), // Use flexible width for columns
 
-                  columnWidths: {
-                    0: FixedColumnWidth(
-                      MediaQuery.of(context).size.width / 10 * 2,
-                    ), // Set width for the first column
-                    1: FlexColumnWidth(
-                      MediaQuery.of(context).size.width / 10 * 8,
-                    ), // Let the second column take flexible width
-                  },
-                  children: [
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.firstname,
-                        title: order.customerName),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.lastname,
-                        title: order.fatherName),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.grand_father_name,
-                        title: order.grandFatherName),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.id_card_num,
-                        title: order.tazkiraId),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.phone_num,
-                        title: order.customerPhone),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.item_name,
-                        title: order.receiverName),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.phone_num,
-                        title: order.receiverPhone),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.country,
-                        title: order.country),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.city,
-                        title: order.city),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.address,
-                        title: order.address),
-                    cTableCell(
-                        label: AppLocalizations.of(context)!.item_name,
-                        title: order.items.toString()),
-                  ],
-                )),
+                columnWidths: {
+                  0: FixedColumnWidth(
+                    MediaQuery.of(context).size.width / 10 * 2,
+                  ), // Set width for the first column
+                  1: FlexColumnWidth(
+                    MediaQuery.of(context).size.width / 10 * 8,
+                  ), // Let the second column take flexible width
+                },
+                children: [
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.firstname,
+                      title: order.customerName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.lastname,
+                      title: order.fatherName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.grand_father_name,
+                      title: order.grandFatherName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.id_card_num,
+                      title: order.tazkiraId),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.phone_num,
+                      title: order.customerPhone),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.item_name,
+                      title: order.receiverName),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.phone_num,
+                      title: order.receiverPhone),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.country,
+                      title: order.country),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.city,
+                      title: order.city),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.address,
+                      title: order.address),
+                  cTableCell(
+                      label: AppLocalizations.of(context)!.item_name,
+                      title: order.items.toString()),
+                ],
+              ),
+            ),
           ),
         ),
       );
