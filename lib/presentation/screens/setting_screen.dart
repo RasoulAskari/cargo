@@ -28,7 +28,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     context.read<LanguageCubit>().changeLanguage(value);
                   });
                 },
-                items: [
+                items: const [
                   {
                     'value': 'fa',
                     'label': "Persain",

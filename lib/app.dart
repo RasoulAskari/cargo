@@ -18,7 +18,7 @@ class _CargoAppState extends State<CargoApp> {
 
   @override
   void initState() {
-    context.read<LanguageCubit>().changeLanguage('fa');
+    context.read<LanguageCubit>().changeLanguage('en');
     super.initState();
   }
 
@@ -28,6 +28,7 @@ class _CargoAppState extends State<CargoApp> {
 
     return BlocBuilder<LanguageCubit, LanguageState>(
       builder: (context, state) {
+        print(state.language.value);
         return MaterialApp(
           localizationsDelegates: const [
             AppLocalizations.delegate, // Add this line
