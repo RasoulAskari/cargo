@@ -29,14 +29,16 @@ class _CargoAppState extends State<CargoApp> {
     return BlocBuilder<LanguageCubit, LanguageState>(
       builder: (context, state) {
         return MaterialApp(
-          localizationsDelegates: [
+          localizationsDelegates: const [
             AppLocalizations.delegate, // Add this line
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: [
-            Locale(state.language.value),
+            state.language.value == 'fa'
+                ? const Locale('fa')
+                : const Locale("en")
           ],
           theme: AppThemes.appThemeData[AppTheme.lightTheme],
           debugShowCheckedModeBanner: false,
