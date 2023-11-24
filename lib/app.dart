@@ -28,9 +28,8 @@ class _CargoAppState extends State<CargoApp> {
 
     return BlocBuilder<LanguageCubit, LanguageState>(
       builder: (context, state) {
-        print(state.language.value);
         return MaterialApp(
-          localizationsDelegates: const [
+          localizationsDelegates: [
             AppLocalizations.delegate, // Add this line
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
