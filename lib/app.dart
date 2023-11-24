@@ -14,10 +14,17 @@ class CargoApp extends StatefulWidget {
 }
 
 class _CargoAppState extends State<CargoApp> {
+  var lang;
+
+  @override
+  void initState() {
+    context.read<LanguageCubit>().changeLanguage('fa');
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_typing_uninitialized_variables
-    var lang;
 
     return BlocListener<LanguageCubit, LanguageState>(
       listener: (context, state) {
