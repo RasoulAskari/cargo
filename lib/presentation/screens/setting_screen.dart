@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +24,9 @@ class SettingScreen extends StatelessWidget {
             return CDropdown(
                 value: state.language.value,
                 setValue: (value) {
-                  context.read<LanguageCubit>().changeLanguage(value);
+                  setState(() {
+                    context.read<LanguageCubit>().changeLanguage(value);
+                  });
                 },
                 items: [
                   {
