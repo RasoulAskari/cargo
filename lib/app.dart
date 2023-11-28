@@ -14,8 +14,6 @@ class CargoApp extends StatefulWidget {
 }
 
 class _CargoAppState extends State<CargoApp> {
-  var lang;
-
   @override
   void initState() {
     context.read<LanguageCubit>().changeLanguage('en');
@@ -28,23 +26,10 @@ class _CargoAppState extends State<CargoApp> {
 
     return BlocBuilder<LanguageCubit, LanguageState>(
       builder: (context, state) {
-        if (state.language.value == "fa") {
-          setState(() {
-            lang = state.language.value;
-          });
-        } else {}
         return MaterialApp(
-          localizationsDelegates: const [
-            AppLocalizations.delegate, // Add this line
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: [
-            state.language.value == 'fa'
-                ? const Locale('fa')
-                : const Locale("en")
-          ],
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          locale: Locale(state.language.value),
           theme: AppThemes.appThemeData[AppTheme.lightTheme],
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.onGenerateRoute,

@@ -6,6 +6,7 @@ import 'package:cargo/logic/exchange_money/cubit/cubit/exchange_money_cubit.dart
 import 'package:cargo/logic/incoming_out_going/bloc/bloc/incoming_out_going_bloc.dart';
 import 'package:cargo/logic/language/cubit/language_cubit.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
+import 'package:cargo/logic/login/cubit/login_cubit.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
@@ -67,11 +68,11 @@ class MyApp extends StatelessWidget {
       BlocProvider<OrderItemCubit>(
         create: (context) => OrderItemCubit(),
       ),
-      BlocProvider<LanguageCubit>(
-        create: (context) => LanguageCubit(),
-      ),
       BlocProvider<ExchangeMoneyCubit>(
         create: (context) => ExchangeMoneyCubit(),
+      ),
+      BlocProvider<LanguageCubit>.value(
+        value: LanguageCubit(),
       ),
       BlocProvider<EmployeeCubit>(
         create: (context) => EmployeeCubit(),
@@ -79,6 +80,6 @@ class MyApp extends StatelessWidget {
       BlocProvider<UserCubit>(
         create: (context) => UserCubit(),
       )
-    ], child: const CargoApp());
+    ], child: CargoApp());
   }
 }
