@@ -24,9 +24,7 @@ class _SettingScreenState extends State<SettingScreen> {
             return CDropdown(
                 value: state.language.value,
                 setValue: (value) {
-                  setState(() {
-                    context.read<LanguageCubit>().changeLanguage(value);
-                  });
+                  context.read<LanguageCubit>().changeLanguage(value);
                 },
                 items: const [
                   {

@@ -28,6 +28,11 @@ class _CargoAppState extends State<CargoApp> {
 
     return BlocBuilder<LanguageCubit, LanguageState>(
       builder: (context, state) {
+        if (state.language.value == "fa") {
+          setState(() {
+            lang = state.language.value;
+          });
+        } else {}
         return MaterialApp(
           localizationsDelegates: const [
             AppLocalizations.delegate, // Add this line
