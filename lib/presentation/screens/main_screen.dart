@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:cargo/logic/language/cubit/language_cubit.dart';
 import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:cargo/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -20,6 +22,15 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     isLogin();
+    _getLanguage();
+  }
+
+  Future<String?> _getLanguage() async {
+    final lang = await _storage.read(key: "language");
+
+    context.read<LanguageCubit>().changeLanguage(lang.toString());
+
+    return lang;
   }
 
   void isLogin() async {
