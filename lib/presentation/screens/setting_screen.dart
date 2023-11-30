@@ -15,6 +15,10 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   final _storage = const FlutterSecureStorage();
 
+  Future<void> setLanguage(String value) async {
+    await _storage.write(key: 'language', value: value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +31,7 @@ class _SettingScreenState extends State<SettingScreen> {
             return CDropdown(
                 value: state.language.value,
                 setValue: (value) {
+                  setLanguage(value);
                   context.read<LanguageCubit>().changeLanguage(value);
                 },
                 items: const [
