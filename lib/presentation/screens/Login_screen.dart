@@ -137,6 +137,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                           height: 25,
                                         ),
                                         Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                          ),
+                                          child: InputLabel(label: "Password"),
+                                        ),
+                                        Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16),
                                           child: CTextField(
