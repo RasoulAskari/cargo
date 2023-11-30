@@ -3,15 +3,12 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
-import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:cargo/utils/stepper/bard_bg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
-// ignore: depend_on_referenced_packages
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:convert';
 
 class LoginScreen extends StatefulWidget {
@@ -114,11 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                           MainAxisAlignment.center,
                                       children: [
                                         const SizedBox(height: 50),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                        const Padding(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 16),
-                                          child:
-                                              const InputLabel(label: "Email"),
+                                          child: InputLabel(label: "Email"),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.symmetric(
@@ -136,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         const SizedBox(
                                           height: 25,
                                         ),
-                                        Padding(
+                                        const Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal: 16,
                                           ),
