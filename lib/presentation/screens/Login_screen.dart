@@ -162,8 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       const EdgeInsets.only(bottom: 0, top: 20),
                                   child: InkWell(
                                     borderRadius: BorderRadius.circular(500.0),
-                                    onTap: () {
-                                      login();
+                                    onTap: () async {
+                                      await login();
+                                      await widget.isLogin();
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
