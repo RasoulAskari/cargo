@@ -5,6 +5,7 @@ import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/utils/stepper/bard_bg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
     };
     try {
       final res = await http.post(
-        Uri.parse('http://127.0.0.1:8000/api/v1/login'),
+        Uri.parse('http://127.0.0.1:8000/api/login'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -51,7 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
         await storage.read(key: 'user');
       }
     } catch (e) {
-
       return;
     }
   }
@@ -59,48 +59,177 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: MultiBlocProvider(
-      providers: [
-        BlocProvider<LoginBloc>(
-          create: (context) => LoginBloc(httpClient: http.Client()),
-        ),
-      ],
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: CTextField(
-                hintText: AppLocalizations.of(context)?.email,
-                value: '',
-                maxlines: 1,
-                setValue: (value) {
-                  email = Email.dirty(value);
-                }),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: CTextField(
-              hintText: AppLocalizations.of(context)?.password,
-              value: '',
-              maxlines: 1,
-              setValue: (value) {
-                password = CString.dirty(value);
-              },
+      body: SizedBox(
+        height: double.infinity,
+        child: Stack(
+          children: [
+            const BrandBg(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                    child: Container(
+                  height: 20,
+                )),
+                AnimatedSwitcher(
+                  transitionBuilder:
+                      (Widget child, Animation<double> animation) {
+                    return ScaleTransition(
+                      scale: Tween<double>(begin: 0.9, end: 1.0).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: const Interval(0.0, 1.0),
+                        ),
+                      ),
+                      child: child,
+                    );
+                  },
+                  duration: const Duration(milliseconds: 300),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height - 185,
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10.0),
+                                topLeft: Radius.circular(10.0),
+                              ),
+                              color: Colors.white,
+                            ),
+                            width: MediaQuery.of(context).size.width / 1.1,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height -
+                                      MediaQuery.of(context).viewInsets.bottom -
+                                      280,
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          child: CTextField(
+                                              hintText:
+                                                  AppLocalizations.of(context)
+                                                      ?.email,
+                                              value: '',
+                                              maxlines: 1,
+                                              setValue: (value) {
+                                                email = Email.dirty(value);
+                                              }),
+                                        ),
+                                        const SizedBox(
+                                          height: 16,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          child: CTextField(
+                                            hintText:
+                                                AppLocalizations.of(context)
+                                                    ?.password,
+                                            value: '',
+                                            maxlines: 1,
+                                            setValue: (value) {
+                                              password = CString.dirty(value);
+                                            },
+                                          ),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () async {
+                                            await login();
+                                            await widget.isLogin();
+                                          },
+                                          child: const Text("Login"),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(bottom: 0, top: 20),
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(500.0),
+                                    onTap: () {},
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).primaryColor,
+                                        borderRadius:
+                                            BorderRadius.circular(500.0),
+                                      ),
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(
+                                        Icons.arrow_forward,
+                                        size: 30.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              await login();
-              await widget.isLogin();
-            },
-            child: const Text("Login"),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+
+      //   body: MultiBlocProvider(
+      // providers: [
+      //   BlocProvider<LoginBloc>(
+      //     create: (context) => LoginBloc(httpClient: http.Client()),
+      //   ),
+      // ],
+      // child: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Padding(
+      //       padding: const EdgeInsets.symmetric(horizontal: 16),
+      //       child: CTextField(
+      //           hintText: AppLocalizations.of(context)?.email,
+      //           value: '',
+      //           maxlines: 1,
+      //           setValue: (value) {
+      //             email = Email.dirty(value);
+      //           }),
+      //     ),
+      //     const SizedBox(
+      //       height: 16,
+      //     ),
+      //     Padding(
+      //       padding: const EdgeInsets.symmetric(horizontal: 16),
+      //       child: CTextField(
+      //         hintText: AppLocalizations.of(context)?.password,
+      //         value: '',
+      //         maxlines: 1,
+      //         setValue: (value) {
+      //           password = CString.dirty(value);
+      //         },
+      //       ),
+      //     ),
+      //     ElevatedButton(
+      //       onPressed: () async {
+      //         await login();
+      //         await widget.isLogin();
+      //       },
+      //       child: const Text("Login"),
+      //     ),
+      //   ],
+      // ),
+    );
   }
 }

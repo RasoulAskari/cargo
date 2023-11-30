@@ -142,20 +142,22 @@ class _AddUserScreenState extends State<AddUserScreen> {
     ];
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: CStepper(
-            prev: () {
-              prev(steps);
-            },
-            loading: loading,
-            stepAmount: 2,
-            steps: steps,
-            step: step,
-            next: () {
-              next(steps);
-            },
-            onSubmit: () async {
-              _submit();
-            }));
+      resizeToAvoidBottomInset: false,
+      body: CStepper(
+        prev: () {
+          prev(steps);
+        },
+        loading: loading,
+        stepAmount: 2,
+        steps: steps,
+        step: step,
+        next: () {
+          next(steps);
+        },
+        onSubmit: () async {
+          _submit();
+        },
+      ),
+    );
   }
 }
