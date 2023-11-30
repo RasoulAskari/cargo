@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   duration: const Duration(milliseconds: 300),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height - 185,
+                    height: MediaQuery.of(context).size.height - 300,
                     width: double.infinity,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,12 +106,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(
                                   height: MediaQuery.of(context).size.height -
                                       MediaQuery.of(context).viewInsets.bottom -
-                                      280,
+                                      400,
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
+                                        const SizedBox(height: 50),
                                         Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16),
@@ -141,13 +142,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                               password = CString.dirty(value);
                                             },
                                           ),
-                                        ),
-                                        ElevatedButton(
-                                          onPressed: () async {
-                                            await login();
-                                            await widget.isLogin();
-                                          },
-                                          child: const Text("Login"),
                                         ),
                                       ],
                                     ),
