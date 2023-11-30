@@ -5,6 +5,7 @@ import 'package:cargo/presentation/screens/home_screen.dart';
 import 'package:cargo/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainScreen extends StatefulWidget {
@@ -28,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
   Future<String?> _getLanguage() async {
     final lang = await _storage.read(key: "language");
 
+    // ignore: use_build_context_synchronously
     context.read<LanguageCubit>().changeLanguage(lang.toString());
 
     return lang;
