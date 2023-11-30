@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CargoApp extends StatefulWidget {
   const CargoApp({super.key});
@@ -14,10 +15,17 @@ class CargoApp extends StatefulWidget {
 }
 
 class _CargoAppState extends State<CargoApp> {
+  final _storage = const FlutterSecureStorage();
+
   @override
   void initState() {
-    context.read<LanguageCubit>().changeLanguage('en');
+    final lang = _getLanguage();
     super.initState();
+  }
+
+  Future<String?> _getLanguage() async {
+    final lang = await _storage.read(key: "language");
+    return lang;
   }
 
   @override
