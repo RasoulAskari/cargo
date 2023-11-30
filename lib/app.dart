@@ -20,6 +20,7 @@ class _CargoAppState extends State<CargoApp> {
   @override
   void initState() {
     final lang = _getLanguage();
+    context.read<LanguageCubit>().changeLanguage(lang as String);
     super.initState();
   }
 
