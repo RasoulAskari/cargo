@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     };
     try {
       final res = await http.post(
-        Uri.parse('$ }login'),
+        Uri.parse('http://127.0.0.1:8000/api/v1/login'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -51,6 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await storage.read(key: 'user');
       }
     } catch (e) {
+
       return;
     }
   }
