@@ -5,6 +5,7 @@ import 'package:cargo/logic/form_models/c_string.dart';
 import 'package:cargo/logic/form_models/email.dart';
 import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/presentation/widgets/form/c_text_field.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:cargo/utils/stepper/bard_bg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -86,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   duration: const Duration(milliseconds: 300),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height - 300,
+                    height: MediaQuery.of(context).size.height - 400,
                     width: double.infinity,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,13 +107,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(
                                   height: MediaQuery.of(context).size.height -
                                       MediaQuery.of(context).viewInsets.bottom -
-                                      400,
+                                      500,
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         const SizedBox(height: 50),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          child:
+                                              const InputLabel(label: "Email"),
+                                        ),
                                         Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 16),
@@ -127,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               }),
                                         ),
                                         const SizedBox(
-                                          height: 16,
+                                          height: 25,
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.symmetric(
@@ -160,8 +167,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                             BorderRadius.circular(500.0),
                                       ),
                                       padding: const EdgeInsets.all(10.0),
-                                      child: Icon(
-                                        Icons.arrow_forward,
+                                      child: const Icon(
+                                        Icons.check,
                                         size: 30.0,
                                         color: Colors.white,
                                       ),
