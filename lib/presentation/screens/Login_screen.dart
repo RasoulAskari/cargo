@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
     };
     try {
       final res = await http.post(
-        Uri.parse('http://127.0.0.1:8000/api/login'),
+        Uri.parse('http://127.0.0.1:8000/api/v1/login'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -50,6 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await storage.read(key: 'user');
       }
     } catch (e) {
+      print(e);
       return;
     }
   }
@@ -161,7 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       const EdgeInsets.only(bottom: 0, top: 20),
                                   child: InkWell(
                                     borderRadius: BorderRadius.circular(500.0),
-                                    onTap: () {},
+                                    onTap: () {
+                                      login();
+                                    },
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: Theme.of(context).primaryColor,
@@ -190,49 +193,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
       ),
-
-      //   body: MultiBlocProvider(
-      // providers: [
-      //   BlocProvider<LoginBloc>(
-      //     create: (context) => LoginBloc(httpClient: http.Client()),
-      //   ),
-      // ],
-      // child: Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-      //     Padding(
-      //       padding: const EdgeInsets.symmetric(horizontal: 16),
-      //       child: CTextField(
-      //           hintText: AppLocalizations.of(context)?.email,
-      //           value: '',
-      //           maxlines: 1,
-      //           setValue: (value) {
-      //             email = Email.dirty(value);
-      //           }),
-      //     ),
-      //     const SizedBox(
-      //       height: 16,
-      //     ),
-      //     Padding(
-      //       padding: const EdgeInsets.symmetric(horizontal: 16),
-      //       child: CTextField(
-      //         hintText: AppLocalizations.of(context)?.password,
-      //         value: '',
-      //         maxlines: 1,
-      //         setValue: (value) {
-      //           password = CString.dirty(value);
-      //         },
-      //       ),
-      //     ),
-      //     ElevatedButton(
-      //       onPressed: () async {
-      //         await login();
-      //         await widget.isLogin();
-      //       },
-      //       child: const Text("Login"),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
