@@ -120,7 +120,6 @@ class OrderCubit extends Cubit<OrderState> {
     emit(
       state.copyWith(date: date),
     );
-    print(state.date);
   }
 
   void itemsChange(List<MyOrderItme> value) {
