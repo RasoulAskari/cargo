@@ -55,7 +55,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   setValue: (value) {
                     setLanguage(value);
                     context.read<LanguageCubit>().changeLanguage(value);
-                    setState(() {});
+                    Navigator.of(context).pop();
                   },
                   items: [
                     {
