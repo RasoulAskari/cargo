@@ -82,5 +82,18 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
   }
 
   void submit() {
+    emit(
+      state.copyWith(
+        phoneNumber: const PhoneNo.pure(),
+        amount: const Amount.pure(),
+        date: const MyDate.pure(),
+        currency: const CString.pure(),
+        exchangeId: const CString.pure(),
+        receiverIdNo: const Number.pure(),
+        receiverName: const FirstName.pure(),
+        receiverFathername: const FirstName.pure(),
+        province: const CString.pure(),
+      ),
+    );
   }
 }
