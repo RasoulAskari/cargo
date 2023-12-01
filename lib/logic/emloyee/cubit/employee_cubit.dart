@@ -74,4 +74,9 @@ class EmployeeCubit extends Cubit<EmployeeState> {
       salary: salary,
     ));
   }
+
+  void sibmit() {
+    emit(state.copyWith(
+    ));
+  }
 }
