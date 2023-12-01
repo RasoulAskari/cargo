@@ -55,19 +55,16 @@ class _SettingScreenState extends State<SettingScreen> {
                   setValue: (value) {
                     setLanguage(value);
                     context.read<LanguageCubit>().changeLanguage(value);
+                    Navigator.of(context).pop();
                   },
                   items: [
                     {
                       'value': 'fa',
-                      'label': state.language.value == 'fa'
-                          ? AppLocalizations.of(context)!.persain
-                          : AppLocalizations.of(context)!.english,
+                      'label': AppLocalizations.of(context)!.persain,
                     },
                     {
                       'value': 'en',
-                      'label': state.language.value == 'en'
-                          ? AppLocalizations.of(context)!.english
-                          : AppLocalizations.of(context)!.persain,
+                      'label': AppLocalizations.of(context)!.english,
                     },
                   ]);
             },
