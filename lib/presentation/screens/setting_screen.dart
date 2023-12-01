@@ -23,7 +23,24 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("app bar"),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            )),
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text(
+          // AppLocalizations.of(context)!.employee_screen,
+          "Setting",
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Column(children: [
         BlocBuilder<LanguageCubit, LanguageState>(
