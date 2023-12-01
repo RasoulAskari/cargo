@@ -64,4 +64,17 @@ class UserCubit extends Cubit<UserState> {
       state.copyWith(privileges: items),
     );
   }
+
+  void submit() {
+    emit(
+      state.copyWith(
+          name: const FirstName.pure(),
+          email: const Email.pure(),
+          password: const Password.pure(),
+          confirmPassword: const CString.pure(),
+          role: const CString.pure(),
+          privileges: const Privilege.pure(),
+          premissions: const UserList.pure()),
+    );
+  }
 }
