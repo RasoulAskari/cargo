@@ -85,7 +85,7 @@ class _AddUserScreenState extends State<AddUserScreen> {
         step = step + 1;
       });
     } else {
-      Toast.show("fill required fields");
+      Toast.show(AppLocalizations.of(context)!.validate_input);
     }
   }
 
