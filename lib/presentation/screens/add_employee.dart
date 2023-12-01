@@ -187,6 +187,7 @@ class _AddEmployeeState extends State<AddEmployee> {
         },
         onSubmit: () async {
           widget.employee != null ? _editEmployee() : _addEmployee();
+          context.read<EmployeeCubit>().submit();
         },
         prev: () {
           prev(steps);
