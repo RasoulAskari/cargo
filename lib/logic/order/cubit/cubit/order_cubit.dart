@@ -130,5 +130,24 @@ class OrderCubit extends Cubit<OrderState> {
     );
   }
 
-  void submit() {}
+  void submit() {
+    emit(
+      state.copyWith(
+        items: const ItemsList.pure(),
+        customerName: const FirstName.pure(),
+        customerFathername: const FirstName.pure(),
+        customerGrandFathername: const FirstName.pure(),
+        customerIdCard: const CString.pure(),
+        customerPhoneNo: const PhoneNo.pure(),
+        date: const MyDate.pure(),
+        groupNum: const Number.pure(),
+        pricePerKelo: const Amount.pure(),
+        receiverName: const FirstName.pure(),
+        receiverPhoneNo: const PhoneNo.pure(),
+        typeReceiver: const CString.pure(),
+        country: const CString.pure(),
+        city: const CString.pure(),
+      ),
+    );
+  }
 }
