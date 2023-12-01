@@ -63,7 +63,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     },
                     {
                       'value': 'en',
-                      'label': "English",
+                      'label': AppLocalizations.of(context)!.english,
                     },
                   ]);
             },
