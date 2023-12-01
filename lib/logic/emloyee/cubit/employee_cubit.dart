@@ -77,6 +77,15 @@ class EmployeeCubit extends Cubit<EmployeeState> {
 
   void sibmit() {
     emit(state.copyWith(
+      firstname: const FirstName.pure(),
+      lastname: const FirstName.pure(),
+      phoneNo: const PhoneNo.pure(),
+      email: const Email.pure(),
+      currentAddress: const Address.pure(),
+      premenentAddress: const Address.pure(),
+      startDate: const MyDate.pure(),
+      endDate: const MyDate.pure(),
+      salary: const Amount.pure(),
     ));
   }
 }
