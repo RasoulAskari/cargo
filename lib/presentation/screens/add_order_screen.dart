@@ -148,6 +148,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           } else {
             Toast.show(AppLocalizations.of(context)!.validate_input);
           }
+          context.read<OrderCubit>().submit();
         },
         prev: () {
           prev(steps);
