@@ -129,4 +129,6 @@ class OrderCubit extends Cubit<OrderState> {
       state.copyWith(items: items),
     );
   }
+
+  void submit() {}
 }
