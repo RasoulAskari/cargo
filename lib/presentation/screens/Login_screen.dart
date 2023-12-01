@@ -50,7 +50,6 @@ class _LoginScreenState extends State<LoginScreen> {
         await storage.read(key: 'user');
       }
     } catch (e) {
-      print(e);
       return;
     }
   }
