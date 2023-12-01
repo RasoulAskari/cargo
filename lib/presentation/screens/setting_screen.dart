@@ -42,28 +42,32 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
         ),
       ),
-      body: Column(children: [
-        BlocBuilder<LanguageCubit, LanguageState>(
-          builder: (context, state) {
-            return CDropdown(
-                value: state.language.value,
-                setValue: (value) {
-                  setLanguage(value);
-                  context.read<LanguageCubit>().changeLanguage(value);
-                },
-                items: const [
-                  {
-                    'value': 'fa',
-                    'label': "Persain",
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(children: [
+          BlocBuilder<LanguageCubit, LanguageState>(
+            builder: (context, state) {
+              return CDropdown(
+                  // hintText: AppLocalizations.of(context),
+                  value: state.language.value,
+                  setValue: (value) {
+                    setLanguage(value);
+                    context.read<LanguageCubit>().changeLanguage(value);
                   },
-                  {
-                    'value': 'en',
-                    'label': "English",
-                  },
-                ]);
-          },
-        ),
-      ]),
+                  items: const [
+                    {
+                      'value': 'fa',
+                      'label': "Persain",
+                    },
+                    {
+                      'value': 'en',
+                      'label': "English",
+                    },
+                  ]);
+            },
+          ),
+        ]),
+      ),
     );
   }
 }

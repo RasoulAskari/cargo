@@ -8,6 +8,7 @@
   "login": "Login",
   "amount": "Amount",  
   "currency": "Currency",  
+  "language": "Language",  
   "employee_name": "Employee Name",  
   "payment_amount": "Payment Amount",  
   "remain_amount": "Remain Amount",  
