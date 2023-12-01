@@ -1,6 +1,7 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/language/cubit/language_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
+import 'package:cargo/presentation/widgets/input_label.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,6 +46,7 @@ class _SettingScreenState extends State<SettingScreen> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
+          InputLabel(label: AppLocalizations.of(context)!.language),
           BlocBuilder<LanguageCubit, LanguageState>(
             builder: (context, state) {
               return CDropdown(
