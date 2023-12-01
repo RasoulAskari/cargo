@@ -75,7 +75,7 @@ class EmployeeCubit extends Cubit<EmployeeState> {
     ));
   }
 
-  void sibmit() {
+  void submit() {
     emit(state.copyWith(
       firstname: const FirstName.pure(),
       lastname: const FirstName.pure(),
