@@ -169,6 +169,7 @@ class _AddExchangeMoneyScreenState extends State<AddExchangeMoneyScreen> {
           } else {
             Toast.show(AppLocalizations.of(context)!.validate_input);
           }
+          context.read<ExchangeMoneyCubit>().submit();
         },
         prev: () {
           prev(steps);
