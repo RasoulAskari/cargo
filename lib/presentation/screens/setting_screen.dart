@@ -1,3 +1,4 @@
+import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/language/cubit/language_cubit.dart';
 import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
 import 'package:flutter/material.dart';
@@ -33,8 +34,7 @@ class _SettingScreenState extends State<SettingScreen> {
             )),
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
-          // AppLocalizations.of(context)!.employee_screen,
-          "Setting",
+          AppLocalizations.of(context)!.setting_screen,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
