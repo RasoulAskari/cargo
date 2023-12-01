@@ -40,8 +40,6 @@ class _MainScreenState extends State<MainScreen> {
       final jsonModel = await _storage.read(key: 'user');
       final jsonData = jsonDecode(jsonModel.toString());
 
-      print(jsonData);
-
       if (jsonData['user']['created_at'] != null && jsonData['token'] != null) {
         // DateTime created_at = DateTime.parse(jsonData['user']['created_at']);
         // DateTime n = DateTime.now();
