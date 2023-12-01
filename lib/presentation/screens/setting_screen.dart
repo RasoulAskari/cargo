@@ -48,7 +48,7 @@ class _SettingScreenState extends State<SettingScreen> {
           BlocBuilder<LanguageCubit, LanguageState>(
             builder: (context, state) {
               return CDropdown(
-                  // hintText: AppLocalizations.of(context),
+                  hintText: AppLocalizations.of(context)!.language,
                   value: state.language.value,
                   setValue: (value) {
                     setLanguage(value);
