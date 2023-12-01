@@ -78,7 +78,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             order['car_id'] = value['car_id'],
           });
 
-      final res = await http.post(
+      await http.post(
         Uri.parse('${apiRoute}orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
