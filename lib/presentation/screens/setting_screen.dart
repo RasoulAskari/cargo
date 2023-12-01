@@ -59,13 +59,15 @@ class _SettingScreenState extends State<SettingScreen> {
                   items: [
                     {
                       'value': 'fa',
-                      'label': state.language.value == 'en'
-                          ? AppLocalizations.of(context)!.english
-                          : AppLocalizations.of(context)!.persain,
+                      'label': state.language.value == 'fa'
+                          ? AppLocalizations.of(context)!.persain
+                          : AppLocalizations.of(context)!.english,
                     },
                     {
                       'value': 'en',
-                      'label': AppLocalizations.of(context)!.english,
+                      'label': state.language.value == 'en'
+                          ? AppLocalizations.of(context)!.english
+                          : AppLocalizations.of(context)!.persain,
                     },
                   ]);
             },
