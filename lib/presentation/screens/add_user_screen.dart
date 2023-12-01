@@ -70,6 +70,8 @@ class _AddUserScreenState extends State<AddUserScreen> {
                 UpdateUserEvent(user: user),
               );
 
+      context.read<UserCubit>().submit();
+
       Navigator.of(context).pushReplacementNamed(userScreen);
     }
   }
