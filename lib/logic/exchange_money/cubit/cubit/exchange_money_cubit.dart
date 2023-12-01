@@ -81,5 +81,6 @@ class ExchangeMoneyCubit extends Cubit<ExchangeMoneyState> {
     );
   }
 
-
+  void submit() {
+  }
 }
