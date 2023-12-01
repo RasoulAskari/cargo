@@ -72,6 +72,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'name': userData.name,
     };
 
+
+
     try {
       await http.post(
         Uri.parse('${apiRoute}users'),
