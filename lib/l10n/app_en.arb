@@ -58,6 +58,7 @@
   "city": "City",
   "address": "address",
   "edit": "Edit",
+  "report": "Report",
   "weight": "Weight",
   "add_order_detail": "Add Order Detail",
   "confirm_password": "Confirm Password",
