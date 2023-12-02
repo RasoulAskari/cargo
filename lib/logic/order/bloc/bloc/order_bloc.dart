@@ -31,7 +31,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
           'Authorization': 'Bearer $token',
         },
       );
-      print(response.body);
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
@@ -39,7 +38,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
       return {};
     } catch (e) {
-      
       return {};
     }
   }
