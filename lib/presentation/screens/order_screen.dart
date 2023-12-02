@@ -47,11 +47,13 @@ class _OrderScreenState extends State<OrderScreen> {
       ),
       body: BlocBuilder<OrderBloc, OrderState>(
         builder: (context, state) {
+
           if (state.status == OrderStatus.initial) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
+          
           return ListView.builder(
             itemCount: state.orders.length,
             itemBuilder: (context, index) {
