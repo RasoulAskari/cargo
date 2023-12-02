@@ -44,8 +44,12 @@ class ReportScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text("Acount Money"),
-                      Text(state.reports.first['account_money'].toString())
+                      Text(AppLocalizations.of(context)!.account_money),
+                      Text(state.reports.first['account_money'].toString()),
+                      const Icon(
+                        Icons.emoji_events,
+                        size: 30,
+                      )
                     ],
                   )
                 ],
