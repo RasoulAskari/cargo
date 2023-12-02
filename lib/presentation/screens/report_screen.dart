@@ -31,7 +31,10 @@ class ReportScreen extends StatelessWidget {
       ),
       body: BlocBuilder<ReportBloc, ReportState>(
         builder: (context, state) {
-          return Container();
+          return Container(
+            if( )
+            child: Text(state.reports.toString()),
+          );
         },
       ),
     );
