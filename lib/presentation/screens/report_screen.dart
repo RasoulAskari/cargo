@@ -1,5 +1,8 @@
 import 'package:cargo/config/localization.dart';
+import 'package:cargo/logic/report/bloc/report_bloc.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ReportScreen extends StatelessWidget {
   const ReportScreen({super.key});
@@ -25,6 +28,11 @@ class ReportScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+      ),
+      body: BlocBuilder<ReportBloc, ReportState>(
+        builder: (context, state) {
+          return Container();
+        },
       ),
     );
   }

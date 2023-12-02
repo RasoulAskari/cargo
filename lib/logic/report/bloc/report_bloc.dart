@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/report/model/report_model.dart';
@@ -41,7 +43,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     try {
       final response = await httpClient.get(
         getServerRoute(
-          route: '/api/v1/orders',
+          route: '/api/v1/analytics',
         ),
         headers: <String, String>{
           'Authorization': 'Bearer $token',
@@ -50,9 +52,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        return body.map((e) {
-          return OrderModel.fromMap(e);
-        }).toList();
+        print(body);
       }
 
       return [];
