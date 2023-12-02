@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/report/model/report_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'report_event.dart';

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class Report extends Equatable {
+class ReportModel extends Equatable {
   @override
   List<Object?> get props => [];
 }
