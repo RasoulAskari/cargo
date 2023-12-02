@@ -51,12 +51,13 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       );
 
       if (response.statusCode == 200) {
-        final body = json.decode(response.body)["data"] as List;
-        print(body);
+        final body = json.decode(response.body);
+        
       }
 
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
