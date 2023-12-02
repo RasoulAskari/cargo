@@ -38,7 +38,7 @@ class ReportScreen extends StatelessWidget {
           }
           return SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Column(
                 children: [
                   Row(

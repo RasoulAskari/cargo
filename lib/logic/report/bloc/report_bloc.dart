@@ -2,14 +2,11 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
-import 'package:cargo/logic/report/model/report_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 
 part 'report_event.dart';
 part 'report_state.dart';
-
-const _postLimit = 10;
 
 class ReportBloc extends Bloc<ReportEvent, ReportState> {
   final http.Client httpClient;
@@ -40,8 +37,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
           ),
         );
       }
-    } catch (e) {
-      print(e);
-    }
+      // ignore: empty_catches
+    } catch (e) {}
   }
 }
