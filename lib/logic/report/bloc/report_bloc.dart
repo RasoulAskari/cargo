@@ -18,7 +18,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     on<FetchReportEvent>(_onReportFetched);
   }
 
-  Future<Map<String, dynamic>> _onReportFetched(
+  Future<void> _onReportFetched(
       FetchReportEvent event, Emitter<ReportState> emitter) async {
     final token = await getAuthToken();
     try {
@@ -32,13 +32,16 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       );
 
       if (response.statusCode == 200) {
-        print(response.body);
-        return jsonDecode(response.body);
+        return emitter(
+          state.copyWith(
+            status: ReportStatus.success,
+            reports: [ReportModel()],
+            hasReachedMax: false,
+          ),
+        );
       }
-      return {};
     } catch (e) {
       print(e);
-      return {};
     }
   }
 }
