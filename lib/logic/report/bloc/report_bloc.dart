@@ -18,27 +18,8 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     on<FetchReportEvent>(_onReportFetched);
   }
 
-  Future<void> _onReportFetched(
+  Future<Map<String, dynamic>> _onReportFetched(
       FetchReportEvent event, Emitter<ReportState> emitter) async {
-    if (state.hasReachedMax) return;
-
-    try {
-      if (state.status == ReportStatus.initial) {
-        final orders = await _fetchOrders(page: state.page);
-        return emitter(
-          state.copyWith(
-            status: ReportStatus.success,
-            reports: orders,
-            hasReachedMax: orders.length < _postLimit,
-          ),
-        );
-      }
-    } catch (e) {
-      return;
-    }
-  }
-
-  Future<List<ReportModel>> _fetchOrders({int? page}) async {
     final token = await getAuthToken();
     try {
       final response = await httpClient.get(
@@ -51,14 +32,12 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       );
 
       if (response.statusCode == 200) {
-        final body = json.decode(response.body);
-        
+        return jsonDecode(response.body);
       }
-
-      return [];
+      return {};
     } catch (e) {
       print(e);
-      return [];
+      return {};
     }
   }
 }
