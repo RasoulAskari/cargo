@@ -5,19 +5,19 @@ enum ReportStatus { initial, success, failure }
 class ReportState extends Equatable {
   const ReportState({
     this.status = ReportStatus.initial,
-    this.reports = const <ReportModel>[],
+    this.reports = const <Map<String, dynamic>>[],
     this.hasReachedMax = false,
     this.page = 0,
   });
 
   final ReportStatus status;
-  final List<ReportModel> reports;
+  final List<Map<String, dynamic>> reports;
   final int page;
   final bool hasReachedMax;
 
   ReportState copyWith({
     ReportStatus? status,
-    List<ReportModel>? reports,
+    List<Map<String, dynamic>>? reports,
     bool? hasReachedMax,
     int? page,
   }) {
