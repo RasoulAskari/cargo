@@ -10,7 +10,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     on<FetchReportEvent>();
   }
 
-  Future<void> _onOrdersFetched(
+  Future<void> _onReportFetched(
       FetchReportEvent event, Emitter<ReportState> emitter) async {
     if (state.hasReachedMax) return;
 
