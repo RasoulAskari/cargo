@@ -20,6 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final List<dynamic> data = [
       {
+        'name': "Report",
+        'image': "",
+        'function': () {
+          checkPermissionRoute(reportScreen, 'employee_view', context);
+        }
+      },
+      {
         'name': AppLocalizations.of(context)!.user,
         'image': "",
         'function': () {
