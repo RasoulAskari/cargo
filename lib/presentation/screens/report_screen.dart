@@ -18,7 +18,7 @@ class ReportScreen extends StatelessWidget {
             )),
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
-          AppLocalizations.of(context)!.employee_screen,
+          AppLocalizations.of(context)!.report_screen,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
