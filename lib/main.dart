@@ -9,6 +9,7 @@ import 'package:cargo/logic/login/bloc/login_bloc.dart';
 import 'package:cargo/logic/order/bloc/bloc/order_bloc.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_cubit.dart';
 import 'package:cargo/logic/order/cubit/cubit/order_item_cubit.dart';
+import 'package:cargo/logic/report/bloc/report_bloc.dart';
 import 'package:cargo/logic/salary/bloc/salary_bloc.dart';
 import 'package:cargo/logic/user/bloc/user_bloc.dart';
 import 'package:cargo/logic/user/cubit/cubit/user_cubit.dart';
@@ -45,6 +46,11 @@ class MyApp extends StatelessWidget {
         create: (context) => OrderBloc(
           httpClient: http.Client(),
         )..add(FetchOrderEvent()),
+      ),
+      BlocProvider<ReportBloc>(
+        create: (context) => ReportBloc(
+          httpClient: http.Client(),
+        )..add(FetchReportEvent()),
       ),
       BlocProvider<SalaryBloc>(
         create: (context) => SalaryBloc(
