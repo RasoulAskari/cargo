@@ -1,13 +1,19 @@
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/logic/report/model/report_model.dart';
 import 'package:equatable/equatable.dart';
+import 'package:http/http.dart' as http;
 
 part 'report_event.dart';
 part 'report_state.dart';
 
+const _postLimit = 10;
+
 class ReportBloc extends Bloc<ReportEvent, ReportState> {
-  ReportBloc() : super(const ReportState()) {
-    on<FetchReportEvent>();
+  final http.Client httpClient;
+
+  ReportBloc({required this.httpClient}) : super(const ReportState()) {
+    on<FetchReportEvent>(_onReportFetched);
   }
 
   Future<void> _onReportFetched(
@@ -27,6 +33,31 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       }
     } catch (e) {
       return;
+    }
+  }
+
+  Future<List<ReportModel>> _fetchOrders({int? page}) async {
+    final token = await getAuthToken();
+    try {
+      final response = await httpClient.get(
+        getServerRoute(
+          route: '/api/v1/orders',
+        ),
+        headers: <String, String>{
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final body = json.decode(response.body)["data"] as List;
+        return body.map((e) {
+          return OrderModel.fromMap(e);
+        }).toList();
+      }
+
+      return [];
+    } catch (e) {
+      return [];
     }
   }
 }
