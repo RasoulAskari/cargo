@@ -35,7 +35,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         return emitter(
           state.copyWith(
             status: ReportStatus.success,
-            reports: [ReportModel()],
+            reports: [jsonDecode(response.body)],
             hasReachedMax: false,
           ),
         );
