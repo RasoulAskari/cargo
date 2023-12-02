@@ -31,8 +31,13 @@ class ReportScreen extends StatelessWidget {
       ),
       body: BlocBuilder<ReportBloc, ReportState>(
         builder: (context, state) {
+          if (state.status == ReportStatus.initial) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
           return Container(
-            if( )
             child: Text(state.reports.toString()),
           );
         },
