@@ -36,9 +36,21 @@ class ReportScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-
-          return Container(
-            child: Text(state.reports.toString()),
+          return SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("Acount Money"),
+                      Text(state.reports.first['account_money'].toString())
+                    ],
+                  )
+                ],
+              ),
+            ),
           );
         },
       ),
