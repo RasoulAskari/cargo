@@ -43,22 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
         body: jsonEncode(data),
       );
 
-      print(res.body);
-
       final response = jsonDecode(res.body);
-      print("mdmdm");
 
       if (response['result']) {
-        print("nnnn");
-
         final jsonDataEncoded = jsonEncode(response);
         await storage.write(key: "user", value: jsonDataEncoded);
         await storage.read(key: 'user');
       }
     } catch (e) {
-      print("mdmdm");
-
-      print(e);
       return;
     }
   }
@@ -121,10 +113,10 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
                   alignment: Alignment.center,
                   height: MediaQuery.of(context).size.height / 8 * 5,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Column(children: [
@@ -163,11 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     ElevatedButton(
-                      child: Text("login"),
+                      child: const Text("login"),
                       onPressed: () {
                         login();
                       },
