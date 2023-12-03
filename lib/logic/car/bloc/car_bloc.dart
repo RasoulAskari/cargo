@@ -6,7 +6,7 @@ part 'car_event.dart';
 part 'car_state.dart';
 
 class CarBloc extends Bloc<CarEvent, CarState> {
-  CarBloc() : super(CarInitial()) {
+  CarBloc() : super(const CarState()) {
     on<CarEvent>((event, emit) {
       // TODO: implement event handler
     });
