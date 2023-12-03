@@ -118,129 +118,18 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             const BrandBg(),
             Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Expanded(
-                    child: Container(
-                  height: 20,
-                )),
-                AnimatedSwitcher(
-                  transitionBuilder:
-                      (Widget child, Animation<double> animation) {
-                    return ScaleTransition(
-                      scale: Tween<double>(begin: 0.9, end: 1.0).animate(
-                        CurvedAnimation(
-                          parent: animation,
-                          curve: const Interval(0.0, 1.0),
-                        ),
-                      ),
-                      child: child,
-                    );
-                  },
-                  duration: const Duration(milliseconds: 300),
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height - 400,
-                    width: double.infinity,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(10.0),
-                              topLeft: Radius.circular(10.0),
-                            ),
-                            color: Colors.white,
-                          ),
-                          width: MediaQuery.of(context).size.width / 1.1,
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height -
-                                    MediaQuery.of(context).viewInsets.bottom -
-                                    500,
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(height: 50),
-                                      const Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 16),
-                                        child: InputLabel(label: "Email"),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 16),
-                                        child: CTextField(
-                                            hintText:
-                                                AppLocalizations.of(context)
-                                                    ?.email,
-                                            value: '',
-                                            maxlines: 1,
-                                            setValue: (value) {
-                                              email = Email.dirty(value);
-                                            }),
-                                      ),
-                                      const SizedBox(
-                                        height: 25,
-                                      ),
-                                      const Padding(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 16,
-                                        ),
-                                        child: InputLabel(label: "Password"),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 16),
-                                        child: CTextField(
-                                          hintText: AppLocalizations.of(context)
-                                              ?.password,
-                                          value: '',
-                                          maxlines: 1,
-                                          setValue: (value) {
-                                            password = CString.dirty(value);
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(bottom: 0, top: 20),
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(500.0),
-                                  onTap: () async {
-                                    await login();
-                                    await widget.isLogin();
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context).primaryColor,
-                                      borderRadius:
-                                          BorderRadius.circular(500.0),
-                                    ),
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: const Icon(
-                                      Icons.check,
-                                      size: 30.0,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height / 8 * 5,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
                   ),
                 )
               ],
-            ),
+            )
           ],
         ),
       ),
