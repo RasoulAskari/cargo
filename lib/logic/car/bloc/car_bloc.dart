@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cargo/logic/car/model/car_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'car_event.dart';

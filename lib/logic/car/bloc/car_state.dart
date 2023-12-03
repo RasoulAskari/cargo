@@ -5,19 +5,19 @@ enum CarStatus { initial, success, failure }
 class EmployeeState extends Equatable {
   const EmployeeState({
     this.status = CarStatus.initial,
-    this.employees = const <EmployeeModel>[],
+    this.employees = const <CarModel>[],
     this.hasReachedMax = false,
     this.page = 0,
   });
 
   final CarStatus status;
-  final List<EmployeeModel> employees;
+  final List<CarModel> employees;
   final int page;
   final bool hasReachedMax;
 
   EmployeeState copyWith({
     CarStatus? status,
-    List<EmployeeModel>? employees,
+    List<CarModel>? employees,
     bool? hasReachedMax,
     int? page,
   }) {
