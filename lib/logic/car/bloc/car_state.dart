@@ -2,8 +2,8 @@ part of 'car_bloc.dart';
 
 enum CarStatus { initial, success, failure }
 
-class EmployeeState extends Equatable {
-  const EmployeeState({
+class CarState extends Equatable {
+  const CarState({
     this.status = CarStatus.initial,
     this.employees = const <CarModel>[],
     this.hasReachedMax = false,
@@ -15,13 +15,13 @@ class EmployeeState extends Equatable {
   final int page;
   final bool hasReachedMax;
 
-  EmployeeState copyWith({
+  CarState copyWith({
     CarStatus? status,
     List<CarModel>? employees,
     bool? hasReachedMax,
     int? page,
   }) {
-    return EmployeeState(
+    return CarState(
       status: status ?? this.status,
       employees: employees ?? this.employees,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
@@ -31,7 +31,7 @@ class EmployeeState extends Equatable {
 
   @override
   String toString() {
-    return '''employeestate { status: $status, hasReachedMax: $hasReachedMax, employees: ${employees.length} }''';
+    return '''CarState { status: $status, hasReachedMax: $hasReachedMax, employees: ${employees.length} }''';
   }
 
   @override
