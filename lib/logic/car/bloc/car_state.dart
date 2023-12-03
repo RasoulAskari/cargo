@@ -5,25 +5,25 @@ enum CarStatus { initial, success, failure }
 class CarState extends Equatable {
   const CarState({
     this.status = CarStatus.initial,
-    this.employees = const <CarModel>[],
+    this.cars = const <CarModel>[],
     this.hasReachedMax = false,
     this.page = 0,
   });
 
   final CarStatus status;
-  final List<CarModel> employees;
+  final List<CarModel> cars;
   final int page;
   final bool hasReachedMax;
 
   CarState copyWith({
     CarStatus? status,
-    List<CarModel>? employees,
+    List<CarModel>? cars,
     bool? hasReachedMax,
     int? page,
   }) {
     return CarState(
       status: status ?? this.status,
-      employees: employees ?? this.employees,
+      cars: cars ?? this.cars,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
       page: page ?? this.page,
     );
@@ -31,9 +31,9 @@ class CarState extends Equatable {
 
   @override
   String toString() {
-    return '''CarState { status: $status, hasReachedMax: $hasReachedMax, employees: ${employees.length} }''';
+    return '''CarState { status: $status, hasReachedMax: $hasReachedMax, cars: ${cars.length} }''';
   }
 
   @override
-  List<Object> get props => [status, employees, hasReachedMax, page];
+  List<Object> get props => [status, cars, hasReachedMax, page];
 }
