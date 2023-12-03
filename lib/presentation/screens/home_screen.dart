@@ -55,6 +55,13 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
       {
+        'name': AppLocalizations.of(context)?.cars,
+        'image': "",
+        'function': () {
+          checkPermissionRoute(ordersScreen, 'order_view', context);
+        }
+      },
+      {
         'name': AppLocalizations.of(context)?.salary,
         'image': "",
         'function': () {
