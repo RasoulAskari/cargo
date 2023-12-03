@@ -1,6 +1,6 @@
 {
-    "user": "کاربر",
-    "employee": "کارمند",
+    "user": "کاربران",
+    "employee": "کارمندان",
     "incoming_outgoing": "رفت و آمد",
     "outgoing": "رفت",
     "incoming": "آمد",
@@ -24,12 +24,12 @@
     "add_salary_screen": "صفحه پرداخت معاشات",
     "add_incoming_outgoing_screen": " صفحه اضافه نمودن رفت و آمد ",
     "order_screen": "صفحه سفارش",
-    "order": "سفارش",
+    "order": "سفارشات",
     "customer_detail": "معلومات مشتری",
     "receiver_detail": "معلومات گیرنده",
     "add_employee_screen": "صفحه اضافه نمودن کامندان",
 
-    "salary": "معاش",
+    "salary": "معاشات",
     "exchange_money": "حواله",
     "exchange_money_id": "نمبر حواله",
     "receiver_id": "نمبر گیرنده",
