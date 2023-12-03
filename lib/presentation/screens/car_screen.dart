@@ -18,7 +18,7 @@ class CarScreen extends StatelessWidget {
             )),
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
-          AppLocalizations.of(context)!.report_screen,
+          AppLocalizations.of(context)!.car_screen,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
