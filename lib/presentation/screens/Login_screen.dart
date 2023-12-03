@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
       //     )
       //   ],
       // )),
-      
+
       body: SizedBox(
         height: double.infinity,
         child: Stack(
@@ -116,9 +116,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 15),
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height / 8 * 5,
+                  height: MediaQuery.of(context).size.height / 8 * 4,
                   decoration: const BoxDecoration(
                     color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10.0),
+                      topLeft: Radius.circular(10.0),
+                    ),
                   ),
                   child: Column(children: [
                     const SizedBox(height: 50),
@@ -161,8 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     ElevatedButton(
                       child: const Text("login"),
-                      onPressed: () {
-                        login();
+                      onPressed: () async {
+                        await login();
+                        await widget.isLogin();
                       },
                     )
                   ]),
