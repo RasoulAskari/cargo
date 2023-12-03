@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'name': AppLocalizations.of(context)?.cars,
         'image': "",
         'function': () {
-          checkPermissionRoute(ordersScreen, 'order_view', context);
+          checkPermissionRoute(carScreen, 'car_view', context);
         }
       },
       {
