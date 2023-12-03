@@ -1,22 +1,22 @@
 part of 'car_bloc.dart';
 
-enum EmployeeStatus { initial, success, failure }
+enum CarStatus { initial, success, failure }
 
 class EmployeeState extends Equatable {
   const EmployeeState({
-    this.status = EmployeeStatus.initial,
+    this.status = CarStatus.initial,
     this.employees = const <EmployeeModel>[],
     this.hasReachedMax = false,
     this.page = 0,
   });
 
-  final EmployeeStatus status;
+  final CarStatus status;
   final List<EmployeeModel> employees;
   final int page;
   final bool hasReachedMax;
 
   EmployeeState copyWith({
-    EmployeeStatus? status,
+    CarStatus? status,
     List<EmployeeModel>? employees,
     bool? hasReachedMax,
     int? page,
