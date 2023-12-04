@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 class CarModel extends Equatable {
@@ -58,4 +60,41 @@ class CarModel extends Equatable {
       remainder: remainder ?? this.remainder,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'status': status,
+      'paymentsSumAmount': paymentsSumAmount,
+      'extraExpenseSumPrice': extraExpenseSumPrice,
+      'carExpenseSumPrice': carExpenseSumPrice,
+      'ordersCount': ordersCount,
+      'totalPrice': totalPrice,
+      'startDate': startDate,
+      'endDate': endDate,
+      'benefits': benefits,
+      'remainder': remainder,
+    };
+  }
+
+  factory CarModel.fromMap(Map<String, dynamic> map) {
+    return CarModel(
+      id: map['id'] as int,
+      status: map['status'] as int,
+      paymentsSumAmount: map['payments_sum_amount'] as double,
+      extraExpenseSumPrice: map['extra_expense_sum_price'] as double,
+      carExpenseSumPrice: map['extra_expense_sum_price'] as double,
+      ordersCount: map['orders_count'] as double,
+      totalPrice: map['total_price'] as double,
+      startDate: map['start_date'] as String,
+      endDate: map['end_date'] as String,
+      benefits: map['benefits'] as double,
+      remainder: map['remainder'] as double,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory CarModel.fromJson(String source) =>
+      CarModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
