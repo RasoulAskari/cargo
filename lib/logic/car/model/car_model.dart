@@ -33,7 +33,20 @@ class CarModel extends Equatable {
   });
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [
+        id,
+        status,
+        itemsSumWeight,
+        paymentsSumAmount,
+        extraExpenseSumPrice,
+        carExpenseSumPrice,
+        ordersCount,
+        totalPrice,
+        startDate,
+        endDate,
+        benefits,
+        remainder,
+      ];
 
   CarModel copyWith({
     int? id,
