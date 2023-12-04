@@ -86,7 +86,7 @@ class CarModel extends Equatable {
       extraExpenseSumPrice:
           double.tryParse(map['extra_expense_sum_price'] ?? 0.0) as double,
       carExpenseSumPrice:
-          double.tryParse(map['extra_expense_sum_price'] ?? 0.0) as double,
+          double.tryParse(map['car_expense_sum_price'] ?? 0.0) as double,
       ordersCount: double.tryParse(map['orders_count'] ?? 0.0) as double,
       totalPrice: double.tryParse(map['total_price'] ?? 0.0) as double,
       startDate: map['start_date'] as String,
