@@ -6,15 +6,15 @@ import 'package:equatable/equatable.dart';
 class CarModel extends Equatable {
   final int id;
   final int status;
-  final double paymentsSumAmount;
-  final double extraExpenseSumPrice;
-  final double carExpenseSumPrice;
-  final double ordersCount;
-  final double totalPrice;
-  final String startDate;
-  final String endDate;
-  final double benefits;
-  final double remainder;
+  final double? paymentsSumAmount;
+  final double? extraExpenseSumPrice;
+  final double? carExpenseSumPrice;
+  final double? ordersCount;
+  final double? totalPrice;
+  final String? startDate;
+  final String? endDate;
+  final double? benefits;
+  final double? remainder;
 
   const CarModel({
     required this.id,

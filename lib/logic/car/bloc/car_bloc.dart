@@ -52,10 +52,9 @@ class CarBloc extends Bloc<CarEvent, CarState> {
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
-        // return body.map((e) {
-        //   return CarModel.fromMap(e);
-        // }).toList();
+        return body.map((e) {
+          return CarModel.fromMap(e);
+        }).toList();
       }
 
       return [];
