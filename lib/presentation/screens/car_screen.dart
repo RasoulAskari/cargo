@@ -31,9 +31,14 @@ class CarScreen extends StatelessWidget {
       ),
       body: BlocBuilder<CarBloc, CarState>(
         builder: (context, state) {
+          if (state.status == CarStatus.initial) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return Container();
         },
-      ) ,
+      ),
     );
   }
 }
