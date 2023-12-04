@@ -6,3 +6,5 @@ sealed class CarEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class FetchCarEvent extends CarEvent {}
