@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
 class CarModel extends Equatable {
@@ -29,4 +30,32 @@ class CarModel extends Equatable {
 
   @override
   List<Object?> get props => throw UnimplementedError();
+
+  CarModel copyWith({
+    int? id,
+    int? status,
+    double? paymentsSumAmount,
+    double? extraExpenseSumPrice,
+    double? carExpenseSumPrice,
+    double? ordersCount,
+    double? totalPrice,
+    String? startDate,
+    String? endDate,
+    double? benefits,
+    double? remainder,
+  }) {
+    return CarModel(
+      id: id ?? this.id,
+      status: status ?? this.status,
+      paymentsSumAmount: paymentsSumAmount ?? this.paymentsSumAmount,
+      extraExpenseSumPrice: extraExpenseSumPrice ?? this.extraExpenseSumPrice,
+      carExpenseSumPrice: carExpenseSumPrice ?? this.carExpenseSumPrice,
+      ordersCount: ordersCount ?? this.ordersCount,
+      totalPrice: totalPrice ?? this.totalPrice,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      benefits: benefits ?? this.benefits,
+      remainder: remainder ?? this.remainder,
+    );
+  }
 }
