@@ -41,7 +41,7 @@ class CarBloc extends Bloc<CarEvent, CarState> {
     try {
       final response = await httpClient.get(
         getServerRoute(
-          route: '/api/v1/orders',
+          route: '/api/v1/cars',
         ),
         headers: <String, String>{
           'Authorization': 'Bearer $token',
