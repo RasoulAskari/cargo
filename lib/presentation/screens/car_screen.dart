@@ -36,9 +36,7 @@ class CarScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          return Container(
-            child: Text("state.cars.toString()"),
-          );
+          return Text(state.cars.toString());
         },
       ),
     );
