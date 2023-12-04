@@ -1,5 +1,8 @@
 import 'package:cargo/config/localization.dart';
+import 'package:cargo/logic/car/bloc/car_bloc.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CarScreen extends StatelessWidget {
   const CarScreen({super.key});
@@ -26,6 +29,11 @@ class CarScreen extends StatelessWidget {
           ),
         ),
       ),
+      body: BlocBuilder<CarBloc, CarState>(
+        builder: (context, state) {
+          return Container();
+        },
+      ) ,
     );
   }
 }
