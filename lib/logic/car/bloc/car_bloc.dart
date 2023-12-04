@@ -13,7 +13,6 @@ class CarBloc extends Bloc<CarEvent, CarState> {
   final http.Client httpClient;
 
   CarBloc({required this.httpClient}) : super(const CarState()) {
-    on<CarEvent>((event, emit) {});
   }
 
   Future<void> _onOrdersFetched(
