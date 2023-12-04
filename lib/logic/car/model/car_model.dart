@@ -9,7 +9,7 @@ class CarModel extends Equatable {
   final double? paymentsSumAmount;
   final double? extraExpenseSumPrice;
   final double? carExpenseSumPrice;
-  final double? ordersCount;
+  final int? ordersCount;
   final double? totalPrice;
   final String? startDate;
   final String? endDate;
@@ -39,7 +39,7 @@ class CarModel extends Equatable {
     double? paymentsSumAmount,
     double? extraExpenseSumPrice,
     double? carExpenseSumPrice,
-    double? ordersCount,
+    int? ordersCount,
     double? totalPrice,
     String? startDate,
     String? endDate,
@@ -81,14 +81,11 @@ class CarModel extends Equatable {
     return CarModel(
       id: map['id'] as int,
       status: map['status'] as int,
-      paymentsSumAmount:
-          double.tryParse(map['payments_sum_amount'] ?? 0.0) as double,
-      extraExpenseSumPrice:
-          double.tryParse(map['extra_expense_sum_price'] ?? 0.0) as double,
-      carExpenseSumPrice:
-          double.tryParse(map['car_expense_sum_price'] ?? 0.0) as double,
-      ordersCount: double.tryParse(map['orders_count'] ?? 0.0) as double,
-      totalPrice: double.tryParse(map['total_price'] ?? 0.0) as double,
+      paymentsSumAmount: map['payments_sum_amount'] ?? 0.0,
+      extraExpenseSumPrice: map['extra_expense_sum_price'] ?? 0.0,
+      carExpenseSumPrice: map['car_expense_sum_price'] ?? 0.0,
+      ordersCount: map['orders_count'] ?? 0,
+      totalPrice: map['total_price'] ?? 0.0,
       startDate: map['start_date'] as String,
       endDate: map['end_date'] as String,
       benefits: map['benefits'] as double,
