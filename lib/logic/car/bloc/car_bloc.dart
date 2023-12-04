@@ -57,6 +57,7 @@ class CarBloc extends Bloc<CarEvent, CarState> {
 
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
