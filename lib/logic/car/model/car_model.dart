@@ -84,7 +84,7 @@ class CarModel extends Equatable {
   factory CarModel.fromMap(Map<String, dynamic> map) {
     return CarModel(
       id: map['id'] as int,
-      itemsSumWeight: map[''] as int,
+      itemsSumWeight: map['items_sum_weight'] as int,
       status: map['status'] as int,
       paymentsSumAmount: map['payments_sum_amount'] ?? 0.0,
       extraExpenseSumPrice: map['extra_expense_sum_price'] ?? 0.0,
