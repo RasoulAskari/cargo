@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cargo/logic/car/model/car_model.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
@@ -47,9 +49,10 @@ class CarBloc extends Bloc<CarEvent, CarState> {
           'Authorization': 'Bearer $token',
         },
       );
-      print(response.body);
+
       if (response.statusCode == 200) {
-        // final body = json.decode(response.body)["data"] as List;
+        final body = json.decode(response.body)["data"] as List;
+        print(body);
         // return body.map((e) {
         //   return CarModel.fromMap(e);
         // }).toList();
