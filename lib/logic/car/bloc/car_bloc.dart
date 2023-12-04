@@ -16,6 +16,26 @@ class CarBloc extends Bloc<CarEvent, CarState> {
     on<CarEvent>((event, emit) {});
   }
 
+  Future<void> _onOrdersFetched(
+      FetchCarEvent event, Emitter<CarState> emitter) async {
+    if (state.hasReachedMax) return;
+
+    try {
+      if (state.status == CarStatus.initial) {
+        final cars = await _fetchCars(page: state.page);
+        return emitter(
+          state.copyWith(
+            status: CarStatus.success,
+            cars: cars,
+            hasReachedMax: cars.length < _postLimit,
+          ),
+        );
+      }
+    } catch (e) {
+      return;
+    }
+  }
+
   Future<List<CarModel>> _fetchCars({int? page}) async {
     final token = await getAuthToken();
     try {
