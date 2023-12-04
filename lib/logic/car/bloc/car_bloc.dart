@@ -47,7 +47,7 @@ class CarBloc extends Bloc<CarEvent, CarState> {
           'Authorization': 'Bearer $token',
         },
       );
-
+      print(response.body);
       if (response.statusCode == 200) {
         // final body = json.decode(response.body)["data"] as List;
         // return body.map((e) {

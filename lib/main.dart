@@ -1,4 +1,5 @@
 import 'package:cargo/app.dart';
+import 'package:cargo/logic/car/bloc/car_bloc.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/emloyee/cubit/employee_cubit.dart';
 import 'package:cargo/logic/exchange_money/bloc/bloc/exchange_money_bloc.dart';
@@ -51,6 +52,11 @@ class MyApp extends StatelessWidget {
         create: (context) => ReportBloc(
           httpClient: http.Client(),
         )..add(FetchReportEvent()),
+      ),
+      BlocProvider<CarBloc>(
+        create: (context) => CarBloc(
+          httpClient: http.Client(),
+        )..add(FetchCarEvent()),
       ),
       BlocProvider<SalaryBloc>(
         create: (context) => SalaryBloc(
