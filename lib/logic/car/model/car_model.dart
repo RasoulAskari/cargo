@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 class CarModel extends Equatable {
   final int id;
   final int itemsSumWeight;
+  final int? itemsCount;
   final int status;
   final double? paymentsSumAmount;
   final double? extraExpenseSumPrice;
@@ -20,6 +21,7 @@ class CarModel extends Equatable {
   const CarModel({
     required this.id,
     required this.status,
+    required this.itemsCount,
     required this.itemsSumWeight,
     required this.paymentsSumAmount,
     required this.extraExpenseSumPrice,
@@ -65,6 +67,7 @@ class CarModel extends Equatable {
     return CarModel(
       id: id ?? this.id,
       itemsSumWeight: itemsSumWeight ?? this.itemsSumWeight,
+      itemsCount: itemsCount ?? this.itemsCount,
       status: status ?? this.status,
       paymentsSumAmount: paymentsSumAmount ?? this.paymentsSumAmount,
       extraExpenseSumPrice: extraExpenseSumPrice ?? this.extraExpenseSumPrice,
@@ -97,6 +100,7 @@ class CarModel extends Equatable {
   factory CarModel.fromMap(Map<String, dynamic> map) {
     return CarModel(
       id: map['id'] as int,
+      itemsCount: map['items_count'] as int,
       itemsSumWeight: map['items_sum_weight'] as int,
       status: map['status'] as int,
       paymentsSumAmount: map['payments_sum_amount'] ?? 0.0,
