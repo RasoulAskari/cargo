@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/car/bloc/car_bloc.dart';
+import 'package:cargo/presentation/widgets/car_item.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,11 @@ class CarScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          return Text(state.cars.toString());
+          return ListView.builder(
+              itemCount: state.cars.length,
+              itemBuilder: (context, index) {
+                return CarItem(car: state.cars[index]);
+              });
         },
       ),
     );

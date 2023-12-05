@@ -38,6 +38,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
       return {};
     } catch (e) {
+      print(e.toString() + "car");
       return {};
     }
   }
@@ -74,12 +75,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-      await fetchData().then((value) => {
+      final d = await fetchData().then((value) => {
             order['group_number'] = value['group_number'],
             order['car_id'] = value['car_id'],
           });
+      print(d);
+      print(order);
 
-      await http.post(
+      final da = await http.post(
         Uri.parse('${apiRoute}orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -87,10 +90,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
+      print(da.body);
       emitter(state.copyWith(
         orders: List.of(state.orders)..insert(0, event.order),
       ));
     } catch (e) {
+      print("object");
+      print(e);
       return;
     }
   }
