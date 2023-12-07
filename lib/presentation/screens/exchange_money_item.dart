@@ -242,7 +242,7 @@ class _ExchangeMoneyItemState extends State<ExchangeMoneyItem> {
                         color: Colors.black12,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.calendar_month_outlined)),
+                      child: const Icon(Icons.currency_exchange_rounded)),
                   const SizedBox(width: 10),
                   Text(
                     widget.exchange.amount.toString(),
