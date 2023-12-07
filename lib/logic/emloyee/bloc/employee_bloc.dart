@@ -101,6 +101,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       'current_address': employee.currentAddress,
       'employment_start_date': employee.startDate,
       'employment_end_date': employee.endDate,
+      'salary': employee.salary,
       'job_title': "Developer",
       'profile': "Sha Rasoul"
     };
