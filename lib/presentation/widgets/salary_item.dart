@@ -213,9 +213,7 @@ class _SalaryItemState extends State<SalaryItem> {
                     child: const Icon(Icons.calendar_month_outlined),
                   ),
                   const SizedBox(width: 10),
-                  Text(
-                    widget.salary.date.toString(),
-                  )
+                  Text(date)
                 ],
               ),
               Row(
@@ -226,7 +224,7 @@ class _SalaryItemState extends State<SalaryItem> {
                         color: Colors.black12,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.calendar_month_outlined)),
+                      child: const Icon(Icons.currency_exchange)),
                   const SizedBox(width: 10),
                   Text(
                     widget.salary.payAmount.toString(),
