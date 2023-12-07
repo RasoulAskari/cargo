@@ -32,9 +32,14 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
       );
 
-      return jsonDecode(response.body);
+      print(response.body);
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      }
+
+      return {};
     } catch (e) {
-      print(e.toString() + "car");
       return {};
     }
   }
@@ -172,6 +177,8 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       final token = await getAuthToken();
       final ids = event.id;
       const type = 'delete';
+      print(token);
+      print(apiRoute);
       var res = await http.delete(
         Uri.parse("$apiRoute$type/orders/$ids"),
         headers: <String, String>{
@@ -188,6 +195,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         );
       }
     } catch (e) {
+      print(e);
       return;
     }
   }
