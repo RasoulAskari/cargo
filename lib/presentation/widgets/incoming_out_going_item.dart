@@ -219,12 +219,13 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
               Row(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(3),
-                      decoration: const BoxDecoration(
-                        color: Colors.black12,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.calendar_month_outlined)),
+                    padding: const EdgeInsets.all(3),
+                    decoration: const BoxDecoration(
+                      color: Colors.black12,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.lock_person),
+                  ),
                   const SizedBox(width: 10),
                   Text(
                     widget.item.createdBy.name,
