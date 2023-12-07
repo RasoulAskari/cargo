@@ -208,7 +208,7 @@ class _IncomingOutGoingItemState extends State<IncomingOutGoingItem> {
                       color: Colors.black12,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.calendar_month_outlined),
+                    child: const Icon(Icons.currency_exchange_outlined),
                   ),
                   const SizedBox(width: 10),
                   Text(
