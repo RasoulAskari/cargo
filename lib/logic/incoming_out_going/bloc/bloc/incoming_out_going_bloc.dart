@@ -110,7 +110,6 @@ class IncomingOutGoingBloc
     final token = await getAuthToken();
 
     IncomingOutGoing incoming = event.incomingOutGoing;
-    print("add");
 
     final data = {
       'name': incoming.name.toString(),
@@ -119,8 +118,6 @@ class IncomingOutGoingBloc
       "created_by": incoming.createdBy.id,
       "created_at": event.date.toString()
     };
-    print(data);
-
     try {
       final res = await http.post(
         Uri.parse('${apiRoute}income-outgoing'),
@@ -131,8 +128,6 @@ class IncomingOutGoingBloc
         body: jsonEncode(data),
       );
 
-      print(res.body);
-
       emitter(
         state.copyWith(
           incoming_out_going: List.of(state.incoming_out_going)
@@ -140,7 +135,6 @@ class IncomingOutGoingBloc
         ),
       );
     } catch (e) {
-      print(e);
       return;
     }
   }
