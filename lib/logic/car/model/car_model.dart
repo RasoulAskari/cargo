@@ -67,6 +67,7 @@ class CarModel extends Equatable {
     return CarModel(
       id: id ?? this.id,
       itemsSumWeight: itemsSumWeight ?? this.itemsSumWeight,
+      // ignore: unnecessary_this
       itemsCount: itemsCount ?? this.itemsCount,
       status: status ?? this.status,
       paymentsSumAmount: paymentsSumAmount ?? this.paymentsSumAmount,
