@@ -32,8 +32,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
       );
 
-      print(response.body);
-
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       }
@@ -76,17 +74,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-      print(order);
 
-      final d = await fetchData().then((value) => {
+      await fetchData().then((value) => {
             order['group_number'] = value['group_number'],
             order['car_id'] = value['car_id'],
           });
-      print(order);
-
-      print(d);
-
-      final da = await http.post(
+      await http.post(
         Uri.parse('${apiRoute}orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -94,13 +87,10 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
-      print(da.body);
       emitter(state.copyWith(
         orders: List.of(state.orders)..insert(0, event.order),
       ));
     } catch (e) {
-      print("object");
-      print(e);
       return;
     }
   }
@@ -177,8 +167,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       final token = await getAuthToken();
       final ids = event.id;
       const type = 'delete';
-      print(token);
-      print(apiRoute);
       var res = await http.delete(
         Uri.parse("$apiRoute$type/orders/$ids"),
         headers: <String, String>{
@@ -195,7 +183,6 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         );
       }
     } catch (e) {
-      print(e);
       return;
     }
   }
