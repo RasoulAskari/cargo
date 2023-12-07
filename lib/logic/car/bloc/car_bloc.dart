@@ -25,7 +25,7 @@ class CarBloc extends Bloc<CarEvent, CarState> {
     try {
       if (state.status == CarStatus.initial) {
         final orders = await _fetchCars(page: state.page);
-        print(orders);
+
         return emitter(
           state.copyWith(
             status: CarStatus.success,
@@ -53,7 +53,7 @@ class CarBloc extends Bloc<CarEvent, CarState> {
 
       if (response.statusCode == 200) {
         final body = json.decode(response.body)["data"] as List;
-        print(body);
+
         return body.map((e) {
           return CarModel.fromMap(e);
         }).toList();
@@ -61,7 +61,6 @@ class CarBloc extends Bloc<CarEvent, CarState> {
 
       return [];
     } catch (e) {
-      print(e);
       return [];
     }
   }
