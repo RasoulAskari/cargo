@@ -229,12 +229,13 @@ class OrderItem extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(3),
-                      decoration: const BoxDecoration(
-                        color: Colors.black12,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.calendar_month_outlined)),
+                    padding: const EdgeInsets.all(3),
+                    decoration: const BoxDecoration(
+                      color: Colors.black12,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.fire_truck_rounded),
+                  ),
                   const SizedBox(width: 10),
                   Text(
                     order.delivaryType,
