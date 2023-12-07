@@ -119,7 +119,7 @@ class IncomingOutGoingBloc
       "created_at": event.date.toString()
     };
     try {
-      final res = await http.post(
+      await http.post(
         Uri.parse('${apiRoute}income-outgoing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
