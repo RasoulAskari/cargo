@@ -43,6 +43,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       AddOrderEvent event, Emitter<OrderState> emitter) async {
     try {
       OrderModel data = event.order;
+      final token = await getAuthToken();
 
       final order = {
         'customer_name': data.customerName,
@@ -70,63 +71,28 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             .toList(),
         'price_per_killo': 29292.2,
       };
-
-      final fi = await fetchData();
-
-      print(fi);
       print(order);
 
-      // OrderModel data = event.order;
-      // final token = await getAuthToken();
+      final d = await fetchData().then((value) => {
+            order['group_number'] = value['group_number'],
+            order['car_id'] = value['car_id'],
+          });
+      print(order);
 
-      // final order = {
-      //   'customer_name': data.customerName,
-      //   'father_name': data.fatherName,
-      //   'grand_father_name': data.grandFatherName,
-      //   'tazkira_id': data.cardId,
-      //   'customer_phone': data.customerPhone,
-      //   'receiver_name': data.receiverName,
-      //   'receiver_phone': data.receiverPhone,
-      //   'country': data.country,
-      //   'date': data.date,
-      //   'paid_amount': 0,
-      //   'city': data.city,
-      //   'address': data.address,
-      //   'delivary_type': data.delivaryType,
-      //   "extra_expense": [],
-      //   'description': "this is description",
-      //   "items": data.items
-      //       .map((e) => {
-      //             'name': e.name,
-      //             'count': e.count,
-      //             'type': e.type,
-      //             'weight': e.weight
-      //           })
-      //       .toList(),
-      //   'price_per_killo': 29292.2,
-      // };
-      // print(order);
+      print(d);
 
-      // final d = await fetchData().then((value) => {
-      //       order['group_number'] = value['group_number'],
-      //       order['car_id'] = value['car_id'],
-      //     });
-      // print(order);
-
-      // print(d);
-
-      // final da = await http.post(
-      //   Uri.parse('${apiRoute}orders'),
-      //   headers: <String, String>{
-      //     'Content-Type': 'application/json; charset=UTF-8',
-      //     'Authorization': 'Bearer $token',
-      //   },
-      //   body: jsonEncode(order),
-      // );
-      // print(da.body);
-      // emitter(state.copyWith(
-      //   orders: List.of(state.orders)..insert(0, event.order),
-      // ));
+      final da = await http.post(
+        Uri.parse('${apiRoute}orders'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode(order),
+      );
+      print(da.body);
+      emitter(state.copyWith(
+        orders: List.of(state.orders)..insert(0, event.order),
+      ));
     } catch (e) {
       print("object");
       print(e);
