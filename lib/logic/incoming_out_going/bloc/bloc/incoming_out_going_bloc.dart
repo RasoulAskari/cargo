@@ -109,8 +109,9 @@ class IncomingOutGoingBloc
       Emitter<IncomingOutGoingState> emitter) async {
     final token = await getAuthToken();
 
-    if (state.hasReachedMax) return;
     IncomingOutGoing incoming = event.incomingOutGoing;
+    print("add");
+
     final data = {
       'name': incoming.name.toString(),
       'type': incoming.type.toString(),
@@ -118,9 +119,10 @@ class IncomingOutGoingBloc
       "created_by": incoming.createdBy.id,
       "created_at": event.date.toString()
     };
+    print(data);
 
     try {
-      await http.post(
+      final res = await http.post(
         Uri.parse('${apiRoute}income-outgoing'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -129,6 +131,8 @@ class IncomingOutGoingBloc
         body: jsonEncode(data),
       );
 
+      print(res.body);
+
       emitter(
         state.copyWith(
           incoming_out_going: List.of(state.incoming_out_going)
@@ -136,6 +140,7 @@ class IncomingOutGoingBloc
         ),
       );
     } catch (e) {
+      print(e);
       return;
     }
   }

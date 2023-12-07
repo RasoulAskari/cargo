@@ -78,7 +78,7 @@ class _AddIncomingOutGoingScreenState extends State<AddIncomingOutGoingScreen> {
                 incomingOutGoing: incomingOutGoing, date: _date),
           );
 
-      Navigator.of(context).pop();
+      Navigator.of(context).pushReplacementNamed(inconingOutGoingScreen);
     } else {
       Toast.show(AppLocalizations.of(context)!.validate_input);
     }
