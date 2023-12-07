@@ -218,7 +218,7 @@ class OrderItem extends StatelessWidget {
                       color: Colors.black12,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.calendar_month_outlined),
+                    child: const Icon(Icons.location_on),
                   ),
                   const SizedBox(width: 10),
                   Text(
