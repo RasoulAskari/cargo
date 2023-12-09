@@ -64,6 +64,7 @@ class ReportScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Container(
+                    height: 300,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
                       vertical: 20,
@@ -72,16 +73,14 @@ class ReportScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(AppLocalizations.of(context)!.account_money),
-                        Text(state.reports.first['account_money'].toString()),
-                        const Icon(
-                          Icons.emoji_events,
-                          size: 30,
-                        )
-                      ],
+                    child: GridView(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, // Number of columns
+                        crossAxisSpacing: 8.0, // Spacing between columns
+                        mainAxisSpacing: 8.0, // Spacing between rows
+                      ),
+                      children: [GridTile(child: Text("date"))],
                     ),
                   )
                 ],
