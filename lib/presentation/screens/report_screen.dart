@@ -41,16 +41,26 @@ class ReportScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(AppLocalizations.of(context)!.account_money),
-                      Text(state.reports.first['account_money'].toString()),
-                      const Icon(
-                        Icons.emoji_events,
-                        size: 30,
-                      )
-                    ],
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(AppLocalizations.of(context)!.account_money),
+                        Text(state.reports.first['account_money'].toString()),
+                        const Icon(
+                          Icons.emoji_events,
+                          size: 30,
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
