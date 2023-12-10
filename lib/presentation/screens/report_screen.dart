@@ -36,6 +36,7 @@ class ReportScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
+          print(state.reports.first['transactions']);
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -64,30 +65,29 @@ class ReportScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Container(
-                    height: 300,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 20,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: GridView(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // Number of columns
-                        crossAxisSpacing: 8.0, // Spacing between columns
-                        mainAxisSpacing: 8.0, // Spacing between rows
+                      height: 300,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 20,
                       ),
-                      children: const [
-                        Text("date"),
-                        Text("date"),
-                        Text("date"),
-                        Text("date"),
-                      ],
-                    ),
-                  )
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                state.reports.first.entries.first.toString(),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [],
+                          ),
+                        ],
+                      ))
                 ],
               ),
             ),
