@@ -109,7 +109,7 @@ class ReportScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.touch_app,
                                   color: Colors.white,
                                   size: 45,
@@ -121,7 +121,7 @@ class ReportScreen extends StatelessWidget {
                                 color: Colors.green.shade500,
                               ),
                               TransctionItem(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.swap_vertical_circle_outlined,
                                   color: Colors.white,
                                   size: 45,
