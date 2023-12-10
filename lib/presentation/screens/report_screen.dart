@@ -86,10 +86,32 @@ class ReportScreen extends StatelessWidget {
                                 label: "order",
                                 color: Colors.white,
                               ),
+                              TransctionItem(
+                                icon: Icon(Icons.abc),
+                                value: state.reports.first['transactions'][1]
+                                    .toString(),
+                                label: "order",
+                                color: Colors.white,
+                              ),
                             ],
                           ),
                           Row(
-                            children: [],
+                            children: [
+                              TransctionItem(
+                                icon: Icon(Icons.abc),
+                                value: state.reports.first['transactions'][2]
+                                    .toString(),
+                                label: "order",
+                                color: Colors.white,
+                              ),
+                              TransctionItem(
+                                icon: Icon(Icons.abc),
+                                value: state.reports.first['transactions'][3]
+                                    .toString(),
+                                label: "order",
+                                color: Colors.white,
+                              ),
+                            ],
                           ),
                         ],
                       ))
