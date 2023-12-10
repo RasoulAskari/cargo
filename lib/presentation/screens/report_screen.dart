@@ -88,7 +88,7 @@ class ReportScreen extends StatelessWidget {
                                 ),
                                 value: state.reports.first['transactions'][0]
                                     .toString(),
-                                label: "order",
+                                label: AppLocalizations.of(context)!.order,
                                 color: Colors.green.shade300,
                               ),
                               TransctionItem(
