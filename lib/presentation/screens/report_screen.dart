@@ -121,13 +121,14 @@ class ReportScreen extends StatelessWidget {
                               ),
                               TransctionItem(
                                 icon: Icon(
-                                  Icons.abc,
+                                  Icons.swap_vertical_circle_outlined,
                                   color: Colors.white,
+                                  size: 45,
                                 ),
                                 value: state.reports.first['transactions'][3]
                                     .toString(),
                                 label: "order",
-                                color: Colors.yellow.shade500,
+                                color: Colors.yellow,
                               ),
                             ],
                           ),
