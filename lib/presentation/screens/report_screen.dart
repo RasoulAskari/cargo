@@ -128,7 +128,8 @@ class ReportScreen extends StatelessWidget {
                                 ),
                                 value: state.reports.first['transactions'][3]
                                     .toString(),
-                                label: AppLocalizations.of(context)!.cars,
+                                label: AppLocalizations.of(context)!
+                                    .exchange_money,
                                 color: Colors.yellow,
                               ),
                             ],
