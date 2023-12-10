@@ -1,5 +1,6 @@
 import 'package:cargo/config/localization.dart';
 import 'package:cargo/logic/report/bloc/report_bloc.dart';
+import 'package:cargo/presentation/widgets/transction_item.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,7 @@ class ReportScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          print(state.reports.first['transactions']);
+
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -78,8 +79,13 @@ class ReportScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text(state.reports.first['transactions'][0]
-                                  .toString())
+                              TransctionItem(
+                                icon: Icon(Icons.abc),
+                                value: state.reports.first['transactions'][0]
+                                    .toString(),
+                                label: "order",
+                                color: Colors.white,
+                              ),
                             ],
                           ),
                           Row(
