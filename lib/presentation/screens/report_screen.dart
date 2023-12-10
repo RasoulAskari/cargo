@@ -92,7 +92,11 @@ class ReportScreen extends StatelessWidget {
                                 color: Colors.green.shade300,
                               ),
                               TransctionItem(
-                                icon: Icon(Icons.abc),
+                                icon: Icon(
+                                  Icons.fire_truck_sharp,
+                                  color: Colors.white,
+                                  size: 45,
+                                ),
                                 value: state.reports.first['transactions'][1]
                                     .toString(),
                                 label: "order",
