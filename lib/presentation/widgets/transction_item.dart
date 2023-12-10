@@ -15,6 +15,7 @@ class TransctionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(color);
     return Row(
       children: [
         Container(

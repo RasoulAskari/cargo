@@ -78,38 +78,40 @@ class ReportScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
                                 icon: Icon(Icons.abc),
                                 value: state.reports.first['transactions'][0]
                                     .toString(),
                                 label: "order",
-                                color: Colors.white,
+                                color: Colors.green.shade300,
                               ),
                               TransctionItem(
                                 icon: Icon(Icons.abc),
                                 value: state.reports.first['transactions'][1]
                                     .toString(),
                                 label: "order",
-                                color: Colors.white,
+                                color: Colors.blue.shade300,
                               ),
                             ],
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
                                 icon: Icon(Icons.abc),
                                 value: state.reports.first['transactions'][2]
                                     .toString(),
                                 label: "order",
-                                color: Colors.white,
+                                color: Colors.green.shade500,
                               ),
                               TransctionItem(
                                 icon: Icon(Icons.abc),
                                 value: state.reports.first['transactions'][3]
                                     .toString(),
                                 label: "order",
-                                color: Colors.white,
+                                color: Colors.yellow.shade500,
                               ),
                             ],
                           ),
