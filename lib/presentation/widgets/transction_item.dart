@@ -23,13 +23,16 @@ class TransctionItem extends StatelessWidget {
             color: color,
             borderRadius: BorderRadius.circular(10),
           ),
-          height: 40,
-          width: 40,
+          height: 70,
+          width: 70,
           child: icon,
         ),
+        const SizedBox(width: 15),
         Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(label),
+            SizedBox(height: 20),
             Text(value),
           ],
         )
