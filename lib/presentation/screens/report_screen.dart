@@ -78,9 +78,8 @@ class ReportScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text(
-                                state.reports.first.entries.first.toString(),
-                              )
+                              Text(state.reports.first['transactions'][0]
+                                  .toString())
                             ],
                           ),
                           Row(
