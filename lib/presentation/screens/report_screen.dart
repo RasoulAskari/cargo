@@ -99,7 +99,7 @@ class ReportScreen extends StatelessWidget {
                                 ),
                                 value: state.reports.first['transactions'][1]
                                     .toString(),
-                                label: "order",
+                                label: AppLocalizations.of(context)!.cars,
                                 color: Colors.blue.shade300,
                               ),
                             ],
@@ -116,7 +116,7 @@ class ReportScreen extends StatelessWidget {
                                 ),
                                 value: state.reports.first['transactions'][2]
                                     .toString(),
-                                label: "order",
+                                label: ,
                                 color: Colors.green.shade500,
                               ),
                               TransctionItem(
