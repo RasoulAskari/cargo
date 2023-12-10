@@ -81,7 +81,7 @@ class ReportScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.card_travel,
                                   color: Colors.white,
                                   size: 45,
@@ -92,7 +92,7 @@ class ReportScreen extends StatelessWidget {
                                 color: Colors.green.shade300,
                               ),
                               TransctionItem(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.fire_truck_sharp,
                                   color: Colors.white,
                                   size: 45,
