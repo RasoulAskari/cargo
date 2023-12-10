@@ -31,9 +31,22 @@ class TransctionItem extends StatelessWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(label),
+            Text(
+              label,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Theme.of(context).primaryColor),
+            ),
             SizedBox(height: 20),
-            Text(value),
+            Text(
+              value,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
           ],
         )
       ],

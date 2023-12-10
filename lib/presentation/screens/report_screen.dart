@@ -66,7 +66,7 @@ class ReportScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Container(
-                      height: 300,
+                      height: 200,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 10,
                         vertical: 20,
@@ -81,7 +81,11 @@ class ReportScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
-                                icon: Icon(Icons.abc),
+                                icon: Icon(
+                                  Icons.card_travel,
+                                  color: Colors.white,
+                                  size: 45,
+                                ),
                                 value: state.reports.first['transactions'][0]
                                     .toString(),
                                 label: "order",
@@ -96,6 +100,7 @@ class ReportScreen extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -107,7 +112,10 @@ class ReportScreen extends StatelessWidget {
                                 color: Colors.green.shade500,
                               ),
                               TransctionItem(
-                                icon: Icon(Icons.abc),
+                                icon: Icon(
+                                  Icons.abc,
+                                  color: Colors.white,
+                                ),
                                 value: state.reports.first['transactions'][3]
                                     .toString(),
                                 label: "order",
