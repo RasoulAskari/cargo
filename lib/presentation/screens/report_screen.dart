@@ -80,7 +80,12 @@ class ReportScreen extends StatelessWidget {
                         crossAxisSpacing: 8.0, // Spacing between columns
                         mainAxisSpacing: 8.0, // Spacing between rows
                       ),
-                      children: [GridTile(child: Text("date"))],
+                      children: const [
+                        Text("date"),
+                        Text("date"),
+                        Text("date"),
+                        Text("date"),
+                      ],
                     ),
                   )
                 ],
