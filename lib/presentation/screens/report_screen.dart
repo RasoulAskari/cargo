@@ -104,12 +104,12 @@ class ReportScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
-                                icon: Icon(Icons.abc),
+                                icon: Icon(Icons.touch_app),
                                 value: state.reports.first['transactions'][2]
                                     .toString(),
                                 label: "order",
