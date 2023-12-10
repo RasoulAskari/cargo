@@ -109,7 +109,11 @@ class ReportScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               TransctionItem(
-                                icon: Icon(Icons.touch_app),
+                                icon: Icon(
+                                  Icons.touch_app,
+                                  color: Colors.white,
+                                  size: 45,
+                                ),
                                 value: state.reports.first['transactions'][2]
                                     .toString(),
                                 label: "order",
