@@ -79,7 +79,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             order['group_number'] = value['group_number'],
             order['car_id'] = value['car_id'],
           });
-      final res = await http.post(
+      await http.post(
         Uri.parse('${apiRoute}orders'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -88,13 +88,10 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         },
         body: jsonEncode(order),
       );
-      print(res.body);
-
       emitter(state.copyWith(
         orders: List.of(state.orders)..insert(0, event.order),
       ));
     } catch (e) {
-      print(e);
       return;
     }
   }
