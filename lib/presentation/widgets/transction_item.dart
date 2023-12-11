@@ -15,7 +15,6 @@ class TransctionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(color);
     return Row(
       children: [
         Container(
@@ -38,7 +37,7 @@ class TransctionItem extends StatelessWidget {
                   fontSize: 16,
                   color: Theme.of(context).primaryColor),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               value,
               style: TextStyle(
