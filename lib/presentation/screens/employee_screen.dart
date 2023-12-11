@@ -1,4 +1,3 @@
-import 'package:cargo/config/localization.dart';
 import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
@@ -22,7 +21,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Container(
+          SizedBox(
             width: 250,
             height: 40,
             child: CTextField(
@@ -31,8 +30,8 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               setValue: () {},
             ),
           ),
-          SizedBox(width: 10),
-          Container(
+          const SizedBox(width: 10),
+          SizedBox(
             width: 60,
             height: 40,
             child: CDropdown(
