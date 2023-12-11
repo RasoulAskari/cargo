@@ -3,6 +3,8 @@ import 'package:cargo/constants/routes.dart';
 import 'package:cargo/logic/emloyee/bloc/employee_bloc.dart';
 import 'package:cargo/logic/helpers/global_helpers.dart';
 import 'package:cargo/presentation/widgets/employee_item.dart';
+import 'package:cargo/presentation/widgets/form/c_drop_down.dart';
+import 'package:cargo/presentation/widgets/form/c_text_field.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,15 +22,35 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          Container(
+            width: 200,
+            height: 0,
+            child: CTextField(
+              value: '',
+              setValue: () {},
+            ),
+          ),
+          SizedBox(width: 10),
+          Container(
+            width: 60,
+            height: 0,
+            child: CDropdown(
+              items: [
+                {'label': "name", 'value': "name"}
+              ],
+              setValue: () {},
+            ),
+          ),
           IconButton(
-              onPressed: () {
-                checkPermissionRoute(addEmployee, 'employee_view', context);
-              },
-              icon: const Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 30,
-              ))
+            onPressed: () {
+              checkPermissionRoute(addEmployee, 'employee_view', context);
+            },
+            icon: const Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
         ],
         leading: IconButton(
             onPressed: () {
@@ -39,14 +61,14 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               color: Colors.white,
             )),
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text(
-          AppLocalizations.of(context)!.employee_screen,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        // title: Text(
+        //   AppLocalizations.of(context)!.employee_screen,
+        //   style: const TextStyle(
+        //     color: Colors.white,
+        //     fontSize: 16,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
       ),
       body: BlocBuilder<EmployeeBloc, EmployeeState>(
         builder: (context, state) {
