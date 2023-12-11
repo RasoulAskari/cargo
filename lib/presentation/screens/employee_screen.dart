@@ -23,9 +23,10 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       appBar: AppBar(
         actions: [
           Container(
-            width: 200,
-            height: 0,
+            width: 250,
+            height: 40,
             child: CTextField(
+              hintText: "Search...",
               value: '',
               setValue: () {},
             ),
@@ -33,10 +34,11 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
           SizedBox(width: 10),
           Container(
             width: 60,
-            height: 0,
+            height: 40,
             child: CDropdown(
-              items: [
-                {'label': "name", 'value': "name"}
+              items: const [
+                {'label': "name", 'value': "name"},
+                {'label': "ID", 'value': "id"}
               ],
               setValue: () {},
             ),
