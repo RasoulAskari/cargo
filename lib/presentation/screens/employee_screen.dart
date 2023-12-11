@@ -27,7 +27,9 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
             child: CTextField(
               hintText: "Search...",
               value: '',
-              setValue: () {},
+              setValue: (value) {
+                
+              },
             ),
           ),
           const SizedBox(width: 10),
@@ -36,10 +38,12 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
             height: 40,
             child: CDropdown(
               items: const [
-                {'label': "name", 'value': "name"},
+                {'label': "Name", 'value': "name"},
                 {'label': "ID", 'value': "id"}
               ],
-              setValue: () {},
+              setValue: (value) {
+                print(value);
+              },
             ),
           ),
           IconButton(
